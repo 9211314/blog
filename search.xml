@@ -142,6 +142,93 @@
       </tags>
   </entry>
   <entry>
+    <title>AsiaInfo ACSE Training - 安全威胁课程——网络攻击</title>
+    <url>/AsiaInfo/4.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第四节内容，即第二章《病毒与威胁基础》之任务 4《安全威胁课程——网络攻击》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/AsiaInfo/3.html">《AsiaInfo ACSE Training - 安全事件处理建议》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="黑客分类"><a href="#黑客分类" class="headerlink" title="黑客分类"></a>黑客分类</h1><h2 id="白帽子创新者"><a href="#白帽子创新者" class="headerlink" title="白帽子创新者"></a>白帽子创新者</h2><ol>
+<li>设计新系统</li>
+<li>打破常规</li>
+<li>精研技术</li>
+<li>勇于创新</li>
+</ol>
+<h2 id="灰帽子破解者"><a href="#灰帽子破解者" class="headerlink" title="灰帽子破解者"></a>灰帽子破解者</h2><ol>
+<li>破解已有系统</li>
+<li>发现问题/漏洞</li>
+<li>突破限制/禁制</li>
+<li>展现自我</li>
+</ol>
+<h2 id="黑帽子破坏者"><a href="#黑帽子破坏者" class="headerlink" title="黑帽子破坏者"></a>黑帽子破坏者</h2><ol>
+<li>随意使用资源</li>
+<li>恶意破坏</li>
+<li>散播蠕虫病毒</li>
+<li>商业间谍</li>
+</ol>
+<h1 id="一般攻击流程"><a href="#一般攻击流程" class="headerlink" title="一般攻击流程"></a>一般攻击流程</h1><h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><ol>
+<li>确定目标：获得目标域名或公网 IP</li>
+<li>隐藏自身：使用代理、肉鸡作为跳板机</li>
+<li>收集信息（占整个攻击流程的 60~70% 的精力）：收集目标的域名、子域名、CDN 使用情况、网站信息包括可社工的部分、对外服务的漏洞（如 web 服务器漏洞）</li>
+</ol>
+<h2 id="实施阶段"><a href="#实施阶段" class="headerlink" title="实施阶段"></a>实施阶段</h2><ol>
+<li>漏洞利用：邮件攻击、社工、木马等等攻击手段</li>
+<li>应用攻击</li>
+<li>提权</li>
+<li>获利</li>
+</ol>
+<h2 id="收尾阶段"><a href="#收尾阶段" class="headerlink" title="收尾阶段"></a>收尾阶段</h2><ol>
+<li>消除攻击痕迹</li>
+<li>植入后门</li>
+</ol>
+<h1 id="常见的攻击手段"><a href="#常见的攻击手段" class="headerlink" title="常见的攻击手段"></a>常见的攻击手段</h1><h2 id="网络钓鱼（phishing-Phone-fishing）"><a href="#网络钓鱼（phishing-Phone-fishing）" class="headerlink" title="网络钓鱼（phishing = Phone + fishing）"></a>网络钓鱼（phishing = Phone + fishing）</h2><ol>
+<li>钓鱼邮件</li>
+<li>钓鱼网站</li>
+</ol>
+<h2 id="邮件攻击"><a href="#邮件攻击" class="headerlink" title="邮件攻击"></a>邮件攻击</h2><ol>
+<li>邮件钓鱼</li>
+<li>垃圾邮件</li>
+<li>伪装发件人</li>
+<li>复合型邮件攻击</li>
+<li>传统勒索软件结合邮件和社工入侵</li>
+</ol>
+<h2 id="XSS-跨站"><a href="#XSS-跨站" class="headerlink" title="XSS 跨站"></a>XSS 跨站</h2><ol>
+<li>XXS 跨站脚本攻击（cross site script）</li>
+<li>持久型 XSS：将对客户端攻击的脚本植入到服务器上，从而导致每个正常访问页面的用户都会遭到这段 XSS 脚本攻击</li>
+<li>非持久型 XSS：把精心构造的恶意脚本包装到一个页面的 URL 中的某一个参数中，再将这个 URL 发布到网上，欺骗用户访问，从而对其进行攻击</li>
+</ol>
+<h2 id="SQL-注入攻击"><a href="#SQL-注入攻击" class="headerlink" title="SQL 注入攻击"></a>SQL 注入攻击</h2><p>&emsp;&emsp;利用现有的应用程序，将恶意 SQL 命令注入到后台数据库引擎中去执行，可以通过在 web 表单中输入恶意的 SQL 语句，得到一个存在安全漏洞的网站的数据库</p>
+<h2 id="DDOS-攻击"><a href="#DDOS-攻击" class="headerlink" title="DDOS 攻击"></a>DDOS 攻击</h2><ol>
+<li>分布式拒绝服务攻击 DDOS（Distributed Denial of Service）</li>
+<li>干扰阻断正常的网络通讯</li>
+<li>提交大量请求，使服务器超负荷</li>
+<li>阻断某一用户访问服务器</li>
+<li>阻断某服务于特定系统或个人的通讯</li>
+<li>IOT 设备的 DDOS 攻击</li>
+</ol>
+<h2 id="挂马"><a href="#挂马" class="headerlink" title="挂马"></a>挂马</h2><h2 id="社会工程学"><a href="#社会工程学" class="headerlink" title="社会工程学"></a>社会工程学</h2><h2 id="APT-攻击（高级可持续攻击）"><a href="#APT-攻击（高级可持续攻击）" class="headerlink" title="APT 攻击（高级可持续攻击）"></a>APT 攻击（高级可持续攻击）</h2><ol>
+<li>APT：Advanced Persistent Threat</li>
+<li>锁定特定目标</li>
+<li>有计划性</li>
+<li>潜伏性</li>
+<li>持续性</li>
+<li>典型的 APT 攻击案例：震网病毒</li>
+</ol>
+<h1 id="黑色产业链"><a href="#黑色产业链" class="headerlink" title="黑色产业链"></a>黑色产业链</h1><p><img data-src="https://www.hackme.cc/resource/%E7%BD%91%E7%BB%9C%E9%BB%91%E8%89%B2%E4%BA%A7%E4%B8%9A%E9%93%BE.webp" alt="网络黑色产业链.webp"></p>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/5.html">《AsiaInfo ACSE Training - 安全威胁课程——防护和治理》</a></p>
+</div>]]></content>
+      <categories>
+        <category>AsiaInfo</category>
+      </categories>
+      <tags>
+        <tag>安全威胁</tag>
+        <tag>网络攻击</tag>
+        <tag>黑客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AsiaInfo ACSE Training - 反病毒技术发展</title>
     <url>/AsiaInfo/2.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第二节内容，即第二章《病毒与威胁基础》之任务 2《反病毒技术发展》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
@@ -279,90 +366,100 @@
       </tags>
   </entry>
   <entry>
-    <title>AsiaInfo ACSE Training - 安全威胁课程——网络攻击</title>
-    <url>/AsiaInfo/4.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第四节内容，即第二章《病毒与威胁基础》之任务 4《安全威胁课程——网络攻击》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/AsiaInfo/3.html">《AsiaInfo ACSE Training - 安全事件处理建议》</a></p>
+    <title>AsiaInfo ACSE Training - 安全威胁课程——防护和治理</title>
+    <url>/AsiaInfo/5.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第四节内容，即第二章《病毒与威胁基础》之任务 5《安全威胁课程——防护和治理》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/AsiaInfo/4.html">《AsiaInfo ACSE Training - 安全威胁课程——网络攻击》</a></p>
 </div>
 
 <span id="more"></span>
 
-<h1 id="黑客分类"><a href="#黑客分类" class="headerlink" title="黑客分类"></a>黑客分类</h1><h2 id="白帽子创新者"><a href="#白帽子创新者" class="headerlink" title="白帽子创新者"></a>白帽子创新者</h2><ol>
-<li>设计新系统</li>
-<li>打破常规</li>
-<li>精研技术</li>
-<li>勇于创新</li>
+<h1 id="安全模型和要求"><a href="#安全模型和要求" class="headerlink" title="安全模型和要求"></a>安全模型和要求</h1><h2 id="CIA-三元组"><a href="#CIA-三元组" class="headerlink" title="CIA 三元组"></a>CIA 三元组</h2><ol>
+<li>保密性：确保信息在存储、使用、传输过程中不会泄露给非授权用户或实体</li>
+<li>完整性：确保信息在存储、使用、传输过程中不会被非授权篡改，防止授权用户或实体不恰当地修改信息，保持信息内部和外部的一致性</li>
+<li>可用性：确保授权用户或实体对信息及资源的正常使用不会被异常拒绝，允许其可靠而及时地访问信息及资源</li>
 </ol>
-<h2 id="灰帽子破解者"><a href="#灰帽子破解者" class="headerlink" title="灰帽子破解者"></a>灰帽子破解者</h2><ol>
-<li>破解已有系统</li>
-<li>发现问题/漏洞</li>
-<li>突破限制/禁制</li>
-<li>展现自我</li>
+<h2 id="深度防御的安全控制分类"><a href="#深度防御的安全控制分类" class="headerlink" title="深度防御的安全控制分类"></a>深度防御的安全控制分类</h2><h3 id="行政管理控制"><a href="#行政管理控制" class="headerlink" title="行政管理控制"></a>行政管理控制</h3><h3 id="技术性控制（我们所关心的部分）"><a href="#技术性控制（我们所关心的部分）" class="headerlink" title="技术性控制（我们所关心的部分）"></a>技术性控制（我们所关心的部分）</h3><ol>
+<li>网络安全</li>
+<li>主机安全</li>
+<li>应用安全</li>
+<li>数据安全和备份恢复</li>
 </ol>
-<h2 id="黑帽子破坏者"><a href="#黑帽子破坏者" class="headerlink" title="黑帽子破坏者"></a>黑帽子破坏者</h2><ol>
-<li>随意使用资源</li>
-<li>恶意破坏</li>
-<li>散播蠕虫病毒</li>
-<li>商业间谍</li>
+<h3 id="物理性控制"><a href="#物理性控制" class="headerlink" title="物理性控制"></a>物理性控制</h3><h1 id="安全技术体系"><a href="#安全技术体系" class="headerlink" title="安全技术体系"></a>安全技术体系</h1><h2 id="安全技术体系方案设计"><a href="#安全技术体系方案设计" class="headerlink" title="安全技术体系方案设计"></a>安全技术体系方案设计</h2><h3 id="区域边界安全"><a href="#区域边界安全" class="headerlink" title="区域边界安全"></a>区域边界安全</h3><ol>
+<li>网络安全域划分与隔离：隔离网闸、防火墙</li>
+<li>网络入侵检测与防护：IDS / IPS</li>
+<li>网络边界准入：网络准入、应用准入、客户端准入</li>
+<li>边界内容控制：防病毒网关</li>
 </ol>
-<h1 id="一般攻击流程"><a href="#一般攻击流程" class="headerlink" title="一般攻击流程"></a>一般攻击流程</h1><h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><ol>
-<li>确定目标：获得目标域名或公网 IP</li>
-<li>隐藏自身：使用代理、肉鸡作为跳板机</li>
-<li>收集信息（占整个攻击流程的 60~70% 的精力）：收集目标的域名、子域名、CDN 使用情况、网站信息包括可社工的部分、对外服务的漏洞（如 web 服务器漏洞）</li>
+<h3 id="通信网络"><a href="#通信网络" class="headerlink" title="通信网络"></a>通信网络</h3><ol>
+<li>网络冗余：链路负载均衡、服务器负载均衡、双机热备</li>
+<li>网络传输安全：VPN</li>
+<li>网络设备安全检测：漏洞扫描</li>
 </ol>
-<h2 id="实施阶段"><a href="#实施阶段" class="headerlink" title="实施阶段"></a>实施阶段</h2><ol>
-<li>漏洞利用：邮件攻击、社工、木马等等攻击手段</li>
-<li>应用攻击</li>
-<li>提权</li>
-<li>获利</li>
+<h3 id="计算环境"><a href="#计算环境" class="headerlink" title="计算环境"></a>计算环境</h3><ol>
+<li>应用安全：身份认证和权限划分、应用服务器统一监控</li>
+<li>主机安全：终端安全管理、移动终端、终端入侵检测和反病毒</li>
+<li>数据安全：通信与存储加密、本（异）地数据备份与恢复</li>
 </ol>
-<h2 id="收尾阶段"><a href="#收尾阶段" class="headerlink" title="收尾阶段"></a>收尾阶段</h2><ol>
-<li>消除攻击痕迹</li>
-<li>植入后门</li>
+<h2 id="基于原则和策略的安全治理"><a href="#基于原则和策略的安全治理" class="headerlink" title="基于原则和策略的安全治理"></a>基于原则和策略的安全治理</h2><h3 id="防火墙技术"><a href="#防火墙技术" class="headerlink" title="防火墙技术"></a>防火墙技术</h3><ol>
+<li>软件防火墙</li>
+<li>硬件防火墙<ol>
+<li>静态的数据包过滤防火墙：网络层</li>
+<li>应用级网关防火墙：应用层</li>
+<li>状态检测防火墙（动态包过滤防火墙）：会话层和网络层</li>
 </ol>
-<h1 id="常见的攻击手段"><a href="#常见的攻击手段" class="headerlink" title="常见的攻击手段"></a>常见的攻击手段</h1><h2 id="网络钓鱼（phishing-Phone-fishing）"><a href="#网络钓鱼（phishing-Phone-fishing）" class="headerlink" title="网络钓鱼（phishing = Phone + fishing）"></a>网络钓鱼（phishing = Phone + fishing）</h2><ol>
-<li>钓鱼邮件</li>
-<li>钓鱼网站</li>
+</li>
 </ol>
-<h2 id="邮件攻击"><a href="#邮件攻击" class="headerlink" title="邮件攻击"></a>邮件攻击</h2><ol>
-<li>邮件钓鱼</li>
-<li>垃圾邮件</li>
-<li>伪装发件人</li>
-<li>复合型邮件攻击</li>
-<li>传统勒索软件结合邮件和社工入侵</li>
+<h3 id="IDS-IPS"><a href="#IDS-IPS" class="headerlink" title="IDS / IPS"></a>IDS / IPS</h3><p>&emsp;&emsp;假如说防火墙是一幢大楼的门锁，那入侵监测系统就是这幢大楼里的监视系统</p>
+<ol>
+<li>IDS（Instrusion Detection Systems）入侵检测系统<ol>
+<li>基于规则检测</li>
+<li>基于行为检测（基于启发式检测）</li>
 </ol>
-<h2 id="XSS-跨站"><a href="#XSS-跨站" class="headerlink" title="XSS 跨站"></a>XSS 跨站</h2><ol>
-<li>XXS 跨站脚本攻击（cross site script）</li>
-<li>持久型 XSS：将对客户端攻击的脚本植入到服务器上，从而导致每个正常访问页面的用户都会遭到这段 XSS 脚本攻击</li>
-<li>非持久型 XSS：把精心构造的恶意脚本包装到一个页面的 URL 中的某一个参数中，再将这个 URL 发布到网上，欺骗用户访问，从而对其进行攻击</li>
+</li>
+<li>IPS（Intrusion Prevention System）入侵防御系统<br>&emsp;&emsp;有阻断和处理功能的IDS</li>
 </ol>
-<h2 id="SQL-注入攻击"><a href="#SQL-注入攻击" class="headerlink" title="SQL 注入攻击"></a>SQL 注入攻击</h2><p>&emsp;&emsp;利用现有的应用程序，将恶意 SQL 命令注入到后台数据库引擎中去执行，可以通过在 web 表单中输入恶意的 SQL 语句，得到一个存在安全漏洞的网站的数据库</p>
-<h2 id="DDOS-攻击"><a href="#DDOS-攻击" class="headerlink" title="DDOS 攻击"></a>DDOS 攻击</h2><ol>
-<li>分布式拒绝服务攻击 DDOS（Distributed Denial of Service）</li>
-<li>干扰阻断正常的网络通讯</li>
-<li>提交大量请求，使服务器超负荷</li>
-<li>阻断某一用户访问服务器</li>
-<li>阻断某服务于特定系统或个人的通讯</li>
-<li>IOT 设备的 DDOS 攻击</li>
+<h3 id="NAC（Network-Access-Control）网络准入控制"><a href="#NAC（Network-Access-Control）网络准入控制" class="headerlink" title="NAC（Network Access Control）网络准入控制"></a>NAC（Network Access Control）网络准入控制</h3><ol>
+<li>节点检测</li>
+<li>身份认证</li>
+<li>安全检测</li>
+<li>授权</li>
+<li>策略执行</li>
+<li>隔离修复</li>
+<li>接入控制</li>
 </ol>
-<h2 id="挂马"><a href="#挂马" class="headerlink" title="挂马"></a>挂马</h2><h2 id="社会工程学"><a href="#社会工程学" class="headerlink" title="社会工程学"></a>社会工程学</h2><h2 id="APT-攻击（高级可持续攻击）"><a href="#APT-攻击（高级可持续攻击）" class="headerlink" title="APT 攻击（高级可持续攻击）"></a>APT 攻击（高级可持续攻击）</h2><ol>
-<li>APT：Advanced Persistent Threat</li>
-<li>锁定特定目标</li>
-<li>有计划性</li>
-<li>潜伏性</li>
-<li>持续性</li>
-<li>典型的 APT 攻击案例：震网病毒</li>
+<h3 id="防病毒网关"><a href="#防病毒网关" class="headerlink" title="防病毒网关"></a>防病毒网关</h3><ol>
+<li>UTM（Unified Threat Management）统一威胁管理</li>
+<li>NGFW（Next generation firewall）下一代防火墙</li>
 </ol>
-<h1 id="黑色产业链"><a href="#黑色产业链" class="headerlink" title="黑色产业链"></a>黑色产业链</h1><p><img data-src="https://www.hackme.cc/resource/%E7%BD%91%E7%BB%9C%E9%BB%91%E8%89%B2%E4%BA%A7%E4%B8%9A%E9%93%BE.webp" alt="网络黑色产业链.webp"></p>
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/5.html">《AsiaInfo ACSE Training - 安全威胁课程——防护和治理》</a></p>
+<h3 id="VPN（Virtual-Private-Network）虚拟专用网"><a href="#VPN（Virtual-Private-Network）虚拟专用网" class="headerlink" title="VPN（Virtual Private Network）虚拟专用网"></a>VPN（Virtual Private Network）虚拟专用网</h3><h3 id="漏洞评估-漏洞防护（虚拟补丁防护）"><a href="#漏洞评估-漏洞防护（虚拟补丁防护）" class="headerlink" title="漏洞评估/漏洞防护（虚拟补丁防护）"></a>漏洞评估/漏洞防护（虚拟补丁防护）</h3><ol>
+<li>可以在不影响应用程序和其相关库，以及为其提供运行环境的操作系统的情况下，为应用系统安全虚拟补丁</li>
+<li>如一个应用程序的早期版本已不再获得供应商支持，则此虚拟补丁是支持该早期版本的唯一方法</li>
+<li>可抵御零日漏洞</li>
+</ol>
+<h3 id="数据加密技术"><a href="#数据加密技术" class="headerlink" title="数据加密技术"></a>数据加密技术</h3><h3 id="身份鉴别技术"><a href="#身份鉴别技术" class="headerlink" title="身份鉴别技术"></a>身份鉴别技术</h3><p>&emsp;&emsp;4A 统一安全管理平台解决方案</p>
+<ol>
+<li>Account 集中账号管理</li>
+<li>Authentication 集中认证管理</li>
+<li>Authorization 集中权限管理</li>
+<li>Audit 集中审计管理</li>
+</ol>
+<h2 id="安全审计"><a href="#安全审计" class="headerlink" title="安全审计"></a>安全审计</h2><ol>
+<li>流量审计、行为升级、数据审计</li>
+<li>评估漏洞及隐患</li>
+<li>测试策略和操作情况</li>
+<li>发现网络系统入侵</li>
+<li>调查取证</li>
+</ol>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/6.html">《AsiaInfo ACSE Training - OSCE XG 第一讲 产品概述》</a></p>
 </div>]]></content>
       <categories>
         <category>AsiaInfo</category>
       </categories>
       <tags>
         <tag>安全威胁</tag>
-        <tag>网络攻击</tag>
-        <tag>黑客</tag>
+        <tag>安全防护</tag>
+        <tag>安全治理</tag>
       </tags>
   </entry>
   <entry>
@@ -567,103 +664,6 @@
       </tags>
   </entry>
   <entry>
-    <title>AsiaInfo ACSE Training - 安全威胁课程——防护和治理</title>
-    <url>/AsiaInfo/5.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第四节内容，即第二章《病毒与威胁基础》之任务 5《安全威胁课程——防护和治理》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/AsiaInfo/4.html">《AsiaInfo ACSE Training - 安全威胁课程——网络攻击》</a></p>
-</div>
-
-<span id="more"></span>
-
-<h1 id="安全模型和要求"><a href="#安全模型和要求" class="headerlink" title="安全模型和要求"></a>安全模型和要求</h1><h2 id="CIA-三元组"><a href="#CIA-三元组" class="headerlink" title="CIA 三元组"></a>CIA 三元组</h2><ol>
-<li>保密性：确保信息在存储、使用、传输过程中不会泄露给非授权用户或实体</li>
-<li>完整性：确保信息在存储、使用、传输过程中不会被非授权篡改，防止授权用户或实体不恰当地修改信息，保持信息内部和外部的一致性</li>
-<li>可用性：确保授权用户或实体对信息及资源的正常使用不会被异常拒绝，允许其可靠而及时地访问信息及资源</li>
-</ol>
-<h2 id="深度防御的安全控制分类"><a href="#深度防御的安全控制分类" class="headerlink" title="深度防御的安全控制分类"></a>深度防御的安全控制分类</h2><h3 id="行政管理控制"><a href="#行政管理控制" class="headerlink" title="行政管理控制"></a>行政管理控制</h3><h3 id="技术性控制（我们所关心的部分）"><a href="#技术性控制（我们所关心的部分）" class="headerlink" title="技术性控制（我们所关心的部分）"></a>技术性控制（我们所关心的部分）</h3><ol>
-<li>网络安全</li>
-<li>主机安全</li>
-<li>应用安全</li>
-<li>数据安全和备份恢复</li>
-</ol>
-<h3 id="物理性控制"><a href="#物理性控制" class="headerlink" title="物理性控制"></a>物理性控制</h3><h1 id="安全技术体系"><a href="#安全技术体系" class="headerlink" title="安全技术体系"></a>安全技术体系</h1><h2 id="安全技术体系方案设计"><a href="#安全技术体系方案设计" class="headerlink" title="安全技术体系方案设计"></a>安全技术体系方案设计</h2><h3 id="区域边界安全"><a href="#区域边界安全" class="headerlink" title="区域边界安全"></a>区域边界安全</h3><ol>
-<li>网络安全域划分与隔离：隔离网闸、防火墙</li>
-<li>网络入侵检测与防护：IDS / IPS</li>
-<li>网络边界准入：网络准入、应用准入、客户端准入</li>
-<li>边界内容控制：防病毒网关</li>
-</ol>
-<h3 id="通信网络"><a href="#通信网络" class="headerlink" title="通信网络"></a>通信网络</h3><ol>
-<li>网络冗余：链路负载均衡、服务器负载均衡、双机热备</li>
-<li>网络传输安全：VPN</li>
-<li>网络设备安全检测：漏洞扫描</li>
-</ol>
-<h3 id="计算环境"><a href="#计算环境" class="headerlink" title="计算环境"></a>计算环境</h3><ol>
-<li>应用安全：身份认证和权限划分、应用服务器统一监控</li>
-<li>主机安全：终端安全管理、移动终端、终端入侵检测和反病毒</li>
-<li>数据安全：通信与存储加密、本（异）地数据备份与恢复</li>
-</ol>
-<h2 id="基于原则和策略的安全治理"><a href="#基于原则和策略的安全治理" class="headerlink" title="基于原则和策略的安全治理"></a>基于原则和策略的安全治理</h2><h3 id="防火墙技术"><a href="#防火墙技术" class="headerlink" title="防火墙技术"></a>防火墙技术</h3><ol>
-<li>软件防火墙</li>
-<li>硬件防火墙<ol>
-<li>静态的数据包过滤防火墙：网络层</li>
-<li>应用级网关防火墙：应用层</li>
-<li>状态检测防火墙（动态包过滤防火墙）：会话层和网络层</li>
-</ol>
-</li>
-</ol>
-<h3 id="IDS-IPS"><a href="#IDS-IPS" class="headerlink" title="IDS / IPS"></a>IDS / IPS</h3><p>&emsp;&emsp;假如说防火墙是一幢大楼的门锁，那入侵监测系统就是这幢大楼里的监视系统</p>
-<ol>
-<li>IDS（Instrusion Detection Systems）入侵检测系统<ol>
-<li>基于规则检测</li>
-<li>基于行为检测（基于启发式检测）</li>
-</ol>
-</li>
-<li>IPS（Intrusion Prevention System）入侵防御系统<br>&emsp;&emsp;有阻断和处理功能的IDS</li>
-</ol>
-<h3 id="NAC（Network-Access-Control）网络准入控制"><a href="#NAC（Network-Access-Control）网络准入控制" class="headerlink" title="NAC（Network Access Control）网络准入控制"></a>NAC（Network Access Control）网络准入控制</h3><ol>
-<li>节点检测</li>
-<li>身份认证</li>
-<li>安全检测</li>
-<li>授权</li>
-<li>策略执行</li>
-<li>隔离修复</li>
-<li>接入控制</li>
-</ol>
-<h3 id="防病毒网关"><a href="#防病毒网关" class="headerlink" title="防病毒网关"></a>防病毒网关</h3><ol>
-<li>UTM（Unified Threat Management）统一威胁管理</li>
-<li>NGFW（Next generation firewall）下一代防火墙</li>
-</ol>
-<h3 id="VPN（Virtual-Private-Network）虚拟专用网"><a href="#VPN（Virtual-Private-Network）虚拟专用网" class="headerlink" title="VPN（Virtual Private Network）虚拟专用网"></a>VPN（Virtual Private Network）虚拟专用网</h3><h3 id="漏洞评估-漏洞防护（虚拟补丁防护）"><a href="#漏洞评估-漏洞防护（虚拟补丁防护）" class="headerlink" title="漏洞评估/漏洞防护（虚拟补丁防护）"></a>漏洞评估/漏洞防护（虚拟补丁防护）</h3><ol>
-<li>可以在不影响应用程序和其相关库，以及为其提供运行环境的操作系统的情况下，为应用系统安全虚拟补丁</li>
-<li>如一个应用程序的早期版本已不再获得供应商支持，则此虚拟补丁是支持该早期版本的唯一方法</li>
-<li>可抵御零日漏洞</li>
-</ol>
-<h3 id="数据加密技术"><a href="#数据加密技术" class="headerlink" title="数据加密技术"></a>数据加密技术</h3><h3 id="身份鉴别技术"><a href="#身份鉴别技术" class="headerlink" title="身份鉴别技术"></a>身份鉴别技术</h3><p>&emsp;&emsp;4A 统一安全管理平台解决方案</p>
-<ol>
-<li>Account 集中账号管理</li>
-<li>Authentication 集中认证管理</li>
-<li>Authorization 集中权限管理</li>
-<li>Audit 集中审计管理</li>
-</ol>
-<h2 id="安全审计"><a href="#安全审计" class="headerlink" title="安全审计"></a>安全审计</h2><ol>
-<li>流量审计、行为升级、数据审计</li>
-<li>评估漏洞及隐患</li>
-<li>测试策略和操作情况</li>
-<li>发现网络系统入侵</li>
-<li>调查取证</li>
-</ol>
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/6.html">《AsiaInfo ACSE Training - OSCE XG 第一讲 产品概述》</a></p>
-</div>]]></content>
-      <categories>
-        <category>AsiaInfo</category>
-      </categories>
-      <tags>
-        <tag>安全威胁</tag>
-        <tag>安全防护</tag>
-        <tag>安全治理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AsiaInfo ACSE Training - OSCE XG 第一讲 产品概述</title>
     <url>/AsiaInfo/6.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程，第三章《ACSE 产品必修课程》之任务 1《OSCE XG学习计划》课程 1《OSCE XG 第一讲 产品概述》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
@@ -727,6 +727,128 @@
 <h2 id="先进的安全技术"><a href="#先进的安全技术" class="headerlink" title="先进的安全技术"></a>先进的安全技术</h2><p>&emsp;&emsp;恶意软件防护、个人防火墙、间谍软件防护、入侵检测系统 IPS、Web 信誉评级、文件信誉评级、数据保护（DLP）、数据加密、变种保护、白名单检查、统计检查、行为分析、漏洞防护虚拟补丁、应用程序控制、沙盒分析、机器学习（ML）业内首创双重 ML、终端检测与相应（EDR）业内第一家方案提供商 Gartner</p>
 <h2 id="互联威胁防御"><a href="#互联威胁防御" class="headerlink" title="互联威胁防御"></a>互联威胁防御</h2><p>&emsp;&emsp;基于本地威胁情报构建精密联动机制</p>
 <div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/7.html">《AsiaInfo ACSE Training - OSCE XG 第二讲 安装部署》</a></p>
+</div>]]></content>
+      <categories>
+        <category>AsiaInfo</category>
+      </categories>
+      <tags>
+        <tag>OfficeScan</tag>
+        <tag>防毒墙网络版</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AsiaInfo ACSE Training - OSCE XG 第三讲 病毒防护配置</title>
+    <url>/AsiaInfo/8.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程，第三章《ACSE 产品必修课程》之任务 1《OSCE XG学习计划》课程 3《OSCE XG 第三讲 病毒防护配置》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/AsiaInfo/7.html">《AsiaInfo ACSE Training - OSCE XG 第二讲 安装部署》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="扫描配置"><a href="#扫描配置" class="headerlink" title="扫描配置"></a>扫描配置</h1><h2 id="基本配置（首次登陆-officescan-管理控制台）"><a href="#基本配置（首次登陆-officescan-管理控制台）" class="headerlink" title="基本配置（首次登陆 officescan 管理控制台）"></a>基本配置（首次登陆 officescan 管理控制台）</h2><ol>
+<li>登陆管理控制台<ol>
+<li>地址：https://&lt;服务器 FQDN 或 IP 地址&gt;/officeScan</li>
+<li>用户名：root</li>
+<li>密码：安装时设定的密码</li>
+</ol>
+</li>
+<li>确认产品使用授权：管理 → 设置 → 产品使用授权</li>
+<li>通知配置：管理 → 通知 → 常规设置、管理员、客户端</li>
+</ol>
+<h2 id="扫描方法"><a href="#扫描方法" class="headerlink" title="扫描方法"></a>扫描方法</h2><p>&emsp;&emsp;客户端 → 客户端管理 → 设置 → 扫描方法</p>
+<ol>
+<li>云安全扫描：使用云安全扫描的客户端将受益于文件信誉服务提供的本地扫描和云端扫描</li>
+<li>传统扫描：使用传统扫描的客户端将所有 Officescan 组件存储在客户端终端上，并在本地扫描所有文件</li>
+</ol>
+<h2 id="扫描类型"><a href="#扫描类型" class="headerlink" title="扫描类型"></a>扫描类型</h2><ol>
+<li>实时扫描：在接受、打开、下载、复制或修改终端上的文件时，会自动扫描该文件</li>
+<li>手动扫描：由终端用户启动的扫描，扫描用户请求的一个文件或一组文件</li>
+<li>预设扫描：根据配置的时间表，自动扫描终端上的文件</li>
+<li>立即扫描：管理员启动的扫描，扫描一个或多个目标计算机上的文件</li>
+</ol>
+<h2 id="预设扫描"><a href="#预设扫描" class="headerlink" title="预设扫描"></a>预设扫描</h2><p>&emsp;&emsp;客户端 → 客户端管理 → 设置</p>
+<h3 id="扫描对象"><a href="#扫描对象" class="headerlink" title="扫描对象"></a>扫描对象</h3><ol>
+<li>所有可扫描文件</li>
+<li>IntelliScan 扫描的文件类型<br> IntelliScan 通过使用真实文件类型识别检查文件头并且仅扫描已知可能包含恶意代码的文件类型来优化性能。<br> 真实文件类型识别有助于确定通过无害扩展名进行伪装的恶意代码。</li>
+<li>带指定扩展名的文件</li>
+<li>可设置扫描例外：例外目录、例外文件、文件扩展名例外</li>
+</ol>
+<h3 id="优化扫描"><a href="#优化扫描" class="headerlink" title="优化扫描"></a>优化扫描</h3><p>&emsp;&emsp;客户端 → 全局客户端配置 → 安全设置</p>
+<ol>
+<li>扫描设置</li>
+<li>全局客户端扫描配置</li>
+<li>CPU 使用率（实时扫描无法设置）</li>
+</ol>
+<h3 id="处理措施"><a href="#处理措施" class="headerlink" title="处理措施"></a>处理措施</h3><p>&emsp;&emsp;清除、隔离、删除、不予处理（不可用于实时扫描）、更名、ActiveAction</p>
+<p>&emsp;&emsp;ActiveAction 是针对特定类型的病毒/恶意软件的一组预配置的扫描处理措施。如果您不确定对每种类型的病毒/恶意软件采取何种扫描处理措施，亚信安全建议您使用 ActiveAction</p>
+<h3 id="扫描时间"><a href="#扫描时间" class="headerlink" title="扫描时间"></a>扫描时间</h3><p>&emsp;&emsp;客户端 → 全局客户端配置 → 安全设置</p>
+<h1 id="扫毒功能测试"><a href="#扫毒功能测试" class="headerlink" title="扫毒功能测试"></a>扫毒功能测试</h1><p><span class="exturl" data-url="aHR0cDovL3d3dy5laWNhci5vcmcv">Eicar 验证<i class="fa fa-external-link-alt"></i></span></p>
+<ol>
+<li>新建文本文档，输入<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">X5O!P%@<span class="keyword">AP</span>[4\PZX54(P^)7CC)7&#125;<span class="variable">$EICAR</span>-STANDARD-ANTIVIRUS-<span class="keyword">TEST</span>-<span class="keyword">FILE</span>!<span class="variable">$H</span>+<span class="keyword">H</span>*</span><br></pre></td></tr></table></figure></li>
+<li>保存文本文档</li>
+<li>检查 OfficeScan 是否会拦截</li>
+</ol>
+<h1 id="隔离恢复"><a href="#隔离恢复" class="headerlink" title="隔离恢复"></a>隔离恢复</h1><p>&emsp;&emsp;场景：公司终端查杀到病毒文件并进行隔离，但该文件中包含重要资料需要从隔离区恢复出来</p>
+<ol>
+<li>集中隔离恢复<br> 客户端 &gt; 客户端管理 &gt; 任务 &gt; 集中隔离恢复</li>
+<li>工具恢复<figure class="highlight taggerscript"><table><tr><td class="code"><pre><span class="line">&lt;客户端安装目录&gt;/VSEncode.exe     #被隔离文件在客户端</span><br><span class="line">&lt;服务器安装文件夹&gt;<span class="symbol">\P</span>CCSRV<span class="symbol">\A</span>dmin<span class="symbol">\U</span>tility<span class="symbol">\V</span>SEncrypt<span class="symbol">\V</span>sencode     #被隔离文件在服务端或指定目录</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="勒索软件防护"><a href="#勒索软件防护" class="headerlink" title="勒索软件防护"></a>勒索软件防护</h1><p>&emsp;&emsp;目的：通过启用恶意行为阻止，保护终端不受勒索软件的威胁</p>
+<h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>&emsp;&emsp;客户端 → 客户端管理 → 设置 → 其他服务设置</p>
+<p>&emsp;&emsp;需先开启：未授权更改阻止服务</p>
+<h2 id="勒索软件防护-1"><a href="#勒索软件防护-1" class="headerlink" title="勒索软件防护"></a>勒索软件防护</h2><p>&emsp;&emsp;客户端 → 客户端管理 → 设置 → 恶意行为监控设置</p>
+<h2 id="Web-信誉联动"><a href="#Web-信誉联动" class="headerlink" title="Web 信誉联动"></a>Web 信誉联动</h2><ol>
+<li>开启 Web 信誉服务：客户端 → 客户端管理 → 设置 → Web 信誉设置</li>
+<li>启用监控最近遇到的程序：客户端 → 客户端管理 → 设置 → 恶意行为监控设置</li>
+</ol>
+<h1 id="反漏洞防护"><a href="#反漏洞防护" class="headerlink" title="反漏洞防护"></a>反漏洞防护</h1><h2 id="CVE-弱点攻击扫描"><a href="#CVE-弱点攻击扫描" class="headerlink" title="CVE 弱点攻击扫描"></a>CVE 弱点攻击扫描</h2><ol>
+<li>ATSE（高级威胁扫描引擎）及时防护经由网页/电子邮件下载的文档漏洞利用（CVE）</li>
+<li>客户端 → 客户端管理 → 设置 → 实时扫描</li>
+</ol>
+<h2 id="漏洞攻击行为阻止"><a href="#漏洞攻击行为阻止" class="headerlink" title="漏洞攻击行为阻止"></a>漏洞攻击行为阻止</h2><ol>
+<li>终止表现出漏洞攻击相关的异常行为的程序</li>
+<li>客户端 → 客户端管理 → 设置 → 恶意行为监控设置</li>
+</ol>
+<h1 id="时间监控"><a href="#时间监控" class="headerlink" title="时间监控"></a>时间监控</h1><p>&emsp;&emsp;客户端 → 客户端管理 → 设置 → 恶意行为监控设置</p>
+<p>&emsp;&emsp;处理措施：评估、允许、必要时询问、拒绝</p>
+<h1 id="未知威胁防护"><a href="#未知威胁防护" class="headerlink" title="未知威胁防护"></a>未知威胁防护</h1><h2 id="预测机器学习"><a href="#预测机器学习" class="headerlink" title="预测机器学习"></a>预测机器学习</h2><ol>
+<li>目的：通过启用机器学习功能，保护终端不受新威胁和未知威胁的侵扰</li>
+<li>前置条件<br> 客户端 → 客户端管理 → 设置 → 其他服务设置<br> 需先开启：未授权更改阻止服务、高级保护服务</li>
+<li>开启机器学习功能：客户端 → 客户端管理 → 设置 → 预测机器学习设置</li>
+</ol>
+<h2 id="可疑连接服务"><a href="#可疑连接服务" class="headerlink" title="可疑连接服务"></a>可疑连接服务</h2><ol>
+<li>目的：监控终端与可能的 C&amp;C 服务器建立的连接行为</li>
+<li>开启服务<br> 客户端 → 客户端管理 → 设置 → 其他服务设置<br> 需先开启：可疑连接服务</li>
+<li>编辑 IP 列表：客户端 → 全局客户端设置 → 编辑定义的 IP 列表</li>
+<li>配置可疑连接：客户端 → 客户端管理 → 设置 → 可疑连接设置</li>
+</ol>
+<h2 id="样本提交"><a href="#样本提交" class="headerlink" title="样本提交"></a>样本提交</h2><ol>
+<li>目的：将可能包含以前未识别的威胁的文件样本提交给沙盒虚拟平台</li>
+<li>前置条件：确认 OSCE 已注册在 TMCM 上、TMCM 已注册 DDAN</li>
+<li>开启样本提交：客户端 → 客户端管理 → 设置 → 样本提交</li>
+</ol>
+<h1 id="其他威胁防护"><a href="#其他威胁防护" class="headerlink" title="其他威胁防护"></a>其他威胁防护</h1><h2 id="移动设备管控（预防-U-盘病毒）"><a href="#移动设备管控（预防-U-盘病毒）" class="headerlink" title="移动设备管控（预防 U 盘病毒）"></a>移动设备管控（预防 U 盘病毒）</h2><p>&emsp;&emsp;客户端 → 客户端管理 → 设置 → 移动设备权限管理设置</p>
+<p>&emsp;&emsp;存储设置的权限：完全访问、修改、读取和执行、读取、仅列出设备内容、阻止</p>
+<h2 id="爆发阻止（可能会影响日常办公，谨慎操作）"><a href="#爆发阻止（可能会影响日常办公，谨慎操作）" class="headerlink" title="爆发阻止（可能会影响日常办公，谨慎操作）"></a>爆发阻止（可能会影响日常办公，<strong>谨慎操作</strong>）</h2><p>&emsp;&emsp;客户端 → 爆发阻止</p>
+<ol>
+<li>限制/禁止访问共享文件</li>
+<li>封闭端口</li>
+<li>禁止对文件和文件夹写入<div class="note warning"><p>无法拒绝对映射的网络驱动器进行写人访问</p>
+</div></li>
+<li>拒绝访问压缩可执行文件</li>
+<li>在恶意软件进程/文件上创建互相排斥（互斥）处理</li>
+</ol>
+<h1 id="联动配置"><a href="#联动配置" class="headerlink" title="联动配置"></a>联动配置</h1><h2 id="与-TMCM"><a href="#与-TMCM" class="headerlink" title="与 TMCM"></a>与 TMCM</h2><p>&emsp;&emsp;管理 → 设置 → 控制管理中心</p>
+<h2 id="与-DDAN"><a href="#与-DDAN" class="headerlink" title="与 DDAN"></a>与 DDAN</h2><ol>
+<li>管理 → 设置 → 可疑对象列表</li>
+<li>客户端 → 客户端管理 → 设置 → 样本提交</li>
+</ol>
+<h2 id="与-CTDI"><a href="#与-CTDI" class="headerlink" title="与 CTDI"></a>与 CTDI</h2><ol>
+<li>CTDI web 控制台 → 探针 → 防毒墙集成</li>
+<li>OSCE web 控制台 → 插件 → 注册</li>
+<li>OSCE web 控制台 → 插件 → 管理程序</li>
+</ol>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/9.html">《AsiaInfo ACSE Training - OSCE XG 第四讲 日志和管理》</a></p>
 </div>]]></content>
       <categories>
         <category>AsiaInfo</category>
@@ -877,128 +999,6 @@
 <li>输入指令：<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">CertificateManager</span>.</span></span>ext -b <span class="literal">[密码]</span> <span class="literal">[证书导出路径]</span></span><br><span class="line">例：<span class="module-access"><span class="module"><span class="identifier">CertificateManger</span>.</span></span>exe -b strongpassword D:\Test\<span class="module-access"><span class="module"><span class="identifier">Asiainfo</span>.</span></span>zip</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="卸载服务器并重新安装"><a href="#卸载服务器并重新安装" class="headerlink" title="卸载服务器并重新安装"></a>卸载服务器并重新安装</h2><div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/8.html">《AsiaInfo ACSE Training - OSCE XG 第三讲 病毒防护配置》</a></p>
-</div>]]></content>
-      <categories>
-        <category>AsiaInfo</category>
-      </categories>
-      <tags>
-        <tag>OfficeScan</tag>
-        <tag>防毒墙网络版</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AsiaInfo ACSE Training - OSCE XG 第三讲 病毒防护配置</title>
-    <url>/AsiaInfo/8.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程，第三章《ACSE 产品必修课程》之任务 1《OSCE XG学习计划》课程 3《OSCE XG 第三讲 病毒防护配置》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/AsiaInfo/7.html">《AsiaInfo ACSE Training - OSCE XG 第二讲 安装部署》</a></p>
-</div>
-
-<span id="more"></span>
-
-<h1 id="扫描配置"><a href="#扫描配置" class="headerlink" title="扫描配置"></a>扫描配置</h1><h2 id="基本配置（首次登陆-officescan-管理控制台）"><a href="#基本配置（首次登陆-officescan-管理控制台）" class="headerlink" title="基本配置（首次登陆 officescan 管理控制台）"></a>基本配置（首次登陆 officescan 管理控制台）</h2><ol>
-<li>登陆管理控制台<ol>
-<li>地址：https://&lt;服务器 FQDN 或 IP 地址&gt;/officeScan</li>
-<li>用户名：root</li>
-<li>密码：安装时设定的密码</li>
-</ol>
-</li>
-<li>确认产品使用授权：管理 → 设置 → 产品使用授权</li>
-<li>通知配置：管理 → 通知 → 常规设置、管理员、客户端</li>
-</ol>
-<h2 id="扫描方法"><a href="#扫描方法" class="headerlink" title="扫描方法"></a>扫描方法</h2><p>&emsp;&emsp;客户端 → 客户端管理 → 设置 → 扫描方法</p>
-<ol>
-<li>云安全扫描：使用云安全扫描的客户端将受益于文件信誉服务提供的本地扫描和云端扫描</li>
-<li>传统扫描：使用传统扫描的客户端将所有 Officescan 组件存储在客户端终端上，并在本地扫描所有文件</li>
-</ol>
-<h2 id="扫描类型"><a href="#扫描类型" class="headerlink" title="扫描类型"></a>扫描类型</h2><ol>
-<li>实时扫描：在接受、打开、下载、复制或修改终端上的文件时，会自动扫描该文件</li>
-<li>手动扫描：由终端用户启动的扫描，扫描用户请求的一个文件或一组文件</li>
-<li>预设扫描：根据配置的时间表，自动扫描终端上的文件</li>
-<li>立即扫描：管理员启动的扫描，扫描一个或多个目标计算机上的文件</li>
-</ol>
-<h2 id="预设扫描"><a href="#预设扫描" class="headerlink" title="预设扫描"></a>预设扫描</h2><p>&emsp;&emsp;客户端 → 客户端管理 → 设置</p>
-<h3 id="扫描对象"><a href="#扫描对象" class="headerlink" title="扫描对象"></a>扫描对象</h3><ol>
-<li>所有可扫描文件</li>
-<li>IntelliScan 扫描的文件类型<br> IntelliScan 通过使用真实文件类型识别检查文件头并且仅扫描已知可能包含恶意代码的文件类型来优化性能。<br> 真实文件类型识别有助于确定通过无害扩展名进行伪装的恶意代码。</li>
-<li>带指定扩展名的文件</li>
-<li>可设置扫描例外：例外目录、例外文件、文件扩展名例外</li>
-</ol>
-<h3 id="优化扫描"><a href="#优化扫描" class="headerlink" title="优化扫描"></a>优化扫描</h3><p>&emsp;&emsp;客户端 → 全局客户端配置 → 安全设置</p>
-<ol>
-<li>扫描设置</li>
-<li>全局客户端扫描配置</li>
-<li>CPU 使用率（实时扫描无法设置）</li>
-</ol>
-<h3 id="处理措施"><a href="#处理措施" class="headerlink" title="处理措施"></a>处理措施</h3><p>&emsp;&emsp;清除、隔离、删除、不予处理（不可用于实时扫描）、更名、ActiveAction</p>
-<p>&emsp;&emsp;ActiveAction 是针对特定类型的病毒/恶意软件的一组预配置的扫描处理措施。如果您不确定对每种类型的病毒/恶意软件采取何种扫描处理措施，亚信安全建议您使用 ActiveAction</p>
-<h3 id="扫描时间"><a href="#扫描时间" class="headerlink" title="扫描时间"></a>扫描时间</h3><p>&emsp;&emsp;客户端 → 全局客户端配置 → 安全设置</p>
-<h1 id="扫毒功能测试"><a href="#扫毒功能测试" class="headerlink" title="扫毒功能测试"></a>扫毒功能测试</h1><p><span class="exturl" data-url="aHR0cDovL3d3dy5laWNhci5vcmcv">Eicar 验证<i class="fa fa-external-link-alt"></i></span></p>
-<ol>
-<li>新建文本文档，输入<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">X5O!P%@<span class="keyword">AP</span>[4\PZX54(P^)7CC)7&#125;<span class="variable">$EICAR</span>-STANDARD-ANTIVIRUS-<span class="keyword">TEST</span>-<span class="keyword">FILE</span>!<span class="variable">$H</span>+<span class="keyword">H</span>*</span><br></pre></td></tr></table></figure></li>
-<li>保存文本文档</li>
-<li>检查 OfficeScan 是否会拦截</li>
-</ol>
-<h1 id="隔离恢复"><a href="#隔离恢复" class="headerlink" title="隔离恢复"></a>隔离恢复</h1><p>&emsp;&emsp;场景：公司终端查杀到病毒文件并进行隔离，但该文件中包含重要资料需要从隔离区恢复出来</p>
-<ol>
-<li>集中隔离恢复<br> 客户端 &gt; 客户端管理 &gt; 任务 &gt; 集中隔离恢复</li>
-<li>工具恢复<figure class="highlight taggerscript"><table><tr><td class="code"><pre><span class="line">&lt;客户端安装目录&gt;/VSEncode.exe     #被隔离文件在客户端</span><br><span class="line">&lt;服务器安装文件夹&gt;<span class="symbol">\P</span>CCSRV<span class="symbol">\A</span>dmin<span class="symbol">\U</span>tility<span class="symbol">\V</span>SEncrypt<span class="symbol">\V</span>sencode     #被隔离文件在服务端或指定目录</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="勒索软件防护"><a href="#勒索软件防护" class="headerlink" title="勒索软件防护"></a>勒索软件防护</h1><p>&emsp;&emsp;目的：通过启用恶意行为阻止，保护终端不受勒索软件的威胁</p>
-<h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>&emsp;&emsp;客户端 → 客户端管理 → 设置 → 其他服务设置</p>
-<p>&emsp;&emsp;需先开启：未授权更改阻止服务</p>
-<h2 id="勒索软件防护-1"><a href="#勒索软件防护-1" class="headerlink" title="勒索软件防护"></a>勒索软件防护</h2><p>&emsp;&emsp;客户端 → 客户端管理 → 设置 → 恶意行为监控设置</p>
-<h2 id="Web-信誉联动"><a href="#Web-信誉联动" class="headerlink" title="Web 信誉联动"></a>Web 信誉联动</h2><ol>
-<li>开启 Web 信誉服务：客户端 → 客户端管理 → 设置 → Web 信誉设置</li>
-<li>启用监控最近遇到的程序：客户端 → 客户端管理 → 设置 → 恶意行为监控设置</li>
-</ol>
-<h1 id="反漏洞防护"><a href="#反漏洞防护" class="headerlink" title="反漏洞防护"></a>反漏洞防护</h1><h2 id="CVE-弱点攻击扫描"><a href="#CVE-弱点攻击扫描" class="headerlink" title="CVE 弱点攻击扫描"></a>CVE 弱点攻击扫描</h2><ol>
-<li>ATSE（高级威胁扫描引擎）及时防护经由网页/电子邮件下载的文档漏洞利用（CVE）</li>
-<li>客户端 → 客户端管理 → 设置 → 实时扫描</li>
-</ol>
-<h2 id="漏洞攻击行为阻止"><a href="#漏洞攻击行为阻止" class="headerlink" title="漏洞攻击行为阻止"></a>漏洞攻击行为阻止</h2><ol>
-<li>终止表现出漏洞攻击相关的异常行为的程序</li>
-<li>客户端 → 客户端管理 → 设置 → 恶意行为监控设置</li>
-</ol>
-<h1 id="时间监控"><a href="#时间监控" class="headerlink" title="时间监控"></a>时间监控</h1><p>&emsp;&emsp;客户端 → 客户端管理 → 设置 → 恶意行为监控设置</p>
-<p>&emsp;&emsp;处理措施：评估、允许、必要时询问、拒绝</p>
-<h1 id="未知威胁防护"><a href="#未知威胁防护" class="headerlink" title="未知威胁防护"></a>未知威胁防护</h1><h2 id="预测机器学习"><a href="#预测机器学习" class="headerlink" title="预测机器学习"></a>预测机器学习</h2><ol>
-<li>目的：通过启用机器学习功能，保护终端不受新威胁和未知威胁的侵扰</li>
-<li>前置条件<br> 客户端 → 客户端管理 → 设置 → 其他服务设置<br> 需先开启：未授权更改阻止服务、高级保护服务</li>
-<li>开启机器学习功能：客户端 → 客户端管理 → 设置 → 预测机器学习设置</li>
-</ol>
-<h2 id="可疑连接服务"><a href="#可疑连接服务" class="headerlink" title="可疑连接服务"></a>可疑连接服务</h2><ol>
-<li>目的：监控终端与可能的 C&amp;C 服务器建立的连接行为</li>
-<li>开启服务<br> 客户端 → 客户端管理 → 设置 → 其他服务设置<br> 需先开启：可疑连接服务</li>
-<li>编辑 IP 列表：客户端 → 全局客户端设置 → 编辑定义的 IP 列表</li>
-<li>配置可疑连接：客户端 → 客户端管理 → 设置 → 可疑连接设置</li>
-</ol>
-<h2 id="样本提交"><a href="#样本提交" class="headerlink" title="样本提交"></a>样本提交</h2><ol>
-<li>目的：将可能包含以前未识别的威胁的文件样本提交给沙盒虚拟平台</li>
-<li>前置条件：确认 OSCE 已注册在 TMCM 上、TMCM 已注册 DDAN</li>
-<li>开启样本提交：客户端 → 客户端管理 → 设置 → 样本提交</li>
-</ol>
-<h1 id="其他威胁防护"><a href="#其他威胁防护" class="headerlink" title="其他威胁防护"></a>其他威胁防护</h1><h2 id="移动设备管控（预防-U-盘病毒）"><a href="#移动设备管控（预防-U-盘病毒）" class="headerlink" title="移动设备管控（预防 U 盘病毒）"></a>移动设备管控（预防 U 盘病毒）</h2><p>&emsp;&emsp;客户端 → 客户端管理 → 设置 → 移动设备权限管理设置</p>
-<p>&emsp;&emsp;存储设置的权限：完全访问、修改、读取和执行、读取、仅列出设备内容、阻止</p>
-<h2 id="爆发阻止（可能会影响日常办公，谨慎操作）"><a href="#爆发阻止（可能会影响日常办公，谨慎操作）" class="headerlink" title="爆发阻止（可能会影响日常办公，谨慎操作）"></a>爆发阻止（可能会影响日常办公，<strong>谨慎操作</strong>）</h2><p>&emsp;&emsp;客户端 → 爆发阻止</p>
-<ol>
-<li>限制/禁止访问共享文件</li>
-<li>封闭端口</li>
-<li>禁止对文件和文件夹写入<div class="note warning"><p>无法拒绝对映射的网络驱动器进行写人访问</p>
-</div></li>
-<li>拒绝访问压缩可执行文件</li>
-<li>在恶意软件进程/文件上创建互相排斥（互斥）处理</li>
-</ol>
-<h1 id="联动配置"><a href="#联动配置" class="headerlink" title="联动配置"></a>联动配置</h1><h2 id="与-TMCM"><a href="#与-TMCM" class="headerlink" title="与 TMCM"></a>与 TMCM</h2><p>&emsp;&emsp;管理 → 设置 → 控制管理中心</p>
-<h2 id="与-DDAN"><a href="#与-DDAN" class="headerlink" title="与 DDAN"></a>与 DDAN</h2><ol>
-<li>管理 → 设置 → 可疑对象列表</li>
-<li>客户端 → 客户端管理 → 设置 → 样本提交</li>
-</ol>
-<h2 id="与-CTDI"><a href="#与-CTDI" class="headerlink" title="与 CTDI"></a>与 CTDI</h2><ol>
-<li>CTDI web 控制台 → 探针 → 防毒墙集成</li>
-<li>OSCE web 控制台 → 插件 → 注册</li>
-<li>OSCE web 控制台 → 插件 → 管理程序</li>
-</ol>
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/9.html">《AsiaInfo ACSE Training - OSCE XG 第四讲 日志和管理》</a></p>
 </div>]]></content>
       <categories>
         <category>AsiaInfo</category>
@@ -1411,88 +1411,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Assembly Language 9.7 ~ 9.9 / 汇编语言 9.7 ~ 9.9</title>
-    <url>/Assembly-Language/13.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》9.7 ~ 9.9、《零基础入门学习汇编语言》P45 ~ 46</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/12.html">《Assembly Language 9.1 ~ 9.6 / 汇编语言 9.1 ~ 9.6》</a></p>
-</div>
-
-<span id="more"></span>
-
-<h2 id="9-7-jcxz-指令"><a href="#9-7-jcxz-指令" class="headerlink" title="9.7 jcxz 指令"></a>9.7 jcxz 指令</h2><p>&emsp;&emsp;jcxz 指令为有条件转移指令，所有的有条件转移指令都是短转移，在对应的机器码中包含转移的位移，而不是目的地址。对IP的修改范围都为 -128~127。<br>&emsp;&emsp;指令格式：jcxz 标号（如果 (cx)=0，则转移到标号处执行。）<br>&emsp;&emsp;jcxz 标号指令操作</p>
-<ol>
-<li>当 (cx)=0 时，(IP)=(IP)+8 位位移<ol>
-<li>8 位位移 =“标号”处的地址 -jcxz 指令后的第一个字节的地址；</li>
-<li>8 位位移的范围为 -128~127，用补码表示；</li>
-<li>8 位位移由编译程序在编译时算出。</li>
-</ol>
-</li>
-<li>当 (cx)≠0 时，什么也不做（程序向下执行）。</li>
-</ol>
-<p>&emsp;&emsp;指令“jcxz 标号”的功能相当于</p>
-<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">if((cx)==<span class="number">0</span>)</span><br><span class="line">	<span class="keyword">jmp </span><span class="keyword">short </span>标号;</span><br></pre></td></tr></table></figure>
-
-<h2 id="9-8-loop-指令"><a href="#9-8-loop-指令" class="headerlink" title="9.8 loop 指令"></a>9.8 loop 指令</h2><p>&emsp;&emsp;loop 指令为循环指令，所有的循环指令都是短转移，在对应的机器码中包含转移的位移，而不是目的地址。对 IP 的修改范围都为 -128~127<br>&emsp;&emsp;指令格式：loop 标号（(cx)=(cx)-1，如果 (cx)≠0，转移到标号处执行。）<br>&emsp;&emsp;loop 标号指令操作</p>
-<ol>
-<li>(cx)=(cx)-1；</li>
-<li>如果 (cx)≠0，(IP)=(IP)+8 位位移。<ol>
-<li>8 位位移 =“标号”处的地址 -loop 指令后的第一个字节的地址；</li>
-<li>8 位位移的范围为 -128~127，用补码表示；</li>
-<li>8 位位移由编译程序在编译时算出。</li>
-</ol>
-</li>
-<li>当 (cx)=0 时，什么也不做（程序向下执行）。</li>
-</ol>
-<p>&emsp;&emsp;指令“loop 标号”的功能相当于</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">(<span class="built_in">cx</span>)--<span class="comment">;</span></span><br><span class="line">if((<span class="built_in">cx</span>)≠<span class="number">0</span>)</span><br><span class="line">	<span class="keyword">jmp</span> short 标号<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="9-9-根据位移进行转移的意义"><a href="#9-9-根据位移进行转移的意义" class="headerlink" title="9.9 根据位移进行转移的意义"></a>9.9 根据位移进行转移的意义</h2><ol>
-<li>jmp short 标号</li>
-<li>jmp near ptr 标号</li>
-<li>jcxz 标号</li>
-<li>loop 标号</li>
-</ol>
-<p>&emsp;&emsp;它们对 IP 的修改是根据转移目的地址和转移起始地址之间的位移来进行的。在它们对应的机器码中不包含转移的目的地址，而包含的是到目的地址的位移距离。<br>&emsp;&emsp;这样设计，方便了程序段在内存中的浮动装配。<br>&emsp;&emsp;例如</p>
-<table>
-<thead>
-<tr>
-<th>汇编指令</th>
-<th>机器代码</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>mov cx,6</td>
-<td>B9 06 00</td>
-</tr>
-<tr>
-<td>mov ax,10</td>
-<td>B8 10 00</td>
-</tr>
-<tr>
-<td>s:add ax,ax</td>
-<td>01 C0</td>
-</tr>
-<tr>
-<td>loop s</td>
-<td>E2 FC</td>
-</tr>
-</tbody></table>
-<p>&emsp;&emsp;这段程序装在内存中的不同位置都可正确执行，因为 loop s 在执行时只涉及到 s 的位移（-4，前移 4 个字节，补码表示为 FCH），而不是 s 的地址。</p>
-<div class="note info"><p>形如“jmp 2000:0100”的转移指令，是在 Debug 中使用的汇编指令，汇编编译器并不认识。如果在源程序中使用，编译时也会报错。</p>
-</div>
-
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/14.html">《Assembly Language 10.1 ~ 10.7 / 汇编语言 10.1 ~ 10.7》</a></p>
-</div>]]></content>
-      <categories>
-        <category>Assembly Language</category>
-      </categories>
-      <tags>
-        <tag>jcxz</tag>
-        <tag>loop</tag>
-        <tag>位移</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Assembly Language 9.1 ~ 9.6 / 汇编语言 9.1 ~ 9.6</title>
     <url>/Assembly-Language/12.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》9.1 ~ 9.6、《零基础入门学习汇编语言》P43 ~ 44</p>
@@ -1729,91 +1647,85 @@
       </tags>
   </entry>
   <entry>
-    <title>Assembly Language 10.8 ~ 10.12 / 汇编语言 10.8 ~ 10.12</title>
-    <url>/Assembly-Language/15.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》10.8 ~ 10.12、《零基础入门学习汇编语言》P49 ~ 51</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/14.html">《Assembly Language 10.1 ~ 10.7 / 汇编语言 10.1 ~ 10.7》</a></p>
+    <title>Assembly Language 9.7 ~ 9.9 / 汇编语言 9.7 ~ 9.9</title>
+    <url>/Assembly-Language/13.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》9.7 ~ 9.9、《零基础入门学习汇编语言》P45 ~ 46</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/12.html">《Assembly Language 9.1 ~ 9.6 / 汇编语言 9.1 ~ 9.6》</a></p>
 </div>
 
 <span id="more"></span>
 
-<h2 id="10-8-mul-指令"><a href="#10-8-mul-指令" class="headerlink" title="10.8 mul 指令"></a>10.8 mul 指令</h2><p>&emsp;&emsp;因下面要用到，我们介绍一下 mul 指令，mul 是乘法指令，使用 mul 做乘法的时候</p>
+<h2 id="9-7-jcxz-指令"><a href="#9-7-jcxz-指令" class="headerlink" title="9.7 jcxz 指令"></a>9.7 jcxz 指令</h2><p>&emsp;&emsp;jcxz 指令为有条件转移指令，所有的有条件转移指令都是短转移，在对应的机器码中包含转移的位移，而不是目的地址。对IP的修改范围都为 -128~127。<br>&emsp;&emsp;指令格式：jcxz 标号（如果 (cx)=0，则转移到标号处执行。）<br>&emsp;&emsp;jcxz 标号指令操作</p>
 <ol>
-<li>相乘的两个数：要么<strong>都</strong>是 8 位，要么<strong>都</strong>是 16 位。<ol>
-<li>8 位：AL 中和 8 位寄存器或内存<strong>字节</strong>单元中；</li>
-<li>16 位：AX 中和 16 位寄存器或内存<strong>字</strong>单元中。</li>
+<li>当 (cx)=0 时，(IP)=(IP)+8 位位移<ol>
+<li>8 位位移 =“标号”处的地址 -jcxz 指令后的第一个字节的地址；</li>
+<li>8 位位移的范围为 -128~127，用补码表示；</li>
+<li>8 位位移由编译程序在编译时算出。</li>
 </ol>
 </li>
-<li>结果<ol>
-<li>8 位：AX 中；</li>
-<li>16 位：DX（高位）和 AX（低位）中。</li>
+<li>当 (cx)≠0 时，什么也不做（程序向下执行）。</li>
+</ol>
+<p>&emsp;&emsp;指令“jcxz 标号”的功能相当于</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">if((cx)==<span class="number">0</span>)</span><br><span class="line">	<span class="keyword">jmp </span><span class="keyword">short </span>标号;</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-8-loop-指令"><a href="#9-8-loop-指令" class="headerlink" title="9.8 loop 指令"></a>9.8 loop 指令</h2><p>&emsp;&emsp;loop 指令为循环指令，所有的循环指令都是短转移，在对应的机器码中包含转移的位移，而不是目的地址。对 IP 的修改范围都为 -128~127<br>&emsp;&emsp;指令格式：loop 标号（(cx)=(cx)-1，如果 (cx)≠0，转移到标号处执行。）<br>&emsp;&emsp;loop 标号指令操作</p>
+<ol>
+<li>(cx)=(cx)-1；</li>
+<li>如果 (cx)≠0，(IP)=(IP)+8 位位移。<ol>
+<li>8 位位移 =“标号”处的地址 -loop 指令后的第一个字节的地址；</li>
+<li>8 位位移的范围为 -128~127，用补码表示；</li>
+<li>8 位位移由编译程序在编译时算出。</li>
 </ol>
 </li>
+<li>当 (cx)=0 时，什么也不做（程序向下执行）。</li>
 </ol>
-<p>&emsp;&emsp;格式如下</p>
-<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mul</span> reg</span><br><span class="line"><span class="keyword">mul</span> 内存单元</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;指令“loop 标号”的功能相当于</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">(<span class="built_in">cx</span>)--<span class="comment">;</span></span><br><span class="line">if((<span class="built_in">cx</span>)≠<span class="number">0</span>)</span><br><span class="line">	<span class="keyword">jmp</span> short 标号<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;内存单元可以用不同的寻址方式给出，比如</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mul</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>]     # 含义为：(<span class="built_in">ax</span>)=(<span class="built_in">al</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+<span class="number">0</span>)</span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">word</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>+<span class="built_in">si</span>+<span class="number">8</span>]</span><br><span class="line">含义为：</span><br><span class="line">(<span class="built_in">ax</span>)=(<span class="built_in">ax</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+(<span class="built_in">bx</span>)+(<span class="built_in">si</span>)+<span class="number">8</span>) 结果的低 <span class="number">16</span> 位；</span><br><span class="line">(<span class="built_in">dx</span>)=(<span class="built_in">ax</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+(<span class="built_in">bx</span>)+(<span class="built_in">si</span>)+<span class="number">8</span>) 结果的高 <span class="number">16</span> 位；</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;例如</p>
-<ol>
-<li>计算 100×10<br>100 和 10 小于 255，可以做 8 位乘法，程序如下<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="number">100</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bl</span>,<span class="number">10</span></span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">bl</span></span><br><span class="line">结果：(<span class="built_in">ax</span>)=<span class="number">1000</span>（<span class="number">03E8H</span>）</span><br></pre></td></tr></table></figure></li>
-<li>计算 100×10000<br>100 小于 255，可 10000 大于 255，所以必须做 16 位乘法，程序如下<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">100</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">10000</span></span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">结果：(<span class="built_in">ax</span>)=<span class="number">4240H</span>，(<span class="built_in">dx</span>)=<span class="number">000FH</span>（<span class="number">F4240H</span>=<span class="number">1000000</span>）</span><br></pre></td></tr></table></figure></li>
+<h2 id="9-9-根据位移进行转移的意义"><a href="#9-9-根据位移进行转移的意义" class="headerlink" title="9.9 根据位移进行转移的意义"></a>9.9 根据位移进行转移的意义</h2><ol>
+<li>jmp short 标号</li>
+<li>jmp near ptr 标号</li>
+<li>jcxz 标号</li>
+<li>loop 标号</li>
 </ol>
-<h2 id="10-9-模块化程序设计"><a href="#10-9-模块化程序设计" class="headerlink" title="10.9 模块化程序设计"></a>10.9 模块化程序设计</h2><p>&emsp;&emsp;从上面我们看到，call 与 ret 指令共同支持了汇编语言编程中的模块化设计。在实际编程中，程序的模块化是必不可少的。<br>&emsp;&emsp;因为现实的问题比较复杂，对现实问题进行分析时，把它转化成相互联系、不同层次的子问题，是必须的解决方法。<br>&emsp;&emsp;而 call 和 ret 指令对这种分析方法提供了程序实现上的支持。利用 call 和 ret 指令，我们可以用简洁的方法，实现多个互相联系、功能独立的子程序来解决一个夫复杂的问题。</p>
-<h2 id="10-10-参数和结果传递的问题"><a href="#10-10-参数和结果传递的问题" class="headerlink" title="10.10 参数和结果传递的问题"></a>10.10 参数和结果传递的问题</h2><p>&emsp;&emsp;子程序一般都要根据提供的参数处理一定的事务，处理后，将结果（返回值）提供给调用者。<br>&emsp;&emsp;其实，我们讨论参数和返回值传递的问题，实际上就是在探讨，应该如何存储子程序需要的参数和产生的返回值。<br>&emsp;&emsp;我们设计一个子程序，可以根据提供的 N，来计算 N 的 3 次方。<br>&emsp;&emsp;这里有两个问题</p>
-<ol>
-<li>我们将参数 N 存储在什么地方？</li>
-<li>计算得到的数值，我们存储在什么地方？</li>
-</ol>
-<p>&emsp;&emsp;很显然，我们可以用寄存器来存储，可以将参数放到 bx 中；<br>&emsp;&emsp;因为子程序中要计算 N×N×N，可以使用多个 mul 指令，为了方便，可将结果放到 dx 和 ax 中。<br>&emsp;&emsp;子程序</p>
-<ol>
-<li>说明：计算 N 的 3 次方</li>
-<li>参数：(bx)=N</li>
-<li>结果：(dx:ax)= $N^3$<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">cube:</span><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">ret</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<div class="note info"><p>我们在编程的时候要注意良好的风格，对于程序应有详细的注释。子程序的注释信息应该包含对子程序的功能、参数和结果的说明。</p>
+<p>&emsp;&emsp;它们对 IP 的修改是根据转移目的地址和转移起始地址之间的位移来进行的。在它们对应的机器码中不包含转移的目的地址，而包含的是到目的地址的位移距离。<br>&emsp;&emsp;这样设计，方便了程序段在内存中的浮动装配。<br>&emsp;&emsp;例如</p>
+<table>
+<thead>
+<tr>
+<th>汇编指令</th>
+<th>机器代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mov cx,6</td>
+<td>B9 06 00</td>
+</tr>
+<tr>
+<td>mov ax,10</td>
+<td>B8 10 00</td>
+</tr>
+<tr>
+<td>s:add ax,ax</td>
+<td>01 C0</td>
+</tr>
+<tr>
+<td>loop s</td>
+<td>E2 FC</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;这段程序装在内存中的不同位置都可正确执行，因为 loop s 在执行时只涉及到 s 的位移（-4，前移 4 个字节，补码表示为 FCH），而不是 s 的地址。</p>
+<div class="note info"><p>形如“jmp 2000:0100”的转移指令，是在 Debug 中使用的汇编指令，汇编编译器并不认识。如果在源程序中使用，编译时也会报错。</p>
 </div>
 
-<p>&emsp;&emsp;用寄存器来存储参数和结果是最常使用的方法。对于存放参数的寄存器和存放结果的寄存器，调用者和子程序的读写操作恰恰相反</p>
-<ol>
-<li>调用者将参数送入参数寄存器，从结果寄存器中取到返回值；</li>
-<li>子程序从参数寄存器中取到参数，将返回值送入结果寄存器。</li>
-</ol>
-<h2 id="10-11-批量数据的传递"><a href="#10-11-批量数据的传递" class="headerlink" title="10.11 批量数据的传递"></a>10.11 批量数据的传递</h2><p>&emsp;&emsp;前面的例程中，子程序 cube 只有一个参数，放在 bx 中。如果有两个参数，那么可以用两个寄存器来放，可是如果需要传递的参数有 3 个、4 个或更多直至 N 个，我们怎样存放呢？<br>&emsp;&emsp;寄存器的数量终究有限，我们不可能简单地用寄存器来存放多个需要传递的数据。对于返回值，也有同样的问题。<br>&emsp;&emsp;在这种时候，我们将批量数据放到内存中，然后将它们所在内存空间的首地址放在寄存器中，传递给需要的子程序。<br>&emsp;&emsp;对于具有批量数据的返回结果，也可用同样的方法。<br>&emsp;&emsp;编程：将 data 段中的字符串转化为大写。</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line"></span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="string">&#x27;conversation&#x27;</span></span><br><span class="line">date ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">si</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向字符串（批量数据）所在空间的首地址</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">12</span>     # <span class="built_in">cx</span> 存放字符串的长度</span><br><span class="line">	<span class="keyword">call</span> capital</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">capital:</span></span><br><span class="line">	<span class="keyword">and</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">si</span>],<span class="number">11011111b</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">si</span></span><br><span class="line">	<span class="keyword">loop</span> capital</span><br><span class="line">	<span class="keyword">ret</span></span><br><span class="line"></span><br><span class="line">code ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><p>除了寄存器、内存传递参数外，还有一种通用的方法使用栈来传递参数。关于这种技巧请参看附注 4。</p>
-</div>
-
-<h2 id="10-12-寄存器冲突的问题"><a href="#10-12-寄存器冲突的问题" class="headerlink" title="10.12 寄存器冲突的问题"></a>10.12 寄存器冲突的问题</h2><p>&emsp;&emsp;设计一个子程序</p>
-<ol>
-<li>功能：将一个全是字母，以 0 结尾的字符串，转化为大写。</li>
-<li>程序要处理的字符串以 0 作为结尾符，这个字符串可以如下定义</li>
-</ol>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">db</span> <span class="string">&#x27;conversation&#x27;</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;分析</p>
-<ol>
-<li>应用这个子程序，字符串的内容后面定要有一个 0，标记字符串的结束。子程序可以依次读取每个字符进行检测，如果不是 0，就进行大写的转化，如果是 0，就结束处理。</li>
-<li>由于可通过检测 0 而知道是否已经处理完整个字符串，所以子程序可以不需要字符串的长度作为参数。我们可以直接用 jcxz 来检测 0。</li>
-</ol>
-<p>&emsp;&emsp;子程序实现代码</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">capital:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cl</span>,[<span class="built_in">si</span>]</span><br><span class="line">	<span class="keyword">mov</span> <span class="number">ch</span>,<span class="number">0</span></span><br><span class="line">	<span class="keyword">jcxz</span> ok     # 如果 (<span class="built_in">cx</span>)=<span class="number">0</span>，结束；如果不是 <span class="number">0</span>，处理。</span><br><span class="line">	<span class="keyword">and</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">si</span>],<span class="number">11011111b</span>     # 将 <span class="built_in">ds</span>:<span class="built_in">si</span> 所指单元中的字母转化为大写</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">si</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向下一个单元</span><br><span class="line">	<span class="keyword">jmp</span> short capital</span><br><span class="line"><span class="symbol">ok:</span><span class="keyword">ret</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;子程序的应用<br>&emsp;&emsp;将 data 段中的字符串全部转化为大写</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">assume</span> <span class="string">cs:code</span></span><br><span class="line"><span class="attr">data</span> <span class="string">segment</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;word&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;unix&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;wind&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;good&#x27;.0</span></span><br><span class="line"><span class="attr">data</span> <span class="string">ends</span></span><br></pre></td></tr></table></figure>
-
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/16.html">《Assembly Language 11.1 ~ 11.6 / 汇编语言 11.1 ~ 11.6》</a></p>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/14.html">《Assembly Language 10.1 ~ 10.7 / 汇编语言 10.1 ~ 10.7》</a></p>
 </div>]]></content>
       <categories>
         <category>Assembly Language</category>
       </categories>
       <tags>
-        <tag>mul</tag>
-        <tag>模块化</tag>
-        <tag>子程序</tag>
+        <tag>jcxz</tag>
+        <tag>loop</tag>
+        <tag>位移</tag>
       </tags>
   </entry>
   <entry>
@@ -2190,6 +2102,94 @@
         <tag>adc</tag>
         <tag>sbb</tag>
         <tag>cmp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Assembly Language 10.8 ~ 10.12 / 汇编语言 10.8 ~ 10.12</title>
+    <url>/Assembly-Language/15.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》10.8 ~ 10.12、《零基础入门学习汇编语言》P49 ~ 51</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/14.html">《Assembly Language 10.1 ~ 10.7 / 汇编语言 10.1 ~ 10.7》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h2 id="10-8-mul-指令"><a href="#10-8-mul-指令" class="headerlink" title="10.8 mul 指令"></a>10.8 mul 指令</h2><p>&emsp;&emsp;因下面要用到，我们介绍一下 mul 指令，mul 是乘法指令，使用 mul 做乘法的时候</p>
+<ol>
+<li>相乘的两个数：要么<strong>都</strong>是 8 位，要么<strong>都</strong>是 16 位。<ol>
+<li>8 位：AL 中和 8 位寄存器或内存<strong>字节</strong>单元中；</li>
+<li>16 位：AX 中和 16 位寄存器或内存<strong>字</strong>单元中。</li>
+</ol>
+</li>
+<li>结果<ol>
+<li>8 位：AX 中；</li>
+<li>16 位：DX（高位）和 AX（低位）中。</li>
+</ol>
+</li>
+</ol>
+<p>&emsp;&emsp;格式如下</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mul</span> reg</span><br><span class="line"><span class="keyword">mul</span> 内存单元</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;内存单元可以用不同的寻址方式给出，比如</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mul</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>]     # 含义为：(<span class="built_in">ax</span>)=(<span class="built_in">al</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+<span class="number">0</span>)</span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">word</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>+<span class="built_in">si</span>+<span class="number">8</span>]</span><br><span class="line">含义为：</span><br><span class="line">(<span class="built_in">ax</span>)=(<span class="built_in">ax</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+(<span class="built_in">bx</span>)+(<span class="built_in">si</span>)+<span class="number">8</span>) 结果的低 <span class="number">16</span> 位；</span><br><span class="line">(<span class="built_in">dx</span>)=(<span class="built_in">ax</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+(<span class="built_in">bx</span>)+(<span class="built_in">si</span>)+<span class="number">8</span>) 结果的高 <span class="number">16</span> 位；</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;例如</p>
+<ol>
+<li>计算 100×10<br>100 和 10 小于 255，可以做 8 位乘法，程序如下<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="number">100</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bl</span>,<span class="number">10</span></span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">bl</span></span><br><span class="line">结果：(<span class="built_in">ax</span>)=<span class="number">1000</span>（<span class="number">03E8H</span>）</span><br></pre></td></tr></table></figure></li>
+<li>计算 100×10000<br>100 小于 255，可 10000 大于 255，所以必须做 16 位乘法，程序如下<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">100</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">10000</span></span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">结果：(<span class="built_in">ax</span>)=<span class="number">4240H</span>，(<span class="built_in">dx</span>)=<span class="number">000FH</span>（<span class="number">F4240H</span>=<span class="number">1000000</span>）</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="10-9-模块化程序设计"><a href="#10-9-模块化程序设计" class="headerlink" title="10.9 模块化程序设计"></a>10.9 模块化程序设计</h2><p>&emsp;&emsp;从上面我们看到，call 与 ret 指令共同支持了汇编语言编程中的模块化设计。在实际编程中，程序的模块化是必不可少的。<br>&emsp;&emsp;因为现实的问题比较复杂，对现实问题进行分析时，把它转化成相互联系、不同层次的子问题，是必须的解决方法。<br>&emsp;&emsp;而 call 和 ret 指令对这种分析方法提供了程序实现上的支持。利用 call 和 ret 指令，我们可以用简洁的方法，实现多个互相联系、功能独立的子程序来解决一个夫复杂的问题。</p>
+<h2 id="10-10-参数和结果传递的问题"><a href="#10-10-参数和结果传递的问题" class="headerlink" title="10.10 参数和结果传递的问题"></a>10.10 参数和结果传递的问题</h2><p>&emsp;&emsp;子程序一般都要根据提供的参数处理一定的事务，处理后，将结果（返回值）提供给调用者。<br>&emsp;&emsp;其实，我们讨论参数和返回值传递的问题，实际上就是在探讨，应该如何存储子程序需要的参数和产生的返回值。<br>&emsp;&emsp;我们设计一个子程序，可以根据提供的 N，来计算 N 的 3 次方。<br>&emsp;&emsp;这里有两个问题</p>
+<ol>
+<li>我们将参数 N 存储在什么地方？</li>
+<li>计算得到的数值，我们存储在什么地方？</li>
+</ol>
+<p>&emsp;&emsp;很显然，我们可以用寄存器来存储，可以将参数放到 bx 中；<br>&emsp;&emsp;因为子程序中要计算 N×N×N，可以使用多个 mul 指令，为了方便，可将结果放到 dx 和 ax 中。<br>&emsp;&emsp;子程序</p>
+<ol>
+<li>说明：计算 N 的 3 次方</li>
+<li>参数：(bx)=N</li>
+<li>结果：(dx:ax)= $N^3$<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">cube:</span><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">ret</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<div class="note info"><p>我们在编程的时候要注意良好的风格，对于程序应有详细的注释。子程序的注释信息应该包含对子程序的功能、参数和结果的说明。</p>
+</div>
+
+<p>&emsp;&emsp;用寄存器来存储参数和结果是最常使用的方法。对于存放参数的寄存器和存放结果的寄存器，调用者和子程序的读写操作恰恰相反</p>
+<ol>
+<li>调用者将参数送入参数寄存器，从结果寄存器中取到返回值；</li>
+<li>子程序从参数寄存器中取到参数，将返回值送入结果寄存器。</li>
+</ol>
+<h2 id="10-11-批量数据的传递"><a href="#10-11-批量数据的传递" class="headerlink" title="10.11 批量数据的传递"></a>10.11 批量数据的传递</h2><p>&emsp;&emsp;前面的例程中，子程序 cube 只有一个参数，放在 bx 中。如果有两个参数，那么可以用两个寄存器来放，可是如果需要传递的参数有 3 个、4 个或更多直至 N 个，我们怎样存放呢？<br>&emsp;&emsp;寄存器的数量终究有限，我们不可能简单地用寄存器来存放多个需要传递的数据。对于返回值，也有同样的问题。<br>&emsp;&emsp;在这种时候，我们将批量数据放到内存中，然后将它们所在内存空间的首地址放在寄存器中，传递给需要的子程序。<br>&emsp;&emsp;对于具有批量数据的返回结果，也可用同样的方法。<br>&emsp;&emsp;编程：将 data 段中的字符串转化为大写。</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line"></span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="string">&#x27;conversation&#x27;</span></span><br><span class="line">date ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">si</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向字符串（批量数据）所在空间的首地址</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">12</span>     # <span class="built_in">cx</span> 存放字符串的长度</span><br><span class="line">	<span class="keyword">call</span> capital</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">capital:</span></span><br><span class="line">	<span class="keyword">and</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">si</span>],<span class="number">11011111b</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">si</span></span><br><span class="line">	<span class="keyword">loop</span> capital</span><br><span class="line">	<span class="keyword">ret</span></span><br><span class="line"></span><br><span class="line">code ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>除了寄存器、内存传递参数外，还有一种通用的方法使用栈来传递参数。关于这种技巧请参看附注 4。</p>
+</div>
+
+<h2 id="10-12-寄存器冲突的问题"><a href="#10-12-寄存器冲突的问题" class="headerlink" title="10.12 寄存器冲突的问题"></a>10.12 寄存器冲突的问题</h2><p>&emsp;&emsp;设计一个子程序</p>
+<ol>
+<li>功能：将一个全是字母，以 0 结尾的字符串，转化为大写。</li>
+<li>程序要处理的字符串以 0 作为结尾符，这个字符串可以如下定义</li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">db</span> <span class="string">&#x27;conversation&#x27;</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;分析</p>
+<ol>
+<li>应用这个子程序，字符串的内容后面定要有一个 0，标记字符串的结束。子程序可以依次读取每个字符进行检测，如果不是 0，就进行大写的转化，如果是 0，就结束处理。</li>
+<li>由于可通过检测 0 而知道是否已经处理完整个字符串，所以子程序可以不需要字符串的长度作为参数。我们可以直接用 jcxz 来检测 0。</li>
+</ol>
+<p>&emsp;&emsp;子程序实现代码</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">capital:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cl</span>,[<span class="built_in">si</span>]</span><br><span class="line">	<span class="keyword">mov</span> <span class="number">ch</span>,<span class="number">0</span></span><br><span class="line">	<span class="keyword">jcxz</span> ok     # 如果 (<span class="built_in">cx</span>)=<span class="number">0</span>，结束；如果不是 <span class="number">0</span>，处理。</span><br><span class="line">	<span class="keyword">and</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">si</span>],<span class="number">11011111b</span>     # 将 <span class="built_in">ds</span>:<span class="built_in">si</span> 所指单元中的字母转化为大写</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">si</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向下一个单元</span><br><span class="line">	<span class="keyword">jmp</span> short capital</span><br><span class="line"><span class="symbol">ok:</span><span class="keyword">ret</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;子程序的应用<br>&emsp;&emsp;将 data 段中的字符串全部转化为大写</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">assume</span> <span class="string">cs:code</span></span><br><span class="line"><span class="attr">data</span> <span class="string">segment</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;word&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;unix&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;wind&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;good&#x27;.0</span></span><br><span class="line"><span class="attr">data</span> <span class="string">ends</span></span><br></pre></td></tr></table></figure>
+
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/16.html">《Assembly Language 11.1 ~ 11.6 / 汇编语言 11.1 ~ 11.6》</a></p>
+</div>]]></content>
+      <categories>
+        <category>Assembly Language</category>
+      </categories>
+      <tags>
+        <tag>mul</tag>
+        <tag>模块化</tag>
+        <tag>子程序</tag>
       </tags>
   </entry>
   <entry>
@@ -2604,6 +2604,70 @@
       </tags>
   </entry>
   <entry>
+    <title>Assembly Language 3.1 ~ 3.5 / 汇编语言 3.1 ~ 3.5</title>
+    <url>/Assembly-Language/4.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》3.1 ~ 3.5、《零基础入门学习汇编语言》P13 ~ 15</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/3.html">《Assembly Language 2.8 ~ 2.12 / 汇编语言 2.8 ~ 2.12》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="第三章-寄存器（内存访问）"><a href="#第三章-寄存器（内存访问）" class="headerlink" title="第三章 寄存器（内存访问）"></a>第三章 寄存器（内存访问）</h1><h2 id="3-1-内存中字的存储"><a href="#3-1-内存中字的存储" class="headerlink" title="3.1 内存中字的存储"></a>3.1 内存中字的存储</h2><p>&emsp;&emsp;任何两个地址连续的内存单元，N 号单元和 N+1 号单元，可以将它们看成两个内存单元，也可以看成一个地址为 N 的子单元中的高位字节单元和低位字节单元。</p>
+<h2 id="3-2-DS-和-address"><a href="#3-2-DS-和-address" class="headerlink" title="3.2 DS 和 address"></a>3.2 DS 和 address</h2><p>&emsp;&emsp;CPU 要读取一个内存单元的时候，必须先给出这个内存单元的地址；<br>&emsp;&emsp;在 8086 PC 中，内存地址由段地址和偏移地址组成。<br>&emsp;&emsp;8086 CPU 中有一个 DS 寄存器，通常用来存放要访问的数据的段地址。<br>&emsp;&emsp;已知的 mov 指令可完成的两种传送功能</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">2</span>     # 将数据直接送入寄存器；</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="built_in">ax</span>     # 将一个寄存器中的内容送入另一个寄存器中</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;除此之外，mov 指令还可以将一个内存单元中的内容送入一个寄存器。<br>&emsp;&emsp;例如：我们要读取 10000H 单元的内容可以用如下程序段进行</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">bx</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,[<span class="number">0</span>]     # <span class="keyword">mov</span> 指令的格式：<span class="keyword">mov</span> 寄存器名,内存单元地址，“[…]”表示一个内存单元，“[…]”中的 <span class="number">0</span> 表示内存单元的偏移地址</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;上面三条指令将 10000H（1000:0）中的数据读到 al 中。<br>&emsp;&emsp;执行指令时，8086 CPU 自动取 DS 中的数据为内存的单元的段地址。<br>&emsp;&emsp;用 mov 指令从 1000H 中读取数据</p>
+<ol>
+<li>10000H 表示为 1000:0（段地址:偏移地址）</li>
+<li>将段地址 1000H 放入 ds</li>
+<li>用 mov al,[0] 完成传送（mov 指令中的 [] 说明操作对象是一个内存单元，[] 中的 0 说明这个内存单元的偏移地址是 0，它的段地址默认放在 ds 中）</li>
+</ol>
+<p>&emsp;&emsp;8086 CPU <strong>不支持</strong><del>将数据直接送入段寄存器</del>的操作，ds 是一个段寄存器。（硬件设计问题）</p>
+<div class="note warning"><p>数据 → 通用寄存器 → 段寄存器，<strong>不能</strong><del>直接将数据送入段寄存器</del></p>
+</div>
+
+<p>&emsp;&emsp;将数据从寄存器送入内存单元</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">bx</span></span><br><span class="line"><span class="keyword">mov</span> [<span class="number">0</span>],<span class="built_in">al</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-字的传送"><a href="#3-3-字的传送" class="headerlink" title="3.3 字的传送"></a>3.3 字的传送</h2><p>&emsp;&emsp;因为 8086 CPU 是 16 位结构，有 16 根数据线，所以可以一次性传送 16 位的数据，也就是一次性传送一个字。</p>
+<h2 id="3-4-mov、add、sub-指令"><a href="#3-4-mov、add、sub-指令" class="headerlink" title="3.4 mov、add、sub 指令"></a>3.4 mov、add、sub 指令</h2><p>&emsp;&emsp;已学 mov 指令的几种形式</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">6</span>     # <span class="keyword">mov</span> 寄存器,数据</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="built_in">ax</span>     # <span class="keyword">mov</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">mov</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">mov</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">mov</span> 内存单元,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # <span class="keyword">mov</span> 段寄存器,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="built_in">ds</span>     # <span class="keyword">mov</span> 寄存器,段寄存器</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;add 和 sub 指令同 mov 一样，都有两个操作对象</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,<span class="number">8</span>     # <span class="keyword">add</span> 寄存器,数据</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,<span class="built_in">bx</span>     # <span class="keyword">add</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">add</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">add</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">add</span> 内存单元,寄存器</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,<span class="number">9</span>     # <span class="keyword">sub</span> 寄存器,数据</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,<span class="built_in">bx</span>     # <span class="keyword">sub</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">sub</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">sub</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">sub</span> 内存单元,寄存器</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-数据段"><a href="#3-5-数据段" class="headerlink" title="3.5 数据段"></a>3.5 数据段</h2><p>&emsp;&emsp;将一段内存当作数据段，是我们在编程时的一种安排，我们可以在具体操作的时候，用 ds 存放数据段的段地址，再根据需要，用相关指令访问数据段中的具体单元。<br>&emsp;&emsp;我们将 123B0H~123BAH 的内存单元定义为数据段，我们现在要累加这个数据段中的前 3 个单元中的数据，代码如下</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">123BH</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # 将 <span class="number">123BH</span> 送入 <span class="built_in">ds</span> 中，作为数据段的段地址。</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="number">0</span>     # 用 <span class="built_in">al</span> 存放累加结果</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">0</span>]     # 将数据段第一个单元（偏移地址为 <span class="number">0</span>）中的数值加到 <span class="built_in">al</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">1</span>]     # 将数据段第二个单元（偏移地址为 <span class="number">1</span>）中的数值加到 <span class="built_in">al</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">2</span>]     # 将数据段第三个单元（偏移地址为 <span class="number">2</span>）中的数值加到 <span class="built_in">al</span> 中</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;累加数据段中的前 3 个字型数据</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">123BH</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # 将 <span class="number">123BH</span> 送入 <span class="built_in">ds</span> 中，作为数据段的段地址。</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 用 <span class="built_in">ax</span> 存放累加结果</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # 将数据段第一个字（偏移地址为<span class="number">0</span>）加到 <span class="built_in">ax</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">2</span>]     # 将数据段第二个字（偏移地址为<span class="number">2</span>）加到 <span class="built_in">ax</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">4</span>]     # 将数据段第三个字（偏移地址为<span class="number">4</span>）加到 <span class="built_in">ax</span> 中</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>一个字型数据占两个单元，所以偏移地址是 0、2、4。</p>
+</div>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
+<li>字在内存中存储时，要用两个地址连续的内存单元来存放，字的低位字节存放在低地址单元中，高位字节存放在高地址单元中。</li>
+<li>用 mov 指令要访问内存单元，可以在 mov 指令中只给出单元的偏移地址，此时，段地址默认在 DS 寄存器中。</li>
+<li>[address] 表示一个偏移地址为 address 的内存单元。</li>
+<li>在内存和寄存器之间传送字型数据时，高地址单元和高 8 位寄存器、低地址单元和低 8 位寄存器相对应。</li>
+<li>mov、add、sub 是具有两个操作对象的指令。jum 是具有一个操作对象的指令。</li>
+<li>可以根据自己的推测，在 Debug 中实验指令的新格式。</li>
+</ol>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/5.html">《Assembly Language 3.6 ~ 3.10 / 汇编语言 3.6 ~ 3.10》</a></p>
+</div>]]></content>
+      <categories>
+        <category>Assembly Language</category>
+      </categories>
+      <tags>
+        <tag>寄存器</tag>
+        <tag>mov</tag>
+        <tag>add</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Assembly Language 3.6 ~ 3.10 / 汇编语言 3.6 ~ 3.10</title>
     <url>/Assembly-Language/5.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》3.6 ~ 3.10、《零基础入门学习汇编语言》P16 ~ 19</p>
@@ -2688,67 +2752,90 @@
       </tags>
   </entry>
   <entry>
-    <title>Assembly Language 3.1 ~ 3.5 / 汇编语言 3.1 ~ 3.5</title>
-    <url>/Assembly-Language/4.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》3.1 ~ 3.5、《零基础入门学习汇编语言》P13 ~ 15</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/3.html">《Assembly Language 2.8 ~ 2.12 / 汇编语言 2.8 ~ 2.12》</a></p>
+    <title>Assembly Language 4.1 ~ 4.9 / 汇编语言 4.1 ~ 4.9</title>
+    <url>/Assembly-Language/6.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》4.1 ~ 4.9、《零基础入门学习汇编语言》P20 ~ 22</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/5.html">《Assembly Language 3.6 ~ 3.10 / 汇编语言 3.6 ~ 3.10》</a></p>
 </div>
 
 <span id="more"></span>
 
-<h1 id="第三章-寄存器（内存访问）"><a href="#第三章-寄存器（内存访问）" class="headerlink" title="第三章 寄存器（内存访问）"></a>第三章 寄存器（内存访问）</h1><h2 id="3-1-内存中字的存储"><a href="#3-1-内存中字的存储" class="headerlink" title="3.1 内存中字的存储"></a>3.1 内存中字的存储</h2><p>&emsp;&emsp;任何两个地址连续的内存单元，N 号单元和 N+1 号单元，可以将它们看成两个内存单元，也可以看成一个地址为 N 的子单元中的高位字节单元和低位字节单元。</p>
-<h2 id="3-2-DS-和-address"><a href="#3-2-DS-和-address" class="headerlink" title="3.2 DS 和 address"></a>3.2 DS 和 address</h2><p>&emsp;&emsp;CPU 要读取一个内存单元的时候，必须先给出这个内存单元的地址；<br>&emsp;&emsp;在 8086 PC 中，内存地址由段地址和偏移地址组成。<br>&emsp;&emsp;8086 CPU 中有一个 DS 寄存器，通常用来存放要访问的数据的段地址。<br>&emsp;&emsp;已知的 mov 指令可完成的两种传送功能</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">2</span>     # 将数据直接送入寄存器；</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="built_in">ax</span>     # 将一个寄存器中的内容送入另一个寄存器中</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;除此之外，mov 指令还可以将一个内存单元中的内容送入一个寄存器。<br>&emsp;&emsp;例如：我们要读取 10000H 单元的内容可以用如下程序段进行</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">bx</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,[<span class="number">0</span>]     # <span class="keyword">mov</span> 指令的格式：<span class="keyword">mov</span> 寄存器名,内存单元地址，“[…]”表示一个内存单元，“[…]”中的 <span class="number">0</span> 表示内存单元的偏移地址</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;上面三条指令将 10000H（1000:0）中的数据读到 al 中。<br>&emsp;&emsp;执行指令时，8086 CPU 自动取 DS 中的数据为内存的单元的段地址。<br>&emsp;&emsp;用 mov 指令从 1000H 中读取数据</p>
+<h1 id="第四章-第一个程序"><a href="#第四章-第一个程序" class="headerlink" title="第四章 第一个程序"></a>第四章 第一个程序</h1><h2 id="4-2-源程序"><a href="#4-2-源程序" class="headerlink" title="4.2 源程序"></a>4.2 源程序</h2><h3 id="4-2-1-定义一个段"><a href="#4-2-1-定义一个段" class="headerlink" title="4.2.1 定义一个段"></a>4.2.1 定义一个段</h3><p>&emsp;&emsp;segment 和 ends 是一对成对使用的伪指令，这是在写可被编译器编译的汇编程序时，必须要用到的一对伪指令。<br>&emsp;&emsp;segment 和 ends 的功能是定义一个段，segment 说明一个段开始，ends 说明一个段结束。<br>&emsp;&emsp;一个段必须有一个名称来标识，使用格式为</p>
 <ol>
-<li>10000H 表示为 1000:0（段地址:偏移地址）</li>
-<li>将段地址 1000H 放入 ds</li>
-<li>用 mov al,[0] 完成传送（mov 指令中的 [] 说明操作对象是一个内存单元，[] 中的 0 说明这个内存单元的偏移地址是 0，它的段地址默认放在 ds 中）</li>
+<li>段名 segment</li>
+<li>段名 ends</li>
 </ol>
-<p>&emsp;&emsp;8086 CPU <strong>不支持</strong><del>将数据直接送入段寄存器</del>的操作，ds 是一个段寄存器。（硬件设计问题）</p>
-<div class="note warning"><p>数据 → 通用寄存器 → 段寄存器，<strong>不能</strong><del>直接将数据送入段寄存器</del></p>
+<p>&emsp;&emsp;End 是一个汇编程序的结束标记，编译器在编译汇编程序的过程中，如果碰到了伪指令 end，就结束对源程序的编译。<br>&emsp;&emsp;如果程序写完了，要在结尾处加上伪指令 end。否则，编译器在编译程序时，无法知道程序在何处结束。</p>
+<div class="note warning"><p>注意 end 和 ends 的区别。ends 只是段的结束，而 end 是整个程序的结束。</p>
 </div>
 
-<p>&emsp;&emsp;将数据从寄存器送入内存单元</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">bx</span></span><br><span class="line"><span class="keyword">mov</span> [<span class="number">0</span>],<span class="built_in">al</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-3-字的传送"><a href="#3-3-字的传送" class="headerlink" title="3.3 字的传送"></a>3.3 字的传送</h2><p>&emsp;&emsp;因为 8086 CPU 是 16 位结构，有 16 根数据线，所以可以一次性传送 16 位的数据，也就是一次性传送一个字。</p>
-<h2 id="3-4-mov、add、sub-指令"><a href="#3-4-mov、add、sub-指令" class="headerlink" title="3.4 mov、add、sub 指令"></a>3.4 mov、add、sub 指令</h2><p>&emsp;&emsp;已学 mov 指令的几种形式</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">6</span>     # <span class="keyword">mov</span> 寄存器,数据</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="built_in">ax</span>     # <span class="keyword">mov</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">mov</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">mov</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">mov</span> 内存单元,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # <span class="keyword">mov</span> 段寄存器,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="built_in">ds</span>     # <span class="keyword">mov</span> 寄存器,段寄存器</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;add 和 sub 指令同 mov 一样，都有两个操作对象</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,<span class="number">8</span>     # <span class="keyword">add</span> 寄存器,数据</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,<span class="built_in">bx</span>     # <span class="keyword">add</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">add</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">add</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">add</span> 内存单元,寄存器</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,<span class="number">9</span>     # <span class="keyword">sub</span> 寄存器,数据</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,<span class="built_in">bx</span>     # <span class="keyword">sub</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">sub</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">sub</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">sub</span> 内存单元,寄存器</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-5-数据段"><a href="#3-5-数据段" class="headerlink" title="3.5 数据段"></a>3.5 数据段</h2><p>&emsp;&emsp;将一段内存当作数据段，是我们在编程时的一种安排，我们可以在具体操作的时候，用 ds 存放数据段的段地址，再根据需要，用相关指令访问数据段中的具体单元。<br>&emsp;&emsp;我们将 123B0H~123BAH 的内存单元定义为数据段，我们现在要累加这个数据段中的前 3 个单元中的数据，代码如下</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">123BH</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # 将 <span class="number">123BH</span> 送入 <span class="built_in">ds</span> 中，作为数据段的段地址。</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="number">0</span>     # 用 <span class="built_in">al</span> 存放累加结果</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">0</span>]     # 将数据段第一个单元（偏移地址为 <span class="number">0</span>）中的数值加到 <span class="built_in">al</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">1</span>]     # 将数据段第二个单元（偏移地址为 <span class="number">1</span>）中的数值加到 <span class="built_in">al</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">2</span>]     # 将数据段第三个单元（偏移地址为 <span class="number">2</span>）中的数值加到 <span class="built_in">al</span> 中</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;累加数据段中的前 3 个字型数据</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">123BH</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # 将 <span class="number">123BH</span> 送入 <span class="built_in">ds</span> 中，作为数据段的段地址。</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 用 <span class="built_in">ax</span> 存放累加结果</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # 将数据段第一个字（偏移地址为<span class="number">0</span>）加到 <span class="built_in">ax</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">2</span>]     # 将数据段第二个字（偏移地址为<span class="number">2</span>）加到 <span class="built_in">ax</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">4</span>]     # 将数据段第三个字（偏移地址为<span class="number">4</span>）加到 <span class="built_in">ax</span> 中</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><p>一个字型数据占两个单元，所以偏移地址是 0、2、4。</p>
-</div>
-
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
-<li>字在内存中存储时，要用两个地址连续的内存单元来存放，字的低位字节存放在低地址单元中，高位字节存放在高地址单元中。</li>
-<li>用 mov 指令要访问内存单元，可以在 mov 指令中只给出单元的偏移地址，此时，段地址默认在 DS 寄存器中。</li>
-<li>[address] 表示一个偏移地址为 address 的内存单元。</li>
-<li>在内存和寄存器之间传送字型数据时，高地址单元和高 8 位寄存器、低地址单元和低 8 位寄存器相对应。</li>
-<li>mov、add、sub 是具有两个操作对象的指令。jum 是具有一个操作对象的指令。</li>
-<li>可以根据自己的推测，在 Debug 中实验指令的新格式。</li>
+<p>&emsp;&emsp;assume：含义为“假设”。<br>&emsp;&emsp;它假设假设某一段寄存器和程序中的某一个用 segment…ends 定义的段相关联。通过 assume 说明这种关联，在需要的情况下，编译程序可以将段寄存器和某一个具体的段相联系。</p>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>相关指令</th>
+<th>指令性质</th>
+<th>指令执行者</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通知编译器一个段结束</td>
+<td>段名 ends</td>
+<td>伪指令</td>
+<td>编译时，由编译器执行</td>
+</tr>
+<tr>
+<td>通知编译器程序结束</td>
+<td>end</td>
+<td>伪指令</td>
+<td>编译时，由编译器执行</td>
+</tr>
+<tr>
+<td>程序返回</td>
+<td>mov ax,4c00H    int 21H</td>
+<td>汇编指令</td>
+<td>编译时，由 CPU 执行</td>
+</tr>
+</tbody></table>
+<h3 id="4-2-2-标号"><a href="#4-2-2-标号" class="headerlink" title="4.2.2 标号"></a>4.2.2 标号</h3><p>&emsp;&emsp;一个标号指代了一个地址。<br>&emsp;&emsp;放在 segment 的前面，作为一个段的名称，这个段的名称最终将被编译、连接程序处理为一个段的段地址。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>程序加载后，ds 中存放着程序所在内存区的段地址，这个内存区的偏移地址为 0，则程序所在的内存区的地址为：ds:0；</li>
+<li>这个内存区的前 256 个字节中存放的是 PSP，dos 用来和程序进行通信。</li>
+<li>从 256 字节处向后的空间存放的是程序。<ol>
+<li>所以，我们从 ds 中可以得到 PSP 的段地址 SA，PSP 的偏移地址为 0，则物理地址为 SA×16+0。</li>
+<li>因为 PSP 占 256（100H）字节，所以程序的物理地址是：SA×16+0+256=SA×16+16×16=（SA+16）×16+0</li>
+<li>可用段地址和偏移地址表示为：SA+10:0。</li>
 </ol>
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/5.html">《Assembly Language 3.6 ~ 3.10 / 汇编语言 3.6 ~ 3.10》</a></p>
+</li>
+</ol>
+<h2 id="4-9-程序执行过程的跟踪"><a href="#4-9-程序执行过程的跟踪" class="headerlink" title="4.9 程序执行过程的跟踪"></a>4.9 程序执行过程的跟踪</h2><ol>
+<li>debug 命令使用<ol>
+<li>用 U 命令查看一下其他指令</li>
+<li>用 T 命令单步执行程序中的每一条指令，并观察每条指令的执行结果</li>
+<li>到了 Int 21，我们要用 P 命令执行。int 21 执行后，显示“Program terminated normally”，返回到 Debug 中。</li>
+</ol>
+</li>
+<li>DOS 程序执行过程<ol>
+<li>需要注意的是，在 DOS 中运行程序时，是 command 将程序加载入内存；</li>
+<li>所以程序运行结束后返回到 command 中，而在这里是 debug 将程序加载入内存，所以程序运行结束后要返回到 Debug 中。</li>
+<li>使用 Q 命令退出 Debug，将返回到 command 中，因为 Debug 是由 command 加载运行的。</li>
+</ol>
+</li>
+<li>DOS 程序执行过程举例<ol>
+<li>我们在 DOS 中用“Debug 1.exe”运行 Debug 对 1.exe 进行跟踪时，程序加载的顺序是：command 加载 Debug，Debug 加载 1.exe。</li>
+<li>返回的顺序是：从 1.exe 中的程序返回到 Debug，从 Debug 返回到 command。</li>
+</ol>
+</li>
+</ol>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/7.html">《Assembly Language 5.1 ~ 5.4 / 汇编语言 5.1 ~ 5.4》</a></p>
 </div>]]></content>
       <categories>
         <category>Assembly Language</category>
       </categories>
       <tags>
-        <tag>寄存器</tag>
-        <tag>mov</tag>
-        <tag>add</tag>
+        <tag>段</tag>
+        <tag>标号</tag>
       </tags>
   </entry>
   <entry>
@@ -2898,93 +2985,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Assembly Language 4.1 ~ 4.9 / 汇编语言 4.1 ~ 4.9</title>
-    <url>/Assembly-Language/6.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》4.1 ~ 4.9、《零基础入门学习汇编语言》P20 ~ 22</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/5.html">《Assembly Language 3.6 ~ 3.10 / 汇编语言 3.6 ~ 3.10》</a></p>
-</div>
-
-<span id="more"></span>
-
-<h1 id="第四章-第一个程序"><a href="#第四章-第一个程序" class="headerlink" title="第四章 第一个程序"></a>第四章 第一个程序</h1><h2 id="4-2-源程序"><a href="#4-2-源程序" class="headerlink" title="4.2 源程序"></a>4.2 源程序</h2><h3 id="4-2-1-定义一个段"><a href="#4-2-1-定义一个段" class="headerlink" title="4.2.1 定义一个段"></a>4.2.1 定义一个段</h3><p>&emsp;&emsp;segment 和 ends 是一对成对使用的伪指令，这是在写可被编译器编译的汇编程序时，必须要用到的一对伪指令。<br>&emsp;&emsp;segment 和 ends 的功能是定义一个段，segment 说明一个段开始，ends 说明一个段结束。<br>&emsp;&emsp;一个段必须有一个名称来标识，使用格式为</p>
-<ol>
-<li>段名 segment</li>
-<li>段名 ends</li>
-</ol>
-<p>&emsp;&emsp;End 是一个汇编程序的结束标记，编译器在编译汇编程序的过程中，如果碰到了伪指令 end，就结束对源程序的编译。<br>&emsp;&emsp;如果程序写完了，要在结尾处加上伪指令 end。否则，编译器在编译程序时，无法知道程序在何处结束。</p>
-<div class="note warning"><p>注意 end 和 ends 的区别。ends 只是段的结束，而 end 是整个程序的结束。</p>
-</div>
-
-<p>&emsp;&emsp;assume：含义为“假设”。<br>&emsp;&emsp;它假设假设某一段寄存器和程序中的某一个用 segment…ends 定义的段相关联。通过 assume 说明这种关联，在需要的情况下，编译程序可以将段寄存器和某一个具体的段相联系。</p>
-<table>
-<thead>
-<tr>
-<th>目的</th>
-<th>相关指令</th>
-<th>指令性质</th>
-<th>指令执行者</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>通知编译器一个段结束</td>
-<td>段名 ends</td>
-<td>伪指令</td>
-<td>编译时，由编译器执行</td>
-</tr>
-<tr>
-<td>通知编译器程序结束</td>
-<td>end</td>
-<td>伪指令</td>
-<td>编译时，由编译器执行</td>
-</tr>
-<tr>
-<td>程序返回</td>
-<td>mov ax,4c00H    int 21H</td>
-<td>汇编指令</td>
-<td>编译时，由 CPU 执行</td>
-</tr>
-</tbody></table>
-<h3 id="4-2-2-标号"><a href="#4-2-2-标号" class="headerlink" title="4.2.2 标号"></a>4.2.2 标号</h3><p>&emsp;&emsp;一个标号指代了一个地址。<br>&emsp;&emsp;放在 segment 的前面，作为一个段的名称，这个段的名称最终将被编译、连接程序处理为一个段的段地址。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>程序加载后，ds 中存放着程序所在内存区的段地址，这个内存区的偏移地址为 0，则程序所在的内存区的地址为：ds:0；</li>
-<li>这个内存区的前 256 个字节中存放的是 PSP，dos 用来和程序进行通信。</li>
-<li>从 256 字节处向后的空间存放的是程序。<ol>
-<li>所以，我们从 ds 中可以得到 PSP 的段地址 SA，PSP 的偏移地址为 0，则物理地址为 SA×16+0。</li>
-<li>因为 PSP 占 256（100H）字节，所以程序的物理地址是：SA×16+0+256=SA×16+16×16=（SA+16）×16+0</li>
-<li>可用段地址和偏移地址表示为：SA+10:0。</li>
-</ol>
-</li>
-</ol>
-<h2 id="4-9-程序执行过程的跟踪"><a href="#4-9-程序执行过程的跟踪" class="headerlink" title="4.9 程序执行过程的跟踪"></a>4.9 程序执行过程的跟踪</h2><ol>
-<li>debug 命令使用<ol>
-<li>用 U 命令查看一下其他指令</li>
-<li>用 T 命令单步执行程序中的每一条指令，并观察每条指令的执行结果</li>
-<li>到了 Int 21，我们要用 P 命令执行。int 21 执行后，显示“Program terminated normally”，返回到 Debug 中。</li>
-</ol>
-</li>
-<li>DOS 程序执行过程<ol>
-<li>需要注意的是，在 DOS 中运行程序时，是 command 将程序加载入内存；</li>
-<li>所以程序运行结束后返回到 command 中，而在这里是 debug 将程序加载入内存，所以程序运行结束后要返回到 Debug 中。</li>
-<li>使用 Q 命令退出 Debug，将返回到 command 中，因为 Debug 是由 command 加载运行的。</li>
-</ol>
-</li>
-<li>DOS 程序执行过程举例<ol>
-<li>我们在 DOS 中用“Debug 1.exe”运行 Debug 对 1.exe 进行跟踪时，程序加载的顺序是：command 加载 Debug，Debug 加载 1.exe。</li>
-<li>返回的顺序是：从 1.exe 中的程序返回到 Debug，从 Debug 返回到 command。</li>
-</ol>
-</li>
-</ol>
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/7.html">《Assembly Language 5.1 ~ 5.4 / 汇编语言 5.1 ~ 5.4》</a></p>
-</div>]]></content>
-      <categories>
-        <category>Assembly Language</category>
-      </categories>
-      <tags>
-        <tag>段</tag>
-        <tag>标号</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Assembly Language 6.1 ~ 6.3 / 汇编语言 6.1 ~ 6.3</title>
     <url>/Assembly-Language/8.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》6.1 ~ 6.3、《零基础入门学习汇编语言》P29 ~ 31</p>
@@ -3026,56 +3026,6 @@
       </categories>
       <tags>
         <tag>Program</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>BT &amp; Trojan（在宝塔上制作酸酸乳）</title>
-    <url>/IT/4.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;是不是觉得花了好多美元买的境外服务器，只放一个 Trojan 太过浪费？想要将境外服务器利用起来？<br>&emsp;&emsp;那你就来对了，本文就介绍了如何在安装了宝塔的服务器上，再搭建一个 Trojan。<br>&emsp;&emsp;让你在能酣畅淋漓满世界转悠的时候，还能建个站玩玩，充分利用服务器资源。</p>
-<span id="more"></span>
-
-<p>&emsp;&emsp;博主有幸成功申请到了 Oracle 的两台永久免费的服务器，但苦于服务器位于日本，建站以后国内访问速度感人。想要建几个站学习，但又买不起境内的服务器，所以只能“出此下策”：将宝塔与 Trojan 相结合，达到既能利用服务器建站，又能充分利用服务器资源。</p>
-<div class="note primary"><p>本文需要 Trojan 使用经验，若未曾搭建过 Trojan，请先学习：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a>。</p>
-</div>
-
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="一台服务器"><a href="#一台服务器" class="headerlink" title="一台服务器"></a>一台服务器</h2><p>&emsp;&emsp;建议选择与博主一样的系统版本进行搭建：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Centos 7</strong> x86_64 bbr</p>
-<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
-</div>
-
-<h2 id="一个域名"><a href="#一个域名" class="headerlink" title="一个域名"></a>一个域名</h2><p>&emsp;&emsp;任意纯英文域名皆可。域名类型与系统搭建无关，建议使用纯英文域名。博主多年使用感受，推荐在 <span class="exturl" data-url="aHR0cHM6Ly93YW53YW5nLmFsaXl1bi5jb20vZG9tYWluLz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云域名注册<i class="fa fa-external-link-alt"></i></span> 注册域名，并使用免费的 <span class="exturl" data-url="aHR0cHM6Ly93YW53YW5nLmFsaXl1bi5jb20vZG9tYWluL2Rucz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云解析<i class="fa fa-external-link-alt"></i></span> 对域名进行解析。另外有其它建站需求的朋友，可点击 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9taW5pc2l0ZS9nb29kcz91c2VyQ29kZT1lenB3OXNpaA==">阿里云·云小站<i class="fa fa-external-link-alt"></i></span> 领取优惠券。</p>
-<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>&emsp;&emsp;将你的域名解析至你的服务器，即添加<strong>主域名</strong> A 记录指向服务器 IP（只需添加 @ 的主域名解析就行，无须添加 www 等的二级域名解析）</p>
-<h1 id="服务器端操作"><a href="#服务器端操作" class="headerlink" title="服务器端操作"></a>服务器端操作</h1><h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><p>&emsp;&emsp;建议安装最新版宝塔，故请移步 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYnQuY24vP2ludml0ZV9jb2RlPU1WOWhiWFJxYjIwPQ==">宝塔官网<i class="fa fa-external-link-alt"></i></span>，获取安装链接及使用教程。</p>
-<h2 id="安装-Trojan"><a href="#安装-Trojan" class="headerlink" title="安装 Trojan"></a>安装 Trojan</h2><h3 id="搭建网站"><a href="#搭建网站" class="headerlink" title="搭建网站"></a>搭建网站</h3><p>&emsp;&emsp;登录宝塔，用刚刚解析至服务器的域名搭建一个网站。</p>
-<h3 id="申请-SSL-证书"><a href="#申请-SSL-证书" class="headerlink" title="申请 SSL 证书"></a>申请 SSL 证书</h3><p>&emsp;&emsp;通过 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0L2Nhcz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云云盾证书<i class="fa fa-external-link-alt"></i></span>，申请 SSL 证书，并绑定至宝塔的站点。</p>
-<div class="note warning"><p>绑定了 SSL 证书后，要在宝塔面板关闭 SSL！否则可能导致 Trojan 无法正常使用！</p>
-</div>
-
-<h3 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h3><p>&emsp;&emsp;在服务器运行如下脚本</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -fsSL https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/trojan-gfw/</span>trojan-quickstart<span class="regexp">/master/</span>trojan-quickstart.sh)</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置服务器端-Trojan"><a href="#配置服务器端-Trojan" class="headerlink" title="配置服务器端 Trojan"></a>配置服务器端 Trojan</h2><p>&emsp;&emsp;安装完 Trojan 后，进行配置</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vi <span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>trojan/config.json</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;修改密码及域名信息如下</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;run_type&quot;</span>: <span class="string">&quot;server&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_addr&quot;</span>: <span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">    <span class="attr">&quot;remote_addr&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;remote_port&quot;</span>: <span class="number">80</span>,</span><br><span class="line">    <span class="attr">&quot;password&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span>,</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;log_level&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;ssl&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;cert&quot;</span>: <span class="string">&quot;/www/server/panel/vhost/ssl/**你的域名**/fullchain.pem&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;key&quot;</span>: <span class="string">&quot;/www/server/panel/vhost/ssl/**你的域名**/privkey.pem&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;key_password&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher&quot;</span>: <span class="string">&quot;ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher_tls13&quot;</span>: <span class="string">&quot;TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;prefer_server_cipher&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;alpn&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;http/1.1&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;alpn_port_override&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;h2&quot;</span>: <span class="number">81</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Trojan-服务"><a href="#Trojan-服务" class="headerlink" title="Trojan 服务"></a>Trojan 服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart trojan     <span class="comment"># 重启 Trojan 服务</span></span><br><span class="line">systemctl status trojan     <span class="comment"># 查看 Trojan 服务状态</span></span><br><span class="line">systemctl <span class="built_in">enable</span> trojan     <span class="comment"># 设置开机自启</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h1><h2 id="修改本地-Trojan-配置"><a href="#修改本地-Trojan-配置" class="headerlink" title="修改本地 Trojan 配置"></a>修改本地 Trojan 配置</h2><p>&emsp;&emsp;搭建过 Trojan 的朋友应该不难发现（还没搭建过 Trojan 或者没有本地工具的请先学习：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a>），本地 Trojan 工具包里的 “config.json” 就是 Trojan 的配置文件，我们修改了服务器上的 Trojan 配置，当然还要同步修改本地的 Trojan 配置。打开“config.json”，按如下修改</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;run_type&quot;</span>: <span class="string">&quot;client&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_addr&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_port&quot;</span>: <span class="number">1080</span>,</span><br><span class="line">    <span class="attr">&quot;remote_addr&quot;</span>: <span class="string">&quot;**你的域名**&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;remote_port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">    <span class="attr">&quot;password&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;log_level&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;ssl&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;verify&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;verify_hostname&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;cert&quot;</span>: <span class="string">&quot;fullchain.cer&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher_tls13&quot;</span>:<span class="string">&quot;TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384&quot;</span>,</span><br><span class="line"><span class="attr">&quot;sni&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;alpn&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;h2&quot;</span>,</span><br><span class="line">            <span class="string">&quot;http/1.1&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;reuse_session&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;session_ticket&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;curves&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;tcp&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;no_delay&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;keep_alive&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;fast_open&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;fast_open_qlen&quot;</span>: <span class="number">20</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="修改-fullchain-cer"><a href="#修改-fullchain-cer" class="headerlink" title="修改 fullchain.cer"></a>修改 fullchain.cer</h2><p>&emsp;&emsp;还记得我们一开始在 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0L2Nhcz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云云盾证书<i class="fa fa-external-link-alt"></i></span> 申请的 SSL 证书吗？将“.pem”文件更名为“fullchain.cer”，并替换 Trojan 工具中的“fullchain.cer”。就大功告成啦！</p>
-<div class="note success"><p>Success! Start enjoying BT &amp; Trojan！</p>
-</div>
-
-<div class="note warning"><p>经过博主多次实践，nginx 的 SSL 会和 Trojan 相冲突，所以如果要使用 Trojan，还想正常搭建网站，就不能开启 SSL 功能。所有的网站都不能加 SSL！</p>
-</div>]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>宝塔</tag>
-        <tag>Trojan</tag>
       </tags>
   </entry>
   <entry>
@@ -3230,6 +3180,96 @@
       </tags>
   </entry>
   <entry>
+    <title>Build SSR（制作酸酸乳）</title>
+    <url>/IT/1.html</url>
+    <content><![CDATA[<p>Hello everyone! We are Chinese! We may not be the pride of China. But we are proud that we are Chinese! 作为一个中国人，一个爱好信息安全的中国人，我们理应携起手来，一致对外。首先一点，我们需要一条可以“放眼看世界”的通道。所以本博文就以最简单的方式来教大家最便捷的“制作酸酸乳”的方法（“酸酸乳”一词对应“ShadowSocksR”的简称“SSR”的拼音）</p>
+<span id="more"></span>
+
+<div class="note danger"><p>用 SSR 现已频繁被封，建议采用更为高级加密防封的 Trojan，制作教程：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a></p>
+</div>
+
+<blockquote>
+<p>&emsp;&emsp;Shadowsocks（简称SS）是一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种开发包。当前包使用Python、C、C++、C#、Go语言、Rust等编程语言开发，大部分主要实现（iOS平台的除外）采用Apache许可证、GPL、MIT许可证等多种自由软件许可协议开放源代码。Shadowsocks分为服务器端和客户端，在使用之前，需要先将服务器端程序部署到服务器上面，然后通过客户端连接并创建本地代理。<br>&emsp;&emsp;为了避免关键词过滤，网民会根据谐音将ShadowsocksR称为“酸酸乳”（SSR），将Shadowsocks称为“酸酸”（SS）。另外Shadowsocks的标志为纸飞机，而专门提供Shadowsocks或类似软件（如V2ray）服务器的网站也被称为“机场”。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——<em>摘自 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvU2hhZG93c29ja3M=">《维基百科》Shadowsocks 词条<i class="fa fa-external-link-alt"></i></span></em></p>
+</blockquote>
+<p>&emsp;&emsp;本文主要记录搭建SSR时的代码，在此之前的准备工作，例如购买境外VPS等，百度有许多教程，本文不再赘述。博主在尝试了几家较为有名的美国服务器商后，最后决定使用 <span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> ，如有需要可点击 <span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">此链接<i class="fa fa-external-link-alt"></i></span> 进行注册并购买VPS。</p>
+<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
+</div>
+
+<h1 id="确认服务器系统版本"><a href="#确认服务器系统版本" class="headerlink" title="确认服务器系统版本"></a>确认服务器系统版本</h1><div class="note primary"><p>本文适用系统版本为：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Centos 7</strong> x86_64 bbr</p>
+</div>
+
+<p>&emsp;&emsp;建议选择与博主一样的系统版本进行搭建，因为此教程可能不兼容其他系统版本，选用其他版本可能会造成搭建失败。（“bbr”是用于给网络加速的）</p>
+<h1 id="安装-Wget"><a href="#安装-Wget" class="headerlink" title="安装 Wget"></a>安装 Wget</h1><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> wget</span><br></pre></td></tr></table></figure>
+
+<h1 id="下载-SSR-Shell-安装脚本并执行"><a href="#下载-SSR-Shell-安装脚本并执行" class="headerlink" title="下载 SSR Shell 安装脚本并执行"></a>下载 SSR Shell 安装脚本并执行</h1><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/ToyoDAdoubi/</span>doubi<span class="regexp">/master/</span>ssr.sh &amp;&amp; chmod <span class="number">755</span> .<span class="regexp">/ssr.sh &amp;&amp; ./</span>ssr.sh</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>根据提示进行安装并配置，设置端口、密码、加密协议等等，此处不做详解。</p>
+</div>
+
+<h1 id="SSR-配置及日常维护"><a href="#SSR-配置及日常维护" class="headerlink" title="SSR 配置及日常维护"></a>SSR 配置及日常维护</h1><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">./ssr.sh</span></span><br></pre></td></tr></table></figure>
+
+<div class="note success"><p>Success! Start enjoying SSR!</p>
+</div>]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>SSR</tag>
+        <tag>ShadowSocksR</tag>
+        <tag>酸酸乳</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BT &amp; Trojan（在宝塔上制作酸酸乳）</title>
+    <url>/IT/4.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;是不是觉得花了好多美元买的境外服务器，只放一个 Trojan 太过浪费？想要将境外服务器利用起来？<br>&emsp;&emsp;那你就来对了，本文就介绍了如何在安装了宝塔的服务器上，再搭建一个 Trojan。<br>&emsp;&emsp;让你在能酣畅淋漓满世界转悠的时候，还能建个站玩玩，充分利用服务器资源。</p>
+<span id="more"></span>
+
+<p>&emsp;&emsp;博主有幸成功申请到了 Oracle 的两台永久免费的服务器，但苦于服务器位于日本，建站以后国内访问速度感人。想要建几个站学习，但又买不起境内的服务器，所以只能“出此下策”：将宝塔与 Trojan 相结合，达到既能利用服务器建站，又能充分利用服务器资源。</p>
+<div class="note primary"><p>本文需要 Trojan 使用经验，若未曾搭建过 Trojan，请先学习：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a>。</p>
+</div>
+
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="一台服务器"><a href="#一台服务器" class="headerlink" title="一台服务器"></a>一台服务器</h2><p>&emsp;&emsp;建议选择与博主一样的系统版本进行搭建：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Centos 7</strong> x86_64 bbr</p>
+<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
+</div>
+
+<h2 id="一个域名"><a href="#一个域名" class="headerlink" title="一个域名"></a>一个域名</h2><p>&emsp;&emsp;任意纯英文域名皆可。域名类型与系统搭建无关，建议使用纯英文域名。博主多年使用感受，推荐在 <span class="exturl" data-url="aHR0cHM6Ly93YW53YW5nLmFsaXl1bi5jb20vZG9tYWluLz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云域名注册<i class="fa fa-external-link-alt"></i></span> 注册域名，并使用免费的 <span class="exturl" data-url="aHR0cHM6Ly93YW53YW5nLmFsaXl1bi5jb20vZG9tYWluL2Rucz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云解析<i class="fa fa-external-link-alt"></i></span> 对域名进行解析。另外有其它建站需求的朋友，可点击 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9taW5pc2l0ZS9nb29kcz91c2VyQ29kZT1lenB3OXNpaA==">阿里云·云小站<i class="fa fa-external-link-alt"></i></span> 领取优惠券。</p>
+<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>&emsp;&emsp;将你的域名解析至你的服务器，即添加<strong>主域名</strong> A 记录指向服务器 IP（只需添加 @ 的主域名解析就行，无须添加 www 等的二级域名解析）</p>
+<h1 id="服务器端操作"><a href="#服务器端操作" class="headerlink" title="服务器端操作"></a>服务器端操作</h1><h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><p>&emsp;&emsp;建议安装最新版宝塔，故请移步 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYnQuY24vP2ludml0ZV9jb2RlPU1WOWhiWFJxYjIwPQ==">宝塔官网<i class="fa fa-external-link-alt"></i></span>，获取安装链接及使用教程。</p>
+<h2 id="安装-Trojan"><a href="#安装-Trojan" class="headerlink" title="安装 Trojan"></a>安装 Trojan</h2><h3 id="搭建网站"><a href="#搭建网站" class="headerlink" title="搭建网站"></a>搭建网站</h3><p>&emsp;&emsp;登录宝塔，用刚刚解析至服务器的域名搭建一个网站。</p>
+<h3 id="申请-SSL-证书"><a href="#申请-SSL-证书" class="headerlink" title="申请 SSL 证书"></a>申请 SSL 证书</h3><p>&emsp;&emsp;通过 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0L2Nhcz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云云盾证书<i class="fa fa-external-link-alt"></i></span>，申请 SSL 证书，并绑定至宝塔的站点。</p>
+<div class="note warning"><p>绑定了 SSL 证书后，要在宝塔面板关闭 SSL！否则可能导致 Trojan 无法正常使用！</p>
+</div>
+
+<h3 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h3><p>&emsp;&emsp;在服务器运行如下脚本</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -fsSL https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/trojan-gfw/</span>trojan-quickstart<span class="regexp">/master/</span>trojan-quickstart.sh)</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置服务器端-Trojan"><a href="#配置服务器端-Trojan" class="headerlink" title="配置服务器端 Trojan"></a>配置服务器端 Trojan</h2><p>&emsp;&emsp;安装完 Trojan 后，进行配置</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vi <span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>trojan/config.json</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;修改密码及域名信息如下</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;run_type&quot;</span>: <span class="string">&quot;server&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_addr&quot;</span>: <span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">    <span class="attr">&quot;remote_addr&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;remote_port&quot;</span>: <span class="number">80</span>,</span><br><span class="line">    <span class="attr">&quot;password&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span>,</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;log_level&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;ssl&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;cert&quot;</span>: <span class="string">&quot;/www/server/panel/vhost/ssl/**你的域名**/fullchain.pem&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;key&quot;</span>: <span class="string">&quot;/www/server/panel/vhost/ssl/**你的域名**/privkey.pem&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;key_password&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher&quot;</span>: <span class="string">&quot;ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher_tls13&quot;</span>: <span class="string">&quot;TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;prefer_server_cipher&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;alpn&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;http/1.1&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;alpn_port_override&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;h2&quot;</span>: <span class="number">81</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Trojan-服务"><a href="#Trojan-服务" class="headerlink" title="Trojan 服务"></a>Trojan 服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart trojan     <span class="comment"># 重启 Trojan 服务</span></span><br><span class="line">systemctl status trojan     <span class="comment"># 查看 Trojan 服务状态</span></span><br><span class="line">systemctl <span class="built_in">enable</span> trojan     <span class="comment"># 设置开机自启</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h1><h2 id="修改本地-Trojan-配置"><a href="#修改本地-Trojan-配置" class="headerlink" title="修改本地 Trojan 配置"></a>修改本地 Trojan 配置</h2><p>&emsp;&emsp;搭建过 Trojan 的朋友应该不难发现（还没搭建过 Trojan 或者没有本地工具的请先学习：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a>），本地 Trojan 工具包里的 “config.json” 就是 Trojan 的配置文件，我们修改了服务器上的 Trojan 配置，当然还要同步修改本地的 Trojan 配置。打开“config.json”，按如下修改</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;run_type&quot;</span>: <span class="string">&quot;client&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_addr&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_port&quot;</span>: <span class="number">1080</span>,</span><br><span class="line">    <span class="attr">&quot;remote_addr&quot;</span>: <span class="string">&quot;**你的域名**&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;remote_port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">    <span class="attr">&quot;password&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;log_level&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;ssl&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;verify&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;verify_hostname&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;cert&quot;</span>: <span class="string">&quot;fullchain.cer&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher_tls13&quot;</span>:<span class="string">&quot;TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384&quot;</span>,</span><br><span class="line"><span class="attr">&quot;sni&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;alpn&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;h2&quot;</span>,</span><br><span class="line">            <span class="string">&quot;http/1.1&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;reuse_session&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;session_ticket&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;curves&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;tcp&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;no_delay&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;keep_alive&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;fast_open&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;fast_open_qlen&quot;</span>: <span class="number">20</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改-fullchain-cer"><a href="#修改-fullchain-cer" class="headerlink" title="修改 fullchain.cer"></a>修改 fullchain.cer</h2><p>&emsp;&emsp;还记得我们一开始在 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0L2Nhcz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云云盾证书<i class="fa fa-external-link-alt"></i></span> 申请的 SSL 证书吗？将“.pem”文件更名为“fullchain.cer”，并替换 Trojan 工具中的“fullchain.cer”。就大功告成啦！</p>
+<div class="note success"><p>Success! Start enjoying BT &amp; Trojan！</p>
+</div>
+
+<div class="note warning"><p>经过博主多次实践，nginx 的 SSL 会和 Trojan 相冲突，所以如果要使用 Trojan，还想正常搭建网站，就不能开启 SSL 功能。所有的网站都不能加 SSL！</p>
+</div>]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>宝塔</tag>
+        <tag>Trojan</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Build Taobao Coupon Website / 搭建淘宝领券网</title>
     <url>/IT/2.html</url>
     <content><![CDATA[<p>&emsp;&emsp;蜗居在贫民窟里的孩子，生活日用品就是最大的开销了。有时一些价格较为昂贵的“家用电器”突然损坏，就会让这个本就不富裕的家庭，雪上加霜……所以博主一般会在各个平台搜索“淘宝优惠券”，以此来减轻一个男人背上的重担。于是就衍生出了为何不自己搭建一个“淘宝领券网”的念头，一来可以更便捷的搜索淘宝优惠券，二来又能在已经享有优惠的基础上，再获得一些商家的返利，给这个本就不富裕的家庭，带来一缕阳光……</p>
@@ -3276,46 +3316,6 @@
         <tag>Taobao</tag>
         <tag>淘宝</tag>
         <tag>领券网</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Build SSR（制作酸酸乳）</title>
-    <url>/IT/1.html</url>
-    <content><![CDATA[<p>Hello everyone! We are Chinese! We may not be the pride of China. But we are proud that we are Chinese! 作为一个中国人，一个爱好信息安全的中国人，我们理应携起手来，一致对外。首先一点，我们需要一条可以“放眼看世界”的通道。所以本博文就以最简单的方式来教大家最便捷的“制作酸酸乳”的方法（“酸酸乳”一词对应“ShadowSocksR”的简称“SSR”的拼音）</p>
-<span id="more"></span>
-
-<div class="note danger"><p>用 SSR 现已频繁被封，建议采用更为高级加密防封的 Trojan，制作教程：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a></p>
-</div>
-
-<blockquote>
-<p>&emsp;&emsp;Shadowsocks（简称SS）是一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种开发包。当前包使用Python、C、C++、C#、Go语言、Rust等编程语言开发，大部分主要实现（iOS平台的除外）采用Apache许可证、GPL、MIT许可证等多种自由软件许可协议开放源代码。Shadowsocks分为服务器端和客户端，在使用之前，需要先将服务器端程序部署到服务器上面，然后通过客户端连接并创建本地代理。<br>&emsp;&emsp;为了避免关键词过滤，网民会根据谐音将ShadowsocksR称为“酸酸乳”（SSR），将Shadowsocks称为“酸酸”（SS）。另外Shadowsocks的标志为纸飞机，而专门提供Shadowsocks或类似软件（如V2ray）服务器的网站也被称为“机场”。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——<em>摘自 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvU2hhZG93c29ja3M=">《维基百科》Shadowsocks 词条<i class="fa fa-external-link-alt"></i></span></em></p>
-</blockquote>
-<p>&emsp;&emsp;本文主要记录搭建SSR时的代码，在此之前的准备工作，例如购买境外VPS等，百度有许多教程，本文不再赘述。博主在尝试了几家较为有名的美国服务器商后，最后决定使用 <span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> ，如有需要可点击 <span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">此链接<i class="fa fa-external-link-alt"></i></span> 进行注册并购买VPS。</p>
-<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
-</div>
-
-<h1 id="确认服务器系统版本"><a href="#确认服务器系统版本" class="headerlink" title="确认服务器系统版本"></a>确认服务器系统版本</h1><div class="note primary"><p>本文适用系统版本为：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Centos 7</strong> x86_64 bbr</p>
-</div>
-
-<p>&emsp;&emsp;建议选择与博主一样的系统版本进行搭建，因为此教程可能不兼容其他系统版本，选用其他版本可能会造成搭建失败。（“bbr”是用于给网络加速的）</p>
-<h1 id="安装-Wget"><a href="#安装-Wget" class="headerlink" title="安装 Wget"></a>安装 Wget</h1><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> wget</span><br></pre></td></tr></table></figure>
-
-<h1 id="下载-SSR-Shell-安装脚本并执行"><a href="#下载-SSR-Shell-安装脚本并执行" class="headerlink" title="下载 SSR Shell 安装脚本并执行"></a>下载 SSR Shell 安装脚本并执行</h1><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/ToyoDAdoubi/</span>doubi<span class="regexp">/master/</span>ssr.sh &amp;&amp; chmod <span class="number">755</span> .<span class="regexp">/ssr.sh &amp;&amp; ./</span>ssr.sh</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><p>根据提示进行安装并配置，设置端口、密码、加密协议等等，此处不做详解。</p>
-</div>
-
-<h1 id="SSR-配置及日常维护"><a href="#SSR-配置及日常维护" class="headerlink" title="SSR 配置及日常维护"></a>SSR 配置及日常维护</h1><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">./ssr.sh</span></span><br></pre></td></tr></table></figure>
-
-<div class="note success"><p>Success! Start enjoying SSR!</p>
-</div>]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>SSR</tag>
-        <tag>ShadowSocksR</tag>
-        <tag>酸酸乳</tag>
       </tags>
   </entry>
   <entry>
@@ -3409,6 +3409,23 @@
       <tags>
         <tag>vulstudy</tag>
         <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CDN Nodes / CDN 节点 IP</title>
+    <url>/IT/9.html</url>
+    <content><![CDATA[<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93YW5nemhhbi5xaWFueGluLmNvbS9ub3RpY2UvZGV0YWlsLzEwMDU3">奇安信网站卫士<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9zdS5iYWlkdS5jb20vaGVscC9pbmRleC5odG1sIy8xMF9jaGFuZ2ppYW53ZW50aS8wX0hJREVfRkFRLzIwX2JhaWR1eXVuamlhc3VqaWVkaWFuSVBkaXpoaWR1YW4ubWQ=">百度云加速<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2xvdWRmbGFyZS5jb20vaXBzLw==">Cloudflare<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>CDN</tag>
+        <tag>节点</tag>
       </tags>
   </entry>
   <entry>
@@ -3688,23 +3705,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CDN Nodes / CDN 节点 IP</title>
-    <url>/IT/9.html</url>
-    <content><![CDATA[<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly93YW5nemhhbi5xaWFueGluLmNvbS9ub3RpY2UvZGV0YWlsLzEwMDU3">奇安信网站卫士<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9zdS5iYWlkdS5jb20vaGVscC9pbmRleC5odG1sIy8xMF9jaGFuZ2ppYW53ZW50aS8wX0hJREVfRkFRLzIwX2JhaWR1eXVuamlhc3VqaWVkaWFuSVBkaXpoaWR1YW4ubWQ=">百度云加速<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuY2xvdWRmbGFyZS5jb20vaXBzLw==">Cloudflare<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>CDN</tag>
-        <tag>节点</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS Security Hardening FAQ / CentOS 安全加固问题总汇</title>
     <url>/IT/13.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文收集了博主在 CentOS 安全加固中遇到的问题，会根据日常工作反馈及时更新。宗旨是希望所有的信息系统都能加固到位，并节约大家百度的时间，可以收藏备用。<br>&emsp;&emsp;本文只是针对 CentOS 的加固问题汇总。《CentOS 安全加固规范》已由部门技术总监制订，正在测试完善中，等出了稳定版，博主会再结合工作实操进行整理（在此先致敬总监的辛苦付出，虽然他也不会看我的博客😄）。</p>
@@ -3779,6 +3779,94 @@
         <tag>超级管理员</tag>
         <tag>灾备</tag>
         <tag>智动全景灾备系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Clerware Deployment Process / 科力锐灾备（一体机）部署/上架流程</title>
+    <url>/Clerware/4.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是科力锐灾备一体机（clerware 智动全景灾备系统）部署/上架流程的操作文档，为博主的<strong>个人笔记</strong>，未必是正确操作，<strong>勿将其作为</strong><del>科力锐官方技术文档</del>，仅供参考！</p>
+<div class="note info"><p>部署/上架时如产生错误，请参照 <a href="https://blog.hackme.cc/Clerware/5.html">《科力锐灾备 常见问题》</a> 进行问题排查</p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="部署流程的目的"><a href="#部署流程的目的" class="headerlink" title="部署流程的目的"></a>部署流程的目的</h1><p>&emsp;&emsp;确保用户在后期灾备系统任务执行、信息告警、灾难演练和应急恢复等行之有效</p>
+<h1 id="部署前准备工作（与用户交流）"><a href="#部署前准备工作（与用户交流）" class="headerlink" title="部署前准备工作（与用户交流）"></a>部署前准备工作（与用户交流）</h1><h2 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h2><h3 id="无接管-热备需求"><a href="#无接管-热备需求" class="headerlink" title="无接管 / 热备需求"></a>无接管 / 热备需求</h3><p>&emsp;&emsp;确定用户提供给灾备一体机的 IP 地址可用，可与所需部署灾备的系统相互通信，且不会产生 IP 地址冲突。</p>
+<h3 id="有接管（测试）需求"><a href="#有接管（测试）需求" class="headerlink" title="有接管（测试）需求"></a>有接管（测试）需求</h3><p>&emsp;&emsp;确定客户的网络是否划分 VLAN，若有划分，需<strong>记录</strong>需接管源机所在网络的 VLAN 号，然后将灾备一体机的网卡解除聚合，将交换机连接灾备一体机的端口设置为 trunk 模式</p>
+<h3 id="有热备需求"><a href="#有热备需求" class="headerlink" title="有热备需求"></a>有热备需求</h3><p>&emsp;&emsp;确定灾备一体机的 IP 可与热备的源机及目标机相互通信，且不会有 IP 冲突</p>
+<div class="note info"><p>热备时，备机直接使用源机 IP，源机所以需要一个新 IP，用户需提前准备一个不用的 IP</p>
+</div>
+
+<h2 id="灾备端口"><a href="#灾备端口" class="headerlink" title="灾备端口"></a>灾备端口</h2><h3 id="非公有云（主动连接）"><a href="#非公有云（主动连接）" class="headerlink" title="非公有云（主动连接）"></a>非公有云（主动连接）</h3><p>&emsp;&emsp;确认源机的 20000 ~ 20003 端口可与灾备一体机进行通信</p>
+<h3 id="公有云（被动连接）"><a href="#公有云（被动连接）" class="headerlink" title="公有云（被动连接）"></a>公有云（被动连接）</h3><p>&emsp;&emsp;确认灾备一体机的 IP 可以访问源机的 3345 端口</p>
+<h2 id="设备摆放位置"><a href="#设备摆放位置" class="headerlink" title="设备摆放位置"></a>设备摆放位置</h2><p>&emsp;&emsp;提前确定设备为几 U，然后与用户确认设备的部署位置：几排几号机柜多少 U</p>
+<h2 id="系统管理员及权限的划分"><a href="#系统管理员及权限的划分" class="headerlink" title="系统管理员及权限的划分"></a>系统管理员及权限的划分</h2><p>&emsp;&emsp;确定用户需要分配的系统管理员账号和对应的权限</p>
+<h2 id="告警设置信息"><a href="#告警设置信息" class="headerlink" title="告警设置信息"></a>告警设置信息</h2><p>&emsp;&emsp;确定灾备的告警设置信息：邮箱 / 企业微信</p>
+<h2 id="确认网线规格"><a href="#确认网线规格" class="headerlink" title="确认网线规格"></a>确认网线规格</h2><p>&emsp;&emsp;确定用户网速，如为千兆网<strong>至少</strong>需提供超五类网线</p>
+<h1 id="部署前检查"><a href="#部署前检查" class="headerlink" title="部署前检查"></a>部署前检查</h1><h2 id="正式设备"><a href="#正式设备" class="headerlink" title="正式设备"></a>正式设备</h2><h3 id="查看成交设备所属项目和用户名称"><a href="#查看成交设备所属项目和用户名称" class="headerlink" title="查看成交设备所属项目和用户名称"></a>查看成交设备所属项目和用户名称</h3><h3 id="查看设备外包装"><a href="#查看设备外包装" class="headerlink" title="查看设备外包装"></a>查看设备外包装</h3><h3 id="开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册"><a href="#开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册" class="headerlink" title="开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册"></a>开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册</h3><div class="note warning"><p>正式设备的开箱需要用户在场</p>
+</div>
+
+<h2 id="测试设备："><a href="#测试设备：" class="headerlink" title="测试设备："></a>测试设备：</h2><h3 id="开机检查，查看磁盘灯是否闪黄灯，查看-BIOS-是否报错，确定设备硬件是否正常"><a href="#开机检查，查看磁盘灯是否闪黄灯，查看-BIOS-是否报错，确定设备硬件是否正常" class="headerlink" title="开机检查，查看磁盘灯是否闪黄灯，查看 BIOS 是否报错，确定设备硬件是否正常"></a>开机检查，查看磁盘灯是否闪黄灯，查看 BIOS 是否报错，确定设备硬件是否正常</h3><h3 id="连接显示器和键盘，确定设备系统是否正常"><a href="#连接显示器和键盘，确定设备系统是否正常" class="headerlink" title="连接显示器和键盘，确定设备系统是否正常"></a>连接显示器和键盘，确定设备系统是否正常</h3><h3 id="确认测试设备的授权信息，是否可用（重要）"><a href="#确认测试设备的授权信息，是否可用（重要）" class="headerlink" title="确认测试设备的授权信息，是否可用（重要）"></a>确认测试设备的授权信息，是否可用（重要）</h3><h3 id="确认设备的系统版本、ISO-启动介质版本、驱动版本，及时更新为最新版"><a href="#确认设备的系统版本、ISO-启动介质版本、驱动版本，及时更新为最新版" class="headerlink" title="确认设备的系统版本、ISO 启动介质版本、驱动版本，及时更新为最新版"></a>确认设备的系统版本、ISO 启动介质版本、驱动版本，及时更新为最新版</h3><h3 id="查看-IP-地址，并修改成用户所提供的-IP-地址"><a href="#查看-IP-地址，并修改成用户所提供的-IP-地址" class="headerlink" title="查看 IP 地址，并修改成用户所提供的 IP 地址"></a>查看 IP 地址，并修改成用户所提供的 IP 地址</h3><div class="note info"><p>完成此文操作后，可进入下一步操作，即 <a href="https://blog.hackme.cc/Clerware/2.html">《科力锐 超级管理员》</a></p>
+</div>]]></content>
+      <categories>
+        <category>Clerware</category>
+      </categories>
+      <tags>
+        <tag>灾备</tag>
+        <tag>智动全景灾备系统</tag>
+        <tag>灾备一体机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Clerware Oracle RAC / 科力锐 Oracle RAC</title>
+    <url>/Clerware/1.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是对科力锐灾备培训中，针对 Oracle RAC 系统<strong>备份</strong>、<strong>接管</strong>、<strong>恢复</strong>的操作记录。为博主培训学习的<strong>个人笔记</strong>，未必是正确操作，<strong>勿将其作为</strong><del>科力锐官方技术文档</del>，仅供参考！</p>
+<span id="more"></span>
+
+<h1 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h1><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>备份需要使用灾备系统的集群备份</li>
+<li>因为 RAC 的两个节点中的集群数据都是一样的，所以 RAC 的 CDP 备份，只保留 RAC 主节点的一份集群数据</li>
+<li>因此需明确哪一台服务器作为主节点，后续接管验证或只恢复单节点验证业务，需选择主节点</li>
+<li>科力锐灾备中的 RAC 主节点，为灾备时设置的主节点，不一定非要对应 RAC 本身已经设定好的主节点</li>
+</ol>
+<h2 id="备份前准备"><a href="#备份前准备" class="headerlink" title="备份前准备"></a>备份前准备</h2><ol>
+<li>需提前七个工作日将环境收集表及运行脚本生成的 .log 日志发送给科力锐技术支持</li>
+<li>确认 RAC 的服务运行正常<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cd <span class="regexp">/u01/</span>app<span class="regexp">/11.2.0/g</span>rid<span class="regexp">/bin/</span></span><br><span class="line">./crs_stat -t     <span class="comment"># 查看是否都是 ONLINE</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="开始备份"><a href="#开始备份" class="headerlink" title="开始备份"></a>开始备份</h2><ol>
+<li>安装灾备客户端</li>
+<li>在灾备一体机中，查看客户端管理，确认两个 RAC 节点是否都在线</li>
+<li>点击“集群备份计划”，选择新建备份，选择 RAC 的两个节点</li>
+<li>选择备份的主节点</li>
+<li>选择备份的策略<br> &emsp;&emsp;由于 RAC 的 CDP 备份是单独授权，若没有此项授权，RAC 只能进行定时备份；由于 RAC 对磁盘读写比较敏感，当备份间隔频率过短，磁盘长时间处于繁忙状态时会影响 RAC 运行，所以定时备份的频率不得低于以小时为单位；如若对 RAC 业务数据的精确度比较高时，则可选用 CDP 备份，RAC CDP 的 RPO 趋近于 0，对RAC 性能影响小于 1%，当 CDP 保护期间被保护的 RAC 检测到 I/O 繁忙时，将自动暂停 CDP 保护；当数据 I/O 正常后自动恢复为 CDP 保护）</li>
+<li>集群磁盘设置，灾备系统会自动关联共享磁盘</li>
+<li>设置备份相关参数</li>
+<li>立即进行 RAC 的备份</li>
+</ol>
+<h2 id="确认备份状态"><a href="#确认备份状态" class="headerlink" title="确认备份状态"></a>确认备份状态</h2><h1 id="接管"><a href="#接管" class="headerlink" title="接管"></a>接管</h1><h2 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>接管不支持同时接管两个节点，需同时恢复两个节点时，目标机需准备共享存储，磁盘与源机的磁盘对应（包括集群盘）</li>
+<li>因为 RAC 需要扫描 IP 、网卡名、设备名等，所以接管时配置较为复杂</li>
+</ol>
+<h2 id="接管前准备"><a href="#接管前准备" class="headerlink" title="接管前准备"></a>接管前准备</h2><ol>
+<li>查看并记录网卡数量及对应IP，后续接管时要进行相关配置<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ifconfig</span></span><br></pre></td></tr></table></figure></li>
+<li>查看并记录网关及 DNS，后续接管时要进行相关配置</li>
+</ol>
+<h2 id="开始接管"><a href="#开始接管" class="headerlink" title="开始接管"></a>开始接管</h2><p>&emsp;&emsp;恢复 → 接管主机 → 新建 → 选择主节点 → 选择备份点 → 接管主机 → 选择具体备份点 → 根据源机情况进行相应配置</p>
+<h2 id="确认-RAC-服务启动情况"><a href="#确认-RAC-服务启动情况" class="headerlink" title="确认 RAC 服务启动情况"></a>确认 RAC 服务启动情况</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cd <span class="regexp">/u01/</span>app<span class="regexp">/11.2.0/g</span>rid<span class="regexp">/bin/</span></span><br><span class="line">./crsctl stat res -t -init     <span class="comment"># 显示 STARTING 就是启动中，如正在启动，过段时间进行以下操作</span></span><br><span class="line">./crs_stat -t     <span class="comment"># 看是否都是 ONLINE，如有非核心业务 OFFLINE，确认是否与源机状态相同</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h1><h2 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h2><p>&emsp;&emsp;恢复单节点和普通恢复相同，只要选择 RAC 主节点的数据进行恢复即可。如需恢复双节点，则需提供共享存储</p>
+<h2 id="恢复前准备"><a href="#恢复前准备" class="headerlink" title="恢复前准备"></a>恢复前准备</h2><ol>
+<li>查看并记录磁盘数量及容量<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">lsblk</span>     <span class="comment"># 对应有系统盘和集群盘</span></span><br></pre></td></tr></table></figure></li>
+<li>网卡相应配置与上面接管相同</li>
+</ol>
+<h2 id="开始恢复"><a href="#开始恢复" class="headerlink" title="开始恢复"></a>开始恢复</h2><p>&emsp;&emsp;步骤与普通服务器恢复步骤相同，涉及到的例如网卡等配置问题参考接管相应配置</p>
+<h2 id="确认-RAC-服务启动状态（与接管确认服务启动状态相同）"><a href="#确认-RAC-服务启动状态（与接管确认服务启动状态相同）" class="headerlink" title="确认 RAC 服务启动状态（与接管确认服务启动状态相同）"></a>确认 RAC 服务启动状态（与接管确认服务启动状态相同）</h2>]]></content>
+      <categories>
+        <category>Clerware</category>
+      </categories>
+      <tags>
+        <tag>灾备</tag>
+        <tag>Oracle RAC</tag>
       </tags>
   </entry>
   <entry>
@@ -3865,151 +3953,6 @@
         <tag>灾备</tag>
         <tag>智动全景灾备系统</tag>
         <tag>排错</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Clerware System Administrator / 科力锐 系统管理员</title>
-    <url>/Clerware/3.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是针对科力锐灾备一体机（clerware 智动全景灾备系统）<strong>系统管理员</strong>，也是平时灾备常用账号的操作文档，介绍了普通<strong>备份</strong>、<strong>验证</strong>、<strong>接管</strong>及<strong>恢复</strong>操作的流程，为博主的<strong>个人笔记</strong>，未必是正确操作，<strong>勿将其作为</strong><del>科力锐官方技术文档</del>，仅供参考！</p>
-<div class="note warning"><p>本文针对的是 <strong>系统管理员</strong>，如需 <strong>超级管理员</strong> 相关操作，请参考 <a href="https://blog.hackme.cc/Clerware/2.html">《科力锐 超级管理员》</a></p>
-</div>
-
-<span id="more"></span>
-
-<h1 id="确认源机位数"><a href="#确认源机位数" class="headerlink" title="确认源机位数"></a>确认源机位数</h1><p>&emsp;&emsp;针对 Linux，确认源机系统位数</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">arch</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="下载客户端"><a href="#下载客户端" class="headerlink" title="下载客户端"></a>下载客户端</h1><p>&emsp;&emsp;界面右上角“客户端下载”，选择相应位数，复制下载链接，回源机 wget 下载安装包</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">wget</span> （客户端下载链接）</span><br></pre></td></tr></table></figure>
-
-<div class="note warning"><p>若源机在公有云，选择被动连接，并在 设置 → 连接管理处 填入源机 IP</p>
-</div>
-
-<h1 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a>安装客户端</h1><p>&emsp;&emsp;待下载完成后，sh 命令安装</p>
-<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">sh </span>（安装包）</span><br></pre></td></tr></table></figure>
-
-<h1 id="查看源机是否在线"><a href="#查看源机是否在线" class="headerlink" title="查看源机是否在线"></a>查看源机是否在线</h1><p>&emsp;&emsp;安装完成后去灾备一体机，设置 → 客户端管理，查看源机是否在线</p>
-<h1 id="开始备份"><a href="#开始备份" class="headerlink" title="开始备份"></a>开始备份</h1><p>&emsp;&emsp;备份 → 新建备份计划 → 开始配置</p>
-<h2 id="备份数据空间自动回收设置"><a href="#备份数据空间自动回收设置" class="headerlink" title="备份数据空间自动回收设置"></a>备份数据空间自动回收设置</h2><p>&emsp;&emsp;有三个参数：备份数据保留期、存储空间配额下限、保留几个备份点，其中优先级最高的是<strong>保留几个备份点</strong>，如这一项未满足，则不会自动回收空间</p>
-<h2 id="连续保护（CDP）工作模式"><a href="#连续保护（CDP）工作模式" class="headerlink" title="连续保护（CDP）工作模式"></a>连续保护（CDP）工作模式</h2><p>&emsp;&emsp;有两种模式：业务优先模式及数据优先模式，默认业务优先模式，对源机系统影响小于1%。但如果用户对数据的要求比较高，可选择数据优先模式，对源机业务系统的影响大于业务优先模式</p>
-<h2 id="备份时资源占用设置"><a href="#备份时资源占用设置" class="headerlink" title="备份时资源占用设置"></a>备份时资源占用设置</h2><p>&emsp;&emsp;默认备份占用带宽 300M、占用源机 30% 的I/O性能、源存储读取队列深度为 4，可根据需要调整。</p>
-<h2 id="备份区域设置"><a href="#备份区域设置" class="headerlink" title="备份区域设置"></a>备份区域设置</h2><p>&emsp;&emsp;可排除某一分区进行备份</p>
-<h1 id="查看备份状态"><a href="#查看备份状态" class="headerlink" title="查看备份状态"></a>查看备份状态</h1><p>&emsp;&emsp;系统状态 → 选择源机的“更多”→ 详细，查看备份状态</p>
-<h1 id="首次备份后验证"><a href="#首次备份后验证" class="headerlink" title="首次备份后验证"></a>首次备份后验证</h1><div class="note warning"><p>验证使用的是 20004 端口，注意是否开放</p>
-</div>
-
-<p>&emsp;&emsp;恢复 → 验证 → 选择刚才备份的源机 → 选择需要验证的备份点 → 选择验证类型</p>
-<h2 id="文件验证"><a href="#文件验证" class="headerlink" title="文件验证"></a>文件验证</h2><p>&emsp;&emsp;以文件的方式进行验证，选择后会生成两种访问方式，一种是在线访问，另一种是通过资源管理器的地址栏进行访问，通过这种方式，可直接将备份点中的文件复制出来，进行验证。文件验证完成后，关闭访问链接，释放资源</p>
-<div class="note primary"><p>当出现勒索病毒，无法确定何时感染时，可通过此文件验证方式来确定</p>
-</div>
-
-<h2 id="快速验证（直观验证）"><a href="#快速验证（直观验证）" class="headerlink" title="快速验证（直观验证）"></a>快速验证（直观验证）</h2><p>&emsp;&emsp;在灾备系统中拉起一个虚拟机，以模拟源机系统的形式来验证备份点</p>
-<div class="note warning"><p>此种验证方式与接管不同，只作验证使用</p>
-</div>
-
-<h2 id="主机验证（一般不用）"><a href="#主机验证（一般不用）" class="headerlink" title="主机验证（一般不用）"></a>主机验证（一般不用）</h2><p>&emsp;&emsp;需准备一个目标机，以将将备份点恢复到目标机来进行全真模拟验证</p>
-<div class="note warning"><p>此种验证方式与恢复不同，只作验证使用，验证主机不会与灾备系统建立连接</p>
-</div>
-
-<h1 id="验证成功后可进行恢复"><a href="#验证成功后可进行恢复" class="headerlink" title="验证成功后可进行恢复"></a>验证成功后可进行恢复</h1><p>&emsp;&emsp;准备一台硬件支持的目标机，安装 Agent 后，界面显示“正在等待管理员输入”，即可开始恢复操作</p>
-<h1 id="接管功能"><a href="#接管功能" class="headerlink" title="接管功能"></a>接管功能</h1><p>&emsp;&emsp;接管 → 接管主机 → 新建 → 确定 → 选择源机 → 选择备份点 → 选择时间点 → 配置<br>&emsp;&emsp;设置CPU 及内存（至少不低于源机的30%），如只是做接管验证（同快速验证）则选择私有网络，如需接管业务系统，则配置网卡相应信息</p>
-<div class="note info"><p>如接管已经非测试阶段，而是已经在接管用户业务系统，则需要新建备份计划，此备份会基于源机进行增量备份</p>
-</div>]]></content>
-      <categories>
-        <category>Clerware</category>
-      </categories>
-      <tags>
-        <tag>灾备</tag>
-        <tag>智动全景灾备系统</tag>
-        <tag>系统管理员</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Clerware Oracle RAC / 科力锐 Oracle RAC</title>
-    <url>/Clerware/1.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是对科力锐灾备培训中，针对 Oracle RAC 系统<strong>备份</strong>、<strong>接管</strong>、<strong>恢复</strong>的操作记录。为博主培训学习的<strong>个人笔记</strong>，未必是正确操作，<strong>勿将其作为</strong><del>科力锐官方技术文档</del>，仅供参考！</p>
-<span id="more"></span>
-
-<h1 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h1><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li>备份需要使用灾备系统的集群备份</li>
-<li>因为 RAC 的两个节点中的集群数据都是一样的，所以 RAC 的 CDP 备份，只保留 RAC 主节点的一份集群数据</li>
-<li>因此需明确哪一台服务器作为主节点，后续接管验证或只恢复单节点验证业务，需选择主节点</li>
-<li>科力锐灾备中的 RAC 主节点，为灾备时设置的主节点，不一定非要对应 RAC 本身已经设定好的主节点</li>
-</ol>
-<h2 id="备份前准备"><a href="#备份前准备" class="headerlink" title="备份前准备"></a>备份前准备</h2><ol>
-<li>需提前七个工作日将环境收集表及运行脚本生成的 .log 日志发送给科力锐技术支持</li>
-<li>确认 RAC 的服务运行正常<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cd <span class="regexp">/u01/</span>app<span class="regexp">/11.2.0/g</span>rid<span class="regexp">/bin/</span></span><br><span class="line">./crs_stat -t     <span class="comment"># 查看是否都是 ONLINE</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="开始备份"><a href="#开始备份" class="headerlink" title="开始备份"></a>开始备份</h2><ol>
-<li>安装灾备客户端</li>
-<li>在灾备一体机中，查看客户端管理，确认两个 RAC 节点是否都在线</li>
-<li>点击“集群备份计划”，选择新建备份，选择 RAC 的两个节点</li>
-<li>选择备份的主节点</li>
-<li>选择备份的策略<br> &emsp;&emsp;由于 RAC 的 CDP 备份是单独授权，若没有此项授权，RAC 只能进行定时备份；由于 RAC 对磁盘读写比较敏感，当备份间隔频率过短，磁盘长时间处于繁忙状态时会影响 RAC 运行，所以定时备份的频率不得低于以小时为单位；如若对 RAC 业务数据的精确度比较高时，则可选用 CDP 备份，RAC CDP 的 RPO 趋近于 0，对RAC 性能影响小于 1%，当 CDP 保护期间被保护的 RAC 检测到 I/O 繁忙时，将自动暂停 CDP 保护；当数据 I/O 正常后自动恢复为 CDP 保护）</li>
-<li>集群磁盘设置，灾备系统会自动关联共享磁盘</li>
-<li>设置备份相关参数</li>
-<li>立即进行 RAC 的备份</li>
-</ol>
-<h2 id="确认备份状态"><a href="#确认备份状态" class="headerlink" title="确认备份状态"></a>确认备份状态</h2><h1 id="接管"><a href="#接管" class="headerlink" title="接管"></a>接管</h1><h2 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li>接管不支持同时接管两个节点，需同时恢复两个节点时，目标机需准备共享存储，磁盘与源机的磁盘对应（包括集群盘）</li>
-<li>因为 RAC 需要扫描 IP 、网卡名、设备名等，所以接管时配置较为复杂</li>
-</ol>
-<h2 id="接管前准备"><a href="#接管前准备" class="headerlink" title="接管前准备"></a>接管前准备</h2><ol>
-<li>查看并记录网卡数量及对应IP，后续接管时要进行相关配置<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ifconfig</span></span><br></pre></td></tr></table></figure></li>
-<li>查看并记录网关及 DNS，后续接管时要进行相关配置</li>
-</ol>
-<h2 id="开始接管"><a href="#开始接管" class="headerlink" title="开始接管"></a>开始接管</h2><p>&emsp;&emsp;恢复 → 接管主机 → 新建 → 选择主节点 → 选择备份点 → 接管主机 → 选择具体备份点 → 根据源机情况进行相应配置</p>
-<h2 id="确认-RAC-服务启动情况"><a href="#确认-RAC-服务启动情况" class="headerlink" title="确认 RAC 服务启动情况"></a>确认 RAC 服务启动情况</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cd <span class="regexp">/u01/</span>app<span class="regexp">/11.2.0/g</span>rid<span class="regexp">/bin/</span></span><br><span class="line">./crsctl stat res -t -init     <span class="comment"># 显示 STARTING 就是启动中，如正在启动，过段时间进行以下操作</span></span><br><span class="line">./crs_stat -t     <span class="comment"># 看是否都是 ONLINE，如有非核心业务 OFFLINE，确认是否与源机状态相同</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h1><h2 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h2><p>&emsp;&emsp;恢复单节点和普通恢复相同，只要选择 RAC 主节点的数据进行恢复即可。如需恢复双节点，则需提供共享存储</p>
-<h2 id="恢复前准备"><a href="#恢复前准备" class="headerlink" title="恢复前准备"></a>恢复前准备</h2><ol>
-<li>查看并记录磁盘数量及容量<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">lsblk</span>     <span class="comment"># 对应有系统盘和集群盘</span></span><br></pre></td></tr></table></figure></li>
-<li>网卡相应配置与上面接管相同</li>
-</ol>
-<h2 id="开始恢复"><a href="#开始恢复" class="headerlink" title="开始恢复"></a>开始恢复</h2><p>&emsp;&emsp;步骤与普通服务器恢复步骤相同，涉及到的例如网卡等配置问题参考接管相应配置</p>
-<h2 id="确认-RAC-服务启动状态（与接管确认服务启动状态相同）"><a href="#确认-RAC-服务启动状态（与接管确认服务启动状态相同）" class="headerlink" title="确认 RAC 服务启动状态（与接管确认服务启动状态相同）"></a>确认 RAC 服务启动状态（与接管确认服务启动状态相同）</h2>]]></content>
-      <categories>
-        <category>Clerware</category>
-      </categories>
-      <tags>
-        <tag>灾备</tag>
-        <tag>Oracle RAC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Clerware Deployment Process / 科力锐灾备（一体机）部署/上架流程</title>
-    <url>/Clerware/4.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是科力锐灾备一体机（clerware 智动全景灾备系统）部署/上架流程的操作文档，为博主的<strong>个人笔记</strong>，未必是正确操作，<strong>勿将其作为</strong><del>科力锐官方技术文档</del>，仅供参考！</p>
-<div class="note info"><p>部署/上架时如产生错误，请参照 <a href="https://blog.hackme.cc/Clerware/5.html">《科力锐灾备 常见问题》</a> 进行问题排查</p>
-</div>
-
-<span id="more"></span>
-
-<h1 id="部署流程的目的"><a href="#部署流程的目的" class="headerlink" title="部署流程的目的"></a>部署流程的目的</h1><p>&emsp;&emsp;确保用户在后期灾备系统任务执行、信息告警、灾难演练和应急恢复等行之有效</p>
-<h1 id="部署前准备工作（与用户交流）"><a href="#部署前准备工作（与用户交流）" class="headerlink" title="部署前准备工作（与用户交流）"></a>部署前准备工作（与用户交流）</h1><h2 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h2><h3 id="无接管-热备需求"><a href="#无接管-热备需求" class="headerlink" title="无接管 / 热备需求"></a>无接管 / 热备需求</h3><p>&emsp;&emsp;确定用户提供给灾备一体机的 IP 地址可用，可与所需部署灾备的系统相互通信，且不会产生 IP 地址冲突。</p>
-<h3 id="有接管（测试）需求"><a href="#有接管（测试）需求" class="headerlink" title="有接管（测试）需求"></a>有接管（测试）需求</h3><p>&emsp;&emsp;确定客户的网络是否划分 VLAN，若有划分，需<strong>记录</strong>需接管源机所在网络的 VLAN 号，然后将灾备一体机的网卡解除聚合，将交换机连接灾备一体机的端口设置为 trunk 模式</p>
-<h3 id="有热备需求"><a href="#有热备需求" class="headerlink" title="有热备需求"></a>有热备需求</h3><p>&emsp;&emsp;确定灾备一体机的 IP 可与热备的源机及目标机相互通信，且不会有 IP 冲突</p>
-<div class="note info"><p>热备时，备机直接使用源机 IP，源机所以需要一个新 IP，用户需提前准备一个不用的 IP</p>
-</div>
-
-<h2 id="灾备端口"><a href="#灾备端口" class="headerlink" title="灾备端口"></a>灾备端口</h2><h3 id="非公有云（主动连接）"><a href="#非公有云（主动连接）" class="headerlink" title="非公有云（主动连接）"></a>非公有云（主动连接）</h3><p>&emsp;&emsp;确认源机的 20000 ~ 20003 端口可与灾备一体机进行通信</p>
-<h3 id="公有云（被动连接）"><a href="#公有云（被动连接）" class="headerlink" title="公有云（被动连接）"></a>公有云（被动连接）</h3><p>&emsp;&emsp;确认灾备一体机的 IP 可以访问源机的 3345 端口</p>
-<h2 id="设备摆放位置"><a href="#设备摆放位置" class="headerlink" title="设备摆放位置"></a>设备摆放位置</h2><p>&emsp;&emsp;提前确定设备为几 U，然后与用户确认设备的部署位置：几排几号机柜多少 U</p>
-<h2 id="系统管理员及权限的划分"><a href="#系统管理员及权限的划分" class="headerlink" title="系统管理员及权限的划分"></a>系统管理员及权限的划分</h2><p>&emsp;&emsp;确定用户需要分配的系统管理员账号和对应的权限</p>
-<h2 id="告警设置信息"><a href="#告警设置信息" class="headerlink" title="告警设置信息"></a>告警设置信息</h2><p>&emsp;&emsp;确定灾备的告警设置信息：邮箱 / 企业微信</p>
-<h2 id="确认网线规格"><a href="#确认网线规格" class="headerlink" title="确认网线规格"></a>确认网线规格</h2><p>&emsp;&emsp;确定用户网速，如为千兆网<strong>至少</strong>需提供超五类网线</p>
-<h1 id="部署前检查"><a href="#部署前检查" class="headerlink" title="部署前检查"></a>部署前检查</h1><h2 id="正式设备"><a href="#正式设备" class="headerlink" title="正式设备"></a>正式设备</h2><h3 id="查看成交设备所属项目和用户名称"><a href="#查看成交设备所属项目和用户名称" class="headerlink" title="查看成交设备所属项目和用户名称"></a>查看成交设备所属项目和用户名称</h3><h3 id="查看设备外包装"><a href="#查看设备外包装" class="headerlink" title="查看设备外包装"></a>查看设备外包装</h3><h3 id="开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册"><a href="#开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册" class="headerlink" title="开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册"></a>开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册</h3><div class="note warning"><p>正式设备的开箱需要用户在场</p>
-</div>
-
-<h2 id="测试设备："><a href="#测试设备：" class="headerlink" title="测试设备："></a>测试设备：</h2><h3 id="开机检查，查看磁盘灯是否闪黄灯，查看-BIOS-是否报错，确定设备硬件是否正常"><a href="#开机检查，查看磁盘灯是否闪黄灯，查看-BIOS-是否报错，确定设备硬件是否正常" class="headerlink" title="开机检查，查看磁盘灯是否闪黄灯，查看 BIOS 是否报错，确定设备硬件是否正常"></a>开机检查，查看磁盘灯是否闪黄灯，查看 BIOS 是否报错，确定设备硬件是否正常</h3><h3 id="连接显示器和键盘，确定设备系统是否正常"><a href="#连接显示器和键盘，确定设备系统是否正常" class="headerlink" title="连接显示器和键盘，确定设备系统是否正常"></a>连接显示器和键盘，确定设备系统是否正常</h3><h3 id="确认测试设备的授权信息，是否可用（重要）"><a href="#确认测试设备的授权信息，是否可用（重要）" class="headerlink" title="确认测试设备的授权信息，是否可用（重要）"></a>确认测试设备的授权信息，是否可用（重要）</h3><h3 id="确认设备的系统版本、ISO-启动介质版本、驱动版本，及时更新为最新版"><a href="#确认设备的系统版本、ISO-启动介质版本、驱动版本，及时更新为最新版" class="headerlink" title="确认设备的系统版本、ISO 启动介质版本、驱动版本，及时更新为最新版"></a>确认设备的系统版本、ISO 启动介质版本、驱动版本，及时更新为最新版</h3><h3 id="查看-IP-地址，并修改成用户所提供的-IP-地址"><a href="#查看-IP-地址，并修改成用户所提供的-IP-地址" class="headerlink" title="查看 IP 地址，并修改成用户所提供的 IP 地址"></a>查看 IP 地址，并修改成用户所提供的 IP 地址</h3><div class="note info"><p>完成此文操作后，可进入下一步操作，即 <a href="https://blog.hackme.cc/Clerware/2.html">《科力锐 超级管理员》</a></p>
-</div>]]></content>
-      <categories>
-        <category>Clerware</category>
-      </categories>
-      <tags>
-        <tag>灾备</tag>
-        <tag>智动全景灾备系统</tag>
-        <tag>灾备一体机</tag>
       </tags>
   </entry>
   <entry>
@@ -4752,6 +4695,63 @@
       </tags>
   </entry>
   <entry>
+    <title>Clerware System Administrator / 科力锐 系统管理员</title>
+    <url>/Clerware/3.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是针对科力锐灾备一体机（clerware 智动全景灾备系统）<strong>系统管理员</strong>，也是平时灾备常用账号的操作文档，介绍了普通<strong>备份</strong>、<strong>验证</strong>、<strong>接管</strong>及<strong>恢复</strong>操作的流程，为博主的<strong>个人笔记</strong>，未必是正确操作，<strong>勿将其作为</strong><del>科力锐官方技术文档</del>，仅供参考！</p>
+<div class="note warning"><p>本文针对的是 <strong>系统管理员</strong>，如需 <strong>超级管理员</strong> 相关操作，请参考 <a href="https://blog.hackme.cc/Clerware/2.html">《科力锐 超级管理员》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="确认源机位数"><a href="#确认源机位数" class="headerlink" title="确认源机位数"></a>确认源机位数</h1><p>&emsp;&emsp;针对 Linux，确认源机系统位数</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">arch</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="下载客户端"><a href="#下载客户端" class="headerlink" title="下载客户端"></a>下载客户端</h1><p>&emsp;&emsp;界面右上角“客户端下载”，选择相应位数，复制下载链接，回源机 wget 下载安装包</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">wget</span> （客户端下载链接）</span><br></pre></td></tr></table></figure>
+
+<div class="note warning"><p>若源机在公有云，选择被动连接，并在 设置 → 连接管理处 填入源机 IP</p>
+</div>
+
+<h1 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a>安装客户端</h1><p>&emsp;&emsp;待下载完成后，sh 命令安装</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">sh </span>（安装包）</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看源机是否在线"><a href="#查看源机是否在线" class="headerlink" title="查看源机是否在线"></a>查看源机是否在线</h1><p>&emsp;&emsp;安装完成后去灾备一体机，设置 → 客户端管理，查看源机是否在线</p>
+<h1 id="开始备份"><a href="#开始备份" class="headerlink" title="开始备份"></a>开始备份</h1><p>&emsp;&emsp;备份 → 新建备份计划 → 开始配置</p>
+<h2 id="备份数据空间自动回收设置"><a href="#备份数据空间自动回收设置" class="headerlink" title="备份数据空间自动回收设置"></a>备份数据空间自动回收设置</h2><p>&emsp;&emsp;有三个参数：备份数据保留期、存储空间配额下限、保留几个备份点，其中优先级最高的是<strong>保留几个备份点</strong>，如这一项未满足，则不会自动回收空间</p>
+<h2 id="连续保护（CDP）工作模式"><a href="#连续保护（CDP）工作模式" class="headerlink" title="连续保护（CDP）工作模式"></a>连续保护（CDP）工作模式</h2><p>&emsp;&emsp;有两种模式：业务优先模式及数据优先模式，默认业务优先模式，对源机系统影响小于1%。但如果用户对数据的要求比较高，可选择数据优先模式，对源机业务系统的影响大于业务优先模式</p>
+<h2 id="备份时资源占用设置"><a href="#备份时资源占用设置" class="headerlink" title="备份时资源占用设置"></a>备份时资源占用设置</h2><p>&emsp;&emsp;默认备份占用带宽 300M、占用源机 30% 的I/O性能、源存储读取队列深度为 4，可根据需要调整。</p>
+<h2 id="备份区域设置"><a href="#备份区域设置" class="headerlink" title="备份区域设置"></a>备份区域设置</h2><p>&emsp;&emsp;可排除某一分区进行备份</p>
+<h1 id="查看备份状态"><a href="#查看备份状态" class="headerlink" title="查看备份状态"></a>查看备份状态</h1><p>&emsp;&emsp;系统状态 → 选择源机的“更多”→ 详细，查看备份状态</p>
+<h1 id="首次备份后验证"><a href="#首次备份后验证" class="headerlink" title="首次备份后验证"></a>首次备份后验证</h1><div class="note warning"><p>验证使用的是 20004 端口，注意是否开放</p>
+</div>
+
+<p>&emsp;&emsp;恢复 → 验证 → 选择刚才备份的源机 → 选择需要验证的备份点 → 选择验证类型</p>
+<h2 id="文件验证"><a href="#文件验证" class="headerlink" title="文件验证"></a>文件验证</h2><p>&emsp;&emsp;以文件的方式进行验证，选择后会生成两种访问方式，一种是在线访问，另一种是通过资源管理器的地址栏进行访问，通过这种方式，可直接将备份点中的文件复制出来，进行验证。文件验证完成后，关闭访问链接，释放资源</p>
+<div class="note primary"><p>当出现勒索病毒，无法确定何时感染时，可通过此文件验证方式来确定</p>
+</div>
+
+<h2 id="快速验证（直观验证）"><a href="#快速验证（直观验证）" class="headerlink" title="快速验证（直观验证）"></a>快速验证（直观验证）</h2><p>&emsp;&emsp;在灾备系统中拉起一个虚拟机，以模拟源机系统的形式来验证备份点</p>
+<div class="note warning"><p>此种验证方式与接管不同，只作验证使用</p>
+</div>
+
+<h2 id="主机验证（一般不用）"><a href="#主机验证（一般不用）" class="headerlink" title="主机验证（一般不用）"></a>主机验证（一般不用）</h2><p>&emsp;&emsp;需准备一个目标机，以将将备份点恢复到目标机来进行全真模拟验证</p>
+<div class="note warning"><p>此种验证方式与恢复不同，只作验证使用，验证主机不会与灾备系统建立连接</p>
+</div>
+
+<h1 id="验证成功后可进行恢复"><a href="#验证成功后可进行恢复" class="headerlink" title="验证成功后可进行恢复"></a>验证成功后可进行恢复</h1><p>&emsp;&emsp;准备一台硬件支持的目标机，安装 Agent 后，界面显示“正在等待管理员输入”，即可开始恢复操作</p>
+<h1 id="接管功能"><a href="#接管功能" class="headerlink" title="接管功能"></a>接管功能</h1><p>&emsp;&emsp;接管 → 接管主机 → 新建 → 确定 → 选择源机 → 选择备份点 → 选择时间点 → 配置<br>&emsp;&emsp;设置CPU 及内存（至少不低于源机的30%），如只是做接管验证（同快速验证）则选择私有网络，如需接管业务系统，则配置网卡相应信息</p>
+<div class="note info"><p>如接管已经非测试阶段，而是已经在接管用户业务系统，则需要新建备份计划，此备份会基于源机进行增量备份</p>
+</div>]]></content>
+      <categories>
+        <category>Clerware</category>
+      </categories>
+      <tags>
+        <tag>灾备</tag>
+        <tag>智动全景灾备系统</tag>
+        <tag>系统管理员</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网络安全等级保护 2.0 安全计算环境安全要求和安全管理制度体系</title>
     <url>/IT/11.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文选取了《网络安全等级测评师培训教材（初级）2019 版》中关于“安全计算环境”的部分安全要求及“安全管理制度体系”，结合公安部第三研究所对于初级测评师的培训课程，整理了如下知识点。只是博主的学习笔记，仅供学习交流，<strong>切勿作为</strong><del>官方标准</del>。</p>
@@ -4848,29 +4848,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/Misc/0.html</url>
-    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Misc</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hello Everyone</title>
     <url>/Welfare/1.html</url>
     <content><![CDATA[<p>Hello everyone! Welcome come to <a href="https://blog.hackme.cc/">信安 - HACK ME</a>! This is my very post. Thank you for coming, reading, studying, or just passing by. I look forward to communicating with you to learn and progress together. You can leave your contact information in the comments section.</p>
@@ -4916,6 +4893,43 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/Misc/0.html</url>
+    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Misc</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>I Must Be Responsible to Infomation Security / 我必须对信息安全负责</title>
+    <url>/Misc/3.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;公司给我一个机会，让我有幸参加了一次苏州市委网络安全和信息化领导小组办公室陈雪嵘主任的宣讲活动。整个宣讲持续了很久，而且也很深入，涉及了包括“网络安全意识形态”等的重点问题。其中有一个“点”让我记忆深刻，概括起来就是——“我们每一个人都是战士，可能保卫的就是国家网络安全。”</p>
+]]></content>
+      <categories>
+        <category>Misc</category>
+      </categories>
+      <tags>
+        <tag>信息安全</tag>
+        <tag>Information Security</tag>
+        <tag>responsible</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vulnerability Submission Instructions / 漏洞提交说明</title>
     <url>/Penetration-Test/1.html</url>
     <content><![CDATA[<p>&emsp;&emsp;为规范漏洞提交标准，提升效率，用此文对博客置顶文章 <a href="https://blog.hackme.cc/Welfare/1.html">《Hello Everyone》</a> <strong>邀请各路大神对本站进行渗透</strong>作漏洞提交的补充说明。</p>
@@ -4947,20 +4961,6 @@
       <tags>
         <tag>Vulnerability</tag>
         <tag>漏洞</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>I Must Be Responsible to Infomation Security / 我必须对信息安全负责</title>
-    <url>/Misc/3.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;公司给我一个机会，让我有幸参加了一次苏州市委网络安全和信息化领导小组办公室陈雪嵘主任的宣讲活动。整个宣讲持续了很久，而且也很深入，涉及了包括“网络安全意识形态”等的重点问题。其中有一个“点”让我记忆深刻，概括起来就是——“我们每一个人都是战士，可能保卫的就是国家网络安全。”</p>
-]]></content>
-      <categories>
-        <category>Misc</category>
-      </categories>
-      <tags>
-        <tag>信息安全</tag>
-        <tag>Information Security</tag>
-        <tag>responsible</tag>
       </tags>
   </entry>
   <entry>
@@ -6185,34 +6185,6 @@ A. PYTHON<br>B. PYT<br>C. PYTH<br>D. PYTHON<ul>
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu Optimization / Ubuntu 优化</title>
-    <url>/IT/16.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;博主比较喜欢新鲜事物，且总认为新版的比旧版的好，于是拿到一个服务器，第一件事就是更新。而对于 Linux 来说，kernel 内核的升级就显得尤为重要。而博主无意间发现了一个对博主超级无敌友好的升级内核方式，简直就是为博主这种人量身定制的——HWE kernel——会自动更新的 kernel.所以赶紧记录下来，同时也附带一些简单的 Ubuntu 优化。</p>
-<span id="more"></span>
-
-<div class="note primary"><p>本文适用系统版本为：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Ubuntu 20.04</strong></p>
-</div>
-
-<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
-</div>
-
-<h1 id="Time-时间"><a href="#Time-时间" class="headerlink" title="Time / 时间"></a>Time / 时间</h1><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">tzselect     <span class="comment"># 选时区</span></span><br><span class="line">cp <span class="regexp">/usr/</span>share<span class="regexp">/zoneinfo/</span>Asia<span class="regexp">/Shanghai /</span>etc/localtime     <span class="comment"># 改为中国时间</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="Source-源"><a href="#Source-源" class="headerlink" title="Source / 源"></a>Source / 源</h1><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">nano <span class="regexp">/etc/</span>apt/sources.list     <span class="comment"># 换源</span></span><br><span class="line">http:<span class="regexp">//</span>archive.ubuntu.com<span class="regexp">/ubuntu/</span>     <span class="comment"># 官方源</span></span><br><span class="line">apt update     <span class="comment"># 更新源</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="install-HWE-kernel-安装自动更新内核"><a href="#install-HWE-kernel-安装自动更新内核" class="headerlink" title="install HWE-kernel / 安装自动更新内核"></a>install HWE-kernel / 安装自动更新内核</h1><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">apt</span> install --install-recommends linux-generic-hwe-<span class="number">20</span>.<span class="number">04</span> -y</span><br></pre></td></tr></table></figure>
-
-<h1 id="bbr（加速）"><a href="#bbr（加速）" class="headerlink" title="bbr（加速）"></a>bbr（加速）</h1><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">echo net.core.default_qdisc = fq &gt;&gt; <span class="regexp">/etc/</span>sysctl.conf     <span class="comment"># 设置 bbr 队列算法</span></span><br><span class="line">echo net.ipv4.tcp_congestion_control = bbr &gt;&gt; <span class="regexp">/etc/</span>sysctl.conf     <span class="comment"># 开启 bbr</span></span><br><span class="line">sysctl -p     <span class="comment"># 保存生效</span></span><br><span class="line">sysctl net.ipv4.tcp_available_congestion_control     <span class="comment"># 查看是否有 bbr</span></span><br><span class="line">lsmod | grep bbr     <span class="comment"># 查看 bbr 是否开启</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>kernel</tag>
-        <tag>HWE</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Uszcn Invitation Code / 转运中国（注册）邀请码</title>
     <url>/Welfare/2.html</url>
     <content><![CDATA[<p>&emsp;&emsp;<a href="https://blog.hackme.cc/">信安 - HACK ME</a> 福利：<strong>送</strong> <span class="exturl" data-url="aHR0cHM6Ly93d3cudXN6Y24uY29tLw==">转运中国<i class="fa fa-external-link-alt"></i></span> 注册邀请码。</p>
@@ -6275,6 +6247,34 @@ A. PYTHON<br>B. PYT<br>C. PYTH<br>D. PYTHON<ul>
         <tag>转运中国</tag>
         <tag>邀请码</tag>
         <tag>注册邀请码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu Optimization / Ubuntu 优化</title>
+    <url>/IT/16.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;博主比较喜欢新鲜事物，且总认为新版的比旧版的好，于是拿到一个服务器，第一件事就是更新。而对于 Linux 来说，kernel 内核的升级就显得尤为重要。而博主无意间发现了一个对博主超级无敌友好的升级内核方式，简直就是为博主这种人量身定制的——HWE kernel——会自动更新的 kernel.所以赶紧记录下来，同时也附带一些简单的 Ubuntu 优化。</p>
+<span id="more"></span>
+
+<div class="note primary"><p>本文适用系统版本为：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Ubuntu 20.04</strong></p>
+</div>
+
+<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
+</div>
+
+<h1 id="Time-时间"><a href="#Time-时间" class="headerlink" title="Time / 时间"></a>Time / 时间</h1><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">tzselect     <span class="comment"># 选时区</span></span><br><span class="line">cp <span class="regexp">/usr/</span>share<span class="regexp">/zoneinfo/</span>Asia<span class="regexp">/Shanghai /</span>etc/localtime     <span class="comment"># 改为中国时间</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Source-源"><a href="#Source-源" class="headerlink" title="Source / 源"></a>Source / 源</h1><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">nano <span class="regexp">/etc/</span>apt/sources.list     <span class="comment"># 换源</span></span><br><span class="line">http:<span class="regexp">//</span>archive.ubuntu.com<span class="regexp">/ubuntu/</span>     <span class="comment"># 官方源</span></span><br><span class="line">apt update     <span class="comment"># 更新源</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="install-HWE-kernel-安装自动更新内核"><a href="#install-HWE-kernel-安装自动更新内核" class="headerlink" title="install HWE-kernel / 安装自动更新内核"></a>install HWE-kernel / 安装自动更新内核</h1><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">apt</span> install --install-recommends linux-generic-hwe-<span class="number">20</span>.<span class="number">04</span> -y</span><br></pre></td></tr></table></figure>
+
+<h1 id="bbr（加速）"><a href="#bbr（加速）" class="headerlink" title="bbr（加速）"></a>bbr（加速）</h1><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">echo net.core.default_qdisc = fq &gt;&gt; <span class="regexp">/etc/</span>sysctl.conf     <span class="comment"># 设置 bbr 队列算法</span></span><br><span class="line">echo net.ipv4.tcp_congestion_control = bbr &gt;&gt; <span class="regexp">/etc/</span>sysctl.conf     <span class="comment"># 开启 bbr</span></span><br><span class="line">sysctl -p     <span class="comment"># 保存生效</span></span><br><span class="line">sysctl net.ipv4.tcp_available_congestion_control     <span class="comment"># 查看是否有 bbr</span></span><br><span class="line">lsmod | grep bbr     <span class="comment"># 查看 bbr 是否开启</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>kernel</tag>
+        <tag>HWE</tag>
       </tags>
   </entry>
   <entry>
