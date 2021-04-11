@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sword-shield.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sword-shield.ico">
+  <link rel="mask-icon" href="/images/sword-shield.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.hackme.cc","root":"/","images":"/images","scheme":"Gemini","version":"8.3.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="&amp;emsp;&amp;emsp;本文是 中国大学 MOOC《Python语言程序设计》 《【第3周】Python 基本数据类型》课程笔记和选择题。 上一节课程：《Second Week of Python Notes &#x2F;【第2周笔记】Python 基本图形绘制》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Third Week of Python Notes &#x2F;【第3周笔记】Python 基本数据类型">
+<meta property="og:url" content="https://blog.hackme.cc/Python/3.html">
+<meta property="og:site_name" content="信安">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;本文是 中国大学 MOOC《Python语言程序设计》 《【第3周】Python 基本数据类型》课程笔记和选择题。 上一节课程：《Second Week of Python Notes &#x2F;【第2周笔记】Python 基本图形绘制》">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://bornfor.fun/source/%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96.webp">
+<meta property="article:published_time" content="2021-01-04T08:41:50.000Z">
+<meta property="article:modified_time" content="2021-04-10T12:35:55.053Z">
+<meta property="article:author" content="二洲">
+<meta property="article:tag" content="数据类型">
+<meta property="article:tag" content="time">
+<meta property="article:tag" content="文本进度条">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bornfor.fun/source/%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96.webp">
+
+
+<link rel="canonical" href="https://blog.hackme.cc/Python/3.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Third Week of Python Notes /【第3周笔记】Python 基本数据类型 | 信安</title>
+  
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e5aeb611b0cae78071d36bb6a04eea18";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<script data-ad-client="ca-pub-7268471087790880" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">信安</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">HACK ME</p>
+      <img class="custom-logo-image" src="/images/logo_text.webp" alt="信安">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-tie fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">132</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">67</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fas fa-link fa-fw"></i>Links</a></li>
+        <li class="menu-item menu-item-save-time"><span class="exturl" data-url="aHR0cHM6Ly9kYW8uaGFja21lLmNjLw=="><i class="fab fa-searchengin fa-fw"></i>Save Time</span></li>
+        <li class="menu-item menu-item-save-money"><span class="exturl" data-url="aHR0cHM6Ly90YW8uaGFja21lLmNjLw=="><i class="fas fa-yen-sign fa-fw"></i>Save Money</span></li>
+        <li class="menu-item menu-item-save-love"><span class="exturl" data-url="aHR0cHM6Ly9iYW8uaGFja21lLmNjLw=="><i class="far fa-kiss-wink-heart fa-fw"></i>Save Love</span></li>
+        <li class="menu-item menu-item-save-body"><span class="exturl" data-url="aHR0cDovL3dhby5oYWNrbWUuY2Mv"><i class="far fa-grin-hearts fa-fw"></i>Save Body</span></li>
+        <li class="menu-item menu-item-feedback"><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LnFxLmNvbS9wcm9kdWN0LzcwMzM5"><i class="fa fa-question-circle fa-fw"></i>Feedback</span></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+        <li class="menu-item menu-item-advertisement"><span class="exturl" data-url="aHR0cHM6Ly/ph43mlrDnlLPor7fkuK3igKbigKY="><i class="fas fa-ad fa-fw"></i>Advertisement</span></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Notes"><span class="nav-number">1.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">浮点数类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">复数类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.4.</span> <span class="nav-text">数字类型的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.5.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode-%E7%BC%96%E7%A0%81"><span class="nav-number">1.6.</span> <span class="nav-text">Unicode 编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#time-%E5%BA%93"><span class="nav-number">1.7.</span> <span class="nav-text">time 库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E8%8E%B7%E5%8F%96"><span class="nav-number">1.7.1.</span> <span class="nav-text">时间获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%87%BD%E6%95%B0"><span class="nav-number">1.7.2.</span> <span class="nav-text">时间格式化函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%97%B6"><span class="nav-number">1.7.3.</span> <span class="nav-text">程序计时</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E9%AA%8C-3"><span class="nav-number">2.</span> <span class="nav-text">测验 3</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二洲"
+      src="/images/bagua.webp">
+  <p class="site-author-name" itemprop="name">二洲</p>
+  <div class="site-description" itemprop="description">信安</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzkyMTEzMTQ=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;9211314"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjMxOTk3MzE5OTdAcXEuY29t" title="E-Mail → mailto:3199731997@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9iYW93ZWlqdQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;baoweiju"><i class="fab fa-twitter fa-fw"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;3199731997"><i class="fab fa-qq fa-fw"></i>QQ</span>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+      <!-- 粒子时钟 -->
+      <div style="margin-top:35px;">
+      <canvas id="canvasDiyBlock" style="width:60%;"></canvas><script src="/js/clock.js"></script>
+      </div>
+
+      <!-- 百度广告 -->
+      <div class="_g9hy6h97gy6"></div>
+      <script type="text/javascript">
+          (window.slotbydup = window.slotbydup || []).push({
+              id: "u6421120",
+              container: "_g9hy6h97gy6",
+              async: true
+          });
+      </script>
+      <!-- 多条广告如下脚本只需引入一次 -->
+      <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer" >
+      </script>
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="Click here to contact me" aria-label="Click here to contact me"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.hackme.cc/Python/3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bagua.webp">
+      <meta itemprop="name" content="二洲">
+      <meta itemprop="description" content="信安">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信安">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Third Week of Python Notes /【第3周笔记】Python 基本数据类型
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-01-04 16:41:50" itemprop="dateCreated datePublished" datetime="2021-01-04T16:41:50+08:00">2021-01-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-10 20:35:55" itemprop="dateModified" datetime="2021-04-10T20:35:55+08:00">2021-04-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    
+      <a title="changyan" href="/Python/3.html#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="Python/3.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>5.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>14 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>&emsp;&emsp;本文是 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaWNvdXJzZTE2My5vcmcvY291cnNlL0JJVC0yNjgwMDE=">中国大学 MOOC《Python语言程序设计》<i class="fa fa-external-link-alt"></i></span> 《【第3周】Python 基本数据类型》课程笔记和选择题。</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Python/2.html">《Second Week of Python Notes /【第2周笔记】Python 基本图形绘制》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><h2 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h2><p>&emsp;&emsp;与数学中整数的概念一致，可正可负，<strong>没有取值范围限制</strong></p>
+<p>&emsp;&emsp;pow(x,y) 函数：计算 $x^y$ ，想算多大算多大</p>
+<table>
+<thead>
+<tr>
+<th>四种进制</th>
+<th>表现形式</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>十进制</td>
+<td>直接表示</td>
+<td>1010，99，-217</td>
+</tr>
+<tr>
+<td>二进制</td>
+<td>以 0b 或 0B 开头</td>
+<td>0b010，-0B101</td>
+</tr>
+<tr>
+<td>八进制</td>
+<td>以 0o 或 0O 开头</td>
+<td>0o123，-0O456</td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td>以 0x 或 0X 开头</td>
+<td>0x9a，-0X89</td>
+</tr>
+</tbody></table>
+<h2 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h2><p>&emsp;&emsp;取值范围数量级约 $ -10^{307} $ 到 $ 10^{308} $ ，精度数量级 $ 10^{-16} $</p>
+<div class="note danger"><p>注意：浮点数间运算存在不确定尾数，不是 bug</p>
+</div>
+
+<p>&emsp;&emsp;round(x, d)：对 x 四舍五入，d 是小数截取位数</p>
+<p>&emsp;&emsp;浮点数间运算与比较用 round() 函数辅助</p>
+<p>&emsp;&emsp;不确定尾数一般发生在 $10^{-16}$ 左右，round() 十分有效</p>
+<p>&emsp;&emsp;浮点数可以采用科学计数法表示，如 aeb：表示 $ a×10^b $</p>
+<p>&emsp;&emsp;例如：4.3e-3 值为 0.0043，9.6E5 值为 960000.0</p>
+<h2 id="复数类型"><a href="#复数类型" class="headerlink" title="复数类型"></a>复数类型</h2><p>&emsp;&emsp;复数实例：z = 1.23e-4+5.6e+89j，z.real 获得实部，z.imag 获得虚部</p>
+<h2 id="数字类型的关系"><a href="#数字类型的关系" class="headerlink" title="数字类型的关系"></a>数字类型的关系</h2><p>&emsp;&emsp;类型间可进行混合运算，生成结果为“最宽”类型，三种类型存在一种逐渐“扩展”或“变宽”的关系：整数 → 浮点数 → 复数，例如：123+4.0=127.0（整数+浮点数=浮点数)</p>
+<table>
+<thead>
+<tr>
+<th>数值运算函数</th>
+<th>描述</th>
+<th>举例</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>abs(x)</td>
+<td>绝对值，x 的绝对值</td>
+<td>abs(-10.01)</td>
+<td>10.01</td>
+</tr>
+<tr>
+<td>divmod(x,y)</td>
+<td>商余（x//y，x%y）同时输出商和余数</td>
+<td>divmod(10, 3)</td>
+<td>(3, 1)</td>
+</tr>
+<tr>
+<td>pow(x, y[, z])</td>
+<td>幂余，(x**y)%z，参数 z 可省略</td>
+<td>pow(3, pow(3, 99), 10000)</td>
+<td>4587</td>
+</tr>
+<tr>
+<td>round(x[, d])</td>
+<td>四舍五入，d 是保留小数位数，默认值为 0</td>
+<td>round(-10.123, 2)</td>
+<td>-10.12</td>
+</tr>
+<tr>
+<td>max( $x_1,x_2, … ,x_n$ )</td>
+<td>最大值，返回 $x_1,x_2, … ,x_n$ 中的最大值，n 不限</td>
+<td>max(1, 9, 5, 4, 3)</td>
+<td>9</td>
+</tr>
+<tr>
+<td>min( $x_1,x_2, … ,x_n$ )</td>
+<td>最小值，返回 $x_1,x_2, … ,x_n$ 中的最小值，n 不限</td>
+<td>min(1, 9, 5, 4, 3)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>int(x)</td>
+<td>将 x 变成整数，舍弃小数部分</td>
+<td>int(123.45) 或 int(“123”)</td>
+<td>123</td>
+</tr>
+<tr>
+<td>float(x)</td>
+<td>将 x 变成浮点数，增加小数部分</td>
+<td>float(12)</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>complex(x)</td>
+<td>将 x 变成复数，增加虚数部分</td>
+<td>complex(4)</td>
+<td>4 + 0j</td>
+</tr>
+</tbody></table>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>&emsp;&emsp;字符串有两类共四种表示方法：一对单引号、一对双引号、一对单双引号、一对三单或三双引号（表示多行字符串）</p>
+<p>&emsp;&emsp;x in s：如果 x 是 s 的子串，返回 True，否则返回 False</p>
+<table>
+<thead>
+<tr>
+<th>字符串处理函数</th>
+<th>描述</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>len(x)</td>
+<td>长度，返回字符串 x 的长度</td>
+<td>len(“一二三456”) 结果为 6</td>
+</tr>
+<tr>
+<td>str(x)</td>
+<td>任意类型 x 所对应的字符串形式</td>
+<td>str(1.23) 结果为 “1.23”，str([1,2]) 结果为 “[1,2]”</td>
+</tr>
+<tr>
+<td>hex(x) 或 oct(x)</td>
+<td>整数x的十六进制或八进制<strong>小写</strong>形式字符串</td>
+<td>hex(425) 结果为 “0x1a9”，oct(425) 结果为 “0o651”</td>
+</tr>
+<tr>
+<td>chr(u)</td>
+<td>x 为 Unicode 编码，返回其对应的字符</td>
+<td></td>
+</tr>
+<tr>
+<td>ord(x)</td>
+<td>x 为字符，返回其对应的 Unicode 编码</td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>字符串处理方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>str.lower() 或 str.upper()</td>
+<td>返回字符串的副本，全部字符小写/大写</td>
+</tr>
+<tr>
+<td>str.split(sep=None)</td>
+<td>返回一个列表，由 str 根据 sep 被分隔的部分组成</td>
+</tr>
+<tr>
+<td>str.count(sub)</td>
+<td>返回子串 sub 在 str 中出现的次数</td>
+</tr>
+<tr>
+<td>str.replace(old, new)</td>
+<td>返回字符串 str 副本，所有 old 子串被替换为 new</td>
+</tr>
+<tr>
+<td>str.center(width[,fillchar])</td>
+<td>字符串 str 根据宽度 width 居中，fillchar 可选</td>
+</tr>
+<tr>
+<td>str.strip(chars)</td>
+<td>从 str 中去掉在其左侧和右侧 chars 中列出的字符</td>
+</tr>
+<tr>
+<td>str.join(iter)</td>
+<td>在 iter 变量除最后元素外每个元素后增加一个 str</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>举例</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“AbCdEfGh”.lower()</td>
+<td>“abcdefgh”</td>
+</tr>
+<tr>
+<td>“A,B,C”.split(“,”)</td>
+<td>[‘A’,’B’,’C’]</td>
+</tr>
+<tr>
+<td>“an apple a day”.count(“a”)</td>
+<td>4</td>
+</tr>
+<tr>
+<td>“python”.replace(“n”,”n123.io”)</td>
+<td>“python123.io”</td>
+</tr>
+<tr>
+<td>“python”.center(20,”=”)</td>
+<td>‘=======python=======’</td>
+</tr>
+<tr>
+<td>“= python= “.strip(“ =np”)</td>
+<td>“ytho”</td>
+</tr>
+<tr>
+<td>“,”.join(“12345”)</td>
+<td>“1,2,3,4,5” #主要用于字符串分隔等</td>
+</tr>
+</tbody></table>
+<h2 id="Unicode-编码"><a href="#Unicode-编码" class="headerlink" title="Unicode 编码"></a>Unicode 编码</h2><p>&emsp;&emsp;统一字符编码，即覆盖几乎所有字符的编码方式</p>
+<p>&emsp;&emsp;从 0 到 1114111（0x10FFFF）空间，每个编码对应一个字符</p>
+<p>&emsp;&emsp;Python 字符串中每个字符都是 Unicode 编码字符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">    print(<span class="built_in">chr</span>(<span class="number">9800</span>+i),end=<span class="string">&quot;&quot;</span>)     <span class="comment"># 输出从星座（9800 是白羊）开始的特殊符号</span></span><br></pre></td></tr></table></figure>
+
+<div class="pdf-container" data-target="https://bornfor.fun/source/format方法的格式控制.pdf" data-height="500px"></div>
+
+<h2 id="time-库"><a href="#time-库" class="headerlink" title="time 库"></a>time 库</h2><p>time 库是 Python 中处理时间的标准库</p>
+<h3 id="时间获取"><a href="#时间获取" class="headerlink" title="时间获取"></a>时间获取</h3><table>
+<thead>
+<tr>
+<th>时间获取函数</th>
+<th>描述</th>
+<th>用法</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>time()</td>
+<td>获取当前时间戳，即计算机内部时间值，浮点数</td>
+<td>time.time()</td>
+<td>1516939876.6022282</td>
+</tr>
+<tr>
+<td>ctime()</td>
+<td>获取当前时间并以易读方式表示，返回字符串</td>
+<td>time.ctime()</td>
+<td>‘Fri Jan 26 12:11:16 2018’</td>
+</tr>
+<tr>
+<td>gmtime()</td>
+<td>获取当前时间，表示为计算机可处理的时间格式</td>
+<td>time.gmtime()</td>
+<td>time.struct_time(tm_year=2018, tm_mon=1,……, tm_yday=26, tm_isdst=0)</td>
+</tr>
+</tbody></table>
+<h3 id="时间格式化函数"><a href="#时间格式化函数" class="headerlink" title="时间格式化函数"></a>时间格式化函数</h3><ol>
+<li>strftime(tpl, ts)<ol>
+<li>tpl 是格式化模板字符串，用来定义输出效果</li>
+<li>ts 是计算机内部时间类型变量<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;t = time.gmtime()</span><br><span class="line">&gt;&gt;&gt;time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>,t)</span><br><span class="line"><span class="string">&#x27;2018-01-26 12:55:20&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li>strptime(str, tpl)<ol>
+<li>str 是字符串形式的时间值</li>
+<li>tpl 是格式化模板字符串，用来定义输入效果<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;timeStr = <span class="string">&#x27;2018-01-26 12:55:20&#x27;</span></span><br><span class="line">&gt;&gt;&gt;time.strptime(timeStr, <span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line">time.struct_time(<span class="attribute">tm_year</span>=2018, <span class="attribute">tm_mon</span>=1, <span class="attribute">tm_mday</span>=26, <span class="attribute">tm_hour</span>=4, <span class="attribute">tm_min</span>=11, <span class="attribute">tm_sec</span>=16, <span class="attribute">tm_wday</span>=4, <span class="attribute">tm_yday</span>=26, <span class="attribute">tm_isdst</span>=0)</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<p><img data-src="https://bornfor.fun/source/%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96.webp" alt="时间格式化.webp"></p>
+<table>
+<thead>
+<tr>
+<th>格式化控制符</th>
+<th>日期/时间说明</th>
+<th>值范围</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%Y</td>
+<td>年份</td>
+<td>0000~9999</td>
+<td>1900</td>
+</tr>
+<tr>
+<td>%m</td>
+<td>月份</td>
+<td>01~12</td>
+<td>10</td>
+</tr>
+<tr>
+<td>%B</td>
+<td>月份名称</td>
+<td>January~December</td>
+<td>April</td>
+</tr>
+<tr>
+<td>%b</td>
+<td>月份名称缩写</td>
+<td>Jan~Dec</td>
+<td>Apr</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>日期</td>
+<td>01~31</td>
+<td>25</td>
+</tr>
+<tr>
+<td>%A</td>
+<td>星期</td>
+<td>Monday~Sunday</td>
+<td>Wednesday</td>
+</tr>
+<tr>
+<td>%a</td>
+<td>星期缩写</td>
+<td>Mon~Sun</td>
+<td>Wed</td>
+</tr>
+<tr>
+<td>%H</td>
+<td>小时（24h 制）</td>
+<td>00~23</td>
+<td>12</td>
+</tr>
+<tr>
+<td>%I</td>
+<td>小时（12h 制）</td>
+<td>01~12</td>
+<td>7</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>上/下午</td>
+<td>AM, PM</td>
+<td>PM</td>
+</tr>
+<tr>
+<td>%M</td>
+<td>分钟</td>
+<td>00~59</td>
+<td>26</td>
+</tr>
+<tr>
+<td>%S</td>
+<td>秒</td>
+<td>00~59</td>
+<td>26</td>
+</tr>
+</tbody></table>
+<h3 id="程序计时"><a href="#程序计时" class="headerlink" title="程序计时"></a>程序计时</h3><ol>
+<li>perf_counter()<ol>
+<li>返回一个 CPU 级别的精确时间计数值，单位为秒</li>
+<li>由于这个计数值起点不确定，<strong>连续调用差值才有意义</strong><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt;start = time.perf_counter()</span><br><span class="line"><span class="number">318.66599499718114</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;end = time.perf_counter()</span><br><span class="line"><span class="number">341.3905185375658</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;end - start</span><br><span class="line"><span class="number">22.724523540384666</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li>sleep(s)：s 拟休眠的时间，单位是秒，可以是浮点数 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt;<span class="function"><span class="keyword">def</span> <span class="title">wait</span><span class="params">()</span></span><span class="symbol">:</span></span><br><span class="line">time.sleep(<span class="number">3.3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;wait()     <span class="comment">#程序将等待 3.3 秒后再退出</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="测验-3"><a href="#测验-3" class="headerlink" title="测验 3"></a>测验 3</h1><ol>
+<li>pow(x, 0.5)能够计算x的平方根，计算负数的平方根将产生：D‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬<br>A. 无输出<br>B. ValueError错误<br>C. 程序崩溃<br>D. 复数 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; pow(<span class="number">-1</span>, <span class="number">0.5</span>)</span><br><span class="line">(<span class="number">6.123233995736766e-17</span>+<span class="number">1</span>j)</span><br></pre></td></tr></table></figure></li>
+<li>以下关于字符串.strip()方法功能说明正确的是：‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬D<br>A. 替换字符串中特定字符<br>B. 连接两个字符串序列<br>C. 按照指定字符分割字符串为数组<br>D. 去掉字符串两侧指定字符<ul>
+<li>“去掉字符串两侧指定字符”对应功能是.strip()</li>
+<li>“按照指定字符分割字符串为数组”对应功能是.split()</li>
+<li>“替换字符串中特定字符”对应功能是.replace()</li>
+<li>“连接两个字符串序列”对应功能是+操作符</li>
+</ul>
+</li>
+<li>字符串是一个连续的字符序列，哪个选项可以实现打印字符信息的换行？‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬C<br>A. 使用“\换行”<br>B. 使用空格<br>C. 使用\n<br>D. 使用转义符\<ul>
+<li>换行符\n，与C语言中一致。</li>
+</ul>
+</li>
+<li>val=pow(2,1000)，请用一行代码返回val结果的长度值。‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬D<br>A. len(val)<br>B. 其他答案均不正确<br>C. len(pow(2,1000))<br>D. len(str(val))<ul>
+<li>len(str(val))首先通过str(val)将数字类型val变成字符串，再通过len()获得字符串长度，即val的数字个数。</li>
+</ul>
+</li>
+<li>下面关于time库引用不正确的是？‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬C<br>A. from time import *<br>B. from time import strftime<br>C. from * import time<br>D. import time<ul>
+<li>from * import time 应该是： from time import *</li>
+</ul>
+</li>
+<li>哪个选项不是Python语言的整数类型？‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬D<br>A. 88<br>B. 0x9a<br>C. 0B1010<br>D. 0E99<ul>
+<li>十进制：一般表示</li>
+<li>二进制：0b 或 0B 开头</li>
+<li>八进制：0o 或 0O 开头</li>
+<li>十六进制：0x 或 0X 开头</li>
+<li>没有0E开头</li>
+</ul>
+</li>
+<li>关于整数类型的4种进制表示，哪个选项的描述是正确的？‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬C<br>A. 二进制、四进制、十进制、十六进制<br>B. 二进制、四进制、八进制、十六进制<br>C. 二进制、八进制、十进制、十六进制<br>D. 二进制、四进制、八进制、十进制<ul>
+<li>Python不支持四进制整数</li>
+</ul>
+</li>
+<li>哪个选项是Python语言%运算符的含义？‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬D<br>A. x与y之商<br>B. x的y次幂<br>C. x与y的整数商<br>D. x与y之商的余数<ul>
+<li>%是取余数，与C语言相同。</li>
+</ul>
+</li>
+<li>哪个选项是下面代码的执行结果？‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬A<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">name</span>=<span class="string">&quot;Python语言程序设计课程&quot;</span></span><br><span class="line"><span class="attribute">print</span>(name[<span class="number">0</span>],name[<span class="number">2</span>:-<span class="number">2</span>],name[-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪A. P thon语言程序设计 程<br>B. P thon语言程序设计课 课<br>C. P thon语言程序设计课 程<br>D. P thon语言程序设计 课<ul>
+<li>s[N:M]表示对字符串s的切片操作，从N到M，但不包含M</li>
+</ul>
+</li>
+<li>哪个选项是下面代码的执行结果？‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬D<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">s</span>=<span class="string">&#x27;PYTHON&#x27;</span></span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">&quot;&#123;0:3&#125;&quot;</span>.format(s))</span><br></pre></td></tr></table></figure>
+A. PYTHON<br>B. PYT<br>C. PYTH<br>D. PYTHON<ul>
+<li>{0:3}表示输出的宽度是3，但如果字符串超过长度3，则以字符串长度显示。</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Python\1.html" rel="bookmark">First Week of Python Notes /【第1周笔记】Python 基本语法元素</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Donate commet here.</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="二洲 WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="二洲 Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>二洲
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.hackme.cc/Python/3.html" title="Third Week of Python Notes &#x2F;【第3周笔记】Python 基本数据类型">https://blog.hackme.cc/Python/3.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.hackme.cc/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+
+          <span class="label">Homepage</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:3199731997@qq.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://wpa.qq.com/msgrd?v=3&uin=3199731997">
+          <span class="icon">
+            <i class="fab fa-qq"></i>
+          </span>
+
+          <span class="label">QQ</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/baoweiju">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/baoweiju">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/xinan.webp">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="tag"><i class="fa fa-tag"></i> 数据类型</a>
+              <a href="/tags/time/" rel="tag"><i class="fa fa-tag"></i> time</a>
+              <a href="/tags/%E6%96%87%E6%9C%AC%E8%BF%9B%E5%BA%A6%E6%9D%A1/" rel="tag"><i class="fa fa-tag"></i> 文本进度条</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Python/12.html" rel="prev" title="Second Week of Python Programs /【第2周程序】Python 基本图形绘制">
+                  <i class="fa fa-chevron-left"></i> Second Week of Python Programs /【第2周程序】Python 基本图形绘制
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/IT/13.html" rel="next" title="CentOS Security Hardening FAQ / CentOS 安全加固问题总汇">
+                  CentOS Security Hardening FAQ / CentOS 安全加固问题总汇 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 横向 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7268471087790880"
+     data-ad-slot="9081749453"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==">广告位 </span>
+      <img src="/images/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" style="display: inline-block;">
+  </div>
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">二洲</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">137k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">5:42</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><div>
+  <span id="timeDate">载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script async src="/js/duration.js"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 23555,
+      el    : 'wpac-rating',
+      color : '#fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+<script src="/js/local-search.js"></script>
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.pdf-container').length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/pdfobject@2.2.5/pdfobject.min.js', () => {
+    document.querySelectorAll('.pdf-container').forEach(element => {
+      PDFObject.embed(element.dataset.target, element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.dataset.height
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+<script data-pjax>
+var mermaidElements = document.querySelectorAll('.mermaid');
+if (mermaidElements.length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js', () => {
+    mermaidElements.forEach(element => {
+      const newElement = document.createElement('div');
+      newElement.innerHTML = element.innerHTML;
+      newElement.className = element.className;
+      element.parentNode.replaceChild(newElement, element);
+    });
+
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://blog.hackme.cc/Python/3.html',]
+      });
+      });
+  </script>
+
+  <script>
+  NexT.utils.loadComments('#SOHUCS', () => {
+    NexT.utils.getScript('https://changyan.sohu.com/upload/changyan.js', () => {
+      window.changyan.api.config({
+        appid: 'cyveCGIBa',
+        conf : '9f5cbe345865265e4c7b636c366c10d9'
+      });
+    });
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+
+    </div>
+<!-- hexo injector body_end start -->
+  <script async src="/js/sakura.js"></script>
+
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a target="_blank" rel="noopener" href="https://myssl.com/bornfor.love?from=mysslid"><img src="https://static.myssl.com/res/images/myssl-id.png" alt="" style="width:100%;height:100%"></a>
+</div>
+
+  <script async as="script" src="/js/click.js"></script>
+
+  <script async as="script" src="/js/tab.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

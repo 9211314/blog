@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sword-shield.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sword-shield.ico">
+  <link rel="mask-icon" href="/images/sword-shield.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.hackme.cc","root":"/","images":"/images","scheme":"Gemini","version":"8.3.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="&amp;emsp;&amp;emsp;在 搭建 vulstudy 的时候无意间发现了一个好像可以作为 CTF 的平台“Vulfocus”，打算也搭一个试试。README 里没看到安装说明，后来百度到了搭建指南在 INSTALL.md 里，于是搬运过来作为博文，便于查看。直接搬运，内容未作改动。 GitHub 项目地址： fofapro&#x2F;vulfocus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vulfocus Building Guide &#x2F; Vulfocus 搭建指南">
+<meta property="og:url" content="https://blog.hackme.cc/IT/8.html">
+<meta property="og:site_name" content="信安">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;在 搭建 vulstudy 的时候无意间发现了一个好像可以作为 CTF 的平台“Vulfocus”，打算也搭一个试试。README 里没看到安装说明，后来百度到了搭建指南在 INSTALL.md 里，于是搬运过来作为博文，便于查看。直接搬运，内容未作改动。 GitHub 项目地址： fofapro&#x2F;vulfocus">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-11T01:08:28.000Z">
+<meta property="article:modified_time" content="2021-04-10T12:35:51.253Z">
+<meta property="article:author" content="二洲">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="vulfocus">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.hackme.cc/IT/8.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Vulfocus Building Guide / Vulfocus 搭建指南 | 信安</title>
+  
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e5aeb611b0cae78071d36bb6a04eea18";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<script data-ad-client="ca-pub-7268471087790880" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">信安</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">HACK ME</p>
+      <img class="custom-logo-image" src="/images/logo_text.webp" alt="信安">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-tie fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">132</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">67</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fas fa-link fa-fw"></i>Links</a></li>
+        <li class="menu-item menu-item-save-time"><span class="exturl" data-url="aHR0cHM6Ly9kYW8uaGFja21lLmNjLw=="><i class="fab fa-searchengin fa-fw"></i>Save Time</span></li>
+        <li class="menu-item menu-item-save-money"><span class="exturl" data-url="aHR0cHM6Ly90YW8uaGFja21lLmNjLw=="><i class="fas fa-yen-sign fa-fw"></i>Save Money</span></li>
+        <li class="menu-item menu-item-save-love"><span class="exturl" data-url="aHR0cHM6Ly9iYW8uaGFja21lLmNjLw=="><i class="far fa-kiss-wink-heart fa-fw"></i>Save Love</span></li>
+        <li class="menu-item menu-item-save-body"><span class="exturl" data-url="aHR0cDovL3dhby5oYWNrbWUuY2Mv"><i class="far fa-grin-hearts fa-fw"></i>Save Body</span></li>
+        <li class="menu-item menu-item-feedback"><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LnFxLmNvbS9wcm9kdWN0LzcwMzM5"><i class="fa fa-question-circle fa-fw"></i>Feedback</span></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+        <li class="menu-item menu-item-advertisement"><span class="exturl" data-url="aHR0cHM6Ly/ph43mlrDnlLPor7fkuK3igKbigKY="><i class="fas fa-ad fa-fw"></i>Advertisement</span></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">快速安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">自定义安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%9C%80%E8%A6%81%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%92%8C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">安装需要的软件和开发环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-docker"><span class="nav-number">1.2.2.</span> <span class="nav-text">安装 docker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-docker-1"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">安装 docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Docker 配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Vulfocus-API"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装 Vulfocus API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Python3-%E4%B8%8D%E6%83%B3%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">安装 Python3 (不想源码编译)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0-pip"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">更新 pip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">安装虚拟环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%89%E5%8F%96-vulfocus-%E5%92%8C%E5%AE%89%E8%A3%85%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">拉取 vulfocus 和安装项目依赖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.4.</span> <span class="nav-text">数据库配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%BF%E7%94%A8mysql"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">如果使用mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">初始化数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%B6%E5%9C%BA%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">靶场配置：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-Celery-Celery%E4%B8%8D%E9%9C%80%E8%A6%81%E6%93%8D%E5%81%9A%E5%90%8E%E9%9D%A2%E6%9C%89%E8%87%AA%E5%90%AF"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">启动 Celery(Celery不需要操做后面有自启)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85uwsgi"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">安装uwsgi</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#uwsgi-%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.4.5.1.</span> <span class="nav-text">uwsgi 配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Vulfocus-Frontend"><span class="nav-number">1.2.5.</span> <span class="nav-text">安装 Vulfocus Frontend</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">项目构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">发行版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx-%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.6.</span> <span class="nav-text">nginx 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%A6%E8%AF%81%E4%B9%A6%E5%A4%9A-vhost-%E7%9A%84-nginx-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">带证书多 vhost 的 nginx 配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E5%B8%A6%E8%AF%81%E4%B9%A6%E4%BB%85%E6%9C%89%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">不带证书仅有一个项目配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEsupervisor"><span class="nav-number">1.2.7.</span> <span class="nav-text">配置supervisor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%90%AF"><span class="nav-number">1.2.8.</span> <span class="nav-text">权限以及自启</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">开机自启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.8.3.</span> <span class="nav-text">防火墙配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.9.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二洲"
+      src="/images/bagua.webp">
+  <p class="site-author-name" itemprop="name">二洲</p>
+  <div class="site-description" itemprop="description">信安</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzkyMTEzMTQ=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;9211314"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjMxOTk3MzE5OTdAcXEuY29t" title="E-Mail → mailto:3199731997@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9iYW93ZWlqdQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;baoweiju"><i class="fab fa-twitter fa-fw"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;3199731997"><i class="fab fa-qq fa-fw"></i>QQ</span>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+      <!-- 粒子时钟 -->
+      <div style="margin-top:35px;">
+      <canvas id="canvasDiyBlock" style="width:60%;"></canvas><script src="/js/clock.js"></script>
+      </div>
+
+      <!-- 百度广告 -->
+      <div class="_g9hy6h97gy6"></div>
+      <script type="text/javascript">
+          (window.slotbydup = window.slotbydup || []).push({
+              id: "u6421120",
+              container: "_g9hy6h97gy6",
+              async: true
+          });
+      </script>
+      <!-- 多条广告如下脚本只需引入一次 -->
+      <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer" >
+      </script>
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="Click here to contact me" aria-label="Click here to contact me"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.hackme.cc/IT/8.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bagua.webp">
+      <meta itemprop="name" content="二洲">
+      <meta itemprop="description" content="信安">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信安">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vulfocus Building Guide / Vulfocus 搭建指南
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-11 09:08:28" itemprop="dateCreated datePublished" datetime="2020-08-11T09:08:28+08:00">2020-08-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-10 20:35:51" itemprop="dateModified" datetime="2021-04-10T20:35:51+08:00">2021-04-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/IT/" itemprop="url" rel="index"><span itemprop="name">IT</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    
+      <a title="changyan" href="/IT/8.html#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="IT/8.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>7.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>19 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>&emsp;&emsp;在 <a href="https://blog.hackme.cc/IT/7.html">搭建 vulstudy</a> 的时候无意间发现了一个好像可以作为 CTF 的平台“Vulfocus”，打算也搭一个试试。<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZvZmFwcm8vdnVsZm9jdXMvYmxvYi9tYXN0ZXIvUkVBRE1FLm1k">README<i class="fa fa-external-link-alt"></i></span> 里没看到安装说明，后来百度到了搭建指南在 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZvZmFwcm8vdnVsZm9jdXMvYmxvYi9tYXN0ZXIvSU5TVEFMTC5tZA==">INSTALL.md<i class="fa fa-external-link-alt"></i></span> 里，于是搬运过来作为博文，便于查看。<strong>直接搬运，内容未作改动</strong>。</p>
+<div class="note primary"><p>GitHub 项目地址： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZvZmFwcm8vdnVsZm9jdXM=">fofapro/vulfocus<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>系统为前后端分离项目，<code>vulfocus-api</code>  为后端项目、 <code>vulfocus-frontend</code>  为前端项目。</p>
+<h2 id="快速安装"><a href="#快速安装" class="headerlink" title="快速安装"></a>快速安装</h2><p>拉取 Vulfocus 镜像：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull vulfocus/<span class="attr">vulfocus:</span>latest</span><br></pre></td></tr></table></figure>
+<p>运行 Vulfocus</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker create -p <span class="number">80</span>:<span class="number">80</span> -v <span class="regexp">/var/</span>run<span class="regexp">/docker.sock:/</span>var<span class="regexp">/run/</span>docker.sock  -e VUL_IP=xxx.xxx.xxx.xxx vulfocus/vulfocus</span><br><span class="line">docker start container id</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p <span class="number">80</span>:<span class="number">80</span> -v <span class="regexp">/var/</span>run<span class="regexp">/docker.sock:/</span>var<span class="regexp">/run/</span>docker.sock  -e VUL_IP=xxx.xxx.xxx.xxx vulfocus/vulfocus</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-v /var/run/docker.sock:/var/run/docker.sock</code> 为 docker 交互连接。</li>
+<li><code>-e DOCKER_URL</code> 为 Docker 连接方式，默认通过 <code>unix://var/run/docker.sock</code> 进行连接，也可以通过 <code>tcp://xxx.xxx.xxx.xxx:2375</code> 进行连接（必须开放 2375 端口）。</li>
+<li><code>-v /vulfocus-api/db.sqlite3:db.sqlite3</code> 映射数据库为本地文件。</li>
+<li><code>-e VUL_IP=xxx.xxx.xxx.xxx</code> 为 Docker 服务器 IP ，不能为 127.0.0.1。</li>
+<li>默认账户密码为 <code>admin/admin</code>。</li>
+</ul>
+<h2 id="自定义安装"><a href="#自定义安装" class="headerlink" title="自定义安装"></a>自定义安装</h2><p><strong>以 Centos 7 为例主机已经关闭 <code>selinux</code></strong></p>
+<p>环境：</p>
+<ul>
+<li>语言：python3</li>
+<li>数据库：sqlite3、redis</li>
+<li>框架：Django、Celery</li>
+<li>API：djangorestframework</li>
+<li>系统：Centos 7 , Other</li>
+</ul>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><h4 id="安装需要的软件和开发环境"><a href="#安装需要的软件和开发环境" class="headerlink" title="安装需要的软件和开发环境"></a>安装需要的软件和开发环境</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> epel-<span class="keyword">release</span></span><br><span class="line">yum <span class="keyword">install</span> gcc -y</span><br><span class="line">yum <span class="keyword">install</span>  nginx supervisor net-tools wget git -y</span><br><span class="line">yum <span class="keyword">install</span> redis -y</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-docker"><a href="#安装-docker" class="headerlink" title="安装 docker"></a>安装 docker</h3><h4 id="安装-docker-1"><a href="#安装-docker-1" class="headerlink" title="安装 docker"></a>安装 docker</h4><p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL2luc3RhbGwv">https://docs.docker.com/engine/install/<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> docker -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="Docker-配置"><a href="#Docker-配置" class="headerlink" title="Docker 配置"></a>Docker 配置</h4><p>配置 Docker <code>2375</code> 端口（可根据实际情况进行修改），修改 docker 配置文件，加入以下信息：</p>
+<p><strong>位置：</strong>  <code>/usr/lib/systemd/system/docker.service</code></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=<span class="regexp">/usr/</span>bin<span class="regexp">/dockerd -H tcp:/</span><span class="regexp">/127.0.0.1:2375 -H unix:/</span><span class="regexp">/var/</span>run/docker.sock \</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>bin<span class="regexp">/dockerd-current -H tcp:/</span><span class="regexp">/127.0.0.1:2375 -H unix:/</span><span class="regexp">/var/</span>run/docker.sock \</span><br></pre></td></tr></table></figure>
+
+<p>重载配置文件</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl daemon-reload</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装-Vulfocus-API"><a href="#安装-Vulfocus-API" class="headerlink" title="安装 Vulfocus API"></a>安装 Vulfocus API</h3><h4 id="安装-Python3-不想源码编译"><a href="#安装-Python3-不想源码编译" class="headerlink" title="安装 Python3 (不想源码编译)"></a>安装 Python3 (不想源码编译)</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br><span class="line">chmod 755 Miniconda3-latest-Linux-x86_64.sh</span><br><span class="line">./Miniconda3-latest-Linux-x86_64.sh  # 安装位置选  /opt/anaconda3/  </span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新-pip"><a href="#更新-pip" class="headerlink" title="更新 pip"></a>更新 pip</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/opt/anaconda3/bin/pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U</span><br><span class="line">/opt/anaconda3/bin/pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装虚拟环境"><a href="#安装虚拟环境" class="headerlink" title="安装虚拟环境"></a>安装虚拟环境</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="regexp">/data/</span>&#123;etc,log,tmp&#125;</span><br><span class="line"><span class="regexp">/opt/</span>anaconda3<span class="regexp">/bin/</span>virtualenv <span class="regexp">/data/</span>venv_py --python=<span class="regexp">/opt/</span>anaconda3<span class="regexp">/bin/</span>python</span><br><span class="line">echo <span class="string">&quot;source /data/venv_py/bin/activate&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="keyword">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h4 id="拉取-vulfocus-和安装项目依赖"><a href="#拉取-vulfocus-和安装项目依赖" class="headerlink" title="拉取 vulfocus 和安装项目依赖"></a>拉取 vulfocus 和安装项目依赖</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /data</span><br><span class="line">git clone https://github.com/fofapro/vulfocus.git web</span><br><span class="line">cd /data/web/vulfocus-api/</span><br><span class="line">pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<h3 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h3><h4 id="如果使用mysql"><a href="#如果使用mysql" class="headerlink" title="如果使用mysql"></a>如果使用mysql</h4><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-devel </span><br><span class="line">pip3 install mysqlclient -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<p>修改setting文件</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    &#x27;default&#x27;: &#123;</span><br><span class="line">        &#x27;ENGINE&#x27;: &#x27;django.db.backends.mysql&#x27;,</span><br><span class="line">        &#x27;NAME&#x27;: &#x27;vulfocus&#x27;,</span><br><span class="line">        &#x27;HOST&#x27;:&#x27;127.0.0.1&#x27;,</span><br><span class="line">        &#x27;PORT&#x27;:3306,</span><br><span class="line">        &#x27;USER&#x27;:&#x27;root&#x27;,</span><br><span class="line">        &#x27;PASSWORD&#x27;:os.environ[&#x27;MYSQLPWD&#x27;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">bug MySQL does not allow unique CharFields to have a max_length &gt; 255</span></span><br><span class="line">SILENCED_SYSTEM_CHECKS = [&#x27;mysql.E001&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /data/web/vulfocus-api</span><br><span class="line">python manage.py migrate</span><br><span class="line">python manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+
+<h4 id="靶场配置："><a href="#靶场配置：" class="headerlink" title="靶场配置："></a>靶场配置：</h4><ol>
+<li><p>配置 Docker URL（<code>vulfocus/settings.py</code>），默认为：<code>tcp://127.0.0.1:2375</code>，修改为 Docker 服务器的 IP。</p>
+</li>
+<li><p>配置 VUL_IP（<code>vulfocus/settings.py</code>），修改为 Docker 服务器的 IP。</p>
+</li>
+<li><p>修改 CELERY_BROKER_URL（<code>vulfocus/settings.py</code>），修改为 Redis 连接地址。</p>
+</li>
+</ol>
+<h4 id="启动-Celery-Celery不需要操做后面有自启"><a href="#启动-Celery-Celery不需要操做后面有自启" class="headerlink" title="启动 Celery(Celery不需要操做后面有自启)"></a>启动 Celery(Celery不需要操做后面有自启)</h4><p>在 <code>vulfocus-api</code> 中启动 Celery：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">celery</span> -A vulfocus worker -l <span class="literal">info</span> -E</span><br></pre></td></tr></table></figure>
+<p>后端启动：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery multi start worker -A vulfocus -l <span class="builtin-name">info</span> <span class="attribute">--logfile</span>=celery.log</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装uwsgi"><a href="#安装uwsgi" class="headerlink" title="安装uwsgi"></a>安装uwsgi</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install uwsgi -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<h5 id="uwsgi-配置"><a href="#uwsgi-配置" class="headerlink" title="uwsgi 配置"></a>uwsgi 配置</h5><p><strong>位置：</strong> <code>/data/etc/vulfocus_uwsgi.ini</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">uid=nginx</span><br><span class="line">chdir = /data/web/vulfocus-api</span><br><span class="line">;module = vulfocus.wsgi  </span><br><span class="line">mount = /api=vulfocus.wsgi:application  # nginx配置子目录</span><br><span class="line">manage-script-name = true</span><br><span class="line">;route-run = fixpathinfo:  </span><br><span class="line">home = /data/venv_py</span><br><span class="line">socket = /data/tmp/vulfocus_uwsgi.sock</span><br><span class="line">processes = 8</span><br><span class="line">master = true</span><br><span class="line">max-requests = 6000</span><br><span class="line">chmod-socket = 777</span><br><span class="line">vacuum = true</span><br><span class="line">enable-threads = true</span><br><span class="line">single-interpreter = true</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Vulfocus-Frontend"><a href="#安装-Vulfocus-Frontend" class="headerlink" title="安装 Vulfocus Frontend"></a>安装 Vulfocus Frontend</h3><p>vulfocus 前端项目，通过 Element-ui + VUE 构建。</p>
+<p>环境：</p>
+<ul>
+<li>UI：Element UI</li>
+<li>框架：vue</li>
+<li>node：v12.16.2</li>
+<li>npm：6.14.4</li>
+</ul>
+<h4 id="项目构建"><a href="#项目构建" class="headerlink" title="项目构建"></a>项目构建</h4><p>安装依赖：</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install </span><br></pre></td></tr></table></figure>
+
+<p>构建项目：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">run</span><span class="bash"> build:prod</span></span><br></pre></td></tr></table></figure>
+
+<p>错误处理:</p>
+<p><strong>node sass error</strong></p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn</span><br><span class="line">yarn install <span class="keyword">node</span><span class="title">-sass</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="发行版本"><a href="#发行版本" class="headerlink" title="发行版本"></a>发行版本</h4><p>通过 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZvZmFwcm8vdnVsZm9jdXMvcmVsZWFzZXM=">https://github.com/fofapro/vulfocus/releases<i class="fa fa-external-link-alt"></i></span> 下载最新发布的版本。</p>
+<h3 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h3><p>配置上传文件大小，修改 <code>nginx.conf</code> 文件，http 中加入：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client_max_body_size <span class="number">4096</span>M<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中 4096M（4GB） 为上传文件最大限制，可根据实际进行修改，最小配置为 200M 。</p>
+<h4 id="带证书多-vhost-的-nginx-配置文件"><a href="#带证书多-vhost-的-nginx-配置文件" class="headerlink" title="带证书多 vhost 的 nginx 配置文件"></a>带证书多 vhost 的 nginx 配置文件</h4><p><strong>位置：</strong><code>/etc/nginx/conf.d/vulfocus.xxx.net.conf</code></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen <span class="number">80</span>;</span><br><span class="line">     server_name vulfocus.xxx.net;</span><br><span class="line">     rewrite ^(.*) https:<span class="regexp">//</span><span class="variable">$host</span><span class="variable">$1</span> permanent;</span><br><span class="line">&#125;</span><br><span class="line">server&#123;</span><br><span class="line">listen <span class="number">443</span> ssl http2;</span><br><span class="line">server_name vulfocus.xxx.net;</span><br><span class="line">ssl_certificate <span class="regexp">/etc/</span>nginx<span class="regexp">/ssl/</span><span class="number">1</span>_vulfocus.xxx.net_bundle.crt;</span><br><span class="line">ssl_certificate_key <span class="regexp">/etc/</span>nginx<span class="regexp">/ssl/</span><span class="number">2</span>_vulfocus.xxx.net.key;</span><br><span class="line">ssl_protocols TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</span><br><span class="line">ssl_ciphers EECDH+CHACHA20:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+<span class="number">3</span>DES:RSA+<span class="number">3</span>DES:!MD5;</span><br><span class="line">ssl_prefer_server_ciphers on;</span><br><span class="line">ssl_session_timeout <span class="number">10</span>m;</span><br><span class="line">ssl_session_cache builtin:<span class="number">1000</span> shared:SSL:<span class="number">10</span>m;</span><br><span class="line">ssl_stapling on;</span><br><span class="line">ssl_stapling_verify on;</span><br><span class="line">client_max_body_size <span class="number">2048</span>M;</span><br><span class="line">location /&#123;</span><br><span class="line">root <span class="regexp">/data/</span>vulfocus<span class="regexp">/vulfocus-frontend/</span>dist;</span><br><span class="line"> index index.html;</span><br><span class="line">&#125;</span><br><span class="line">location /api &#123;</span><br><span class="line">	      uwsgi_pass  unix:<span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span>data<span class="regexp">/tmp/</span>vulfocus_uwsgi.sock;</span><br><span class="line">        uwsgi_read_timeout <span class="number">600</span>;</span><br><span class="line">        uwsgi_param SCRIPT_NAME /api;</span><br><span class="line">        <span class="comment"># the uwsgi_params file you installed</span></span><br><span class="line">        include     <span class="regexp">/etc/</span>nginx/uwsgi_params;</span><br><span class="line">&#125;</span><br><span class="line">    access_log  <span class="regexp">/data/</span>log/vulfocus.xxx.net.log;</span><br><span class="line">    error_log  <span class="regexp">/data/</span>log/vulfocus.xxx.net.log;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="不带证书仅有一个项目配置文件"><a href="#不带证书仅有一个项目配置文件" class="headerlink" title="不带证书仅有一个项目配置文件"></a>不带证书仅有一个项目配置文件</h4><p><strong>位置：</strong><code>/etc/nginx/nginx.conf</code></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">user</span> nginx;</span><br><span class="line"><span class="attribute">worker_processes</span> auto;</span><br><span class="line"><span class="attribute">error_log</span> /var/log/nginx/error.log;</span><br><span class="line"><span class="attribute">pid</span> /run/nginx.pid;</span><br><span class="line"></span><br><span class="line"><span class="attribute">include</span> /usr/share/nginx/modules/<span class="regexp">*.conf</span>;</span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">log_format</span>  main  <span class="string">&#x27;<span class="variable">$remote_addr</span> - <span class="variable">$remote_user</span> [<span class="variable">$time_local</span>] &quot;<span class="variable">$request</span>&quot; &#x27;</span></span><br><span class="line">                      <span class="string">&#x27;<span class="variable">$status</span> <span class="variable">$body_bytes_sent</span> &quot;<span class="variable">$http_referer</span>&quot; &#x27;</span></span><br><span class="line">                      <span class="string">&#x27;&quot;<span class="variable">$http_user_agent</span>&quot; &quot;<span class="variable">$http_x_forwarded_for</span>&quot;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">access_log</span>  /var/log/nginx/access.log  main;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">sendfile</span>            <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">tcp_nopush</span>          <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">tcp_nodelay</span>         <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">keepalive_timeout</span>   <span class="number">65</span>;</span><br><span class="line">    <span class="attribute">types_hash_max_size</span> <span class="number">2048</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">include</span>             /etc/nginx/mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>        application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">include</span> /etc/nginx/conf.d/<span class="regexp">*.conf</span>;</span><br><span class="line"></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span> default_server;</span><br><span class="line">        <span class="attribute">listen</span>       [::]:<span class="number">80</span> default_server;</span><br><span class="line">        <span class="attribute">server_name</span>  _;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Load configuration files for the default server block.</span></span><br><span class="line">        <span class="attribute">include</span> /etc/nginx/default.d/<span class="regexp">*.conf</span>;</span><br><span class="line"></span><br><span class="line">       <span class="attribute">location</span> /&#123;</span><br><span class="line">           <span class="attribute">root</span> /data/web/vulfocus-frontend/dist;</span><br><span class="line">       <span class="attribute">index</span> index.html;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="attribute">location</span> /api &#123;</span><br><span class="line">              <span class="attribute">uwsgi_pass</span>  unix:/data/tmp/vulfocus_uwsgi.sock;</span><br><span class="line">              <span class="attribute">uwsgi_read_timeout</span> <span class="number">600</span>;</span><br><span class="line">              <span class="attribute">uwsgi_param</span> SCRIPT_NAME /api;</span><br><span class="line">              <span class="attribute">include</span>     /etc/nginx/uwsgi_params;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="attribute">access_log</span>  /data/log/vulfocus.xxx.net.log;</span><br><span class="line">    <span class="attribute">error_log</span>  /data/log/vulfocus.xxx.net.log;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置supervisor"><a href="#配置supervisor" class="headerlink" title="配置supervisor"></a>配置supervisor</h3><p><strong>位置：</strong><code>/etc/supervisord.d/vulfoucs.ini</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[program:vulfocus]</span></span><br><span class="line"><span class="attr">directory</span>=/data/venv_py</span><br><span class="line"><span class="attr">command</span>=/data/venv_py/bin/uwsgi --ini /data/etc/vulfocus_uwsgi.ini</span><br><span class="line"><span class="attr">numprocs</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">user</span>=nginx</span><br><span class="line"><span class="attr">startretries</span>=<span class="number">3</span></span><br><span class="line"><span class="attr">startsecs</span>=<span class="number">5</span></span><br><span class="line"><span class="attr">autostart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">autorestart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">stopsignal</span>=INT</span><br><span class="line"><span class="attr">stopasgroup</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">killasgroup</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">redirect_stderr</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">stdout_logfile</span>=/data/log/vulfoucs_uwsgi.log</span><br></pre></td></tr></table></figure>
+<p><strong>位置：</strong><code>/etc/supervisord.d/celery.ini</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[program:celeryworker]</span></span><br><span class="line"><span class="attr">command</span>=/data/venv_py/bin/celery -A vulfocus worker -l info -E</span><br><span class="line"><span class="attr">directory</span>=/data/web/vulfocus-api</span><br><span class="line"><span class="attr">user</span>=nginx</span><br><span class="line"><span class="attr">numprocs</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">stdout_logfile</span>=/data/log/worker_celery.log</span><br><span class="line"><span class="attr">redirect_stderr</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">autostart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">autorestart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">startsecs</span>=<span class="number">10</span></span><br><span class="line"><span class="attr">stopasgroup</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">priority</span>=<span class="number">999</span></span><br></pre></td></tr></table></figure>
+<h3 id="权限以及自启"><a href="#权限以及自启" class="headerlink" title="权限以及自启"></a>权限以及自启</h3><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">chown</span> -<span class="type">R</span> nginx. /<span class="class"><span class="keyword">data</span></span></span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>unix://var/run/docker.sock</code> <strong>连接 docker 需要配置</strong> 使用 tcp 套接字无需修改</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">groupadd</span> <span class="string">docker</span></span><br><span class="line"><span class="attr">usermod</span> <span class="string">-aG docker nginx</span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">restart docker</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">enable</span> nginx</span><br><span class="line">systemctl <span class="builtin-name">enable</span> supervisord</span><br><span class="line">systemctl <span class="builtin-name">enable</span> docker</span><br><span class="line">systemctl <span class="builtin-name">enable</span> redis</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="literal">start</span> supervisord</span><br><span class="line">systemctl <span class="literal">start</span> nginx</span><br><span class="line">systemctl <span class="literal">start</span> docker</span><br><span class="line">systemctl <span class="literal">start</span> redis</span><br></pre></td></tr></table></figure>
+
+<h4 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h4><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --add-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --add-port=443/tcp --permanent</span><br><span class="line">systemctl restart firewalld.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>拉取镜像会报 500 错误这个是 <code>/var/run/docker.sock</code> 权限问题</p>
+<p>三种解决方案</p>
+<ol>
+<li><p>修改 <code>/etc/supervisord.d/vulfoucs.ini</code> 配置文件</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># user=nginx # 改前</span></span><br><span class="line"><span class="attr">user</span>=root <span class="comment"># 改后</span></span><br></pre></td></tr></table></figure></li>
+<li><p>配置 Docker URL（<code>vulfocus/settings.py</code>），启用 <code>tcp://127.0.0.1:2375</code></p>
+</li>
+<li><p>添加 docker 用户组把 nginx 用户加进去</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">groupadd</span> <span class="string">docker</span></span><br><span class="line"><span class="attr">usermod</span> <span class="string">-aG docker nginx</span></span><br><span class="line"><span class="attr">systemctl</span> <span class="string">restart docker</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<div class="note primary"><p><span class="exturl" data-url="aHR0cHM6Ly9mb2ZhcHJvLmdpdGh1Yi5pby92dWxmb2N1cy8jLw==">Vulfocus 官方文档<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\IT\7.html" rel="bookmark">Build Vulstudy / 搭建 vulstudy</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Donate commet here.</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="二洲 WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="二洲 Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>二洲
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.hackme.cc/IT/8.html" title="Vulfocus Building Guide &#x2F; Vulfocus 搭建指南">https://blog.hackme.cc/IT/8.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.hackme.cc/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+
+          <span class="label">Homepage</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:3199731997@qq.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://wpa.qq.com/msgrd?v=3&uin=3199731997">
+          <span class="icon">
+            <i class="fab fa-qq"></i>
+          </span>
+
+          <span class="label">QQ</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/baoweiju">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/baoweiju">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/xinan.webp">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/vulfocus/" rel="tag"><i class="fa fa-tag"></i> vulfocus</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/IT/7.html" rel="prev" title="Build Vulstudy / 搭建 vulstudy">
+                  <i class="fa fa-chevron-left"></i> Build Vulstudy / 搭建 vulstudy
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/IT/9.html" rel="next" title="CDN Nodes / CDN 节点 IP">
+                  CDN Nodes / CDN 节点 IP <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 横向 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7268471087790880"
+     data-ad-slot="9081749453"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==">广告位 </span>
+      <img src="/images/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" style="display: inline-block;">
+  </div>
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">二洲</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">137k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">5:42</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><div>
+  <span id="timeDate">载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script async src="/js/duration.js"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 23555,
+      el    : 'wpac-rating',
+      color : '#fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+<script src="/js/local-search.js"></script>
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.pdf-container').length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/pdfobject@2.2.5/pdfobject.min.js', () => {
+    document.querySelectorAll('.pdf-container').forEach(element => {
+      PDFObject.embed(element.dataset.target, element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.dataset.height
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+<script data-pjax>
+var mermaidElements = document.querySelectorAll('.mermaid');
+if (mermaidElements.length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js', () => {
+    mermaidElements.forEach(element => {
+      const newElement = document.createElement('div');
+      newElement.innerHTML = element.innerHTML;
+      newElement.className = element.className;
+      element.parentNode.replaceChild(newElement, element);
+    });
+
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://blog.hackme.cc/IT/8.html',]
+      });
+      });
+  </script>
+
+  <script>
+  NexT.utils.loadComments('#SOHUCS', () => {
+    NexT.utils.getScript('https://changyan.sohu.com/upload/changyan.js', () => {
+      window.changyan.api.config({
+        appid: 'cyveCGIBa',
+        conf : '9f5cbe345865265e4c7b636c366c10d9'
+      });
+    });
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+
+    </div>
+<!-- hexo injector body_end start -->
+  <script async src="/js/sakura.js"></script>
+
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a target="_blank" rel="noopener" href="https://myssl.com/bornfor.love?from=mysslid"><img src="https://static.myssl.com/res/images/myssl-id.png" alt="" style="width:100%;height:100%"></a>
+</div>
+
+  <script async as="script" src="/js/click.js"></script>
+
+  <script async as="script" src="/js/tab.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

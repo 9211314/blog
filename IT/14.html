@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sword-shield.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sword-shield.ico">
+  <link rel="mask-icon" href="/images/sword-shield.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.hackme.cc","root":"/","images":"/images","scheme":"Gemini","version":"8.3.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="&amp;emsp;&amp;emsp;博主的站群长年无人问津，广告收入几乎没有，于是再也负担不起高额的服务器费用了😭。可能是老天爷还想逛博主的网站吧，让博主无意之间看到了树莓派，好奇之心顿起，火速下单，到手以后一番折腾，终于把网站从云端迁移到了本地。本文就记录了折腾过程（主要是内网穿透方面）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Raspberry Pi Intranet Penetration &#x2F; 树莓派内网穿透">
+<meta property="og:url" content="https://blog.hackme.cc/IT/14.html">
+<meta property="og:site_name" content="信安">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;博主的站群长年无人问津，广告收入几乎没有，于是再也负担不起高额的服务器费用了😭。可能是老天爷还想逛博主的网站吧，让博主无意之间看到了树莓派，好奇之心顿起，火速下单，到手以后一番折腾，终于把网站从云端迁移到了本地。本文就记录了折腾过程（主要是内网穿透方面）。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-02T06:30:11.000Z">
+<meta property="article:modified_time" content="2021-04-07T06:25:30.138Z">
+<meta property="article:author" content="二洲">
+<meta property="article:tag" content="Raspberry Pi">
+<meta property="article:tag" content="树莓派">
+<meta property="article:tag" content="内网穿透">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.hackme.cc/IT/14.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Raspberry Pi Intranet Penetration / 树莓派内网穿透 | 信安</title>
+  
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e5aeb611b0cae78071d36bb6a04eea18";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<script data-ad-client="ca-pub-7268471087790880" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">信安</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">HACK ME</p>
+      <img class="custom-logo-image" src="/images/logo_text.webp" alt="信安">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-tie fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">132</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">67</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fas fa-link fa-fw"></i>Links</a></li>
+        <li class="menu-item menu-item-save-time"><span class="exturl" data-url="aHR0cHM6Ly9kYW8uaGFja21lLmNjLw=="><i class="fab fa-searchengin fa-fw"></i>Save Time</span></li>
+        <li class="menu-item menu-item-save-money"><span class="exturl" data-url="aHR0cHM6Ly90YW8uaGFja21lLmNjLw=="><i class="fas fa-yen-sign fa-fw"></i>Save Money</span></li>
+        <li class="menu-item menu-item-save-love"><span class="exturl" data-url="aHR0cHM6Ly9iYW8uaGFja21lLmNjLw=="><i class="far fa-kiss-wink-heart fa-fw"></i>Save Love</span></li>
+        <li class="menu-item menu-item-save-body"><span class="exturl" data-url="aHR0cDovL3dhby5oYWNrbWUuY2Mv"><i class="far fa-grin-hearts fa-fw"></i>Save Body</span></li>
+        <li class="menu-item menu-item-feedback"><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LnFxLmNvbS9wcm9kdWN0LzcwMzM5"><i class="fa fa-question-circle fa-fw"></i>Feedback</span></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+        <li class="menu-item menu-item-advertisement"><span class="exturl" data-url="aHR0cHM6Ly/ph43mlrDnlLPor7fkuK3igKbigKY="><i class="fas fa-ad fa-fw"></i>Advertisement</span></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">准备工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="nav-number">2.</span> <span class="nav-text">服务器端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-frps"><span class="nav-number">2.1.</span> <span class="nav-text">安装 frps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF-frps-%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.</span> <span class="nav-text">公网服务器端 frps 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86-frps-%E5%86%99%E5%85%A5%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.3.</span> <span class="nav-text">将 frps 写入系统服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-frps-%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="nav-number">2.4.</span> <span class="nav-text">启动 frps 并设置开机自启</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="nav-number">3.</span> <span class="nav-text">树莓派</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9-64-%E4%BD%8D-Raspbian"><span class="nav-number">3.1.</span> <span class="nav-text">使用官方 64 位 Raspbian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E8%84%91%E7%9B%B4%E8%BF%9E%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="nav-number">3.2.</span> <span class="nav-text">电脑直连树莓派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-%E7%99%BB%E5%BD%95"><span class="nav-number">3.3.</span> <span class="nav-text">SSH 登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E5%9B%BD%E5%86%85%E5%9C%B0%E8%AF%B7%E6%8D%A2%E6%BA%90"><span class="nav-number">3.4.</span> <span class="nav-text">中国内地请换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.5.</span> <span class="nav-text">升级系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-frpc"><span class="nav-number">3.6.</span> <span class="nav-text">安装 frpc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E7%BD%91%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%88%E6%A0%91%E8%8E%93%E6%B4%BE%EF%BC%89-frpc-%E9%85%8D%E7%BD%AE"><span class="nav-number">3.7.</span> <span class="nav-text">内网客户端（树莓派） frpc 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86-frpc-%E5%86%99%E5%85%A5%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.8.</span> <span class="nav-text">将 frpc 写入系统服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-frpc-%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="nav-number">3.9.</span> <span class="nav-text">启动 frpc 并设置开机自启</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二洲"
+      src="/images/bagua.webp">
+  <p class="site-author-name" itemprop="name">二洲</p>
+  <div class="site-description" itemprop="description">信安</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzkyMTEzMTQ=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;9211314"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjMxOTk3MzE5OTdAcXEuY29t" title="E-Mail → mailto:3199731997@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9iYW93ZWlqdQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;baoweiju"><i class="fab fa-twitter fa-fw"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;3199731997"><i class="fab fa-qq fa-fw"></i>QQ</span>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+      <!-- 粒子时钟 -->
+      <div style="margin-top:35px;">
+      <canvas id="canvasDiyBlock" style="width:60%;"></canvas><script src="/js/clock.js"></script>
+      </div>
+
+      <!-- 百度广告 -->
+      <div class="_g9hy6h97gy6"></div>
+      <script type="text/javascript">
+          (window.slotbydup = window.slotbydup || []).push({
+              id: "u6421120",
+              container: "_g9hy6h97gy6",
+              async: true
+          });
+      </script>
+      <!-- 多条广告如下脚本只需引入一次 -->
+      <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer" >
+      </script>
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="Click here to contact me" aria-label="Click here to contact me"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.hackme.cc/IT/14.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bagua.webp">
+      <meta itemprop="name" content="二洲">
+      <meta itemprop="description" content="信安">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信安">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Raspberry Pi Intranet Penetration / 树莓派内网穿透
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-02 14:30:11" itemprop="dateCreated datePublished" datetime="2021-03-02T14:30:11+08:00">2021-03-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-07 14:25:30" itemprop="dateModified" datetime="2021-04-07T14:25:30+08:00">2021-04-07</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/IT/" itemprop="url" rel="index"><span itemprop="name">IT</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    
+      <a title="changyan" href="/IT/14.html#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="IT/14.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>8 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>&emsp;&emsp;博主的站群长年无人问津，广告收入几乎没有，于是再也负担不起高额的服务器费用了😭。可能是老天爷还想逛博主的网站吧，让博主无意之间看到了树莓派，好奇之心顿起，火速下单，到手以后一番折腾，终于把网站从云端迁移到了本地。本文就记录了折腾过程（主要是内网穿透方面）。</p>
+<span id="more"></span>
+
+<h1 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h1><ul>
+<li>Raspberry Pi / 树莓派一个（博主用的是 8G 内存的 4B）</li>
+<li>有（最好固定）公网 IP 的服务器一台（博主用的是：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> Ubuntu 20.04）</li>
+</ul>
+<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
+</div>
+
+<h1 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h1><h2 id="安装-frps"><a href="#安装-frps" class="headerlink" title="安装 frps"></a>安装 frps</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://github.com/fatedier/frp/releases/download/v<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>/frp_<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>_linux_amd<span class="number">64</span>.tar.gz     # 下载系统内核版本对应的 frp 压缩包</span><br><span class="line"><span class="attribute">tar</span> -xzvf frp_<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>_linux_amd<span class="number">64</span>.tar.gz     # 解压到当前文件夹</span><br><span class="line"><span class="attribute">nano</span> frp_<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>_linux_amd<span class="number">64</span>/frps.ini     # 编辑 frps 配置文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="公网服务器端-frps-配置"><a href="#公网服务器端-frps-配置" class="headerlink" title="公网服务器端 frps 配置"></a>公网服务器端 frps 配置</h2><p>&emsp;&emsp;服务器端（frps）详细配置请查看官方 Wiki：<span class="exturl" data-url="aHR0cHM6Ly9nb2ZycC5vcmcvZG9jcy9yZWZlcmVuY2Uvc2VydmVyLWNvbmZpZ3VyZXMv">服务端配置<i class="fa fa-external-link-alt"></i></span></p>
+<p>&emsp;&emsp;贴上博主的 frps.ini</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7000</span>     <span class="comment"># frp 运行端口</span></span><br><span class="line"><span class="attr">log_file</span> = /root/frp_0.<span class="number">36.2</span>_linux_amd64/frps.log     <span class="comment"># frps 日志文件路径</span></span><br><span class="line"><span class="attr">token</span> = **请输入你的 token**     <span class="comment"># 为服务器安全建议使用 token</span></span><br><span class="line"><span class="attr">tls_only</span> = <span class="literal">true</span>     <span class="comment"># 为了安全请启用</span></span><br><span class="line"><span class="attr">allow_ports</span> = **remote_port1,remote_port2**     <span class="comment"># 填入公网要访问的端口</span></span><br><span class="line"><span class="attr">dashboard_port</span> = <span class="number">7500</span>     <span class="comment"># frps 管理地址</span></span><br><span class="line"><span class="attr">dashboard_user</span> = admin     <span class="comment"># frps 管理员账号</span></span><br><span class="line"><span class="attr">dashboard_pwd</span> = <span class="number">123456</span>     <span class="comment"># frps 管理员密码</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="将-frps-写入系统服务"><a href="#将-frps-写入系统服务" class="headerlink" title="将 frps 写入系统服务"></a>将 frps 写入系统服务</h2><p><code>nano /lib/systemd/system/frps.service</code> # 新建一个 service 并写入以下配置保存</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description = frps service</span><br><span class="line">After = network.target syslog.target</span><br><span class="line">Wants = network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type = simple</span><br><span class="line">ExecStart = /root/frp_0.36.2_linux_amd64/frps -c /root/frp_0.36.2_linux_amd64/frps.ini</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy = multi-user.target</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动-frps-并设置开机自启"><a href="#启动-frps-并设置开机自启" class="headerlink" title="启动 frps 并设置开机自启"></a>启动 frps 并设置开机自启</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="keyword">start</span> frps</span><br><span class="line">systemctl <span class="keyword">enable</span> frps</span><br></pre></td></tr></table></figure>
+
+<div class="note success"><p>至此内网穿透服务器端的配置就完成了，下面进行内网客户端（树莓派）的配置</p>
+</div>
+
+<h1 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a>树莓派</h1><h2 id="使用官方-64-位-Raspbian"><a href="#使用官方-64-位-Raspbian" class="headerlink" title="使用官方 64 位 Raspbian"></a>使用官方 64 位 Raspbian</h2><p>&emsp;&emsp;建议使用树莓派官方 64 位系统：<span class="exturl" data-url="aHR0cDovL2Rvd25sb2Fkcy5yYXNwYmVycnlwaS5vcmcvcmFzcGlvc19hcm02NC9pbWFnZXMvcmFzcGlvc19hcm02NC0yMDIwLTA4LTI0LzIwMjAtMDgtMjAtcmFzcGlvcy1idXN0ZXItYXJtNjQuemlw">2020-08-20-raspios-buster-arm64.zip<i class="fa fa-external-link-alt"></i></span> （如何写入内存卡此处不再赘述）</p>
+<div class="note warning"><p>重大提示：树莓派系统写入内存卡以后，需要在 boot 目录下新建一个文件 <strong>ssh</strong>，否则无法通过 SSH 连接树莓派！！！（博主在这里踩了个大坑好不容易才找到解决办法）</p>
+</div>
+
+<h2 id="电脑直连树莓派"><a href="#电脑直连树莓派" class="headerlink" title="电脑直连树莓派"></a>电脑直连树莓派</h2><p>&emsp;&emsp;电脑无线网共享给以太网，然后用网线直连树莓派，通过 <code>arp -a</code> 查看树莓派 IP（一般是：192.168.137.x）</p>
+<h2 id="SSH-登录"><a href="#SSH-登录" class="headerlink" title="SSH 登录"></a>SSH 登录</h2><p>&emsp;&emsp;找到树莓派 IP 后用 SSH 登录，账号：<code>pi</code>，密码：<code>raspberry</code></p>
+<h2 id="中国内地请换源"><a href="#中国内地请换源" class="headerlink" title="中国内地请换源"></a>中国内地请换源</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nano <span class="regexp">/etc/</span>apt/sources.list</span><br><span class="line">三行前面的网址都换成清华源（仅前面的网址，不包括后面的路劲）：https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn/</span><br><span class="line"></span><br><span class="line">nano <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>raspi.list</span><br><span class="line">整体换成清华源：https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/raspberrypi/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="升级系统"><a href="#升级系统" class="headerlink" title="升级系统"></a>升级系统</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line">apt <span class="keyword">full</span>-<span class="keyword">upgrade</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-frpc"><a href="#安装-frpc" class="headerlink" title="安装 frpc"></a>安装 frpc</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://github.com/fatedier/frp/releases/download/v<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>/frp_<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>_linux_arm<span class="number">64</span>.tar.gz     # 下载系统内核版本对应的 frp 压缩包</span><br><span class="line"><span class="attribute">tar</span> -xzvf frp_<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>_linux_amd<span class="number">64</span>.tar.gz     # 解压到当前文件夹</span><br><span class="line"><span class="attribute">nano</span> frp_<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>_linux_amd<span class="number">64</span>/frpc.ini     # 编辑 frpc 配置文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="内网客户端（树莓派）-frpc-配置"><a href="#内网客户端（树莓派）-frpc-配置" class="headerlink" title="内网客户端（树莓派） frpc 配置"></a>内网客户端（树莓派） frpc 配置</h2><p>&emsp;&emsp;内网客户端（树莓派）frpc 详细配置请查看官方 Wiki：<span class="exturl" data-url="aHR0cHM6Ly9nb2ZycC5vcmcvZG9jcy9yZWZlcmVuY2UvY2xpZW50LWNvbmZpZ3VyZXMv">客户端配置<i class="fa fa-external-link-alt"></i></span></p>
+<p>&emsp;&emsp;贴上博主的 frpc.ini</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = **请输入服务器端公网 IP**</span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span>     <span class="comment"># 端口号与服务器端 bind_port 一致</span></span><br><span class="line"><span class="attr">log_file</span> = /home/pi/frp_0.<span class="number">36.2</span>_linux_arm64/frpc.log     <span class="comment"># frpc 日志文件路径</span></span><br><span class="line"><span class="attr">tls_enable</span> = <span class="literal">true</span>     <span class="comment"># 服务器端若配置了 tls_only = true，此处也需启用</span></span><br><span class="line"><span class="attr">token</span> = **请输入与服务器端一致的 token**</span><br><span class="line"></span><br><span class="line"><span class="comment">#[ssh]     # 为了安全起见，博主没有开启树莓派 SSH 的内网穿透</span></span><br><span class="line"><span class="comment">#type = tcp</span></span><br><span class="line"><span class="comment">#local_ip = 127.0.0.1</span></span><br><span class="line"><span class="comment">#local_port = 22</span></span><br><span class="line"><span class="comment">#remote_port = 6000</span></span><br><span class="line"></span><br><span class="line"><span class="section">[bt]</span>     <span class="comment"># 宝塔</span></span><br><span class="line"><span class="attr">type</span> = tcp     <span class="comment"># 使用 TCP 连接</span></span><br><span class="line"><span class="attr">use_encryption</span> = <span class="literal">true</span>     <span class="comment"># 启用传输加密</span></span><br><span class="line"><span class="attr">use_compression</span> = <span class="literal">true</span>     <span class="comment"># 启用传输压缩</span></span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">8888</span>     <span class="comment"># 树莓派的宝塔端口</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">8888</span>     <span class="comment"># 从公网要访问宝塔的端口</span></span><br><span class="line"></span><br><span class="line"><span class="section">[web]</span>     <span class="comment"># 网站</span></span><br><span class="line"><span class="attr">type</span> = tcp     <span class="comment"># 使用 TCP 连接</span></span><br><span class="line"><span class="attr">use_encryption</span> = <span class="literal">true</span>     <span class="comment"># 启用传输加密</span></span><br><span class="line"><span class="attr">use_compression</span> = <span class="literal">true</span>     <span class="comment"># 启用传输压缩</span></span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">443</span>     <span class="comment"># 宝塔上网站的端口</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">443</span>     <span class="comment"># 从公网访问网站的端口</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="将-frpc-写入系统服务"><a href="#将-frpc-写入系统服务" class="headerlink" title="将 frpc 写入系统服务"></a>将 frpc 写入系统服务</h2><p><code>nano /lib/systemd/system/frpc.service</code>     # 新建一个 service 并写入以下配置保存</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description = frpc service</span><br><span class="line">After = network.target syslog.target</span><br><span class="line">Wants = network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type = simple</span><br><span class="line">ExecStart = /home/pi/frp_0.36.2_linux_arm64/frpc -c /home/pi/frp_0.36.2_linux_arm64/frpc.ini</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy = multi-user.target</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动-frpc-并设置开机自启"><a href="#启动-frpc-并设置开机自启" class="headerlink" title="启动 frpc 并设置开机自启"></a>启动 frpc 并设置开机自启</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="keyword">start</span> frpc</span><br><span class="line">systemctl <span class="keyword">enable</span> frpc</span><br></pre></td></tr></table></figure>
+
+<div class="note success"><p>至此树莓派内网穿透工作就完成咯。可以访问“公网IP:7500”查看内网穿透的状态啦！</p>
+</div>
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Donate commet here.</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="二洲 WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="二洲 Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>二洲
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.hackme.cc/IT/14.html" title="Raspberry Pi Intranet Penetration &#x2F; 树莓派内网穿透">https://blog.hackme.cc/IT/14.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.hackme.cc/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+
+          <span class="label">Homepage</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:3199731997@qq.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://wpa.qq.com/msgrd?v=3&uin=3199731997">
+          <span class="icon">
+            <i class="fab fa-qq"></i>
+          </span>
+
+          <span class="label">QQ</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/baoweiju">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/baoweiju">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/xinan.webp">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Raspberry-Pi/" rel="tag"><i class="fa fa-tag"></i> Raspberry Pi</a>
+              <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag"><i class="fa fa-tag"></i> 树莓派</a>
+              <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag"><i class="fa fa-tag"></i> 内网穿透</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/IT/13.html" rel="prev" title="CentOS Security Hardening FAQ / CentOS 安全加固问题总汇">
+                  <i class="fa fa-chevron-left"></i> CentOS Security Hardening FAQ / CentOS 安全加固问题总汇
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Penetration-Test/3.html" rel="next" title="Cyber Security Abbreviations / 网络安全缩写">
+                  Cyber Security Abbreviations / 网络安全缩写 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 横向 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7268471087790880"
+     data-ad-slot="9081749453"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==">广告位 </span>
+      <img src="/images/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" style="display: inline-block;">
+  </div>
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">二洲</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">137k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">5:42</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><div>
+  <span id="timeDate">载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script async src="/js/duration.js"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 23555,
+      el    : 'wpac-rating',
+      color : '#fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+<script src="/js/local-search.js"></script>
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.pdf-container').length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/pdfobject@2.2.5/pdfobject.min.js', () => {
+    document.querySelectorAll('.pdf-container').forEach(element => {
+      PDFObject.embed(element.dataset.target, element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.dataset.height
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+<script data-pjax>
+var mermaidElements = document.querySelectorAll('.mermaid');
+if (mermaidElements.length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js', () => {
+    mermaidElements.forEach(element => {
+      const newElement = document.createElement('div');
+      newElement.innerHTML = element.innerHTML;
+      newElement.className = element.className;
+      element.parentNode.replaceChild(newElement, element);
+    });
+
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://blog.hackme.cc/IT/14.html',]
+      });
+      });
+  </script>
+
+  <script>
+  NexT.utils.loadComments('#SOHUCS', () => {
+    NexT.utils.getScript('https://changyan.sohu.com/upload/changyan.js', () => {
+      window.changyan.api.config({
+        appid: 'cyveCGIBa',
+        conf : '9f5cbe345865265e4c7b636c366c10d9'
+      });
+    });
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+
+    </div>
+<!-- hexo injector body_end start -->
+  <script async src="/js/sakura.js"></script>
+
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a target="_blank" rel="noopener" href="https://myssl.com/bornfor.love?from=mysslid"><img src="https://static.myssl.com/res/images/myssl-id.png" alt="" style="width:100%;height:100%"></a>
+</div>
+
+  <script async as="script" src="/js/click.js"></script>
+
+  <script async as="script" src="/js/tab.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

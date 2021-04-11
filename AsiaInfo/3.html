@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sword-shield.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sword-shield.ico">
+  <link rel="mask-icon" href="/images/sword-shield.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.hackme.cc","root":"/","images":"/images","scheme":"Gemini","version":"8.3.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="&amp;emsp;&amp;emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第三节内容，即第二章《病毒与威胁基础》之任务 3《安全事件处理建议》的学习笔记，内容仅供学习交流，非亚信安全官方课程文档，若想进行 ACSE 课程学习或取得认证，请参阅 亚信安全认证培训 进行报名参训。 上一节课程：《AsiaInfo ACSE Training - 反病毒技术发展》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AsiaInfo ACSE Training - 安全事件处理建议">
+<meta property="og:url" content="https://blog.hackme.cc/AsiaInfo/3.html">
+<meta property="og:site_name" content="信安">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第三节内容，即第二章《病毒与威胁基础》之任务 3《安全事件处理建议》的学习笔记，内容仅供学习交流，非亚信安全官方课程文档，若想进行 ACSE 课程学习或取得认证，请参阅 亚信安全认证培训 进行报名参训。 上一节课程：《AsiaInfo ACSE Training - 反病毒技术发展》">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-19T10:44:02.000Z">
+<meta property="article:modified_time" content="2021-04-10T12:36:15.328Z">
+<meta property="article:author" content="二洲">
+<meta property="article:tag" content="安全事件处理建议">
+<meta property="article:tag" content="工具下载">
+<meta property="article:tag" content="ATTK">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.hackme.cc/AsiaInfo/3.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>AsiaInfo ACSE Training - 安全事件处理建议 | 信安</title>
+  
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e5aeb611b0cae78071d36bb6a04eea18";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<script data-ad-client="ca-pub-7268471087790880" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">信安</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">HACK ME</p>
+      <img class="custom-logo-image" src="/images/logo_text.webp" alt="信安">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-tie fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">132</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">67</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fas fa-link fa-fw"></i>Links</a></li>
+        <li class="menu-item menu-item-save-time"><span class="exturl" data-url="aHR0cHM6Ly9kYW8uaGFja21lLmNjLw=="><i class="fab fa-searchengin fa-fw"></i>Save Time</span></li>
+        <li class="menu-item menu-item-save-money"><span class="exturl" data-url="aHR0cHM6Ly90YW8uaGFja21lLmNjLw=="><i class="fas fa-yen-sign fa-fw"></i>Save Money</span></li>
+        <li class="menu-item menu-item-save-love"><span class="exturl" data-url="aHR0cHM6Ly9iYW8uaGFja21lLmNjLw=="><i class="far fa-kiss-wink-heart fa-fw"></i>Save Love</span></li>
+        <li class="menu-item menu-item-save-body"><span class="exturl" data-url="aHR0cDovL3dhby5oYWNrbWUuY2Mv"><i class="far fa-grin-hearts fa-fw"></i>Save Body</span></li>
+        <li class="menu-item menu-item-feedback"><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LnFxLmNvbS9wcm9kdWN0LzcwMzM5"><i class="fa fa-question-circle fa-fw"></i>Feedback</span></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+        <li class="menu-item menu-item-advertisement"><span class="exturl" data-url="aHR0cHM6Ly/ph43mlrDnlLPor7fkuK3igKbigKY="><i class="fas fa-ad fa-fw"></i>Advertisement</span></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%9A%E4%BF%A1%E5%AE%89%E5%85%A8%E5%8F%8D%E7%97%85%E6%AF%92%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">亚信安全反病毒定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%97%85%E6%AF%92%E5%90%8D%E7%A7%B0%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">病毒名称定义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">工作机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%AB%E6%AF%92%E6%A8%A1%E5%9D%97"><span class="nav-number">2.1.</span> <span class="nav-text">扫毒模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%9F%E5%AE%B3%E6%B8%85%E9%99%A4%E6%9C%8D%E5%8A%A1%EF%BC%88DCS%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">损害清除服务（DCS）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E7%97%85%E6%AF%92%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">反病毒常见问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">安全事件处理流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E7%9F%A5%E7%97%85%E6%AF%92%EF%BC%88%E8%83%BD%E5%A4%9F%E6%A3%80%E6%B5%8B%EF%BC%8C%E4%BD%86%E6%97%A0%E6%B3%95%E8%A2%AB%E6%B8%85%E9%99%A4%E3%80%81%E9%9A%94%E7%A6%BB%E3%80%81%E5%88%A0%E9%99%A4%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">已知病毒（能够检测，但无法被清除、隔离、删除）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AA%E7%9F%A5-%E5%8F%AF%E7%96%91%E7%97%85%E6%AF%92%EF%BC%88%E6%97%A0%E6%B3%95%E6%A3%80%E6%B5%8B%EF%BC%8C%E4%BD%86%E5%87%BA%E7%8E%B0%E7%97%85%E6%AF%92%E7%8E%B0%E8%B1%A1%EF%BC%8C%E7%96%91%E4%BC%BC%E5%87%BA%E7%8E%B0%E7%97%85%E6%AF%92%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">未知&#x2F;可疑病毒（无法检测，但出现病毒现象，疑似出现病毒）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E4%BA%8B%E4%BB%B6"><span class="nav-number">4.3.</span> <span class="nav-text">其他事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E5%A4%84%E7%90%86%E5%BB%BA%E8%AE%AE"><span class="nav-number">5.</span> <span class="nav-text">手动处理建议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="nav-number">6.</span> <span class="nav-text">常用工具介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ATTK"><span class="nav-number">6.1.</span> <span class="nav-text">ATTK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WireShark"><span class="nav-number">6.2.</span> <span class="nav-text">WireShark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rootkit-Buster"><span class="nav-number">6.3.</span> <span class="nav-text">Rootkit Buster</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90"><span class="nav-number">7.</span> <span class="nav-text">典型案例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Worm-downad"><span class="nav-number">7.1.</span> <span class="nav-text">Worm_downad</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E4%BC%A0%E6%92%AD%E6%89%8B%E6%AE%B5"><span class="nav-number">7.1.1.</span> <span class="nav-text">主要传播手段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E6%80%A7%E7%89%B9%E5%BE%81"><span class="nav-number">7.1.2.</span> <span class="nav-text">显性特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">7.1.3.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PE-SALITY"><span class="nav-number">7.2.</span> <span class="nav-text">PE_SALITY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E4%BC%A0%E6%92%AD%E6%89%8B%E6%AE%B5-1"><span class="nav-number">7.2.1.</span> <span class="nav-text">主要传播手段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E5%BE%81"><span class="nav-number">7.3.</span> <span class="nav-text">主要特征</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-1"><span class="nav-number">7.3.1.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92"><span class="nav-number">7.4.</span> <span class="nav-text">勒索病毒</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E7%B1%BB%E5%9E%8B"><span class="nav-number">7.4.1.</span> <span class="nav-text">两种类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E5%BE%81-1"><span class="nav-number">7.4.2.</span> <span class="nav-text">主要特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6"><span class="nav-number">7.4.3.</span> <span class="nav-text">传统勒索软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8B%92%E7%B4%A2%E8%A0%95%E8%99%AB"><span class="nav-number">7.4.4.</span> <span class="nav-text">勒索蠕虫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86"><span class="nav-number">7.4.5.</span> <span class="nav-text">如何处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2"><span class="nav-number">7.4.6.</span> <span class="nav-text">如何预防</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二洲"
+      src="/images/bagua.webp">
+  <p class="site-author-name" itemprop="name">二洲</p>
+  <div class="site-description" itemprop="description">信安</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzkyMTEzMTQ=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;9211314"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjMxOTk3MzE5OTdAcXEuY29t" title="E-Mail → mailto:3199731997@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9iYW93ZWlqdQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;baoweiju"><i class="fab fa-twitter fa-fw"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;3199731997"><i class="fab fa-qq fa-fw"></i>QQ</span>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+      <!-- 粒子时钟 -->
+      <div style="margin-top:35px;">
+      <canvas id="canvasDiyBlock" style="width:60%;"></canvas><script src="/js/clock.js"></script>
+      </div>
+
+      <!-- 百度广告 -->
+      <div class="_g9hy6h97gy6"></div>
+      <script type="text/javascript">
+          (window.slotbydup = window.slotbydup || []).push({
+              id: "u6421120",
+              container: "_g9hy6h97gy6",
+              async: true
+          });
+      </script>
+      <!-- 多条广告如下脚本只需引入一次 -->
+      <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer" >
+      </script>
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="Click here to contact me" aria-label="Click here to contact me"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.hackme.cc/AsiaInfo/3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bagua.webp">
+      <meta itemprop="name" content="二洲">
+      <meta itemprop="description" content="信安">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信安">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AsiaInfo ACSE Training - 安全事件处理建议
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-19 18:44:02" itemprop="dateCreated datePublished" datetime="2020-02-19T18:44:02+08:00">2020-02-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-10 20:36:15" itemprop="dateModified" datetime="2021-04-10T20:36:15+08:00">2021-04-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AsiaInfo/" itemprop="url" rel="index"><span itemprop="name">AsiaInfo</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    
+      <a title="changyan" href="/AsiaInfo/3.html#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="AsiaInfo/3.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第三节内容，即第二章《病毒与威胁基础》之任务 3《安全事件处理建议》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/AsiaInfo/2.html">《AsiaInfo ACSE Training - 反病毒技术发展》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="亚信安全反病毒定义"><a href="#亚信安全反病毒定义" class="headerlink" title="亚信安全反病毒定义"></a>亚信安全反病毒定义</h1><h2 id="病毒名称定义"><a href="#病毒名称定义" class="headerlink" title="病毒名称定义"></a>病毒名称定义</h2><ol>
+<li>不同反病毒厂商，对于恶意软件名称都有不同的定义</li>
+<li>此处以亚信安全对病毒名称定义举例：PE_SALITY.RL -O（类型 _ 名称 . 变种 - 母体）</li>
+</ol>
+<h1 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h1><h2 id="扫毒模块"><a href="#扫毒模块" class="headerlink" title="扫毒模块"></a>扫毒模块</h2><ol>
+<li>扫描并检测含有恶意代码的文件，对其进行识别</li>
+<li>对于被文件型病毒感染的可执行文件进行修复</li>
+<li>组件<ol>
+<li>扫描引擎：VSAPI &amp; TMFilter</li>
+<li>病毒码：LPT$VPN.xxx</li>
+<li>间谍软件病毒码：TMAPTN.xxx</li>
+<li>网络病毒码：TMFxxxxx.PTN</li>
+</ol>
+</li>
+</ol>
+<h2 id="损害清除服务（DCS）"><a href="#损害清除服务（DCS）" class="headerlink" title="损害清除服务（DCS）"></a>损害清除服务（DCS）</h2><ol>
+<li>场景：对一个正在编辑的 word 文档要执行删除操作的时候。文档会报该文件正在被使用，无法执行删除操作</li>
+<li>对于正在运行/已经加载的病毒进行清除</li>
+<li>终止进程</li>
+<li>脱钩 DLL 文件</li>
+<li>删除文件</li>
+<li>恢复被病毒修改过的注册表内容，起到修复系统的作用</li>
+<li>可视为通用专杀工具</li>
+<li>组件<ol>
+<li>损害清除引擎（DCE）：TSC.EXE</li>
+<li>损害清除模板（DCT）：TSC.PTN</li>
+<li>间谍软件清除病毒码：TMADCE.PTN</li>
+</ol>
+</li>
+</ol>
+<h1 id="反病毒常见问题"><a href="#反病毒常见问题" class="headerlink" title="反病毒常见问题"></a>反病毒常见问题</h1><ol>
+<li>病毒已经被检测出来，却提示处理失败</li>
+<li>无法清除，无法隔离</li>
+<li>有明显中毒现象，病毒未被查杀</li>
+<li>误查正常文件</li>
+<li>为什么会出现无法清除的病毒？（只能隔离）<ol>
+<li>多数情况下可以通过清除措施处理恶意代码，修复正常文件</li>
+<li>-O 母体类型，无法被清除，只能隔离</li>
+<li>非感染性病毒，本身就是恶意软件，无法被清除，只能隔离</li>
+</ol>
+</li>
+<li>为什么会出现无法隔离/删除的病毒？<ol>
+<li>当病毒感染系统后<ol>
+<li>病毒进程已经被系统加载</li>
+<li>病毒 DLL 文件已经嵌入到正在运行的系统进程中</li>
+<li>Windwos 自身的特性：对于已经加载的文件无法进行改动操作，从而导致病毒扫描引擎对检测到的文件无法操作</li>
+</ol>
+</li>
+<li>已经加载的病毒不包含在损害清除模板（DCT）中</li>
+</ol>
+</li>
+</ol>
+<h1 id="安全事件处理流程"><a href="#安全事件处理流程" class="headerlink" title="安全事件处理流程"></a>安全事件处理流程</h1><h2 id="已知病毒（能够检测，但无法被清除、隔离、删除）"><a href="#已知病毒（能够检测，但无法被清除、隔离、删除）" class="headerlink" title="已知病毒（能够检测，但无法被清除、隔离、删除）"></a>已知病毒（能够检测，但无法被清除、隔离、删除）</h2><ol>
+<li>在可能的情况下，拔除网线</li>
+<li>收集病毒日志</li>
+<li>确认病毒名称、路径和文件名</li>
+<li>搜索病毒知识库，查找病毒的解决方法</li>
+<li>根据方案，手动清理系统中的病毒</li>
+<li>若找不到方案或方案无效可收集样本与系统信息由厂商协助处理</li>
+</ol>
+<h2 id="未知-可疑病毒（无法检测，但出现病毒现象，疑似出现病毒）"><a href="#未知-可疑病毒（无法检测，但出现病毒现象，疑似出现病毒）" class="headerlink" title="未知/可疑病毒（无法检测，但出现病毒现象，疑似出现病毒）"></a>未知/可疑病毒（无法检测，但出现病毒现象，疑似出现病毒）</h2><ol>
+<li>在可能的情况下，拔除网线</li>
+<li>使用 ATTK（信息收集）工具收集系统关键信息提交给亚信安全</li>
+<li>如有明显可疑文件，压缩加密提交给亚信安全</li>
+<li>亚信安全反馈病毒解决方案</li>
+</ol>
+<h2 id="其他事件"><a href="#其他事件" class="headerlink" title="其他事件"></a>其他事件</h2><ol>
+<li>可执行文件恶意代码清除后，文件被破坏<br>&emsp;&emsp;提交感染前的文件和感染后的文件给厂商进行分析</li>
+<li>宏病毒清除后打开异常或被隔离<br>&emsp;&emsp;收集原时样本提交给厂商</li>
+<li>网络异常，怀疑 ARP 攻击<br>&emsp;&emsp;通过抓包，将抓包信息提交给厂商</li>
+</ol>
+<h1 id="手动处理建议"><a href="#手动处理建议" class="headerlink" title="手动处理建议"></a>手动处理建议</h1><ol>
+<li>在安全模式下操作</li>
+<li>终止所有可疑进行和不必要的进程</li>
+<li>关闭系统还原</li>
+<li>显示所有隐藏文件</li>
+<li>通过以下信息判断可疑文件<ol>
+<li>创建时间</li>
+<li>按照日期排列文件，查看文件版本信息</li>
+<li>可执行文件 .EXE、.COM、.SCR、.PIF</li>
+<li>DLL 文件和 OCX 文件</li>
+<li>LOG 文件 —— 有一些病毒会将 DLL 文件伪装成 LOG 后缀的文件，可疑直接双击打开查看其内容是否为文本。若为乱码，则可以。</li>
+<li>可疑内容</li>
+<li>路径<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">%</span>SystemRoot<span class="meta">%</span>\</span><br><span class="line"><span class="meta">%</span>SystemRoot<span class="meta">%</span>\Syste<span class="name">m32</span>\</span><br><span class="line"><span class="meta">%</span>SystemRoot<span class="meta">%</span>\Syste<span class="name">m32</span>\drivers\</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li>判断关键位置内容是否被篡改<ol>
+<li>hosts 文件</li>
+<li>注册表启动项</li>
+<li>可疑服务</li>
+</ol>
+</li>
+</ol>
+<h1 id="常用工具介绍"><a href="#常用工具介绍" class="headerlink" title="常用工具介绍"></a>常用工具介绍</h1><h2 id="ATTK"><a href="#ATTK" class="headerlink" title="ATTK"></a>ATTK</h2><ol>
+<li>ATTK（Anti-Threat ToolKit）反病毒工具集</li>
+<li>下载 <span class="exturl" data-url="aHR0cDovL3N1cHBvcnQuYXNpYWluZm8tc2VjLmNvbS9BbnRpLVZpcnVzL0NsZWFuLVRvb2wvQVRUS19DTi8=">病毒查杀工具 或 系统信息收集工具<i class="fa fa-external-link-alt"></i></span></li>
+<li>用管理员权限双击运行即可<div class="note warning"><p>不要关闭任何弹出的窗口，否则程序会自动退出</p>
+</div></li>
+<li>信息收集完成后，会自动弹出浏览器窗口和 C 盘根目录</li>
+<li><strong>联网</strong>状态下，网页上会生成 <strong>临时 ID 号</strong>， C 盘下会生成一个 <strong>以主机名开头的压缩文件</strong>，将 ID 号和压缩文件提供给厂商进行分析</li>
+</ol>
+<h2 id="WireShark"><a href="#WireShark" class="headerlink" title="WireShark"></a>WireShark</h2><ol>
+<li><span class="exturl" data-url="aHR0cDovL3N1cHBvcnQuYXNpYWluZm8tc2VjLmNvbS9BbnRpLVZpcnVzL1Rvb2wvV2lyZXNoYXJrLXdpbjMyLTEuOC4yLnppcA==">下载地址<i class="fa fa-external-link-alt"></i></span></li>
+<li>安装完成后，在 Start 下选择相应的网卡 → Capture → Start，开始抓包</li>
+<li>抓包过程中：Ping 其他机器、尝试打开网页</li>
+<li>收集一段时间后，点击 Stop，将数据包文件加密、压缩，发送给厂商来进一步分析</li>
+</ol>
+<h2 id="Rootkit-Buster"><a href="#Rootkit-Buster" class="headerlink" title="Rootkit Buster"></a>Rootkit Buster</h2><ol>
+<li>用于 MBR 问题的收集工具</li>
+<li>可疑扫描隐藏在系统文件、注册表、进程和驱动中被劫持的服务</li>
+<li>还具备清除有害文件、隐藏注册表、执行程序等功能</li>
+<li><span class="exturl" data-url="aHR0cDovL3N1cHBvcnQuYXNpYWluZm8tc2VjLmNvbS9BbnRpLVZpcnVzL0NsZWFuLVRvb2wvVG9vbHMvUm9vdGtpdEJ1c3Rlci8=">下载地址<i class="fa fa-external-link-alt"></i></span></li>
+<li>使用管理员方式运行此工具，接受协议</li>
+<li>勾选需要扫描的项目，开始扫描</li>
+<li>扫描完成后，将桌面上生成的 TMRBLog 文件夹压缩加密发送给厂商来进一步分析</li>
+</ol>
+<h1 id="典型案例分析"><a href="#典型案例分析" class="headerlink" title="典型案例分析"></a>典型案例分析</h1><h2 id="Worm-downad"><a href="#Worm-downad" class="headerlink" title="Worm_downad"></a>Worm_downad</h2><h3 id="主要传播手段"><a href="#主要传播手段" class="headerlink" title="主要传播手段"></a>主要传播手段</h3><ol>
+<li>漏洞：MS08-067</li>
+<li>移动存储</li>
+</ol>
+<h3 id="显性特征"><a href="#显性特征" class="headerlink" title="显性特征"></a>显性特征</h3><ol>
+<li>阻止访问安全网站</li>
+<li>安全配置失效</li>
+<li>暴力猜解密码</li>
+<li>禁用 Windows 自动更新</li>
+<li>无法登陆系统</li>
+<li>隐藏文件</li>
+<li>445 端口的网络流量很高</li>
+</ol>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li>通过日志找到感染源</li>
+<li>优先在源头计算机安装补丁（建议所有计算机打上补丁）：<span class="exturl" data-url="aHR0cDovL3d3dy5taWNyb3NvZnQuY29tL3RlY2huZXQvc2VjdXJpdHkvYnVsbGV0aW4vbXM5OC0wNjcubXNweA==">下载地址<i class="fa fa-external-link-alt"></i></span></li>
+<li>使用亚信安全产品或专杀工具查杀 WadKiller：<span class="exturl" data-url="aHR0cDovL3N1cHBvcnQuYXNpYWluZm8tc2VjLmNvbS9BbnRpLVZpcnVzL0NsZWFuLVRvb2wvVG9vbHMvU3BlY2lhbCUyMFRvb2xzL3dhZGtpbGxlcjAuNi56aXA=">下载地址<i class="fa fa-external-link-alt"></i></span></li>
+<li>修改域账号密码为强密码</li>
+</ol>
+<h2 id="PE-SALITY"><a href="#PE-SALITY" class="headerlink" title="PE_SALITY"></a>PE_SALITY</h2><h3 id="主要传播手段-1"><a href="#主要传播手段-1" class="headerlink" title="主要传播手段"></a>主要传播手段</h3><ol>
+<li>漏洞：ms10-046</li>
+<li>移动存储</li>
+<li>网络共享</li>
+<li>电子邮件</li>
+</ol>
+<h2 id="主要特征"><a href="#主要特征" class="headerlink" title="主要特征"></a>主要特征</h2><ol>
+<li>终止安全相关软件和服务</li>
+<li>禁用防火墙、任务管理器、注册表</li>
+<li>阻止进入安全模式</li>
+<li>共享目录及子文件夹存在 LNK 和 TMP 文件</li>
+<li>存在恶意的 AUTORUN.INF</li>
+</ol>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li>通过日志找到感染源（或 -O 母体文件）</li>
+<li>如果产品发生异常，使用 ATTK 先进行处理</li>
+<li>关闭系统还原</li>
+<li>安装漏洞补丁：<span class="exturl" data-url="aHR0cDovL3d3dy5taWNyb3NvZnQuY29tL3RlY2huZXQvc2VjdXJpdHkvYnVsbGV0aW4vbXMxMC0wNDYubXNweA==">下载地址<i class="fa fa-external-link-alt"></i></span></li>
+<li>对计算机进行全盘扫描</li>
+</ol>
+<h2 id="勒索病毒"><a href="#勒索病毒" class="headerlink" title="勒索病毒"></a>勒索病毒</h2><h3 id="两种类型"><a href="#两种类型" class="headerlink" title="两种类型"></a>两种类型</h3><ol>
+<li>传统勒索病毒</li>
+<li>勒索蠕虫</li>
+</ol>
+<h3 id="主要特征-1"><a href="#主要特征-1" class="headerlink" title="主要特征"></a>主要特征</h3><ol>
+<li>文档被加密锁定</li>
+<li>弹出勒索信息</li>
+</ol>
+<h3 id="传统勒索软件"><a href="#传统勒索软件" class="headerlink" title="传统勒索软件"></a>传统勒索软件</h3><ol>
+<li>主要传入手段<ol>
+<li>社工邮件（订单、银行账单）</li>
+<li>带有宏病毒的 Word / Excel 附件</li>
+</ol>
+</li>
+<li>特点：非常依赖人类交互</li>
+</ol>
+<h3 id="勒索蠕虫"><a href="#勒索蠕虫" class="headerlink" title="勒索蠕虫"></a>勒索蠕虫</h3><p>&emsp;&emsp;主要传入手段：MS17-010 漏洞及 Internet 传入</p>
+<h3 id="如何处理"><a href="#如何处理" class="headerlink" title="如何处理"></a>如何处理</h3><ol>
+<li>对于被加密文件，请使用此解密工具进行解密：<span class="exturl" data-url="aHR0cDovL3N1cHBvcnQuYXNpYWluZm8tc2VjLmNvbS9BbnRpLVZpcnVzL0NsZWFuLVRvb2wvVG9vbHMvUmFuc29td2FyZUZpbGVEZWNyeXB0b3I=">下载地址<i class="fa fa-external-link-alt"></i></span></li>
+<li>收集信息：ATTK 日志及病毒日志</li>
+</ol>
+<h3 id="如何预防"><a href="#如何预防" class="headerlink" title="如何预防"></a>如何预防</h3><ol>
+<li>增强员工安全意识</li>
+<li>防御（以 OSCE 为例）</li>
+<li>备份重要文档（3-2-1 规则）：三个副本，两种不同格式保存，异地存储</li>
+</ol>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/4.html">《AsiaInfo ACSE Training - 安全威胁课程——网络攻击》</a></p>
+</div>
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Donate commet here.</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="二洲 WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="二洲 Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>二洲
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.hackme.cc/AsiaInfo/3.html" title="AsiaInfo ACSE Training - 安全事件处理建议">https://blog.hackme.cc/AsiaInfo/3.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.hackme.cc/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+
+          <span class="label">Homepage</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:3199731997@qq.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://wpa.qq.com/msgrd?v=3&uin=3199731997">
+          <span class="icon">
+            <i class="fab fa-qq"></i>
+          </span>
+
+          <span class="label">QQ</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/baoweiju">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/baoweiju">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/xinan.webp">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%BB%BA%E8%AE%AE/" rel="tag"><i class="fa fa-tag"></i> 安全事件处理建议</a>
+              <a href="/tags/%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD/" rel="tag"><i class="fa fa-tag"></i> 工具下载</a>
+              <a href="/tags/ATTK/" rel="tag"><i class="fa fa-tag"></i> ATTK</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/AsiaInfo/2.html" rel="prev" title="AsiaInfo ACSE Training - 反病毒技术发展">
+                  <i class="fa fa-chevron-left"></i> AsiaInfo ACSE Training - 反病毒技术发展
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/AsiaInfo/4.html" rel="next" title="AsiaInfo ACSE Training - 安全威胁课程——网络攻击">
+                  AsiaInfo ACSE Training - 安全威胁课程——网络攻击 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 横向 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7268471087790880"
+     data-ad-slot="9081749453"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==">广告位 </span>
+      <img src="/images/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" style="display: inline-block;">
+  </div>
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">二洲</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">137k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">5:42</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><div>
+  <span id="timeDate">载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script async src="/js/duration.js"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 23555,
+      el    : 'wpac-rating',
+      color : '#fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+<script src="/js/local-search.js"></script>
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.pdf-container').length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/pdfobject@2.2.5/pdfobject.min.js', () => {
+    document.querySelectorAll('.pdf-container').forEach(element => {
+      PDFObject.embed(element.dataset.target, element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.dataset.height
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+<script data-pjax>
+var mermaidElements = document.querySelectorAll('.mermaid');
+if (mermaidElements.length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js', () => {
+    mermaidElements.forEach(element => {
+      const newElement = document.createElement('div');
+      newElement.innerHTML = element.innerHTML;
+      newElement.className = element.className;
+      element.parentNode.replaceChild(newElement, element);
+    });
+
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://blog.hackme.cc/AsiaInfo/3.html',]
+      });
+      });
+  </script>
+
+  <script>
+  NexT.utils.loadComments('#SOHUCS', () => {
+    NexT.utils.getScript('https://changyan.sohu.com/upload/changyan.js', () => {
+      window.changyan.api.config({
+        appid: 'cyveCGIBa',
+        conf : '9f5cbe345865265e4c7b636c366c10d9'
+      });
+    });
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+
+    </div>
+<!-- hexo injector body_end start -->
+  <script async src="/js/sakura.js"></script>
+
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a target="_blank" rel="noopener" href="https://myssl.com/bornfor.love?from=mysslid"><img src="https://static.myssl.com/res/images/myssl-id.png" alt="" style="width:100%;height:100%"></a>
+</div>
+
+  <script async as="script" src="/js/click.js"></script>
+
+  <script async as="script" src="/js/tab.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

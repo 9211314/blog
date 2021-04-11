@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sword-shield.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sword-shield.ico">
+  <link rel="mask-icon" href="/images/sword-shield.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.hackme.cc","root":"/","images":"/images","scheme":"Gemini","version":"8.3.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="&amp;emsp;&amp;emsp;博主正在整理网络安全缩写。中文释义皆参照了维基百科和百度百科。若有扩充指正，请联系博主，一经采纳，必有重谢！（博主继承了祖辈之学术严谨）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cyber Security Abbreviations &#x2F; 网络安全缩写">
+<meta property="og:url" content="https://blog.hackme.cc/Penetration-Test/3.html">
+<meta property="og:site_name" content="信安">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;博主正在整理网络安全缩写。中文释义皆参照了维基百科和百度百科。若有扩充指正，请联系博主，一经采纳，必有重谢！（博主继承了祖辈之学术严谨）">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-23T08:21:28.000Z">
+<meta property="article:modified_time" content="2021-04-10T12:41:34.716Z">
+<meta property="article:author" content="二洲">
+<meta property="article:tag" content="网络安全">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.hackme.cc/Penetration-Test/3.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Cyber Security Abbreviations / 网络安全缩写 | 信安</title>
+  
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e5aeb611b0cae78071d36bb6a04eea18";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<script data-ad-client="ca-pub-7268471087790880" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">信安</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">HACK ME</p>
+      <img class="custom-logo-image" src="/images/logo_text.webp" alt="信安">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-tie fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">132</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">67</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fas fa-link fa-fw"></i>Links</a></li>
+        <li class="menu-item menu-item-save-time"><span class="exturl" data-url="aHR0cHM6Ly9kYW8uaGFja21lLmNjLw=="><i class="fab fa-searchengin fa-fw"></i>Save Time</span></li>
+        <li class="menu-item menu-item-save-money"><span class="exturl" data-url="aHR0cHM6Ly90YW8uaGFja21lLmNjLw=="><i class="fas fa-yen-sign fa-fw"></i>Save Money</span></li>
+        <li class="menu-item menu-item-save-love"><span class="exturl" data-url="aHR0cHM6Ly9iYW8uaGFja21lLmNjLw=="><i class="far fa-kiss-wink-heart fa-fw"></i>Save Love</span></li>
+        <li class="menu-item menu-item-save-body"><span class="exturl" data-url="aHR0cDovL3dhby5oYWNrbWUuY2Mv"><i class="far fa-grin-hearts fa-fw"></i>Save Body</span></li>
+        <li class="menu-item menu-item-feedback"><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LnFxLmNvbS9wcm9kdWN0LzcwMzM5"><i class="fa fa-question-circle fa-fw"></i>Feedback</span></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+        <li class="menu-item menu-item-advertisement"><span class="exturl" data-url="aHR0cHM6Ly/ph43mlrDnlLPor7fkuK3igKbigKY="><i class="fas fa-ad fa-fw"></i>Advertisement</span></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二洲"
+      src="/images/bagua.webp">
+  <p class="site-author-name" itemprop="name">二洲</p>
+  <div class="site-description" itemprop="description">信安</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzkyMTEzMTQ=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;9211314"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjMxOTk3MzE5OTdAcXEuY29t" title="E-Mail → mailto:3199731997@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9iYW93ZWlqdQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;baoweiju"><i class="fab fa-twitter fa-fw"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;3199731997"><i class="fab fa-qq fa-fw"></i>QQ</span>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+      <!-- 粒子时钟 -->
+      <div style="margin-top:35px;">
+      <canvas id="canvasDiyBlock" style="width:60%;"></canvas><script src="/js/clock.js"></script>
+      </div>
+
+      <!-- 百度广告 -->
+      <div class="_g9hy6h97gy6"></div>
+      <script type="text/javascript">
+          (window.slotbydup = window.slotbydup || []).push({
+              id: "u6421120",
+              container: "_g9hy6h97gy6",
+              async: true
+          });
+      </script>
+      <!-- 多条广告如下脚本只需引入一次 -->
+      <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer" >
+      </script>
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="Click here to contact me" aria-label="Click here to contact me"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.hackme.cc/Penetration-Test/3.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bagua.webp">
+      <meta itemprop="name" content="二洲">
+      <meta itemprop="description" content="信安">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信安">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cyber Security Abbreviations / 网络安全缩写
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-23 16:21:28" itemprop="dateCreated datePublished" datetime="2021-03-23T16:21:28+08:00">2021-03-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-10 20:41:34" itemprop="dateModified" datetime="2021-04-10T20:41:34+08:00">2021-04-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Penetration-Test/" itemprop="url" rel="index"><span itemprop="name">Penetration Test</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    
+      <a title="changyan" href="/Penetration-Test/3.html#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="Penetration-Test/3.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>9 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>&emsp;&emsp;博主正在整理网络安全缩写。中文释义皆参照了维基百科和百度百科。若有扩充指正，请联系博主，一经采纳，必有重谢！（博主继承了祖辈之学术严谨）</p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th>简称</th>
+<th>全称</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvM0RFUw==">3DES/TDEA<i class="fa fa-external-link-alt"></i></span></td>
+<td>Triple Data Encryption Algorithm</td>
+<td>三重数据加密算法</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9BQUEvMTUwMzE1">AAA<i class="fa fa-external-link-alt"></i></span></td>
+<td>Authentication, Authorization, Accounting</td>
+<td>认证、授权、计费</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUFEJTk4JUU1JThGJTk2JUU2JThFJUE3JUU1JTg4JUI2JUU0JUI4JUIyJUU1JTg4JTk3">ACL<i class="fa fa-external-link-alt"></i></span></td>
+<td>Access Control List</td>
+<td>访问控制表</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JUFCJTk4JUU3JUJBJUE3JUU1JThBJUEwJUU1JUFGJTg2JUU2JUEwJTg3JUU1JTg3JTg2">AES<i class="fa fa-external-link-alt"></i></span></td>
+<td>Advanced Encryption Standard</td>
+<td>高级加密标准</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvQVNDSUk=">ASCII<i class="fa fa-external-link-alt"></i></span></td>
+<td>American Standard Code for Information Interchange</td>
+<td>美国信息交换标准代码</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUFGJTgxJUU0JUI5JUE2JUU5JUEyJTgxJUU1JThGJTkxJUU2JTlDJUJBJUU2JTlFJTg0">CA<i class="fa fa-external-link-alt"></i></span></td>
+<td>Certificate Authority</td>
+<td>证书颁发机构</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9DQ01Q">CCMP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Counter CBC-MAC Protocol</td>
+<td>计数器模式密码块链消息完整码协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUFGJUEyJUU5JTk3JUFFJUU2JThGJUExJUU2JTg5JThCJUU4JUFFJUE0JUU4JUFGJTgxJUU1JThEJThGJUU4JUFFJUFF">CHAP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Challenge-Handshake Authentication Protocol</td>
+<td>询问握手认证协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUFGJTgxJUU0JUI5JUE2JUU1JTkwJThBJUU5JTk0JTgwJUU1JTg4JTk3JUU4JUExJUE4">CRL<i class="fa fa-external-link-alt"></i></span></td>
+<td>Certificate revocation list</td>
+<td>证书吊销列表</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUFGJTgxJUU0JUI5JUE2JUU3JUFEJUJFJUU3JUJEJUIyJUU4JUFGJUI3JUU2JUIxJTgy">CSR<i class="fa fa-external-link-alt"></i></span></td>
+<td>Certificate Signing Request</td>
+<td>证书签署请求</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUI3JUE4JUU3JUFCJTk5JUU4JUFGJUI3JUU2JUIxJTgyJUU0JUJDJUFBJUU5JTgwJUEw">CSRF/XSRF<i class="fa fa-external-link-alt"></i></span></td>
+<td>Cross-site Request Forgery</td>
+<td>跨站请求伪造</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JTg3JUFBJUU0JUI4JUJCJUU4JUFFJUJGJUU5JTk3JUFFJUU2JThFJUE3JUU1JTg4JUI2">DAC<i class="fa fa-external-link-alt"></i></span></td>
+<td>Discretionary Access Control</td>
+<td>自主访问控制</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JTk4JUJCJUU2JTk2JUI3JUU2JTlDJThEJUU1JThCJTk5JUU2JTk0JUJCJUU2JTkzJThB">DDoS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Distributed Denial-of-service Dttack</td>
+<td>分布式拒绝服务攻击</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUIzJTg3JUU2JTk2JTk5JUU1JThBJUEwJUU1JUFGJTg2JUU2JUE4JTk5JUU2JUJBJTk2">DES<i class="fa fa-external-link-alt"></i></span></td>
+<td>Data Encryption Standard</td>
+<td>数据加密标准</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvRE1a">DMZ<i class="fa fa-external-link-alt"></i></span></td>
+<td>Demilitarized Zone</td>
+<td>非军事区/对外网络</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTlGJTlGJUU1JTkwJThEJUU3JUIzJUJCJUU3JUJCJTlG">DNS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Domain Name System</td>
+<td>域名系统</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTlGJTlGJUU1JTkwJThEJUU3JUIzJUJCJUU3JUJCJTlGJUU1JUFFJTg5JUU1JTg1JUE4JUU2JTg5JUE5JUU1JUIxJTk1">DNSSEC<i class="fa fa-external-link-alt"></i></span></td>
+<td>Domain Name System Security Extensions</td>
+<td>域名系统安全扩展</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JTk4JUJCJUU2JTk2JUI3JUU2JTlDJThEJUU1JThCJTk5JUU2JTk0JUJCJUU2JTkzJThB">DoS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Denial-of-service Attack</td>
+<td>拒绝服务攻击</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTg5JUE5JUU1JUIxJTk1JUU4JUFFJUE0JUU4JUFGJTgxJUU1JThEJThGJUU4JUFFJUFF">EAP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Extensible Authentication Protocol</td>
+<td>扩展认证协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUJDJTgxJUU0JUI4JTlBJUU4JUI1JTg0JUU2JUJBJTkwJUU4JUFFJUExJUU1JTg4JTky">ERP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Enterprise Resource Planning</td>
+<td>企业资源计划</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTk2JTg3JUU0JUJCJUI2JUU0JUJDJUEwJUU4JUJFJTkzJUU1JThEJThGJUU4JUFFJUFF">FTP<i class="fa fa-external-link-alt"></i></span></td>
+<td>File Transfer Protocol</td>
+<td>文件传输协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JTgwJTlBJUU3JTk0JUE4JUU4JUI3JUFGJUU3JTk0JUIxJUU1JUIwJTgxJUU4JUEzJTg1">GRE<i class="fa fa-external-link-alt"></i></span></td>
+<td>Generic Routing Encapsulation</td>
+<td>通用路由封装</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JUFCJTk4JUU1JThGJUFGJUU3JTk0JUE4JUU2JTgwJUE3">HA<i class="fa fa-external-link-alt"></i></span></td>
+<td>High Availability</td>
+<td>高可用性</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTQlQjglQkIlRTYlOUMlQkElRTUlODUlQTUlRTQlQkUlQjUlRTklOTglQjIlRTUlQkUlQTElRTclQjMlQkIlRTclQkIlOUY=">HIPS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Hostbased Intrusion Prevention System</td>
+<td>主机入侵防御系统</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUI2JTg1JUU2JTk2JTg3JUU2JTlDJUFDJUU0JUJDJUEwJUU4JUJFJTkzJUU1JThEJThGJUU4JUFFJUFF">HTTP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Hyper Text Transfer Protocol</td>
+<td>超文本传输协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUI2JTg1JUU2JTk2JTg3JUU2JTlDJUFDJUU0JUJDJUEwJUU4JUJFJTkzJUU1JUFFJTg5JUU1JTg1JUE4JUU1JThEJThGJUU4JUFFJUFF">HTTPS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Hyper Text Transfer Protocol Secure</td>
+<td>超文本传输安全协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTlBJTk2JUU5JTgwJTlBJUU3JUE5JUJBJUU4JUFBJUJG">HVAC<i class="fa fa-external-link-alt"></i></span></td>
+<td>Heating, Ventilation and Air Conditioning</td>
+<td>暖通空调、供热通风与空气调节</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUJBJTkyJUU4JTgxJTk0JUU3JUJEJTkxJUU2JThFJUE3JUU1JTg4JUI2JUU2JUI2JTg4JUU2JTgxJUFGJUU1JThEJThGJUU4JUFFJUFF">ICMP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Internet Control Message Protocol</td>
+<td>互联网控制消息协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUI3JUE1JUU2JUE1JUFEJUU2JThFJUE3JUU1JTg4JUI2JUU3JUIzJUJCJUU3JUI1JUIx">ICS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Industrial Control System</td>
+<td>工业控制系统</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTg1JUE1JUU0JUJFJUI1JUU2JUEzJTgwJUU2JUI1JThCJUU3JUIzJUJCJUU3JUJCJTlG">IDS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Intrusion-detection System</td>
+<td>入侵检测系统</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTlCJUEwJUU3JTg5JUI5JUU3JUJEJTkxJUU0JUJGJUExJUU2JTgxJUFGJUU4JUFFJUJGJUU5JTk3JUFFJUU1JThEJThGJUU4JUFFJUFF">IMAP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Internet Message Access Protocol</td>
+<td>因特网消息访问协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JTg5JUE5JUU4JTgxJTk0JUU3JUJEJTkx">IoT<i class="fa fa-external-link-alt"></i></span></td>
+<td>Internet of Things</td>
+<td>物联网</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTg1JUE1JUU0JUJFJUI1JUU5JUEyJTg0JUU5JTk4JUIyJUU3JUIzJUJCJUU3JUJCJTlG">IPS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Intrusion Prevention System</td>
+<td>入侵防御系统</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvSVBzZWM=">IPsec<i class="fa fa-external-link-alt"></i></span></td>
+<td>Internet Protocol Security</td>
+<td>互联网安全协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUFDJUFDJUU0JUJBJThDJUU1JUIxJTgyJUU5JTlBJUE3JUU5JTgxJTkzJUU1JThEJThGJUU4JUFFJUFF">L2TP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Layer Two Tunneling Protocol</td>
+<td>第二层隧道协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUJEJUJCJUU1JTlFJThCJUU3JTlCJUFFJUU1JUJEJTk1JUU4JUFFJUJGJUU5JTk3JUFFJUU1JThEJThGJUU4JUFFJUFF">LDAP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Lightweight Directory Access Protocol</td>
+<td>轻型目录访问协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTlDJUFDJUU1JTlDJUIwJUU1JUFFJTg5JUU1JTg1JUE4JUU4JUFBJThEJUU4JUFEJTg5JUU1JUFEJTkwJUU3JUIzJUJCJUU3JUI1JUIxJUU2JTlDJThEJUU1JThCJTk5">LSASS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Local Security Authority Subsystem Service</td>
+<td>本地安全认证子系统服务</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvTUFDJUU1JTlDJUIwJUU1JTlEJTgw">MAC<i class="fa fa-external-link-alt"></i></span></td>
+<td>Media Access Control Address</td>
+<td>媒体访问控制地址/物理地址</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvTUQ1">MD5<i class="fa fa-external-link-alt"></i></span></td>
+<td>MD5 Message-Digest Algorithm</td>
+<td>MD5消息摘要算法</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUJEJTkxJUU3JThBJUI2JUU3JUJEJTkxJUU3JUJCJTlD">Mesh<i class="fa fa-external-link-alt"></i></span></td>
+<td>Mesh Network</td>
+<td>网状网络</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUE0JTlBJUU3JTk0JUE4JUU5JTgwJTk0JUU0JUJBJTkyJUU4JTgxJUFGJUU3JUI2JUIyJUU5JTgzJUI1JUU0JUJCJUI2JUU2JTkzJUI0JUU1JUIxJTk1">MIME<i class="fa fa-external-link-alt"></i></span></td>
+<td>Multipurpose Internet Mail Extensions</td>
+<td>多用途互联网邮件扩展</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUI4JUFEJUU5JTk3JUI0JUU0JUJBJUJBJUU2JTk0JUJCJUU1JTg3JUJC">MITM<i class="fa fa-external-link-alt"></i></span></td>
+<td>Man-in-the-middle Attack</td>
+<td>中间人攻击</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUFCJTkyJUU4JUE3JUEzJUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJTg0">MOU<i class="fa fa-external-link-alt"></i></span></td>
+<td>Memorandum of Understanding</td>
+<td>谅解备忘录</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUI5JUIzJUU1JTlEJTg3JUU2JTk1JTg1JUU5JTlBJTlDJUU5JTk2JTkzJUU5JTlBJTk0">MTBF<i class="fa fa-external-link-alt"></i></span></td>
+<td>Mean Time Between Failures</td>
+<td>平均故障间隔</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUI5JUIzJUU1JTlEJTg3JUU0JUJGJUFFJUU1JUJFJUE5JUU2JTk5JTgyJUU5JTk2JTkz">MTTR<i class="fa fa-external-link-alt"></i></span></td>
+<td>Mean Time to Recovery</td>
+<td>平均修复时间</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUJEJTkxJUU3JUJCJTlDJUU1JTlDJUIwJUU1JTlEJTgwJUU4JUJEJUFDJUU2JThEJUEy">NAT<i class="fa fa-external-link-alt"></i></span></td>
+<td>Network Address Translation</td>
+<td>网络地址转换</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUJGJTlEJUU1JUFGJTg2JUU1JThEJThGJUU4JUFFJUFF">NDA<i class="fa fa-external-link-alt"></i></span></td>
+<td>Non-disclosure Agreement</td>
+<td>保密协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JUFDJUExJUU0JUI4JTk2JUU0JUJCJUEzJUU5JTk4JUIyJUU3JTgxJUFCJUU3JTg5JTg2">NGFW<i class="fa fa-external-link-alt"></i></span></td>
+<td>Next-generation Firewall</td>
+<td>下一代防火墙</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9OVExN">NTLM<i class="fa fa-external-link-alt"></i></span></td>
+<td>NT LAN Manager</td>
+<td>NT局域网管理器</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUJDJTgwJUU2JTk0JUJFJUU2JThFJTg4JUU2JTlEJTgz">OAuth<i class="fa fa-external-link-alt"></i></span></td>
+<td>OAuth</td>
+<td>开放授权</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTlDJUE4JUU3JUJBJUJGJUU4JUFGJTgxJUU0JUI5JUE2JUU3JThBJUI2JUU2JTgwJTgxJUU1JThEJThGJUU4JUFFJUFF">OCSP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Online Certificate Status Protocol</td>
+<td>在线证书状态协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTUlQUYlQjklRTglQjElQTElRTYlQTAlODclRTglQUYlODYlRTclQUMlQTY=">OID<i class="fa fa-external-link-alt"></i></span></td>
+<td>Object Identifier</td>
+<td>对象标识符</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUFGJTg2JUU3JUEwJTgxJUU4JUFFJUE0JUU4JUFGJTgxJUU1JThEJThGJUU4JUFFJUFF">PAP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Password Authentication Protocol</td>
+<td>密码认证协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9wYXQvMzcyNjgwMw==">PAT<i class="fa fa-external-link-alt"></i></span></td>
+<td>Port Address Translation</td>
+<td>端口地址转换</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvUENM">PCL<i class="fa fa-external-link-alt"></i></span></td>
+<td>Printer Command Language</td>
+<td>打印机命令语言</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9QRUFQ">PEAP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Protected Extensible Authentication Protocol</td>
+<td>受保护的扩展认证协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTgwJThCJUU0JUJBJUJBJUU4JUFEJTk4JUU1JTg4JUE1JUU3JUEyJUJD">PIN<i class="fa fa-external-link-alt"></i></span></td>
+<td>Personal Identification Number</td>
+<td>个人身份识别码</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvUGluZw==">ping<i class="fa fa-external-link-alt"></i></span></td>
+<td>Packet Internet Groper</td>
+<td>网络诊断工具</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTg1JUFDJUU5JTk2JThCJUU5JTg3JTkxJUU5JTkxJUIwJUU1JTlGJUJBJUU3JUE0JThFJUU1JUJCJUJBJUU4JUE4JUFE">PKI<i class="fa fa-external-link-alt"></i></span></td>
+<td>Public Key Infrastructure</td>
+<td>公开密钥基础建设</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JTgyJUI5JUU1JUFGJUI5JUU3JTgyJUI5JUU1JThEJThGJUU4JUFFJUFF">PPP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Point-to-Point Protocol</td>
+<td>点对点协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JUJCJTlFJUU1JUIwJThEJUU5JUJCJTlFJUU5JTlBJUE3JUU5JTgxJTkzJUU1JThEJTk0JUU4JUFEJUIw">PPTP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Point to Point Tunneling Protocol</td>
+<td>点对点隧道协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9QU0svMTM4ODg2NzY=">PSK<i class="fa fa-external-link-alt"></i></span></td>
+<td>Pre-shared Key</td>
+<td>预共享密钥</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTlDJThEJUU1JThBJUExJUU4JUI0JUE4JUU5JTg3JThG">QoS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Quality of Service</td>
+<td>服务质量</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUJGJTlDJUU3JUFCJUFGJUU3JTk0JUE4JUU2JTg4JUI3JUU2JThCJUE4JUU1JTg1JUE1JUU5JUFBJThDJUU4JUFGJTgxJUU2JTlDJThEJUU1JThBJUEx">RADIUS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Remote Authentication Dial In User Service</td>
+<td>远端用户拨入验证服务</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JTlBJThGJUU2JTlDJUJBJUU1JUFEJTk4JUU1JThGJTk2JUU1JUFEJTk4JUU1JTgyJUE4JUU1JTk5JUE4">RAM<i class="fa fa-external-link-alt"></i></span></td>
+<td>Random Access Memory</td>
+<td>随机存取存储器</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUJCJUE1JUU4JUE3JTkyJUU4JTg5JUIyJUU3JTgyJUJBJUU1JTlGJUJBJUU3JUE0JThFJUU3JTlBJTg0JUU1JUFEJTk4JUU1JThGJTk2JUU2JThFJUE3JUU1JTg4JUI2">RBAC<i class="fa fa-external-link-alt"></i></span></td>
+<td>Role-based Access Control</td>
+<td>基于角色的访问控制</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTk0JUFGJUU4JUFFJTgwJUU4JUE4JTk4JUU2JTg2JUI2JUU5JUFCJTk0">ROM<i class="fa fa-external-link-alt"></i></span></td>
+<td>Read-only Memory</td>
+<td>只读存储器</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9SUE8=">RPO<i class="fa fa-external-link-alt"></i></span></td>
+<td>Recovery Point Object</td>
+<td>恢复点目标</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9SVE8=">RTO<i class="fa fa-external-link-alt"></i></span></td>
+<td>Recovery Time Object</td>
+<td>恢复时间目标</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUFFJTg5JUU1JTg1JUE4JUU2JTk2JUFEJUU4JUE4JTgwJUU2JUEwJTg3JUU4JUFFJUIwJUU4JUFGJUFEJUU4JUE4JTgw">SAML<i class="fa fa-external-link-alt"></i></span></td>
+<td>Security Assertion Markup Language</td>
+<td>安全断言标记语言</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUIzJUJCJUU3JUJCJTlGJUU1JThGJTkxJUU1JUIxJTk1JUU3JTk0JTlGJUU1JTkxJUJEJUU1JTkxJUE4JUU2JTlDJTlG">SDLC<i class="fa fa-external-link-alt"></i></span></td>
+<td>System Development Life Cycle</td>
+<td>系统发展生命周期</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvU1NIJUU2JTk2JTg3JUU0JUJCJUI2JUU0JUJDJUEwJUU4JUJFJTkzJUU1JThEJThGJUU4JUFFJUFF">SFTP<i class="fa fa-external-link-alt"></i></span></td>
+<td>SSH File Transfer Protocol/Secret File Transfer Protocol</td>
+<td>安全文件传送协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9zaWVt">SIEM<i class="fa fa-external-link-alt"></i></span></td>
+<td>Security Information and Event Management</td>
+<td>安全信息和事件管理</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTlDJThEJUU1JThBJUExJUU3JUJBJUE3JUU1JTg4JUFCJUU1JThEJThGJUU4JUFFJUFF">SLA<i class="fa fa-external-link-alt"></i></span></td>
+<td>Service-level Agreement</td>
+<td>服务级别协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvUy9NSU1F">S/MIME<i class="fa fa-external-link-alt"></i></span></td>
+<td>Secure Multipurpose Internet Mail Extensions</td>
+<td>安全的多用途互联网邮件扩展</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUFFJTgwJUU1JThEJTk1JUU3JUJEJTkxJUU3JUJCJTlDJUU3JUFFJUExJUU3JTkwJTg2JUU1JThEJThGJUU4JUFFJUFF">SNMP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Simple Network Management Protocol</td>
+<td>简单网络管理协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JThEJTk1JUU3JTg5JTg3JUU3JUIzJUJCJUU3JUJCJTlG">SoC<i class="fa fa-external-link-alt"></i></span></td>
+<td>System on a Chip</td>
+<td>单片系统/片上系统</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUFFJTg5JUU1JTg1JUE4JUU1JUFFJTlFJUU2JTk3JUI2JUU0JUJDJUEwJUU4JUJFJTkzJUU1JThEJThGJUU4JUFFJUFF">SRTP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Secure Real-time Transport Protocol</td>
+<td>安全实时传输协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvU2VjdXJlX1NoZWxs">SSH<i class="fa fa-external-link-alt"></i></span></td>
+<td>Secure Shell</td>
+<td>安全外壳协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9zc2w=">SSL<i class="fa fa-external-link-alt"></i></span></td>
+<td>Secure Sockets Layer</td>
+<td>安全套接层</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTk2JUFFJUU0JUI4JTgwJUU3JTk5JUJCJUU1JTg1JUE1">SSO<i class="fa fa-external-link-alt"></i></span></td>
+<td>Single Sign-on</td>
+<td>单点登录</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTlDJThEJUU1JThBJUExJUU1JTk5JUE4JUU3JUFCJUFGJUU4JUFGJUI3JUU2JUIxJTgyJUU0JUJDJUFBJUU5JTgwJUEw">SSRF<i class="fa fa-external-link-alt"></i></span></td>
+<td>Server-side Request Forgery</td>
+<td>服务端请求伪造</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvVEFDQUNT">TACACS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Terminal Access Controller Access-Control System</td>
+<td>终端访问控制器访问控制系统</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvVEFDQUNTJTJC">TACACS+<i class="fa fa-external-link-alt"></i></span></td>
+<td>Terminal Access Controller Access-Control System Plus</td>
+<td>（全新）终端访问控制器访问控制系统</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUJDJUEwJUU4JUJFJTkzJUU2JThFJUE3JUU1JTg4JUI2JUU1JThEJThGJUU4JUFFJUFF">TCP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Transmission Control Protocol</td>
+<td>传输控制协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUFFJTgwJUU1JThEJTk1JUU2JTk2JTg3JUU0JUJCJUI2JUU0JUJDJUEwJUU4JUJFJTkzJUU1JThEJThGJUU4JUFFJUFF">TFTP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Trivial File Transfer Protocol</td>
+<td>简单文件传输协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUI4JUI0JUU2JTk3JUI2JUU1JUFGJTg2JUU5JTkyJUE1JUU1JUFFJThDJUU2JTk1JUI0JUU2JTgwJUE3JUU1JThEJThGJUU4JUFFJUFF">TKIP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Temporal Key Integrity Protocol</td>
+<td>临时密钥完整性协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTgyJUIzJUU4JUJDJUI4JUU1JUIxJUE0JUU1JUFFJTg5JUU1JTg1JUE4JUU2JTgwJUE3JUU1JThEJTk0JUU1JUFFJTlB">TLS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Transport Layer Security</td>
+<td>传输层安全协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JThGJUFGJUU0JUJGJUExJUU1JUI5JUIzJUU1JThGJUIwJUU2JUE4JUExJUU1JTlEJTk3">TPM<i class="fa fa-external-link-alt"></i></span></td>
+<td>Trusted Platform Module</td>
+<td>可信平台模块</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUJCJTlGJUU0JUI4JTgwJUU4JUI1JTg0JUU2JUJBJTkwJUU1JUFFJTlBJUU0JUJEJThEJUU3JUFDJUE2">URL<i class="fa fa-external-link-alt"></i></span></td>
+<td>Uniform Resource Locator</td>
+<td>统一资源定位符</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvVm9JUA==">VoIP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Voice over Internet Protocol</td>
+<td>基于IP的语音传输</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JTk5JTlCJUU2JTkzJUFDJUU3JUE3JTgxJUU0JUJBJUJBJUU3JUI2JUIyJUU4JUI3JUFG">VPN<i class="fa fa-external-link-alt"></i></span></td>
+<td>Virtual Private Network</td>
+<td>虚拟专用网</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9XQUY=">WAF<i class="fa fa-external-link-alt"></i></span></td>
+<td>Web Application Firewall</td>
+<td>网络应用程序防火墙</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTk3JUEwJUU3JUJBJUJGJUU1JUJBJTk0JUU3JTk0JUE4JUU1JThEJThGJUU4JUFFJUFF">WAP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Wireless Application Protocol</td>
+<td>无线应用协议</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTlDJTg5JUU3JUI3JTlBJUU3JUFEJTg5JUU2JTk1JTg4JUU1JThBJUEwJUU1JUFGJTg2">WEP<i class="fa fa-external-link-alt"></i></span></td>
+<td>Wired Equivalent Privacy</td>
+<td>有线等效加密</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvV1BB">WPA<i class="fa fa-external-link-alt"></i></span></td>
+<td>Wi-Fi Protected Access</td>
+<td>Wi-Fi访问保护</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvV2ktRmklRTQlQkYlOUQlRTYlOEElQTQlRTglQUUlQkUlRTclQkQlQUU=">WPS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Wi-Fi Protected Setup</td>
+<td>Wi-Fi保护设置</td>
+</tr>
+<tr>
+<td><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUI3JUE4JUU3JUI2JUIyJUU3JUFCJTk5JUU2JThDJTg3JUU0JUJCJUE0JUU3JUEyJUJD">XSS<i class="fa fa-external-link-alt"></i></span></td>
+<td>Cross-site Scripting</td>
+<td>跨站脚本</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\IT\10.html" rel="bookmark">CCIA China's Top 50 Cyber Security Competitive Power List of 2020 / 2020 年 CCIA 中国网络安全竞争力 50 强榜单</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Donate commet here.</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="二洲 WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="二洲 Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>二洲
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.hackme.cc/Penetration-Test/3.html" title="Cyber Security Abbreviations &#x2F; 网络安全缩写">https://blog.hackme.cc/Penetration-Test/3.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.hackme.cc/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+
+          <span class="label">Homepage</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:3199731997@qq.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://wpa.qq.com/msgrd?v=3&uin=3199731997">
+          <span class="icon">
+            <i class="fab fa-qq"></i>
+          </span>
+
+          <span class="label">QQ</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/baoweiju">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/baoweiju">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/xinan.webp">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag"><i class="fa fa-tag"></i> 网络安全</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/IT/14.html" rel="prev" title="Raspberry Pi Intranet Penetration / 树莓派内网穿透">
+                  <i class="fa fa-chevron-left"></i> Raspberry Pi Intranet Penetration / 树莓派内网穿透
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/IT/15.html" rel="next" title="Resolutions for VMware Tools Installation Failure / VMware Tools 安装失败的解决办法">
+                  Resolutions for VMware Tools Installation Failure / VMware Tools 安装失败的解决办法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 横向 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7268471087790880"
+     data-ad-slot="9081749453"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==">广告位 </span>
+      <img src="/images/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" style="display: inline-block;">
+  </div>
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">二洲</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">137k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">5:42</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><div>
+  <span id="timeDate">载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script async src="/js/duration.js"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 23555,
+      el    : 'wpac-rating',
+      color : '#fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+<script src="/js/local-search.js"></script>
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.pdf-container').length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/pdfobject@2.2.5/pdfobject.min.js', () => {
+    document.querySelectorAll('.pdf-container').forEach(element => {
+      PDFObject.embed(element.dataset.target, element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.dataset.height
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+<script data-pjax>
+var mermaidElements = document.querySelectorAll('.mermaid');
+if (mermaidElements.length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js', () => {
+    mermaidElements.forEach(element => {
+      const newElement = document.createElement('div');
+      newElement.innerHTML = element.innerHTML;
+      newElement.className = element.className;
+      element.parentNode.replaceChild(newElement, element);
+    });
+
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://blog.hackme.cc/Penetration-Test/3.html',]
+      });
+      });
+  </script>
+
+  <script>
+  NexT.utils.loadComments('#SOHUCS', () => {
+    NexT.utils.getScript('https://changyan.sohu.com/upload/changyan.js', () => {
+      window.changyan.api.config({
+        appid: 'cyveCGIBa',
+        conf : '9f5cbe345865265e4c7b636c366c10d9'
+      });
+    });
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+
+    </div>
+<!-- hexo injector body_end start -->
+  <script async src="/js/sakura.js"></script>
+
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a target="_blank" rel="noopener" href="https://myssl.com/bornfor.love?from=mysslid"><img src="https://static.myssl.com/res/images/myssl-id.png" alt="" style="width:100%;height:100%"></a>
+</div>
+
+  <script async as="script" src="/js/click.js"></script>
+
+  <script async as="script" src="/js/tab.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

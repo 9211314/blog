@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sword-shield.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sword-shield.ico">
+  <link rel="mask-icon" href="/images/sword-shield.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.hackme.cc","root":"/","images":"/images","scheme":"Gemini","version":"8.3.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="&amp;emsp;&amp;emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程，第三章《ACSE 产品必修课程》之任务 1《OSCE XG学习计划》课程 4《OSCE XG 第三讲 日志和管理》的学习笔记，内容仅供学习交流，非亚信安全官方课程文档，若想进行 ACSE 课程学习或取得认证，请参阅 亚信安全认证培训 进行报名参训。 上一节课程：《AsiaInfo ACSE Training - OS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AsiaInfo ACSE Training - OSCE XG 第四讲 日志和管理">
+<meta property="og:url" content="https://blog.hackme.cc/AsiaInfo/9.html">
+<meta property="og:site_name" content="信安">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程，第三章《ACSE 产品必修课程》之任务 1《OSCE XG学习计划》课程 4《OSCE XG 第三讲 日志和管理》的学习笔记，内容仅供学习交流，非亚信安全官方课程文档，若想进行 ACSE 课程学习或取得认证，请参阅 亚信安全认证培训 进行报名参训。 上一节课程：《AsiaInfo ACSE Training - OS">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-25T08:30:43.000Z">
+<meta property="article:modified_time" content="2021-04-10T12:36:12.090Z">
+<meta property="article:author" content="二洲">
+<meta property="article:tag" content="OfficeScan">
+<meta property="article:tag" content="防毒墙网络版">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.hackme.cc/AsiaInfo/9.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>AsiaInfo ACSE Training - OSCE XG 第四讲 日志和管理 | 信安</title>
+  
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e5aeb611b0cae78071d36bb6a04eea18";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<script data-ad-client="ca-pub-7268471087790880" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">信安</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">HACK ME</p>
+      <img class="custom-logo-image" src="/images/logo_text.webp" alt="信安">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-tie fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">132</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">67</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fas fa-link fa-fw"></i>Links</a></li>
+        <li class="menu-item menu-item-save-time"><span class="exturl" data-url="aHR0cHM6Ly9kYW8uaGFja21lLmNjLw=="><i class="fab fa-searchengin fa-fw"></i>Save Time</span></li>
+        <li class="menu-item menu-item-save-money"><span class="exturl" data-url="aHR0cHM6Ly90YW8uaGFja21lLmNjLw=="><i class="fas fa-yen-sign fa-fw"></i>Save Money</span></li>
+        <li class="menu-item menu-item-save-love"><span class="exturl" data-url="aHR0cHM6Ly9iYW8uaGFja21lLmNjLw=="><i class="far fa-kiss-wink-heart fa-fw"></i>Save Love</span></li>
+        <li class="menu-item menu-item-save-body"><span class="exturl" data-url="aHR0cDovL3dhby5oYWNrbWUuY2Mv"><i class="far fa-grin-hearts fa-fw"></i>Save Body</span></li>
+        <li class="menu-item menu-item-feedback"><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LnFxLmNvbS9wcm9kdWN0LzcwMzM5"><i class="fa fa-question-circle fa-fw"></i>Feedback</span></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+        <li class="menu-item menu-item-advertisement"><span class="exturl" data-url="aHR0cHM6Ly/ph43mlrDnlLPor7fkuK3igKbigKY="><i class="fas fa-ad fa-fw"></i>Advertisement</span></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E6%9B%B4%E6%96%B0"><span class="nav-number">1.</span> <span class="nav-text">组件更新</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">更新原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E5%8E%9F%E7%90%86%EF%BC%88%E7%A6%BB%E7%BA%BF%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">更新原理（离线）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">2.</span> <span class="nav-text">服务器更新</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E6%9B%B4%E6%96%B0%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8E%E5%88%9A%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%96%E6%9C%89%E7%97%85%E6%AF%92%E5%A4%A7%E7%88%86%E5%8F%91%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">手动更新（适用于刚安装完或有病毒大爆发）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%BE%E6%9B%B4%E6%96%B0%EF%BC%88%E5%AE%9A%E6%9C%9F%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E6%9C%80%E6%96%B0%E7%9A%84%E7%BB%84%E4%BB%B6%E6%9B%B4%E6%96%B0%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">预设更新（定期检查是否存在最新的组件更新）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%BA%90"><span class="nav-number">2.3.</span> <span class="nav-text">更新源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9B%B4%E6%96%B0"><span class="nav-number">3.</span> <span class="nav-text">客户端更新</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">3.1.</span> <span class="nav-text">手动更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">3.2.</span> <span class="nav-text">自动更新</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BB%A3%E7%90%86%E6%9B%B4%E6%96%B0"><span class="nav-number">4.</span> <span class="nav-text">客户端代理更新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">其他配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%88%E6%9D%83%E7%AE%A1%E7%90%86"><span class="nav-number">5.1.</span> <span class="nav-text">授权管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%8A%B6%E6%80%81%E9%AA%8C%E8%AF%81"><span class="nav-number">5.2.</span> <span class="nav-text">客户端状态验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">5.3.</span> <span class="nav-text">控制台配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">5.4.</span> <span class="nav-text">代理服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AE%BE%E7%BD%AE"><span class="nav-number">5.5.</span> <span class="nav-text">全局客户端设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E4%B8%8E%E7%AE%A1%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">日志分析与管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%97%A5%E5%BF%97"><span class="nav-number">6.1.</span> <span class="nav-text">客户端日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="nav-number">6.2.</span> <span class="nav-text">服务器更新日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97"><span class="nav-number">6.3.</span> <span class="nav-text">系统系统日志</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE"><span class="nav-number">7.</span> <span class="nav-text">日志配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4"><span class="nav-number">7.1.</span> <span class="nav-text">自动删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E5%88%A0%E9%99%A4"><span class="nav-number">7.2.</span> <span class="nav-text">手动删除</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94"><span class="nav-number">8.</span> <span class="nav-text">常见疑难解答</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%A4%87%E4%BB%BD%E8%AF%81%E4%B9%A6%EF%BC%88%E5%AF%BC%E5%87%BA%E8%AF%81%E4%B9%A6%EF%BC%89%EF%BC%9F"><span class="nav-number">8.1.</span> <span class="nav-text">如何备份证书（导出证书）？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BB%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%9F"><span class="nav-number">8.2.</span> <span class="nav-text">如何迁移客户端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BB-SQL-%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9F"><span class="nav-number">8.3.</span> <span class="nav-text">如何迁移 SQL 数据库？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93-OfficeScan-%E5%87%BA%E7%8E%B0%E5%BC%82%E5%B8%B8%E6%83%85%E5%86%B5%E6%97%B6%EF%BC%8C%E5%A6%82%E4%BD%95%E6%94%B6%E9%9B%86%E4%BA%A7%E5%93%81%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97%EF%BC%9F%EF%BC%88%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86-Debug-%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D%EF%BC%89"><span class="nav-number">8.4.</span> <span class="nav-text">当 OfficeScan 出现异常情况时，如何收集产品调试日志？（日志收集 Debug 工具介绍）</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二洲"
+      src="/images/bagua.webp">
+  <p class="site-author-name" itemprop="name">二洲</p>
+  <div class="site-description" itemprop="description">信安</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzkyMTEzMTQ=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;9211314"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjMxOTk3MzE5OTdAcXEuY29t" title="E-Mail → mailto:3199731997@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9iYW93ZWlqdQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;baoweiju"><i class="fab fa-twitter fa-fw"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;3199731997"><i class="fab fa-qq fa-fw"></i>QQ</span>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+      <!-- 粒子时钟 -->
+      <div style="margin-top:35px;">
+      <canvas id="canvasDiyBlock" style="width:60%;"></canvas><script src="/js/clock.js"></script>
+      </div>
+
+      <!-- 百度广告 -->
+      <div class="_g9hy6h97gy6"></div>
+      <script type="text/javascript">
+          (window.slotbydup = window.slotbydup || []).push({
+              id: "u6421120",
+              container: "_g9hy6h97gy6",
+              async: true
+          });
+      </script>
+      <!-- 多条广告如下脚本只需引入一次 -->
+      <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer" >
+      </script>
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="Click here to contact me" aria-label="Click here to contact me"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.hackme.cc/AsiaInfo/9.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bagua.webp">
+      <meta itemprop="name" content="二洲">
+      <meta itemprop="description" content="信安">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信安">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AsiaInfo ACSE Training - OSCE XG 第四讲 日志和管理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-25 16:30:43" itemprop="dateCreated datePublished" datetime="2020-02-25T16:30:43+08:00">2020-02-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-10 20:36:12" itemprop="dateModified" datetime="2021-04-10T20:36:12+08:00">2021-04-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AsiaInfo/" itemprop="url" rel="index"><span itemprop="name">AsiaInfo</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    
+      <a title="changyan" href="/AsiaInfo/9.html#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="AsiaInfo/9.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程，第三章《ACSE 产品必修课程》之任务 1《OSCE XG学习计划》课程 4《OSCE XG 第三讲 日志和管理》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/AsiaInfo/8.html">《AsiaInfo ACSE Training - OSCE XG 第三讲 病毒防护配置》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="组件更新"><a href="#组件更新" class="headerlink" title="组件更新"></a>组件更新</h1><h2 id="更新原理"><a href="#更新原理" class="headerlink" title="更新原理"></a>更新原理</h2><ol>
+<li>ActiveUpdate 服务器 → OfficeScan 服务器 → 客户端<br> 适用于：小型企业、测试环境、服务器管理客户端数比较少</li>
+<li>ActiveUpdate 服务器（→ OfficeScan 服务器）→ 更新代理 → 客户端<br> 适用于：大型企业、服务器管理客户端数比较多</li>
+<li>ActiveUpdate 服务器 → 遇到问题/正在漫游的客户端<br> 适用于：办公环境员工在外出、出差时使用笔记本电脑</li>
+</ol>
+<h2 id="更新原理（离线）"><a href="#更新原理（离线）" class="headerlink" title="更新原理（离线）"></a>更新原理（离线）</h2><p>&emsp;&emsp;用一台可以联网的计算机，下载安装 <span class="exturl" data-url="aHR0cDovL3N1cHBvcnQuYXNpYWluZm8tc2VjLmNvbS9UTS1Qcm9kdWN0L1Byb2R1Y3QvVE1VVC8=">TMUT<i class="fa fa-external-link-alt"></i></span>，OfficeScan 服务器将该终端作为更新源进行更新</p>
+<p>&emsp;&emsp;适用于：内网封闭的工作环境</p>
+<h1 id="服务器更新"><a href="#服务器更新" class="headerlink" title="服务器更新"></a>服务器更新</h1><h2 id="手动更新（适用于刚安装完或有病毒大爆发）"><a href="#手动更新（适用于刚安装完或有病毒大爆发）" class="headerlink" title="手动更新（适用于刚安装完或有病毒大爆发）"></a>手动更新（适用于刚安装完或有病毒大爆发）</h2><p>&emsp;&emsp;更新 → 服务器 → 手动更新</p>
+<h2 id="预设更新（定期检查是否存在最新的组件更新）"><a href="#预设更新（定期检查是否存在最新的组件更新）" class="headerlink" title="预设更新（定期检查是否存在最新的组件更新）"></a>预设更新（定期检查是否存在最新的组件更新）</h2><p>&emsp;&emsp;更新 → 服务器 → 预设更新（推荐每小时一次）</p>
+<h2 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h2><p>&emsp;&emsp;更新 → 服务器 → 更新源</p>
+<h1 id="客户端更新"><a href="#客户端更新" class="headerlink" title="客户端更新"></a>客户端更新</h1><h2 id="手动更新"><a href="#手动更新" class="headerlink" title="手动更新"></a>手动更新</h2><p>&emsp;&emsp;更新 → 客户端 → 手动更新</p>
+<h2 id="自动更新"><a href="#自动更新" class="headerlink" title="自动更新"></a>自动更新</h2><p>&emsp;&emsp;更新 → 客户端 → 自动更新</p>
+<h1 id="客户端代理更新"><a href="#客户端代理更新" class="headerlink" title="客户端代理更新"></a>客户端代理更新</h1><ol>
+<li>在配置之前，请规划好将哪些终端作为更新代理使用，这些更新代理又对应哪些终端</li>
+<li>将指定客户端设置为代理：在客户端 ＞ 客户端管理，选中指定的更新代理，右键，选择更新代理设置，勾选组件更新</li>
+<li>更改客户端更新源：在更新 ＞ 客户端 ＞ 更新源，将指定 IP 段的客户端更新源设置为代理客户端</li>
+</ol>
+<h1 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h1><h2 id="授权管理"><a href="#授权管理" class="headerlink" title="授权管理"></a>授权管理</h2><p>&emsp;&emsp;管理 → 设置 → 产品使用授权</p>
+<h2 id="客户端状态验证"><a href="#客户端状态验证" class="headerlink" title="客户端状态验证"></a>客户端状态验证</h2><ol>
+<li>客户端管理<br> 管理 &gt; 客户端管理中，查看客户端的连接状态</li>
+<li>连接验证<br> 管理 &gt; 连接验证中，可以手动/预设验证客户端连接状态</li>
+</ol>
+<h2 id="控制台配置"><a href="#控制台配置" class="headerlink" title="控制台配置"></a>控制台配置</h2><p>&emsp;&emsp;管理 → 设置 → Web 控制台</p>
+<p>&emsp;&emsp;可配置控制台自动刷新时间和账号登陆超时时间</p>
+<h2 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h2><p>&emsp;&emsp;管理 → 设置 → 代理服务器</p>
+<h2 id="全局客户端设置"><a href="#全局客户端设置" class="headerlink" title="全局客户端设置"></a>全局客户端设置</h2><p>&emsp;&emsp;管理 → 全局客户端设置</p>
+<p>&emsp;&emsp;可将“使用防毒墙网络版扫描”添加至 Windows 右键菜单</p>
+<h1 id="日志分析与管理"><a href="#日志分析与管理" class="headerlink" title="日志分析与管理"></a>日志分析与管理</h1><h2 id="客户端日志"><a href="#客户端日志" class="headerlink" title="客户端日志"></a>客户端日志</h2><p>&emsp;&emsp;日志 → 客户端</p>
+<p>&emsp;&emsp;记录了服务器从客户端接受到的日志：安全风险、客户端组件更新、连接验证、集中隔离恢复、间谍软件/灰色软件恢复</p>
+<h2 id="服务器更新日志"><a href="#服务器更新日志" class="headerlink" title="服务器更新日志"></a>服务器更新日志</h2><p>&emsp;&emsp;记录服务器组件更新情况日志</p>
+<h2 id="系统系统日志"><a href="#系统系统日志" class="headerlink" title="系统系统日志"></a>系统系统日志</h2><p>&emsp;&emsp;记录与服务器程序相关的事件日志，如关闭和启动、主服务运行情况、爆发阻止情况、数据库备份情况、基于角色的 Web 控制台访问、服务器认证</p>
+<h1 id="日志配置"><a href="#日志配置" class="headerlink" title="日志配置"></a>日志配置</h1><h2 id="自动删除"><a href="#自动删除" class="headerlink" title="自动删除"></a>自动删除</h2><p>&emsp;&emsp;日志 → 日志维护</p>
+<h2 id="手动删除"><a href="#手动删除" class="headerlink" title="手动删除"></a>手动删除</h2><p>&emsp;&emsp;客户端 → 客户端管理</p>
+<h1 id="常见疑难解答"><a href="#常见疑难解答" class="headerlink" title="常见疑难解答"></a>常见疑难解答</h1><h2 id="如何备份证书（导出证书）？"><a href="#如何备份证书（导出证书）？" class="headerlink" title="如何备份证书（导出证书）？"></a>如何备份证书（导出证书）？</h2><p>&emsp;&emsp;在重新安装服务器时，如何备份证书？</p>
+<ol>
+<li>在 OfficeScan 服务器上，打开命令提示符，并定位到证书管理器目录 &lt;服务器安装文件夹&gt;\Pccsrv\Admin\Utility\CertificateManager</li>
+<li>输入指令<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">CertificateManager</span>.</span></span>exe -b <span class="literal">[密码]</span> <span class="literal">[证书导出路径]</span></span><br><span class="line">例：<span class="module-access"><span class="module"><span class="identifier">CertificateManager</span>.</span></span>exe -b strongpassword D:\Test\<span class="module-access"><span class="module"><span class="identifier">Asiainfo</span>.</span></span>zip</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="如何迁移客户端？"><a href="#如何迁移客户端？" class="headerlink" title="如何迁移客户端？"></a>如何迁移客户端？</h2><ol>
+<li>场景一：更换新的服务器，原服务器端还能正常使用：管理 → 设置 → 客户端连接</li>
+<li>场景二：原服务器端已经无法正常使用（使用 IpXfer 工具迁移客户端到指定服务器）<ol>
+<li>打开服务器端文件夹 \PCCSRV\Admin\Utility\ipXfer，新建一文本文件：transfer<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">可执行文件名</span>&gt;</span> -s <span class="tag">&lt;<span class="name">服务器名称</span>&gt;</span> -p <span class="tag">&lt;<span class="name">服务器侦听端口</span>&gt;</span> -c <span class="tag">&lt;<span class="name">客户端侦听端口</span>&gt;</span> -d <span class="tag">&lt;<span class="name">域或域层次结构</span>&gt;</span> -e <span class="tag">&lt;<span class="name">证书位置和文件名</span>&gt;</span></span><br><span class="line">例：ipXfer.exe -s Server01 -p 8080 -c 21112 -d Workgroup -e c:\Certificate.zip</span><br></pre></td></tr></table></figure></li>
+<li>将 transfer 与 IpXfer.exe 一起复制到想要转移的客户机</li>
+<li>扩展名改为 .bat，双击后重启系统或者双击运行两次</li>
+</ol>
+</li>
+<li>场景三：部分客户端需要迁移至其他服务器：客户端 → 客户端管理</li>
+</ol>
+<h2 id="如何迁移-SQL-数据库？"><a href="#如何迁移-SQL-数据库？" class="headerlink" title="如何迁移 SQL 数据库？"></a>如何迁移 SQL 数据库？</h2><p>&emsp;&emsp;将默认数据库 CodeBase 迁移到 SQL server：使用 SQL Server 迁移工具</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;服务器安装文件夹&gt;\PCCSRV\HTTPDB目录     # 原有数据库 CodeBase 路径</span><br><span class="line">&lt;服务器安装文件夹&gt;\PCCSRV\Admin\Utility\SQL     # SQL<span class="built_in"> Server </span>迁移工具路径</span><br></pre></td></tr></table></figure>
+
+<h2 id="当-OfficeScan-出现异常情况时，如何收集产品调试日志？（日志收集-Debug-工具介绍）"><a href="#当-OfficeScan-出现异常情况时，如何收集产品调试日志？（日志收集-Debug-工具介绍）" class="headerlink" title="当 OfficeScan 出现异常情况时，如何收集产品调试日志？（日志收集 Debug 工具介绍）"></a>当 OfficeScan 出现异常情况时，如何收集产品调试日志？（日志收集 Debug 工具介绍）</h2><p>&emsp;&emsp;使用 CDT 日志收集工具，运行后收集 OfficeScan 调试日志，<span class="exturl" data-url="aHR0cHM6Ly9kb3dubG9hZGNlbnRlci50cmVuZG1pY3JvLmNvbS9pbmRleC5waHA/cmVncz1OQUJVJmNsaz1sYXRlc3QmY2xrdmFsPTQyNjEmbGFuZ19sb2M9MQ==">下载地址<i class="fa fa-external-link-alt"></i></span></p>
+<div class="note danger"><p>ACSE 接下来的课程皆为亚信安全产品的介绍及使用，如同博主记录的 OSCE 笔记一样，单纯文字无法描述清楚，如有学习需要，请前往亚信安全官方渠道，博主将不再更新有关 ACSE 的产品学习课程内容，敬请谅解！</p>
+</div>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\AsiaInfo\6.html" rel="bookmark">AsiaInfo ACSE Training - OSCE XG 第一讲 产品概述</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\AsiaInfo\7.html" rel="bookmark">AsiaInfo ACSE Training - OSCE XG 第二讲 安装部署</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\AsiaInfo\8.html" rel="bookmark">AsiaInfo ACSE Training - OSCE XG 第三讲 病毒防护配置</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Donate commet here.</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="二洲 WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="二洲 Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>二洲
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.hackme.cc/AsiaInfo/9.html" title="AsiaInfo ACSE Training - OSCE XG 第四讲 日志和管理">https://blog.hackme.cc/AsiaInfo/9.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.hackme.cc/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+
+          <span class="label">Homepage</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:3199731997@qq.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://wpa.qq.com/msgrd?v=3&uin=3199731997">
+          <span class="icon">
+            <i class="fab fa-qq"></i>
+          </span>
+
+          <span class="label">QQ</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/baoweiju">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/baoweiju">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/xinan.webp">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/OfficeScan/" rel="tag"><i class="fa fa-tag"></i> OfficeScan</a>
+              <a href="/tags/%E9%98%B2%E6%AF%92%E5%A2%99%E7%BD%91%E7%BB%9C%E7%89%88/" rel="tag"><i class="fa fa-tag"></i> 防毒墙网络版</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/AsiaInfo/8.html" rel="prev" title="AsiaInfo ACSE Training - OSCE XG 第三讲 病毒防护配置">
+                  <i class="fa fa-chevron-left"></i> AsiaInfo ACSE Training - OSCE XG 第三讲 病毒防护配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Assembly-Language/1.html" rel="next" title="Assembly Language 1.1 ~ 1.10 / 汇编语言 1.1 ~ 1.10">
+                  Assembly Language 1.1 ~ 1.10 / 汇编语言 1.1 ~ 1.10 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 横向 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7268471087790880"
+     data-ad-slot="9081749453"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==">广告位 </span>
+      <img src="/images/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" style="display: inline-block;">
+  </div>
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">二洲</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">137k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">5:42</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><div>
+  <span id="timeDate">载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script async src="/js/duration.js"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 23555,
+      el    : 'wpac-rating',
+      color : '#fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+<script src="/js/local-search.js"></script>
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.pdf-container').length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/pdfobject@2.2.5/pdfobject.min.js', () => {
+    document.querySelectorAll('.pdf-container').forEach(element => {
+      PDFObject.embed(element.dataset.target, element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.dataset.height
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+<script data-pjax>
+var mermaidElements = document.querySelectorAll('.mermaid');
+if (mermaidElements.length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js', () => {
+    mermaidElements.forEach(element => {
+      const newElement = document.createElement('div');
+      newElement.innerHTML = element.innerHTML;
+      newElement.className = element.className;
+      element.parentNode.replaceChild(newElement, element);
+    });
+
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://blog.hackme.cc/AsiaInfo/9.html',]
+      });
+      });
+  </script>
+
+  <script>
+  NexT.utils.loadComments('#SOHUCS', () => {
+    NexT.utils.getScript('https://changyan.sohu.com/upload/changyan.js', () => {
+      window.changyan.api.config({
+        appid: 'cyveCGIBa',
+        conf : '9f5cbe345865265e4c7b636c366c10d9'
+      });
+    });
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+
+    </div>
+<!-- hexo injector body_end start -->
+  <script async src="/js/sakura.js"></script>
+
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a target="_blank" rel="noopener" href="https://myssl.com/bornfor.love?from=mysslid"><img src="https://static.myssl.com/res/images/myssl-id.png" alt="" style="width:100%;height:100%"></a>
+</div>
+
+  <script async as="script" src="/js/click.js"></script>
+
+  <script async as="script" src="/js/tab.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/sword-shield.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/sword-shield.ico">
+  <link rel="mask-icon" href="/images/sword-shield.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.hackme.cc","root":"/","images":"/images","scheme":"Gemini","version":"8.3.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="&amp;emsp;&amp;emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。&amp;emsp;&amp;emsp;笔记涵盖内容为《汇编语言（第3版）》11.7 ~ 11.9、《零基础入门学习汇编语言》P56 ~ 57 上一节课程：《Assembly Language 11.1 ~ 11.6 &#x2F; 汇编语言 11.1 ~ 11.6》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Assembly Language 11.7 ~ 11.9 &#x2F; 汇编语言 11.7 ~ 11.9">
+<meta property="og:url" content="https://blog.hackme.cc/Assembly-Language/17.html">
+<meta property="og:site_name" content="信安">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。&amp;emsp;&amp;emsp;笔记涵盖内容为《汇编语言（第3版）》11.7 ~ 11.9、《零基础入门学习汇编语言》P56 ~ 57 上一节课程：《Assembly Language 11.1 ~ 11.6 &#x2F; 汇编语言 11.1 ~ 11.6》">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-11T12:42:25.000Z">
+<meta property="article:modified_time" content="2021-04-10T12:36:03.365Z">
+<meta property="article:author" content="二洲">
+<meta property="article:tag" content="cmp">
+<meta property="article:tag" content="adc">
+<meta property="article:tag" content="sbb">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.hackme.cc/Assembly-Language/17.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Assembly Language 11.7 ~ 11.9 / 汇编语言 11.7 ~ 11.9 | 信安</title>
+  
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e5aeb611b0cae78071d36bb6a04eea18";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<script data-ad-client="ca-pub-7268471087790880" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">信安</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">HACK ME</p>
+      <img class="custom-logo-image" src="/images/logo_text.webp" alt="信安">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-tie fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">132</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">67</span></a></li>
+        <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fas fa-link fa-fw"></i>Links</a></li>
+        <li class="menu-item menu-item-save-time"><span class="exturl" data-url="aHR0cHM6Ly9kYW8uaGFja21lLmNjLw=="><i class="fab fa-searchengin fa-fw"></i>Save Time</span></li>
+        <li class="menu-item menu-item-save-money"><span class="exturl" data-url="aHR0cHM6Ly90YW8uaGFja21lLmNjLw=="><i class="fas fa-yen-sign fa-fw"></i>Save Money</span></li>
+        <li class="menu-item menu-item-save-love"><span class="exturl" data-url="aHR0cHM6Ly9iYW8uaGFja21lLmNjLw=="><i class="far fa-kiss-wink-heart fa-fw"></i>Save Love</span></li>
+        <li class="menu-item menu-item-save-body"><span class="exturl" data-url="aHR0cDovL3dhby5oYWNrbWUuY2Mv"><i class="far fa-grin-hearts fa-fw"></i>Save Body</span></li>
+        <li class="menu-item menu-item-feedback"><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LnFxLmNvbS9wcm9kdWN0LzcwMzM5"><i class="fa fa-question-circle fa-fw"></i>Feedback</span></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+        <li class="menu-item menu-item-advertisement"><span class="exturl" data-url="aHR0cHM6Ly/ph43mlrDnlLPor7fkuK3igKbigKY="><i class="fas fa-ad fa-fw"></i>Advertisement</span></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-7-sbb-%E6%8C%87%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">11.7 sbb 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-8-cmp-%E6%8C%87%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">11.8 cmp 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-9-%E6%A3%80%E6%B5%8B%E6%AF%94%E8%BE%83%E7%BB%93%E6%9E%9C%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">11.9 检测比较结果的条件转移指令</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二洲"
+      src="/images/bagua.webp">
+  <p class="site-author-name" itemprop="name">二洲</p>
+  <div class="site-description" itemprop="description">信安</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzkyMTEzMTQ=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;9211314"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjMxOTk3MzE5OTdAcXEuY29t" title="E-Mail → mailto:3199731997@qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9iYW93ZWlqdQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;baoweiju"><i class="fab fa-twitter fa-fw"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;3199731997"><i class="fab fa-qq fa-fw"></i>QQ</span>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><img src="/images/cc-by-nc-nd.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+      <!-- 粒子时钟 -->
+      <div style="margin-top:35px;">
+      <canvas id="canvasDiyBlock" style="width:60%;"></canvas><script src="/js/clock.js"></script>
+      </div>
+
+      <!-- 百度广告 -->
+      <div class="_g9hy6h97gy6"></div>
+      <script type="text/javascript">
+          (window.slotbydup = window.slotbydup || []).push({
+              id: "u6421120",
+              container: "_g9hy6h97gy6",
+              async: true
+          });
+      </script>
+      <!-- 多条广告如下脚本只需引入一次 -->
+      <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer" >
+      </script>
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly93cGEucXEuY29tL21zZ3JkP3Y9MyZ1aW49MzE5OTczMTk5Nw==" title="Click here to contact me" aria-label="Click here to contact me"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.hackme.cc/Assembly-Language/17.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bagua.webp">
+      <meta itemprop="name" content="二洲">
+      <meta itemprop="description" content="信安">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="信安">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Assembly Language 11.7 ~ 11.9 / 汇编语言 11.7 ~ 11.9
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-11-11 20:42:25" itemprop="dateCreated datePublished" datetime="2020-11-11T20:42:25+08:00">2020-11-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-10 20:36:03" itemprop="dateModified" datetime="2021-04-10T20:36:03+08:00">2021-04-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Assembly-Language/" itemprop="url" rel="index"><span itemprop="name">Assembly Language</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    
+      <a title="changyan" href="/Assembly-Language/17.html#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="Assembly-Language/17.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>13 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》11.7 ~ 11.9、《零基础入门学习汇编语言》P56 ~ 57</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/16.html">《Assembly Language 11.1 ~ 11.6 / 汇编语言 11.1 ~ 11.6》</a></p>
+</div>
+
+<span id="more"></span>
+
+<p>&emsp;&emsp;编程计算 1EF000H+201000H，结果放在 ax（高 16 位）和 bx（低 16 位）中。</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">001EH</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">0F000H</span></span><br><span class="line"><span class="keyword">add</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">adc</span> <span class="built_in">ax</span>,<span class="number">0020H</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;adc 指令执行后，也可能产生进位值，所以也会对 CF 位进行设置。<br>&emsp;&emsp;由于有这样的功能，我们就可以对任意大的数据进行加法运算。<br>&emsp;&emsp;例如，编程计算 1EF0001000H+2010001EF0H，结果放在 ax（高 16 位）bx（次高 16 位）cx（低 16 位）中。</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">001EH</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">0F000H</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">add</span> <span class="built_in">cx</span>,<span class="number">1EF0H</span></span><br><span class="line"><span class="keyword">adc</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">adc</span> <span class="built_in">ax</span>,<span class="number">0020H</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;下面我们，编写一个子程序，对两个 128 位数据进行相加<br>&emsp;&emsp;参数：ds:si 指向存储第一个数的内存空间，因数据为 128 位，所以需要 8 个字单元，由低地址单元到高地址单元依次存放 128 位数据由低到高的各个字。运算结果存储在第一个数的存储空间中。<br>&emsp;&emsp;ds:di 指向存储第二个数的内存空间</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code,<span class="built_in">ds</span>:data</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span>,<span class="number">88h</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,<span class="number">11h</span>,</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">si</span>,<span class="number">0</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">di</span>,<span class="number">16</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">8</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">call</span> add128</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line"><span class="symbol">add128:</span></span><br><span class="line">	<span class="keyword">push</span> <span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">push</span> <span class="built_in">cx</span></span><br><span class="line">	<span class="keyword">push</span> <span class="built_in">si</span></span><br><span class="line">	<span class="keyword">push</span> <span class="built_in">di</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">sub</span> <span class="built_in">ax</span>,<span class="built_in">ax</span>     # 将 CF 设置为 <span class="number">0</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,[<span class="built_in">si</span>]</span><br><span class="line">	<span class="keyword">adc</span> <span class="built_in">ax</span>,[<span class="built_in">di</span>]</span><br><span class="line">	<span class="keyword">mov</span> [<span class="built_in">si</span>],<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">si</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">si</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">di</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">di</span></span><br><span class="line">	<span class="keyword">loop</span> s</span><br><span class="line"></span><br><span class="line">	<span class="keyword">pop</span> <span class="built_in">di</span></span><br><span class="line">	<span class="keyword">pop</span> <span class="built_in">si</span></span><br><span class="line">	<span class="keyword">pop</span> <span class="built_in">cx</span></span><br><span class="line">	<span class="keyword">pop</span> <span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">ret</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;思考：inc 和 loop 指令不影响 CF 位，上面的程序中，能不能将 4 个 inc 指令，用</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add</span><span class="bash"> si,2</span></span><br><span class="line"><span class="keyword">add</span><span class="bash"> di,2</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;取代？答：不能，因为 add 会影响 CF 位。</p>
+<h2 id="11-7-sbb-指令"><a href="#11-7-sbb-指令" class="headerlink" title="11.7 sbb 指令"></a>11.7 sbb 指令</h2><p>sbb 是带借位减法指令，它利用了 CF 位上记录的借位值。</p>
+<ol>
+<li>格式：sbb 操作对象 1,操作对象 2</li>
+<li>功能：操作对象 1= 操作对象 1- 操作对象 2-CF</li>
+<li>比如：sbb ax,bx</li>
+<li>实现功能：(ax)=(ax)-(bx)-CF</li>
+</ol>
+<p>&emsp;&emsp;利用 sbb 指令我们可以对任意大的数据进行减法运算。<br>&emsp;&emsp;计算 003E1000H-00202000H，结果放在 ax，bx 中，程序如下</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">003EH</span></span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">bx</span>,<span class="number">2000H</span></span><br><span class="line"><span class="keyword">sbb</span> <span class="built_in">ax</span>,<span class="number">0020H</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;sbb 和 adc 是基于同样的思想设计的两条指令，在应用思路上和 adc 类似。在这里，我们就不再进行过多的讨论。<br>&emsp;&emsp;通过学习这两条指令，我们可以进一步领会一下标志寄存器 CF 位的作用和意义。</p>
+<h2 id="11-8-cmp-指令"><a href="#11-8-cmp-指令" class="headerlink" title="11.8 cmp 指令"></a>11.8 cmp 指令</h2><p>&emsp;&emsp;cmp 是比较指令，功能相当于减法指令，只是不保存结果。<br>&emsp;&emsp;cmp 指令执行后，将对标志寄存器产生影响。<br>&emsp;&emsp;其他相关指令通过识别这些被影响的标志寄存器位来得知比较结果。</p>
+<ol>
+<li>格式：cmp 操作对象 1,操作对象 2</li>
+<li>功能：计算操作对象 1- 操作对象 2 但并不保存结果，仅仅根据计算结果对标志寄存器进行设置。</li>
+<li>比如：cmp ax,ax</li>
+<li>做 (ax)-(ax) 的运算，结果为 0，但并不在 ax 中保存，仅影响 flag 的相关各位。</li>
+</ol>
+<p>&emsp;&emsp;指令执行后</p>
+<ol>
+<li>ZF=1</li>
+<li>PF=1</li>
+<li>SF=0</li>
+<li>CF=0</li>
+<li>OF=0</li>
+</ol>
+<p>&emsp;&emsp;下面的指令</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mov ax,8</span><br><span class="line">mov bx,3</span><br><span class="line">cmp ax,bx     # 执行后：(ax)=8</span><br><span class="line"><span class="attribute">ZF</span>=0</span><br><span class="line"><span class="attribute">PF</span>=1</span><br><span class="line"><span class="attribute">SF</span>=0</span><br><span class="line"><span class="attribute">CF</span>=0</span><br><span class="line"><span class="attribute">OF</span>=0</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;其实，我们通过 cmp 指令执行后，相关标志位的值就可以看出比较的结果。<br>&emsp;&emsp;例如：cmp ax,bx</p>
+<table>
+<thead>
+<tr>
+<th>如果</th>
+<th>则</th>
+<th>所以</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(ax)=(bx)</td>
+<td>(ax)-(bx)=0</td>
+<td>ZF=1</td>
+</tr>
+<tr>
+<td>(ax)≠(bx)</td>
+<td>(ax)-(bx)≠0</td>
+<td>ZF=0</td>
+</tr>
+<tr>
+<td>(ax)＜(bx)</td>
+<td>(ax)-(bx) 将产生借位</td>
+<td>CF=1</td>
+</tr>
+<tr>
+<td>(ax)≥(bx)</td>
+<td>(ax)-(bx) 不必借位</td>
+<td>CF=0</td>
+</tr>
+<tr>
+<td>(ax)＞(bx)</td>
+<td>(ax)-(bx) 既不必借位，结果又不为0</td>
+<td>CF=0 且 ZF=0</td>
+</tr>
+<tr>
+<td>(ax)≤(bx)</td>
+<td>(ax)-(bx) 既可能借位，结果可能为 0</td>
+<td>CF=1 或 ZF=1</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;现在我们可以看出比较指令的设计思路<br>&emsp;&emsp;即：通过做减法运算，影响标志寄存器，标志寄存器的相关位记录了比较的结果。<br>&emsp;&emsp;反过来看上面的例子 cmp ax,ax</p>
+<table>
+<thead>
+<tr>
+<th>如果</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ZF=1</td>
+<td>(ax)=(bx)</td>
+</tr>
+<tr>
+<td>ZF=0</td>
+<td>(ax)≠(bx)</td>
+</tr>
+<tr>
+<td>CF=1</td>
+<td>(ax)＜(bx)</td>
+</tr>
+<tr>
+<td>CF=0</td>
+<td>(ax)≥(bx)</td>
+</tr>
+<tr>
+<td>CF=0 且 ZF=0</td>
+<td>(ax)＞(bx)</td>
+</tr>
+<tr>
+<td>CF=1 或 ZF=1</td>
+<td>(ax)≤(bx)</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;同 add、sub 指令一样，CPU 在执行 cmp 指令的时候，也包含两种含义：进行无符号数运算和进行有符号数运算。<br>&emsp;&emsp;所以利用 cmp 指令可以对无符号数进行比较，也可以对有符号数进行比较。<br>&emsp;&emsp;下面我们再来看一下如果用 cmp 来进行有符号数比较时，我们要注意哪些标志位！<br>&emsp;&emsp;我们以 cmp ah,bh 为例进行说明</p>
+<table>
+<thead>
+<tr>
+<th>如果</th>
+<th>则</th>
+<th>所以</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(ah)=(bh)</td>
+<td>(ah)-(bh)=0</td>
+<td>ZF=1</td>
+</tr>
+<tr>
+<td>(ah)≠(bh)</td>
+<td>(ah)-(bh)≠0</td>
+<td>ZF=0</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;所以我们根据指令执行后 ZF 的值，就可以知道两个数据是否相等。<br>&emsp;&emsp;我们继续看，如果 (ah)＜(bh) 则可能发生什么情况呢？<br>&emsp;&emsp;对于有符号数运算，在 (ah)＜(bh) 情况下，(ah)-(bh) 显然可能引起 SF=1，即结果为负。<br>&emsp;&emsp;比如：(ah)=1，(bh)=2：则 (ah)-(bh)=0FFH，0FFH 为 -1 的补码，因为结果为负，所以 SF=1。<br>&emsp;&emsp;(ah)=0FEH，(bx)=0FFH：则 (ah)-(bh)=(-2)-(-1)=0FFH，因为结果为负，所以 SF=1。</p>
+<div class="note danger"><p>cmp 操作对象 1, 操作对象 2 指令执行后，SF=1，<strong>不能</strong><del>说明 操作对象 1＜ 操作对象 2</del></p>
+</div>
+
+<p>&emsp;&emsp;(ah)=22H，(bh)=0A0H：则 (ah)-(bh)=34-(-96)=130=82H，82H 是 -126 的补码，所以 SF=1。<br>&emsp;&emsp;这里虽然 SF=1，但是并不能说明 (ah)＜(bh)，因为显然 34＞-96。<br>&emsp;&emsp;两个有符号数 A 和 B 相减，得到的是负数，那么可以肯定 A＜B，这个思路没有错误；<br>&emsp;&emsp;关键在于我们根据什么来断定得到的是一个负数。<br>&emsp;&emsp;CPU 将 cmp 指令得到的结果记录在 flag 的相关标志位中。<br>&emsp;&emsp;我们可以根据指令执行后，相关标志位的值来判断比较的结果。<br>&emsp;&emsp;单纯的考察 SF 的值不可能知道结果的正负。因为 SF 记录的只是可以在计算机中存放的相应位数的结果的正负。<br>&emsp;&emsp;比如 add ah,al 执行后，SF 记录的是 ah 中 8 位二进制信息所表示的数据的正负。<br>&emsp;&emsp;如果没有发生溢出的话，那么实际结果的正负和逻辑上真正的结果正负就一致了。<br>&emsp;&emsp;所以，我们应该在考察 SF（得知实际结果的正负）的同时考察 OF（得知有没有溢出）就可以得知逻辑上真正结果的正负，同时就可以知道比较的结果。<br>&emsp;&emsp;下面，我们以 cmp ah,bh 为例，总结一下 CPU 执行 cmp 结果后，SF 和 OF 的值是如何来说明比较的结果的。</p>
+<ol>
+<li>如果 SF=1，而 OF=0<ol>
+<li>OF=0，说明没有溢出，逻辑上真正结果的正负 = 实际结果的正负</li>
+<li>SF=1，实际结果为负，所以逻辑上真正的结果为负，所以 (ah)＜(bh)</li>
+</ol>
+</li>
+<li>如果 SF=1，而 OF=1<ol>
+<li>OF=1，说明有溢出，逻辑上真正结果的正负 ≠ 实际结果的正负</li>
+<li>简单分析一下，就可以看出，如果因为溢出导致了实际结果为负，那么逻辑上真正的结果必然为正。这样，SF=1，OF=1，说明了 (ah)＞(bh)</li>
+</ol>
+</li>
+<li>如果 SF=0，而 OF=1<ol>
+<li>OF=1，说明有溢出，逻辑上真正结果的正负 ≠ 实际结果的正负</li>
+<li>简单分析一下，就可以看出，如果因为溢出导致了实际结果为正，那么逻辑上真正的结果必然为负，这样，SF=0，OF=1，说明了 (ah)＜(bh)</li>
+</ol>
+</li>
+<li>如果 SF=0，而 OF=0<ol>
+<li>OF=0，说明没有溢出，逻辑上真正结果的正负 = 实际结果的正负</li>
+<li>因 SF=0，实际结果非负，所以逻辑上真正的结果必然非负。所以 (ah)≥(bh)</li>
+</ol>
+</li>
+</ol>
+<p>&emsp;&emsp;（博主将以上几点总结为表格形式如下表所示）</p>
+<table>
+<thead>
+<tr>
+<th>SF</th>
+<th>说明</th>
+<th>OF</th>
+<th>说明</th>
+<th>所以</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>结果非负</td>
+<td>0</td>
+<td>没有溢出，逻辑正负 = 实际正负</td>
+<td>(ah)≥(bh)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>结果非负</td>
+<td>1</td>
+<td>有溢出，逻辑正负 ≠ 实际正负</td>
+<td>(ah)＜(bh)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>实际为负</td>
+<td>0</td>
+<td>没有溢出，逻辑正负 = 实际正负</td>
+<td>(ah)＜(bh)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>实际为负</td>
+<td>1</td>
+<td>有溢出，逻辑正负 ≠ 实际正负</td>
+<td>(ah)＞(bh)</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;上面，我们深入讨论了 cmp 指令在进行有符号数和无符号数比较时，对 flag 相关标志位的影响，和 CPU 如何通过相关的标志位来表示比较的结果。<br>&emsp;&emsp;在学习中，要注意领会 8086 CPU 这种工作机制的设计思想。实际上，这种设计思想对于各种处理机来说是普遍的。</p>
+<h2 id="11-9-检测比较结果的条件转移指令"><a href="#11-9-检测比较结果的条件转移指令" class="headerlink" title="11.9 检测比较结果的条件转移指令"></a>11.9 检测比较结果的条件转移指令</h2><p>&emsp;&emsp;下面的内容中我们将学习一些根据 cmp 指令的比较结果（即，cmp 指令执行后，相关标志位的值）进行工作的指令。<br>&emsp;&emsp;它们检测的是哪些标志位呢？<br>&emsp;&emsp;就是被 cmp 指令影响的那些，表示比较结果的标志位。<br>&emsp;&emsp;这些条件转移指令通常都和 cmp 相配合使用，就好像 call 和 ret 指令通常相配合使用一样。<br>&emsp;&emsp;因为 cmp 指令可以同时进行两种比较，无符号数和有符号数比较，所以根据 cmp 指令的比较结果进行转移的指令也分为两种，即</p>
+<ol>
+<li>根据无符号数的比较结果进行转移的条件转移指令，它们检测 ZF、CF 的值</li>
+<li>根据有符号数的比较结果进行转移的条件转移指令，它们检测 SF、OF 和 ZF 的值</li>
+</ol>
+<p>&emsp;&emsp;条件转移指令小结</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>含义</th>
+<th>检测的相关标志位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>je</td>
+<td>等于则转移</td>
+<td>ZF=1</td>
+</tr>
+<tr>
+<td>jne</td>
+<td>不等于则转移</td>
+<td>ZF=0</td>
+</tr>
+<tr>
+<td>jb</td>
+<td>低于则转移</td>
+<td>CF=1</td>
+</tr>
+<tr>
+<td>jnb</td>
+<td>不低于则转移</td>
+<td>CF=0</td>
+</tr>
+<tr>
+<td>ja</td>
+<td>高于则转移</td>
+<td>CF=0，ZF=0</td>
+</tr>
+<tr>
+<td>jna</td>
+<td>不高于则转移</td>
+<td>CF=1 或 ZF=1</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;这些指令比较常年用，它们都很好记忆，它们的第一个字母都是 j，表示 jump；后面的</p>
+<ol>
+<li>e：表示 equal</li>
+<li>ne：表示 not equal</li>
+<li>b：表示 below</li>
+<li>nb：表示 not below</li>
+<li>a：表示 above</li>
+<li>na：表示 not above</li>
+</ol>
+<p>&emsp;&emsp;注意观察一下它们所检测的标志位，都是 cmp 指令进行无符号数比较时候，记录比较结果的标志位。<br>&emsp;&emsp;比如 je，检测 ZF 位，当 ZF=1 的时候进行转移，如果在 je 前面使用了 cmp 指令，那么 je 对 ZF 的检测，实际上就是间接地检测 cmp 的比较结果是否为两数相等。</p>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/18.html">《Assembly Language 11.9 ~ 11.11 / 汇编语言 11.9 ~ 11.11》</a></p>
+</div>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Assembly-Language\18.html" rel="bookmark">Assembly Language 11.9 ~ 11.11 / 汇编语言 11.9 ~ 11.11</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Donate commet here.</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="二洲 WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="二洲 Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>二洲
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://blog.hackme.cc/Assembly-Language/17.html" title="Assembly Language 11.7 ~ 11.9 &#x2F; 汇编语言 11.7 ~ 11.9">https://blog.hackme.cc/Assembly-Language/17.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.hackme.cc/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+
+          <span class="label">Homepage</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:3199731997@qq.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://wpa.qq.com/msgrd?v=3&uin=3199731997">
+          <span class="icon">
+            <i class="fab fa-qq"></i>
+          </span>
+
+          <span class="label">QQ</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/baoweiju">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/baoweiju">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/xinan.webp">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/cmp/" rel="tag"><i class="fa fa-tag"></i> cmp</a>
+              <a href="/tags/adc/" rel="tag"><i class="fa fa-tag"></i> adc</a>
+              <a href="/tags/sbb/" rel="tag"><i class="fa fa-tag"></i> sbb</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Assembly-Language/16.html" rel="prev" title="Assembly Language 11.1 ~ 11.6 / 汇编语言 11.1 ~ 11.6">
+                  <i class="fa fa-chevron-left"></i> Assembly Language 11.1 ~ 11.6 / 汇编语言 11.1 ~ 11.6
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Assembly-Language/18.html" rel="next" title="Assembly Language 11.9 ~ 11.11 / 汇编语言 11.9 ~ 11.11">
+                  Assembly Language 11.9 ~ 11.11 / 汇编语言 11.9 ~ 11.11 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 横向 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7268471087790880"
+     data-ad-slot="9081749453"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==">广告位 </span>
+      <img src="/images/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" style="display: inline-block;">
+  </div>
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">二洲</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">137k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">5:42</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><div>
+  <span id="timeDate">载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script async src="/js/duration.js"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 23555,
+      el    : 'wpac-rating',
+      color : '#fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+<script src="/js/local-search.js"></script>
+
+
+
+<script data-pjax>
+if (document.querySelectorAll('.pdf-container').length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/pdfobject@2.2.5/pdfobject.min.js', () => {
+    document.querySelectorAll('.pdf-container').forEach(element => {
+      PDFObject.embed(element.dataset.target, element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.dataset.height
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+<script data-pjax>
+var mermaidElements = document.querySelectorAll('.mermaid');
+if (mermaidElements.length) {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js', () => {
+    mermaidElements.forEach(element => {
+      const newElement = document.createElement('div');
+      newElement.innerHTML = element.innerHTML;
+      newElement.className = element.className;
+      element.parentNode.replaceChild(newElement, element);
+    });
+
+    mermaid.init({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://blog.hackme.cc/Assembly-Language/17.html',]
+      });
+      });
+  </script>
+
+  <script>
+  NexT.utils.loadComments('#SOHUCS', () => {
+    NexT.utils.getScript('https://changyan.sohu.com/upload/changyan.js', () => {
+      window.changyan.api.config({
+        appid: 'cyveCGIBa',
+        conf : '9f5cbe345865265e4c7b636c366c10d9'
+      });
+    });
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+
+    </div>
+<!-- hexo injector body_end start -->
+  <script async src="/js/sakura.js"></script>
+
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a target="_blank" rel="noopener" href="https://myssl.com/bornfor.love?from=mysslid"><img src="https://static.myssl.com/res/images/myssl-id.png" alt="" style="width:100%;height:100%"></a>
+</div>
+
+  <script async as="script" src="/js/click.js"></script>
+
+  <script async as="script" src="/js/tab.js"></script>
+<!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>
