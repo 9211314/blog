@@ -142,143 +142,6 @@
       </tags>
   </entry>
   <entry>
-    <title>AsiaInfo ACSE Training - 反病毒技术发展</title>
-    <url>/AsiaInfo/2.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第二节内容，即第二章《病毒与威胁基础》之任务 2《反病毒技术发展》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/AsiaInfo/1.html">《AsiaInfo ACSE Training - 安全威胁课程-恶意软件部分》</a></p>
-</div>
-
-<span id="more"></span>
-
-<h1 id="早期病毒"><a href="#早期病毒" class="headerlink" title="早期病毒"></a>早期病毒</h1><ol>
-<li>文件感染方式</li>
-<li>功能单一</li>
-<li>防病毒应对：通过特征码匹配</li>
-</ol>
-<h1 id="特征码"><a href="#特征码" class="headerlink" title="特征码"></a>特征码</h1><ol>
-<li>哈希散列</li>
-<li>一串二进制字符串</li>
-</ol>
-<h1 id="扫描引擎"><a href="#扫描引擎" class="headerlink" title="扫描引擎"></a>扫描引擎</h1><ol>
-<li>自动化恶意软件初理机制</li>
-<li>规定恶意软件入口点</li>
-<li>匹配特征</li>
-<li>挑战<ol>
-<li>资源占用</li>
-<li>对抗变种能力</li>
-<li>对抗免杀能力</li>
-<li>稳定性、兼容性</li>
-</ol>
-</li>
-</ol>
-<h1 id="恶意软件检测技术"><a href="#恶意软件检测技术" class="headerlink" title="恶意软件检测技术"></a>恶意软件检测技术</h1><h2 id="特征码检测"><a href="#特征码检测" class="headerlink" title="特征码检测"></a>特征码检测</h2><ol>
-<li>基于文件某部分特征</li>
-<li>精确匹配技术</li>
-<li>早期，一张软盘对应一种病毒</li>
-<li>病毒库，从一周更新一次到每天更新</li>
-<li>拖慢系统运行速度</li>
-<li>无法及时识别新的恶意软件</li>
-</ol>
-<h2 id="云查杀"><a href="#云查杀" class="headerlink" title="云查杀"></a>云查杀</h2><ol>
-<li>动态病毒库</li>
-<li>实时、共享</li>
-<li>查杀能力更为精确、有效</li>
-<li>挑战<ol>
-<li>隔离网络环境</li>
-<li>加大自身体积</li>
-<li>高速、自动化生成的变种</li>
-</ol>
-</li>
-</ol>
-<h2 id="启发式检测"><a href="#启发式检测" class="headerlink" title="启发式检测"></a>启发式检测</h2><ol>
-<li>启发式特征：通过一系列预定义的规则集来判断文件是否为恶意的检测方式</li>
-<li>相似度匹配</li>
-</ol>
-<h2 id="特征码检测-VS-启发式检测"><a href="#特征码检测-VS-启发式检测" class="headerlink" title="特征码检测 VS 启发式检测"></a>特征码检测 VS 启发式检测</h2><p>&emsp;&emsp;启发式检测不能替代特征码检测</p>
-<table>
-<thead>
-<tr>
-<th align="center">优缺点</th>
-<th align="center">特征码检测</th>
-<th align="center">启发式检测</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">误报率</td>
-<td align="center">低</td>
-<td align="center">高</td>
-</tr>
-<tr>
-<td align="center">未知病毒</td>
-<td align="center">低</td>
-<td align="center">高</td>
-</tr>
-<tr>
-<td align="center">实现难度</td>
-<td align="center">低</td>
-<td align="center">高</td>
-</tr>
-</tbody></table>
-<h1 id="恶意软件分析技术"><a href="#恶意软件分析技术" class="headerlink" title="恶意软件分析技术"></a>恶意软件分析技术</h1><h2 id="静态扫描"><a href="#静态扫描" class="headerlink" title="静态扫描"></a>静态扫描</h2><ol>
-<li>检测静态文件是否存在恶意代码的过程</li>
-<li>静态扫描<ol>
-<li>特征码检测</li>
-<li>启发式检测：被动启发式检测</li>
-<li>恶意软件对抗<ol>
-<li>现象：一个硬盘中的文件在平时不会被检测为恶意软件，但是当他在内存中运行时就会被认为是恶意软件</li>
-<li>技术：加壳、压缩</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="动态扫描"><a href="#动态扫描" class="headerlink" title="动态扫描"></a>动态扫描</h2><ol>
-<li>动态分析是在恶意软件在运行过程中，抽取特征进行匹配</li>
-<li>状态特征</li>
-<li>行为特征</li>
-</ol>
-<h2 id="沙盒技术"><a href="#沙盒技术" class="headerlink" title="沙盒技术"></a>沙盒技术</h2><ol>
-<li>可控的恶意软件运行环境，最小化恶意软件的感染范围</li>
-<li>分析出以下信息：<ol>
-<li>主机方面：系统修改、恶意软件在内存中的行为</li>
-<li>网络方面：网络连接状态、数据包</li>
-</ol>
-</li>
-<li>完全模拟恶意软件运行的环境，分析出的行为更接近真实效果</li>
-</ol>
-<h2 id="动态的安全防护（态势感知）"><a href="#动态的安全防护（态势感知）" class="headerlink" title="动态的安全防护（态势感知）"></a>动态的安全防护（态势感知）</h2><ol>
-<li>态势感知指在特定时空下，对动态环境中各元素或对象的察觉、理解以及对未来状态的预测</li>
-<li>依赖大数据的辅助和配合</li>
-<li>多方位联动分析</li>
-</ol>
-<h2 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h2><ol>
-<li>目标：预判、处理、取证</li>
-<li>常见应用：图像识别、人脸识别、语言翻译</li>
-<li>应用于安全：机器学习、深度学习</li>
-<li>反病毒技术：特征码检测 → 启发式检测</li>
-<li>人工智能：模式识别 → 机器学习</li>
-<li>机器学习：识别 → 理解 → 解释</li>
-<li>已在使用中的机器学习<ol>
-<li>C&amp;C 网络流量通信行为</li>
-<li>动态域名识别</li>
-<li>鼠标动态行为检测</li>
-<li>手机触屏行为学习</li>
-<li>web 攻击行为学习</li>
-</ol>
-</li>
-</ol>
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/3.html">《AsiaInfo ACSE Training - 安全事件初理建议》</a></p>
-</div>]]></content>
-      <categories>
-        <category>AsiaInfo</category>
-      </categories>
-      <tags>
-        <tag>恶意软件</tag>
-        <tag>病毒</tag>
-        <tag>反病毒技术发展</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AsiaInfo ACSE Training - 安全事件处理建议</title>
     <url>/AsiaInfo/3.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第三节内容，即第二章《病毒与威胁基础》之任务 3《安全事件处理建议》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
@@ -477,6 +340,143 @@
         <tag>安全事件处理建议</tag>
         <tag>工具下载</tag>
         <tag>ATTK</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AsiaInfo ACSE Training - 反病毒技术发展</title>
+    <url>/AsiaInfo/2.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是亚信安全认证安全专家 —— ACSE 认证培训课程技术部分第二节内容，即第二章《病毒与威胁基础》之任务 2《反病毒技术发展》的<strong>学习笔记</strong>，内容仅供学习交流，<strong>非</strong><del>亚信安全官方课程文档</del>，若想进行 ACSE 课程学习或取得认证，请参阅 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNpYWluZm8tc2VjLmNvbS9wYXJ0bmVyL3JlY3J1aXQuaHRtbA==">亚信安全认证培训<i class="fa fa-external-link-alt"></i></span> 进行报名参训。</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/AsiaInfo/1.html">《AsiaInfo ACSE Training - 安全威胁课程-恶意软件部分》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="早期病毒"><a href="#早期病毒" class="headerlink" title="早期病毒"></a>早期病毒</h1><ol>
+<li>文件感染方式</li>
+<li>功能单一</li>
+<li>防病毒应对：通过特征码匹配</li>
+</ol>
+<h1 id="特征码"><a href="#特征码" class="headerlink" title="特征码"></a>特征码</h1><ol>
+<li>哈希散列</li>
+<li>一串二进制字符串</li>
+</ol>
+<h1 id="扫描引擎"><a href="#扫描引擎" class="headerlink" title="扫描引擎"></a>扫描引擎</h1><ol>
+<li>自动化恶意软件初理机制</li>
+<li>规定恶意软件入口点</li>
+<li>匹配特征</li>
+<li>挑战<ol>
+<li>资源占用</li>
+<li>对抗变种能力</li>
+<li>对抗免杀能力</li>
+<li>稳定性、兼容性</li>
+</ol>
+</li>
+</ol>
+<h1 id="恶意软件检测技术"><a href="#恶意软件检测技术" class="headerlink" title="恶意软件检测技术"></a>恶意软件检测技术</h1><h2 id="特征码检测"><a href="#特征码检测" class="headerlink" title="特征码检测"></a>特征码检测</h2><ol>
+<li>基于文件某部分特征</li>
+<li>精确匹配技术</li>
+<li>早期，一张软盘对应一种病毒</li>
+<li>病毒库，从一周更新一次到每天更新</li>
+<li>拖慢系统运行速度</li>
+<li>无法及时识别新的恶意软件</li>
+</ol>
+<h2 id="云查杀"><a href="#云查杀" class="headerlink" title="云查杀"></a>云查杀</h2><ol>
+<li>动态病毒库</li>
+<li>实时、共享</li>
+<li>查杀能力更为精确、有效</li>
+<li>挑战<ol>
+<li>隔离网络环境</li>
+<li>加大自身体积</li>
+<li>高速、自动化生成的变种</li>
+</ol>
+</li>
+</ol>
+<h2 id="启发式检测"><a href="#启发式检测" class="headerlink" title="启发式检测"></a>启发式检测</h2><ol>
+<li>启发式特征：通过一系列预定义的规则集来判断文件是否为恶意的检测方式</li>
+<li>相似度匹配</li>
+</ol>
+<h2 id="特征码检测-VS-启发式检测"><a href="#特征码检测-VS-启发式检测" class="headerlink" title="特征码检测 VS 启发式检测"></a>特征码检测 VS 启发式检测</h2><p>&emsp;&emsp;启发式检测不能替代特征码检测</p>
+<table>
+<thead>
+<tr>
+<th align="center">优缺点</th>
+<th align="center">特征码检测</th>
+<th align="center">启发式检测</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">误报率</td>
+<td align="center">低</td>
+<td align="center">高</td>
+</tr>
+<tr>
+<td align="center">未知病毒</td>
+<td align="center">低</td>
+<td align="center">高</td>
+</tr>
+<tr>
+<td align="center">实现难度</td>
+<td align="center">低</td>
+<td align="center">高</td>
+</tr>
+</tbody></table>
+<h1 id="恶意软件分析技术"><a href="#恶意软件分析技术" class="headerlink" title="恶意软件分析技术"></a>恶意软件分析技术</h1><h2 id="静态扫描"><a href="#静态扫描" class="headerlink" title="静态扫描"></a>静态扫描</h2><ol>
+<li>检测静态文件是否存在恶意代码的过程</li>
+<li>静态扫描<ol>
+<li>特征码检测</li>
+<li>启发式检测：被动启发式检测</li>
+<li>恶意软件对抗<ol>
+<li>现象：一个硬盘中的文件在平时不会被检测为恶意软件，但是当他在内存中运行时就会被认为是恶意软件</li>
+<li>技术：加壳、压缩</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="动态扫描"><a href="#动态扫描" class="headerlink" title="动态扫描"></a>动态扫描</h2><ol>
+<li>动态分析是在恶意软件在运行过程中，抽取特征进行匹配</li>
+<li>状态特征</li>
+<li>行为特征</li>
+</ol>
+<h2 id="沙盒技术"><a href="#沙盒技术" class="headerlink" title="沙盒技术"></a>沙盒技术</h2><ol>
+<li>可控的恶意软件运行环境，最小化恶意软件的感染范围</li>
+<li>分析出以下信息：<ol>
+<li>主机方面：系统修改、恶意软件在内存中的行为</li>
+<li>网络方面：网络连接状态、数据包</li>
+</ol>
+</li>
+<li>完全模拟恶意软件运行的环境，分析出的行为更接近真实效果</li>
+</ol>
+<h2 id="动态的安全防护（态势感知）"><a href="#动态的安全防护（态势感知）" class="headerlink" title="动态的安全防护（态势感知）"></a>动态的安全防护（态势感知）</h2><ol>
+<li>态势感知指在特定时空下，对动态环境中各元素或对象的察觉、理解以及对未来状态的预测</li>
+<li>依赖大数据的辅助和配合</li>
+<li>多方位联动分析</li>
+</ol>
+<h2 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h2><ol>
+<li>目标：预判、处理、取证</li>
+<li>常见应用：图像识别、人脸识别、语言翻译</li>
+<li>应用于安全：机器学习、深度学习</li>
+<li>反病毒技术：特征码检测 → 启发式检测</li>
+<li>人工智能：模式识别 → 机器学习</li>
+<li>机器学习：识别 → 理解 → 解释</li>
+<li>已在使用中的机器学习<ol>
+<li>C&amp;C 网络流量通信行为</li>
+<li>动态域名识别</li>
+<li>鼠标动态行为检测</li>
+<li>手机触屏行为学习</li>
+<li>web 攻击行为学习</li>
+</ol>
+</li>
+</ol>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/AsiaInfo/3.html">《AsiaInfo ACSE Training - 安全事件初理建议》</a></p>
+</div>]]></content>
+      <categories>
+        <category>AsiaInfo</category>
+      </categories>
+      <tags>
+        <tag>恶意软件</tag>
+        <tag>病毒</tag>
+        <tag>反病毒技术发展</tag>
       </tags>
   </entry>
   <entry>
@@ -1080,6 +1080,123 @@
       </tags>
   </entry>
   <entry>
+    <title>Assembly Language 8.5 ~ 8.9 / 汇编语言 8.5 ~ 8.9</title>
+    <url>/Assembly-Language/11.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》8.5 ~ 8.9、《零基础入门学习汇编语言》P39 ~ 41</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/10.html">《Assembly Language 8.1 / 汇编语言 8.1》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h2 id="8-5-指令要处理的数据有多长"><a href="#8-5-指令要处理的数据有多长" class="headerlink" title="8.5 指令要处理的数据有多长"></a>8.5 指令要处理的数据有多长</h2><p>&emsp;&emsp;8086 CPU 的指令，可以处理两种尺寸的数据，byte 和 word。所以在机器指令中要指明，指令进行的是字操作还是字节操作。对于这个问题，汇编语言中用以下方法处理。</p>
+<ol>
+<li>通过寄存器名指明要处理的数据的尺寸<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"># 下面的指令中，寄存器指明了指令进行的是字操作</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">1</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="built_in">ds</span>:[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>:[<span class="number">0</span>],<span class="built_in">ax</span></span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">ax</span></span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,<span class="number">1000</span></span><br><span class="line"></span><br><span class="line"># 下面的指令中，寄存器指明了指令进行的是字节操作</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="number">1</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="built_in">bl</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="built_in">ds</span>:[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>:[<span class="number">0</span>],<span class="built_in">al</span></span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">al</span></span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,<span class="number">100</span></span><br></pre></td></tr></table></figure></li>
+<li>在没有寄存器名存在的情况下，用操作符 X ptr 指明内存单元的长度，X 在汇编指令中可以为 word 或 byte<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"># 下面的指令中，用 <span class="built_in">word</span> <span class="built_in">ptr</span> 指明了指令访问的内存单元是一个字单元</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">word</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>],<span class="number">1</span></span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">word</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>]</span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">word</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">word</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">2</span></span><br><span class="line"></span><br><span class="line"># 下面的指令中，用 <span class="built_in">byte</span> <span class="built_in">ptr</span> 指明了指令访问的内存单元是一个字节单元</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>],<span class="number">1</span></span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>]</span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">2</span></span><br></pre></td></tr></table></figure></li>
+<li>其他方法（有些指令默认了访问的是字单元还是字节单元）<br>比如：push [1000H] 就不用指明访问的是字单元还是字节单元，因为 push 指令只进行字操作。</li>
+</ol>
+<h2 id="8-7-div-指令"><a href="#8-7-div-指令" class="headerlink" title="8.7 div 指令"></a>8.7 div 指令</h2><p>&emsp;&emsp;div 是除法指令（division），使用 div 作除法的时候</p>
+<ol>
+<li>除数：8 位或 16 位，在寄存器或内存单元种</li>
+<li>被除数：（默认）放在 AX 或 DX 和 AX 中</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">除数</th>
+<th align="center">被除数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">8 位</td>
+<td align="center">16 位 (AX)</td>
+</tr>
+<tr>
+<td align="center">16 位</td>
+<td align="center">32 位 (DX+AX)</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;结果放在</p>
+<table>
+<thead>
+<tr>
+<th align="center">除数</th>
+<th align="center">8 位</th>
+<th align="center">16 位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">商</td>
+<td align="center">AL</td>
+<td align="center">AX</td>
+</tr>
+<tr>
+<td align="center">余数</td>
+<td align="center">AH</td>
+<td align="center">DX</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;div 指令格式</p>
+<ol>
+<li>div reg</li>
+<li>div 内存单元</li>
+</ol>
+<p>&emsp;&emsp;div 指令示例与含义</p>
+<ol>
+<li>div byte ptr ds:[0]<ol>
+<li>(al)=(ax)/((ds)×16+0) 的商；</li>
+<li>(ah)=(ax)/((ds)×16+0) 的余数</li>
+</ol>
+</li>
+<li>div word ptr es:[0]<ol>
+<li>(ax)=[(dx)×10000H+(ax)]/((ds)×16+0) 的商；</li>
+<li>(<strong>dx</strong>)=[(dx)×10000H+(ax)]/((ds)×16+0) 的余数</li>
+</ol>
+</li>
+<li>div byte ptr [bx+si+8]<ol>
+<li>(al)=(ax)/((ds)×16+(bx)+(si)+8) 的商；</li>
+<li>(ah)=(ax)/((ds)×16+(bx)+(si)+8) 的余数</li>
+</ol>
+</li>
+<li>div word ptr [bx+si+8]<ol>
+<li>(ax)=[(dx)+10000H+(ax)]/((ds)×16+(bx)+(si)+8) 的商；</li>
+<li>(dx)=[(dx)+10000H+(ax)]/((ds)×16+(bx)+(si)+8) 的余数</li>
+</ol>
+</li>
+</ol>
+<h3 id="编程：利用除法指令计算-100001-100。"><a href="#编程：利用除法指令计算-100001-100。" class="headerlink" title="编程：利用除法指令计算 100001/100。"></a>编程：利用除法指令计算 100001/100。</h3><p>&emsp;&emsp;我们首先分析一下，被除数 100001 大于 65535，不能用 ax 寄存器存放，所以我们要用 dx 和 ax 两个寄存器联合存放 100001，也就是说要进行 16 位的除法。<br>&emsp;&emsp;除数 100 小于 255，可以在一个 8 位寄存器中存放，但是，因为被除数是 32 位的，除数应为 16 位，所以要用一个 16 位寄存器来存放除数 100。<br>&emsp;&emsp;因为要分别为 dx 和 ax 赋 100001 的高 16 位值和低 16 位值，所以应先将 100001 表示为十六进制形式：186A1H。<br>&emsp;&emsp;编程实现</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">dx</span>,<span class="number">1</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">86A1H</span>     # (<span class="built_in">dx</span>)×<span class="number">10000H</span>+(<span class="built_in">ax</span>)=<span class="number">100001</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">100</span></span><br><span class="line"><span class="keyword">div</span> <span class="built_in">bx</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;程序执行后，(ax)=03E8H（即 1000），(dx)=1（余数为 1）。</p>
+<h2 id="8-8-伪指令-dd"><a href="#8-8-伪指令-dd" class="headerlink" title="8.8 伪指令 dd"></a>8.8 伪指令 dd</h2><p>&emsp;&emsp;我们用 db 和 dw 定义字节型数据和字型数据。<br>&emsp;&emsp;dd 是用来定义 dword（double word 双字）型数据的。<br>&emsp;&emsp;示例</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">data</span> <span class="string">segment</span></span><br><span class="line"><span class="attr">db</span> <span class="string">1</span></span><br><span class="line"><span class="attr">dw</span> <span class="string">1</span></span><br><span class="line"><span class="attr">dd</span> <span class="string">1</span></span><br><span class="line"><span class="attr">data</span> <span class="string">ends</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;在 data 段中定义了三个数据</p>
+<ol>
+<li>第一个数据为 01H，在 data:0 处，占 1 个字节；</li>
+<li>第二个数据为 0001H，在 data:1 处，占 1 个字；</li>
+<li>第三个数据为 00000001H，在 data:3 处，占 2 个字；</li>
+</ol>
+<h2 id="8-9-dup"><a href="#8-9-dup" class="headerlink" title="8.9 dup"></a>8.9 dup</h2><p>&emsp;&emsp;dup 是一个操作符，在汇编语言中同 db、dw、dd 等一样，也是由编译器识别处理的符号。<br>&emsp;&emsp;它是和 db、dw、dd 等数据定义伪指令配合使用的，用来进行数据的重复。<br>&emsp;&emsp;dup 示例</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">db <span class="number">3</span> dup (<span class="number">0</span>)     # 定义了 <span class="number">3</span> 个字节，它们的值都是 <span class="number">0</span>，相当于 db <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span></span><br><span class="line">db <span class="number">3</span> dup (<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>)     # 定义了 <span class="number">9</span> 个字节，它们是 <span class="number">0</span>、<span class="number">1</span>、<span class="number">2</span>、<span class="number">0</span>、<span class="number">1</span>、<span class="number">2</span>、<span class="number">0</span>、<span class="number">1</span>、<span class="number">2</span>，相当于 db <span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span></span><br><span class="line">db <span class="number">3</span> dup (<span class="string">&#x27;abc&#x27;</span>,<span class="string">&#x27;ABC&#x27;</span>)     # 定义了 <span class="number">18</span> 个字节，它们是 <span class="string">&#x27;abcABCabcABCabcABC&#x27;</span>，相当于 db<span class="string">&#x27;abcABCabcABCabcABC&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;可见，dup 的使用格式如下</p>
+<ol>
+<li>db 重复的次数 dup (重复的字节型数据)</li>
+<li>dw 重复的次数 dup (重复的字型数据)</li>
+<li>dd 重复的次数 dup (重复的双字数据)</li>
+</ol>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/12.html">《Assembly Language 9.1 ~ 9.6 / 汇编语言 9.1 ~ 9.6》</a></p>
+</div>]]></content>
+      <categories>
+        <category>Assembly Language</category>
+      </categories>
+      <tags>
+        <tag>div</tag>
+        <tag>dd</tag>
+        <tag>dup</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Assembly Language 1.1 ~ 1.10 / 汇编语言 1.1 ~ 1.10</title>
     <url>/Assembly-Language/1.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》1.1 ~ 1.10、《零基础入门学习汇编语言》P1 ~ 4</p>
@@ -1291,123 +1408,6 @@
       </categories>
       <tags>
         <tag>寻址方式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Assembly Language 8.5 ~ 8.9 / 汇编语言 8.5 ~ 8.9</title>
-    <url>/Assembly-Language/11.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》8.5 ~ 8.9、《零基础入门学习汇编语言》P39 ~ 41</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/10.html">《Assembly Language 8.1 / 汇编语言 8.1》</a></p>
-</div>
-
-<span id="more"></span>
-
-<h2 id="8-5-指令要处理的数据有多长"><a href="#8-5-指令要处理的数据有多长" class="headerlink" title="8.5 指令要处理的数据有多长"></a>8.5 指令要处理的数据有多长</h2><p>&emsp;&emsp;8086 CPU 的指令，可以处理两种尺寸的数据，byte 和 word。所以在机器指令中要指明，指令进行的是字操作还是字节操作。对于这个问题，汇编语言中用以下方法处理。</p>
-<ol>
-<li>通过寄存器名指明要处理的数据的尺寸<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"># 下面的指令中，寄存器指明了指令进行的是字操作</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">1</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="built_in">ds</span>:[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>:[<span class="number">0</span>],<span class="built_in">ax</span></span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">ax</span></span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,<span class="number">1000</span></span><br><span class="line"></span><br><span class="line"># 下面的指令中，寄存器指明了指令进行的是字节操作</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="number">1</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="built_in">bl</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="built_in">ds</span>:[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>:[<span class="number">0</span>],<span class="built_in">al</span></span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">al</span></span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,<span class="number">100</span></span><br></pre></td></tr></table></figure></li>
-<li>在没有寄存器名存在的情况下，用操作符 X ptr 指明内存单元的长度，X 在汇编指令中可以为 word 或 byte<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"># 下面的指令中，用 <span class="built_in">word</span> <span class="built_in">ptr</span> 指明了指令访问的内存单元是一个字单元</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">word</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>],<span class="number">1</span></span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">word</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>]</span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">word</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">word</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">2</span></span><br><span class="line"></span><br><span class="line"># 下面的指令中，用 <span class="built_in">byte</span> <span class="built_in">ptr</span> 指明了指令访问的内存单元是一个字节单元</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>],<span class="number">1</span></span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>]</span><br><span class="line"><span class="keyword">inc</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">2</span></span><br></pre></td></tr></table></figure></li>
-<li>其他方法（有些指令默认了访问的是字单元还是字节单元）<br>比如：push [1000H] 就不用指明访问的是字单元还是字节单元，因为 push 指令只进行字操作。</li>
-</ol>
-<h2 id="8-7-div-指令"><a href="#8-7-div-指令" class="headerlink" title="8.7 div 指令"></a>8.7 div 指令</h2><p>&emsp;&emsp;div 是除法指令（division），使用 div 作除法的时候</p>
-<ol>
-<li>除数：8 位或 16 位，在寄存器或内存单元种</li>
-<li>被除数：（默认）放在 AX 或 DX 和 AX 中</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">除数</th>
-<th align="center">被除数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">8 位</td>
-<td align="center">16 位 (AX)</td>
-</tr>
-<tr>
-<td align="center">16 位</td>
-<td align="center">32 位 (DX+AX)</td>
-</tr>
-</tbody></table>
-<p>&emsp;&emsp;结果放在</p>
-<table>
-<thead>
-<tr>
-<th align="center">除数</th>
-<th align="center">8 位</th>
-<th align="center">16 位</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">商</td>
-<td align="center">AL</td>
-<td align="center">AX</td>
-</tr>
-<tr>
-<td align="center">余数</td>
-<td align="center">AH</td>
-<td align="center">DX</td>
-</tr>
-</tbody></table>
-<p>&emsp;&emsp;div 指令格式</p>
-<ol>
-<li>div reg</li>
-<li>div 内存单元</li>
-</ol>
-<p>&emsp;&emsp;div 指令示例与含义</p>
-<ol>
-<li>div byte ptr ds:[0]<ol>
-<li>(al)=(ax)/((ds)×16+0) 的商；</li>
-<li>(ah)=(ax)/((ds)×16+0) 的余数</li>
-</ol>
-</li>
-<li>div word ptr es:[0]<ol>
-<li>(ax)=[(dx)×10000H+(ax)]/((ds)×16+0) 的商；</li>
-<li>(<strong>dx</strong>)=[(dx)×10000H+(ax)]/((ds)×16+0) 的余数</li>
-</ol>
-</li>
-<li>div byte ptr [bx+si+8]<ol>
-<li>(al)=(ax)/((ds)×16+(bx)+(si)+8) 的商；</li>
-<li>(ah)=(ax)/((ds)×16+(bx)+(si)+8) 的余数</li>
-</ol>
-</li>
-<li>div word ptr [bx+si+8]<ol>
-<li>(ax)=[(dx)+10000H+(ax)]/((ds)×16+(bx)+(si)+8) 的商；</li>
-<li>(dx)=[(dx)+10000H+(ax)]/((ds)×16+(bx)+(si)+8) 的余数</li>
-</ol>
-</li>
-</ol>
-<h3 id="编程：利用除法指令计算-100001-100。"><a href="#编程：利用除法指令计算-100001-100。" class="headerlink" title="编程：利用除法指令计算 100001/100。"></a>编程：利用除法指令计算 100001/100。</h3><p>&emsp;&emsp;我们首先分析一下，被除数 100001 大于 65535，不能用 ax 寄存器存放，所以我们要用 dx 和 ax 两个寄存器联合存放 100001，也就是说要进行 16 位的除法。<br>&emsp;&emsp;除数 100 小于 255，可以在一个 8 位寄存器中存放，但是，因为被除数是 32 位的，除数应为 16 位，所以要用一个 16 位寄存器来存放除数 100。<br>&emsp;&emsp;因为要分别为 dx 和 ax 赋 100001 的高 16 位值和低 16 位值，所以应先将 100001 表示为十六进制形式：186A1H。<br>&emsp;&emsp;编程实现</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">dx</span>,<span class="number">1</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">86A1H</span>     # (<span class="built_in">dx</span>)×<span class="number">10000H</span>+(<span class="built_in">ax</span>)=<span class="number">100001</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">100</span></span><br><span class="line"><span class="keyword">div</span> <span class="built_in">bx</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;程序执行后，(ax)=03E8H（即 1000），(dx)=1（余数为 1）。</p>
-<h2 id="8-8-伪指令-dd"><a href="#8-8-伪指令-dd" class="headerlink" title="8.8 伪指令 dd"></a>8.8 伪指令 dd</h2><p>&emsp;&emsp;我们用 db 和 dw 定义字节型数据和字型数据。<br>&emsp;&emsp;dd 是用来定义 dword（double word 双字）型数据的。<br>&emsp;&emsp;示例</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">data</span> <span class="string">segment</span></span><br><span class="line"><span class="attr">db</span> <span class="string">1</span></span><br><span class="line"><span class="attr">dw</span> <span class="string">1</span></span><br><span class="line"><span class="attr">dd</span> <span class="string">1</span></span><br><span class="line"><span class="attr">data</span> <span class="string">ends</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;在 data 段中定义了三个数据</p>
-<ol>
-<li>第一个数据为 01H，在 data:0 处，占 1 个字节；</li>
-<li>第二个数据为 0001H，在 data:1 处，占 1 个字；</li>
-<li>第三个数据为 00000001H，在 data:3 处，占 2 个字；</li>
-</ol>
-<h2 id="8-9-dup"><a href="#8-9-dup" class="headerlink" title="8.9 dup"></a>8.9 dup</h2><p>&emsp;&emsp;dup 是一个操作符，在汇编语言中同 db、dw、dd 等一样，也是由编译器识别处理的符号。<br>&emsp;&emsp;它是和 db、dw、dd 等数据定义伪指令配合使用的，用来进行数据的重复。<br>&emsp;&emsp;dup 示例</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">db <span class="number">3</span> dup (<span class="number">0</span>)     # 定义了 <span class="number">3</span> 个字节，它们的值都是 <span class="number">0</span>，相当于 db <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span></span><br><span class="line">db <span class="number">3</span> dup (<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>)     # 定义了 <span class="number">9</span> 个字节，它们是 <span class="number">0</span>、<span class="number">1</span>、<span class="number">2</span>、<span class="number">0</span>、<span class="number">1</span>、<span class="number">2</span>、<span class="number">0</span>、<span class="number">1</span>、<span class="number">2</span>，相当于 db <span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span></span><br><span class="line">db <span class="number">3</span> dup (<span class="string">&#x27;abc&#x27;</span>,<span class="string">&#x27;ABC&#x27;</span>)     # 定义了 <span class="number">18</span> 个字节，它们是 <span class="string">&#x27;abcABCabcABCabcABC&#x27;</span>，相当于 db<span class="string">&#x27;abcABCabcABCabcABC&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;可见，dup 的使用格式如下</p>
-<ol>
-<li>db 重复的次数 dup (重复的字节型数据)</li>
-<li>dw 重复的次数 dup (重复的字型数据)</li>
-<li>dd 重复的次数 dup (重复的双字数据)</li>
-</ol>
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/12.html">《Assembly Language 9.1 ~ 9.6 / 汇编语言 9.1 ~ 9.6》</a></p>
-</div>]]></content>
-      <categories>
-        <category>Assembly Language</category>
-      </categories>
-      <tags>
-        <tag>div</tag>
-        <tag>dd</tag>
-        <tag>dup</tag>
       </tags>
   </entry>
   <entry>
@@ -1827,6 +1827,184 @@
       </tags>
   </entry>
   <entry>
+    <title>Assembly Language 10.8 ~ 10.12 / 汇编语言 10.8 ~ 10.12</title>
+    <url>/Assembly-Language/15.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》10.8 ~ 10.12、《零基础入门学习汇编语言》P49 ~ 51</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/14.html">《Assembly Language 10.1 ~ 10.7 / 汇编语言 10.1 ~ 10.7》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h2 id="10-8-mul-指令"><a href="#10-8-mul-指令" class="headerlink" title="10.8 mul 指令"></a>10.8 mul 指令</h2><p>&emsp;&emsp;因下面要用到，我们介绍一下 mul 指令，mul 是乘法指令，使用 mul 做乘法的时候</p>
+<ol>
+<li>相乘的两个数：要么<strong>都</strong>是 8 位，要么<strong>都</strong>是 16 位。<ol>
+<li>8 位：AL 中和 8 位寄存器或内存<strong>字节</strong>单元中；</li>
+<li>16 位：AX 中和 16 位寄存器或内存<strong>字</strong>单元中。</li>
+</ol>
+</li>
+<li>结果<ol>
+<li>8 位：AX 中；</li>
+<li>16 位：DX（高位）和 AX（低位）中。</li>
+</ol>
+</li>
+</ol>
+<p>&emsp;&emsp;格式如下</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mul</span> reg</span><br><span class="line"><span class="keyword">mul</span> 内存单元</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;内存单元可以用不同的寻址方式给出，比如</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mul</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>]     # 含义为：(<span class="built_in">ax</span>)=(<span class="built_in">al</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+<span class="number">0</span>)</span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">word</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>+<span class="built_in">si</span>+<span class="number">8</span>]</span><br><span class="line">含义为：</span><br><span class="line">(<span class="built_in">ax</span>)=(<span class="built_in">ax</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+(<span class="built_in">bx</span>)+(<span class="built_in">si</span>)+<span class="number">8</span>) 结果的低 <span class="number">16</span> 位；</span><br><span class="line">(<span class="built_in">dx</span>)=(<span class="built_in">ax</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+(<span class="built_in">bx</span>)+(<span class="built_in">si</span>)+<span class="number">8</span>) 结果的高 <span class="number">16</span> 位；</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;例如</p>
+<ol>
+<li>计算 100×10<br>100 和 10 小于 255，可以做 8 位乘法，程序如下<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="number">100</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bl</span>,<span class="number">10</span></span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">bl</span></span><br><span class="line">结果：(<span class="built_in">ax</span>)=<span class="number">1000</span>（<span class="number">03E8H</span>）</span><br></pre></td></tr></table></figure></li>
+<li>计算 100×10000<br>100 小于 255，可 10000 大于 255，所以必须做 16 位乘法，程序如下<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">100</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">10000</span></span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">结果：(<span class="built_in">ax</span>)=<span class="number">4240H</span>，(<span class="built_in">dx</span>)=<span class="number">000FH</span>（<span class="number">F4240H</span>=<span class="number">1000000</span>）</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="10-9-模块化程序设计"><a href="#10-9-模块化程序设计" class="headerlink" title="10.9 模块化程序设计"></a>10.9 模块化程序设计</h2><p>&emsp;&emsp;从上面我们看到，call 与 ret 指令共同支持了汇编语言编程中的模块化设计。在实际编程中，程序的模块化是必不可少的。<br>&emsp;&emsp;因为现实的问题比较复杂，对现实问题进行分析时，把它转化成相互联系、不同层次的子问题，是必须的解决方法。<br>&emsp;&emsp;而 call 和 ret 指令对这种分析方法提供了程序实现上的支持。利用 call 和 ret 指令，我们可以用简洁的方法，实现多个互相联系、功能独立的子程序来解决一个夫复杂的问题。</p>
+<h2 id="10-10-参数和结果传递的问题"><a href="#10-10-参数和结果传递的问题" class="headerlink" title="10.10 参数和结果传递的问题"></a>10.10 参数和结果传递的问题</h2><p>&emsp;&emsp;子程序一般都要根据提供的参数处理一定的事务，处理后，将结果（返回值）提供给调用者。<br>&emsp;&emsp;其实，我们讨论参数和返回值传递的问题，实际上就是在探讨，应该如何存储子程序需要的参数和产生的返回值。<br>&emsp;&emsp;我们设计一个子程序，可以根据提供的 N，来计算 N 的 3 次方。<br>&emsp;&emsp;这里有两个问题</p>
+<ol>
+<li>我们将参数 N 存储在什么地方？</li>
+<li>计算得到的数值，我们存储在什么地方？</li>
+</ol>
+<p>&emsp;&emsp;很显然，我们可以用寄存器来存储，可以将参数放到 bx 中；<br>&emsp;&emsp;因为子程序中要计算 N×N×N，可以使用多个 mul 指令，为了方便，可将结果放到 dx 和 ax 中。<br>&emsp;&emsp;子程序</p>
+<ol>
+<li>说明：计算 N 的 3 次方</li>
+<li>参数：(bx)=N</li>
+<li>结果：(dx:ax)= $N^3$<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">cube:</span><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">ret</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<div class="note info"><p>我们在编程的时候要注意良好的风格，对于程序应有详细的注释。子程序的注释信息应该包含对子程序的功能、参数和结果的说明。</p>
+</div>
+
+<p>&emsp;&emsp;用寄存器来存储参数和结果是最常使用的方法。对于存放参数的寄存器和存放结果的寄存器，调用者和子程序的读写操作恰恰相反</p>
+<ol>
+<li>调用者将参数送入参数寄存器，从结果寄存器中取到返回值；</li>
+<li>子程序从参数寄存器中取到参数，将返回值送入结果寄存器。</li>
+</ol>
+<h2 id="10-11-批量数据的传递"><a href="#10-11-批量数据的传递" class="headerlink" title="10.11 批量数据的传递"></a>10.11 批量数据的传递</h2><p>&emsp;&emsp;前面的例程中，子程序 cube 只有一个参数，放在 bx 中。如果有两个参数，那么可以用两个寄存器来放，可是如果需要传递的参数有 3 个、4 个或更多直至 N 个，我们怎样存放呢？<br>&emsp;&emsp;寄存器的数量终究有限，我们不可能简单地用寄存器来存放多个需要传递的数据。对于返回值，也有同样的问题。<br>&emsp;&emsp;在这种时候，我们将批量数据放到内存中，然后将它们所在内存空间的首地址放在寄存器中，传递给需要的子程序。<br>&emsp;&emsp;对于具有批量数据的返回结果，也可用同样的方法。<br>&emsp;&emsp;编程：将 data 段中的字符串转化为大写。</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line"></span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="string">&#x27;conversation&#x27;</span></span><br><span class="line">date ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">si</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向字符串（批量数据）所在空间的首地址</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">12</span>     # <span class="built_in">cx</span> 存放字符串的长度</span><br><span class="line">	<span class="keyword">call</span> capital</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">capital:</span></span><br><span class="line">	<span class="keyword">and</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">si</span>],<span class="number">11011111b</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">si</span></span><br><span class="line">	<span class="keyword">loop</span> capital</span><br><span class="line">	<span class="keyword">ret</span></span><br><span class="line"></span><br><span class="line">code ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>除了寄存器、内存传递参数外，还有一种通用的方法使用栈来传递参数。关于这种技巧请参看附注 4。</p>
+</div>
+
+<h2 id="10-12-寄存器冲突的问题"><a href="#10-12-寄存器冲突的问题" class="headerlink" title="10.12 寄存器冲突的问题"></a>10.12 寄存器冲突的问题</h2><p>&emsp;&emsp;设计一个子程序</p>
+<ol>
+<li>功能：将一个全是字母，以 0 结尾的字符串，转化为大写。</li>
+<li>程序要处理的字符串以 0 作为结尾符，这个字符串可以如下定义</li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">db</span> <span class="string">&#x27;conversation&#x27;</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;分析</p>
+<ol>
+<li>应用这个子程序，字符串的内容后面定要有一个 0，标记字符串的结束。子程序可以依次读取每个字符进行检测，如果不是 0，就进行大写的转化，如果是 0，就结束处理。</li>
+<li>由于可通过检测 0 而知道是否已经处理完整个字符串，所以子程序可以不需要字符串的长度作为参数。我们可以直接用 jcxz 来检测 0。</li>
+</ol>
+<p>&emsp;&emsp;子程序实现代码</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">capital:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cl</span>,[<span class="built_in">si</span>]</span><br><span class="line">	<span class="keyword">mov</span> <span class="number">ch</span>,<span class="number">0</span></span><br><span class="line">	<span class="keyword">jcxz</span> ok     # 如果 (<span class="built_in">cx</span>)=<span class="number">0</span>，结束；如果不是 <span class="number">0</span>，处理。</span><br><span class="line">	<span class="keyword">and</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">si</span>],<span class="number">11011111b</span>     # 将 <span class="built_in">ds</span>:<span class="built_in">si</span> 所指单元中的字母转化为大写</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">si</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向下一个单元</span><br><span class="line">	<span class="keyword">jmp</span> short capital</span><br><span class="line"><span class="symbol">ok:</span><span class="keyword">ret</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;子程序的应用<br>&emsp;&emsp;将 data 段中的字符串全部转化为大写</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">assume</span> <span class="string">cs:code</span></span><br><span class="line"><span class="attr">data</span> <span class="string">segment</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;word&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;unix&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;wind&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;good&#x27;.0</span></span><br><span class="line"><span class="attr">data</span> <span class="string">ends</span></span><br></pre></td></tr></table></figure>
+
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/16.html">《Assembly Language 11.1 ~ 11.6 / 汇编语言 11.1 ~ 11.6》</a></p>
+</div>]]></content>
+      <categories>
+        <category>Assembly Language</category>
+      </categories>
+      <tags>
+        <tag>mul</tag>
+        <tag>模块化</tag>
+        <tag>子程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Assembly Language 11.9 ~ 11.11 / 汇编语言 11.9 ~ 11.11</title>
+    <url>/Assembly-Language/18.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》11.9 ~ 11.11、《零基础入门学习汇编语言》P58 ~ 59</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/17.html">《Assembly Language 11.7 ~ 11.9 / 汇编语言 11.7 ~ 11.9》</a></p>
+</div>
+
+<span id="more"></span>
+
+<p>&emsp;&emsp;虽然 je 的逻辑含义是“相等则转移”，但它进行的操作是，ZF=1 时则转移。<br>&emsp;&emsp;“相等则转移”这种逻辑含义，是通过和 cmp 指令配合使用来体现的，因为是 cmp 指令为“ZF=1”赋予了“两数相等”的含义。<br>&emsp;&emsp;至于究竟在 je 之前使不使用 cmp 指令，在于我们的安排。<br>&emsp;&emsp;je 检测的是 ZF 位置，不管 je 前面是什么指令，只要 CPU 执行 je 指令时，ZF=1，那么就会发生转移。<br>&emsp;&emsp;比如</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span></span><br><span class="line">	<span class="keyword">add</span> <span class="built_in">ax</span>,<span class="number">0</span></span><br><span class="line">	<span class="keyword">je</span> s</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;执行后，(ax)=1。add ax,0 使得 ZF=1，所以 je 指令将进行转移。<br>&emsp;&emsp;可在这个时候发生的转移确不带有“相等则转移”的含义。因为此处的 je 指令检测到的 ZF=1，不是由 cmp 等比较指令设置的，而是由 add 指令设置的，并不具有“两数相等”的含义。<br>&emsp;&emsp;但无论“ZF=1”的含义如何，是什么指令设置的，只要是 ZF=1，就可以使得 je 指令发生转移。<br>&emsp;&emsp;CPU 提供了 cmp 指令，也提供了 je 等条件转移指令，如果将它们配合使用，可以实现根据比较结果进行转移的功能。<br>&emsp;&emsp;但这只是“如果”，只是一种合理的建议，和事实上常用的方法。<br>&emsp;&emsp;但究竟是否配合使用它们，完全是你自己的事情。<br>&emsp;&emsp;这就好像，call 和 ret 指令的关系一样。<br>&emsp;&emsp;对于 jne、jb、jnb、ja、jna 等指令和 cmp 指令配合使用的思想和 je 相同，可以自己分析一下。<br>&emsp;&emsp;我们来看一组程序：data 段中的 8 个字节如下</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">data segment</span><br><span class="line">	db <span class="number">8</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">63</span>,<span class="number">38</span></span><br><span class="line">data ends</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;编程：统计 data 段中数值为 8 的字节的个数，用 ax 保存统计结果。<br>&emsp;&emsp;编程思路：初始设置 (ax)=0，然后用循环依次比较每个字节的值，找到一个和 8 相等的数就将 ax 的值加 1。</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">8</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">63</span>,<span class="number">38</span></span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">bx</span> 执行第一个字节</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 初始化累加器</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">cmp</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">8</span>     # 和 <span class="number">8</span> 进行比较</span><br><span class="line">	<span class="keyword">jne</span> next     # 如果不相等转到 next，继续循环</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span>     # 如果相等就将计数值加 <span class="number">1</span></span><br><span class="line"><span class="symbol">next:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">loop</span> s</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line"></span><br><span class="line"># 第二种方案</span><br><span class="line"></span><br><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">8</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">63</span>,<span class="number">38</span></span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">bx</span> 指向第一个字节</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 初始化累加器</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">cmp</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">8</span>     # 和 <span class="number">8</span> 进行比较</span><br><span class="line">	<span class="keyword">je</span> ok     # 如果相等就转到 ok，继续循环</span><br><span class="line">	<span class="keyword">jmp</span> short next     # 如果不相等就转到 next，继续循环</span><br><span class="line"><span class="symbol">ok:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span>     # 如果相等就将计数值加 <span class="number">1</span></span><br><span class="line"><span class="symbol">next:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">bx</span></span><br><span class="line">	loops</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line">比起第一个程序，它直接的遵循了“等于 <span class="number">8</span> 则计数值加 <span class="number">1</span>”的原则，用 <span class="keyword">je</span> 指令检测等于 <span class="number">8</span>  的情况，但是没有第一个程序精简。</span><br><span class="line">第一个程序用 <span class="keyword">jne</span> 检测不等于 <span class="number">8</span> 的情况，从而间接地检测等于 <span class="number">8</span> 的情况。</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>注意：使用 cmp 和条件转移指令时的这种编程思想</p>
+</div>
+
+<p>&emsp;&emsp;编程：统计 data 段中数值大于 8 的字节的个数，用 ax 保存统计结果。<br>&emsp;&emsp;编程思路：初始设置 (ax)=0，然后用循环依次比较每个字节的值，找到一个大于 8 的数就将 ax 的值加 1。</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">8</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">63</span>,<span class="number">38</span></span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">bx</span> 指向第一个字节</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 初始化累加器</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">cmp</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">0</span>     # 和 <span class="number">8</span> 进行比较</span><br><span class="line">	<span class="keyword">jna</span> next     # 如果不大于 <span class="number">8</span> 转到 next，继续循环</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span>     # 如果大于 <span class="number">8</span> 就将计数值加 <span class="number">1</span></span><br><span class="line"><span class="symbol">next:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">loop</span> s     # 程序执行后，(<span class="built_in">ax</span>)=<span class="number">3</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;编程：统计 data 段中数值小于 8 的字节的个数，用 ax 保存统计结果。<br>&emsp;&emsp;编程思路：初始设置 (ax)=0，然后用循环依次比较每个字节的值，找到一个小于 8 的数就将 ax 的值加 1。</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">8</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">63</span>,<span class="number">38</span></span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">bx</span> 指向第一个字节</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 初始化累加器</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">cmp</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">8</span>     # 和 <span class="number">8</span> 进行比较</span><br><span class="line">	<span class="keyword">jnb</span> next     # 如果不小于 <span class="number">8</span> 转到 next，继续循环</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span>     # 如果小于 <span class="number">8</span> 就将计数值加 <span class="number">1</span></span><br><span class="line"><span class="symbol">next:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">loop</span> s     # 程序执行后：(<span class="built_in">ax</span>)=<span class="number">2</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;上面讲解了根据无符号数的比较结果进行转移的条件转移指令。<br>&emsp;&emsp;根据有符号数的比较结果进行转移的条件转移指令的工作原理和无符号数相同，只是检测了不同的标志位。<br>&emsp;&emsp;我们在这里主要探讨的是 cmp、标志寄存器的相关位、条件转移指令三者配合应用的原理，这个原理具有普遍性，而不是逐条讲解条件转移指令。</p>
+<h2 id="11-10-DF-标志和串传送指令"><a href="#11-10-DF-标志和串传送指令" class="headerlink" title="11.10 DF 标志和串传送指令"></a>11.10 DF 标志和串传送指令</h2><p>&emsp;&emsp;flag 的第 10 位是 DF，方向标志位。<br>&emsp;&emsp;在串处理指令中，控制每次操作后 si、di 的增减</p>
+<ol>
+<li>DF=0：每次操作后 si、di 递增</li>
+<li>DF=1：每次操作后 si、di 递减</li>
+</ol>
+<p>&emsp;&emsp;格式 1：movsb<br>&emsp;&emsp;功能（以<strong>字节</strong>为单位传送）：((es)×16+(di))=((ds)×16+(si))</p>
+<ol>
+<li>如果 DF=0 则<ol>
+<li>(si)=(si)+1</li>
+<li>(di)=(di)+1</li>
+</ol>
+</li>
+<li>如果 DF=1 则<ol>
+<li>(si)=(si)-1</li>
+<li>(di)=(di)-1</li>
+</ol>
+</li>
+</ol>
+<p>&emsp;&emsp;movsb 的功能是将 ds:si 指向的内存单元中的字节送入 es:di 中，然后根据标志寄存器 DF 位的值，将 si 和 di 递增或递减。<br>&emsp;&emsp;当然，也可以传送一个字：movsw<br>&emsp;&emsp;格式 2：movsw<br>&emsp;&emsp;功能（以<strong>字</strong>为单位传送）：将 ds:si 指向的内存字单元中 word 送入 es:di 中，然后根据标志寄存器 DF 位的值，将 si 和 di 递增 2 或递减 2。<br>&emsp;&emsp;movsb 和 movsw 进行的是串传送操作中的一个步骤，一般来说，movsb 和 movsw 都和 rep 配合使用，格式如下：rep movsb<br>&emsp;&emsp;rep 的作用是根据 cx 的值，重复执行后面的串传送指令。<br>&emsp;&emsp;由于每执行一次 movsb 指令 si 和 di 都会递增或递减指向后一个单元或前个单元，则 rep movsb 就可以循环实现 (cx) 个字符的传送。<br>&emsp;&emsp;由于 flag 的 DF 位决定着串传送指令执行后，si 和 di 改变的方向，所以 CPU 应该提供相应的指令来对 DF 位进行设置，从而使程序员能够决定传送的方向。<br>&emsp;&emsp;8086 CPU 提供下面两条指令对 DF 位进行设置</p>
+<ol>
+<li>cld 指令：将标志寄存器的 DF 位置 0</li>
+<li>std 指令：将标志寄存器的 DF 位置 1</li>
+</ol>
+<p>&emsp;&emsp;我们来看两个程序<br>&emsp;&emsp;编程 1：用串传送指令，将 data 段中的第一个字符串复制到它后面的空间中。</p>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span> segment</span></span><br><span class="line">	db &#x27;<span class="type">Welcome</span> to masm!&#x27;</span><br><span class="line">	db <span class="number">16</span> dup (<span class="number">0</span>)</span><br><span class="line"><span class="class"><span class="keyword">data</span> ends</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;我们分析一下，使用串传送指令进行数据的传送，需要给它提供一些必要的信息，它们是</p>
+<ol>
+<li>传送的原始位置：ds:si</li>
+<li>传送的目的位置：es:di</li>
+<li>传送的长度：cx</li>
+<li>传送的方向：DF</li>
+</ol>
+<p>&emsp;&emsp;在这个问题中，这些信息如下</p>
+<ol>
+<li>传送的原始位置：data:0</li>
+<li>传送的目的位置：data:16</li>
+<li>传送的长度：16</li>
+<li>传送的方向：因为正向传送（每次串传送指令执行后，si 和 di 递增）比较方便，所以设置 DF=0<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="string">&#x27;Welcome to masm!&#x27;</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">16</span> dup (<span class="number">0</span>)</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">si</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向 data:<span class="number">0</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">es</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">di</span>,<span class="number">16</span>     # <span class="built_in">es</span>:<span class="built_in">di</span> 指向 data:<span class="number">16</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">16</span>     # (<span class="built_in">cx</span>)=<span class="number">16</span>，<span class="keyword">rep</span> 循环 <span class="number">16</span> 次</span><br><span class="line"></span><br><span class="line">	<span class="keyword">cld</span>     #（clear df）小甲鱼猜测的含义</span><br><span class="line">	<span class="keyword">rep</span> <span class="keyword">movsb</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>&emsp;&emsp;编程 2：用串传送指令，将 F000H 段中的最后 16 个字符复制到 data 段中。</p>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span> segment</span></span><br><span class="line">	db <span class="number">16</span> dup (<span class="number">0</span>)</span><br><span class="line"><span class="class"><span class="keyword">data</span> ends</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;我们还是先来看一下应该为串传送指令提供什么样的信息：<br>&emsp;&emsp;要传送的字符串位于 F000H 段的最后 16 个单元中，那么它的最后一个字符的位置：F000:FFFF，是显而易见的。<br>&emsp;&emsp;我们可以将 ds:si 指向 F000H 段的最后一个单元，将 es:di 指向 data 段中的最后一个单元，然后逆向（即从高地址向低地址）传送 16 个字节即可。<br>&emsp;&emsp;相关信息如下</p>
+<ol>
+<li>传送的原始位置：F000:FFFF</li>
+<li>传送的目的位置：data:15</li>
+<li>传送的长度：16</li>
+<li>传送的方向：因为逆向传送（每次串传送指令执行后，si 和 di 递减）比较方便，所以设置 DF=1<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">16</span> dup (<span class="number">0</span>)</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0f000h</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">si</span>,<span class="number">0ffffh</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向 f000:ffff</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">es</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">di</span>,<span class="number">15</span>     # <span class="built_in">es</span>:<span class="built_in">di</span> 指向 data:<span class="number">15</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">16</span>     # (<span class="built_in">cx</span>)=<span class="number">16</span>，<span class="keyword">rep</span> 循环 <span class="number">16</span> 次</span><br><span class="line"></span><br><span class="line">	<span class="keyword">std</span>     # 设置 DF=<span class="number">1</span>，逆向传送</span><br><span class="line">	<span class="keyword">rep</span> <span class="keyword">movsb</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="11-11-pushf-和-popf"><a href="#11-11-pushf-和-popf" class="headerlink" title="11.11 pushf 和 popf"></a>11.11 pushf 和 popf</h2><p>pushf：将标志寄存器的值压栈；<br>popf：从栈中弹出数据，送入标志寄存器中。<br>pushf 和 popf，为直接访问标志寄存器提供了一种方法。</p>
+<div class="note success"><p>哦对了，顺便说一下：我们学习破解的同学，到这里应该可以算是功德圆满了。因为以后的内容是真正的 8086 汇编的内容，跟破解是无关的，大家可以到这里为止😃</p>
+</div>]]></content>
+      <categories>
+        <category>Assembly Language</category>
+      </categories>
+      <tags>
+        <tag>cmp</tag>
+        <tag>条件转移指令</tag>
+        <tag>DF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Assembly Language 11.7 ~ 11.9 / 汇编语言 11.7 ~ 11.9</title>
     <url>/Assembly-Language/17.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》11.7 ~ 11.9、《零基础入门学习汇编语言》P56 ~ 57</p>
@@ -2099,187 +2277,9 @@
         <category>Assembly Language</category>
       </categories>
       <tags>
+        <tag>cmp</tag>
         <tag>adc</tag>
         <tag>sbb</tag>
-        <tag>cmp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Assembly Language 11.9 ~ 11.11 / 汇编语言 11.9 ~ 11.11</title>
-    <url>/Assembly-Language/18.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》11.9 ~ 11.11、《零基础入门学习汇编语言》P58 ~ 59</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/17.html">《Assembly Language 11.7 ~ 11.9 / 汇编语言 11.7 ~ 11.9》</a></p>
-</div>
-
-<span id="more"></span>
-
-<p>&emsp;&emsp;虽然 je 的逻辑含义是“相等则转移”，但它进行的操作是，ZF=1 时则转移。<br>&emsp;&emsp;“相等则转移”这种逻辑含义，是通过和 cmp 指令配合使用来体现的，因为是 cmp 指令为“ZF=1”赋予了“两数相等”的含义。<br>&emsp;&emsp;至于究竟在 je 之前使不使用 cmp 指令，在于我们的安排。<br>&emsp;&emsp;je 检测的是 ZF 位置，不管 je 前面是什么指令，只要 CPU 执行 je 指令时，ZF=1，那么就会发生转移。<br>&emsp;&emsp;比如</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span></span><br><span class="line">	<span class="keyword">add</span> <span class="built_in">ax</span>,<span class="number">0</span></span><br><span class="line">	<span class="keyword">je</span> s</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;执行后，(ax)=1。add ax,0 使得 ZF=1，所以 je 指令将进行转移。<br>&emsp;&emsp;可在这个时候发生的转移确不带有“相等则转移”的含义。因为此处的 je 指令检测到的 ZF=1，不是由 cmp 等比较指令设置的，而是由 add 指令设置的，并不具有“两数相等”的含义。<br>&emsp;&emsp;但无论“ZF=1”的含义如何，是什么指令设置的，只要是 ZF=1，就可以使得 je 指令发生转移。<br>&emsp;&emsp;CPU 提供了 cmp 指令，也提供了 je 等条件转移指令，如果将它们配合使用，可以实现根据比较结果进行转移的功能。<br>&emsp;&emsp;但这只是“如果”，只是一种合理的建议，和事实上常用的方法。<br>&emsp;&emsp;但究竟是否配合使用它们，完全是你自己的事情。<br>&emsp;&emsp;这就好像，call 和 ret 指令的关系一样。<br>&emsp;&emsp;对于 jne、jb、jnb、ja、jna 等指令和 cmp 指令配合使用的思想和 je 相同，可以自己分析一下。<br>&emsp;&emsp;我们来看一组程序：data 段中的 8 个字节如下</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">data segment</span><br><span class="line">	db <span class="number">8</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">63</span>,<span class="number">38</span></span><br><span class="line">data ends</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;编程：统计 data 段中数值为 8 的字节的个数，用 ax 保存统计结果。<br>&emsp;&emsp;编程思路：初始设置 (ax)=0，然后用循环依次比较每个字节的值，找到一个和 8 相等的数就将 ax 的值加 1。</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">8</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">63</span>,<span class="number">38</span></span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">bx</span> 执行第一个字节</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 初始化累加器</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">cmp</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">8</span>     # 和 <span class="number">8</span> 进行比较</span><br><span class="line">	<span class="keyword">jne</span> next     # 如果不相等转到 next，继续循环</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span>     # 如果相等就将计数值加 <span class="number">1</span></span><br><span class="line"><span class="symbol">next:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">loop</span> s</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line"></span><br><span class="line"># 第二种方案</span><br><span class="line"></span><br><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">8</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">63</span>,<span class="number">38</span></span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">bx</span> 指向第一个字节</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 初始化累加器</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">cmp</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">8</span>     # 和 <span class="number">8</span> 进行比较</span><br><span class="line">	<span class="keyword">je</span> ok     # 如果相等就转到 ok，继续循环</span><br><span class="line">	<span class="keyword">jmp</span> short next     # 如果不相等就转到 next，继续循环</span><br><span class="line"><span class="symbol">ok:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span>     # 如果相等就将计数值加 <span class="number">1</span></span><br><span class="line"><span class="symbol">next:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">bx</span></span><br><span class="line">	loops</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line">比起第一个程序，它直接的遵循了“等于 <span class="number">8</span> 则计数值加 <span class="number">1</span>”的原则，用 <span class="keyword">je</span> 指令检测等于 <span class="number">8</span>  的情况，但是没有第一个程序精简。</span><br><span class="line">第一个程序用 <span class="keyword">jne</span> 检测不等于 <span class="number">8</span> 的情况，从而间接地检测等于 <span class="number">8</span> 的情况。</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><p>注意：使用 cmp 和条件转移指令时的这种编程思想</p>
-</div>
-
-<p>&emsp;&emsp;编程：统计 data 段中数值大于 8 的字节的个数，用 ax 保存统计结果。<br>&emsp;&emsp;编程思路：初始设置 (ax)=0，然后用循环依次比较每个字节的值，找到一个大于 8 的数就将 ax 的值加 1。</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">8</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">63</span>,<span class="number">38</span></span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">bx</span> 指向第一个字节</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 初始化累加器</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">cmp</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">0</span>     # 和 <span class="number">8</span> 进行比较</span><br><span class="line">	<span class="keyword">jna</span> next     # 如果不大于 <span class="number">8</span> 转到 next，继续循环</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span>     # 如果大于 <span class="number">8</span> 就将计数值加 <span class="number">1</span></span><br><span class="line"><span class="symbol">next:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">loop</span> s     # 程序执行后，(<span class="built_in">ax</span>)=<span class="number">3</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;编程：统计 data 段中数值小于 8 的字节的个数，用 ax 保存统计结果。<br>&emsp;&emsp;编程思路：初始设置 (ax)=0，然后用循环依次比较每个字节的值，找到一个小于 8 的数就将 ax 的值加 1。</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">8</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">63</span>,<span class="number">38</span></span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">bx</span> 指向第一个字节</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 初始化累加器</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">0</span></span><br><span class="line"><span class="symbol">s:</span></span><br><span class="line">	<span class="keyword">cmp</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>],<span class="number">8</span>     # 和 <span class="number">8</span> 进行比较</span><br><span class="line">	<span class="keyword">jnb</span> next     # 如果不小于 <span class="number">8</span> 转到 next，继续循环</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">ax</span>     # 如果小于 <span class="number">8</span> 就将计数值加 <span class="number">1</span></span><br><span class="line"><span class="symbol">next:</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">loop</span> s     # 程序执行后：(<span class="built_in">ax</span>)=<span class="number">2</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;上面讲解了根据无符号数的比较结果进行转移的条件转移指令。<br>&emsp;&emsp;根据有符号数的比较结果进行转移的条件转移指令的工作原理和无符号数相同，只是检测了不同的标志位。<br>&emsp;&emsp;我们在这里主要探讨的是 cmp、标志寄存器的相关位、条件转移指令三者配合应用的原理，这个原理具有普遍性，而不是逐条讲解条件转移指令。</p>
-<h2 id="11-10-DF-标志和串传送指令"><a href="#11-10-DF-标志和串传送指令" class="headerlink" title="11.10 DF 标志和串传送指令"></a>11.10 DF 标志和串传送指令</h2><p>&emsp;&emsp;flag 的第 10 位是 DF，方向标志位。<br>&emsp;&emsp;在串处理指令中，控制每次操作后 si、di 的增减</p>
-<ol>
-<li>DF=0：每次操作后 si、di 递增</li>
-<li>DF=1：每次操作后 si、di 递减</li>
-</ol>
-<p>&emsp;&emsp;格式 1：movsb<br>&emsp;&emsp;功能（以<strong>字节</strong>为单位传送）：((es)×16+(di))=((ds)×16+(si))</p>
-<ol>
-<li>如果 DF=0 则<ol>
-<li>(si)=(si)+1</li>
-<li>(di)=(di)+1</li>
-</ol>
-</li>
-<li>如果 DF=1 则<ol>
-<li>(si)=(si)-1</li>
-<li>(di)=(di)-1</li>
-</ol>
-</li>
-</ol>
-<p>&emsp;&emsp;movsb 的功能是将 ds:si 指向的内存单元中的字节送入 es:di 中，然后根据标志寄存器 DF 位的值，将 si 和 di 递增或递减。<br>&emsp;&emsp;当然，也可以传送一个字：movsw<br>&emsp;&emsp;格式 2：movsw<br>&emsp;&emsp;功能（以<strong>字</strong>为单位传送）：将 ds:si 指向的内存字单元中 word 送入 es:di 中，然后根据标志寄存器 DF 位的值，将 si 和 di 递增 2 或递减 2。<br>&emsp;&emsp;movsb 和 movsw 进行的是串传送操作中的一个步骤，一般来说，movsb 和 movsw 都和 rep 配合使用，格式如下：rep movsb<br>&emsp;&emsp;rep 的作用是根据 cx 的值，重复执行后面的串传送指令。<br>&emsp;&emsp;由于每执行一次 movsb 指令 si 和 di 都会递增或递减指向后一个单元或前个单元，则 rep movsb 就可以循环实现 (cx) 个字符的传送。<br>&emsp;&emsp;由于 flag 的 DF 位决定着串传送指令执行后，si 和 di 改变的方向，所以 CPU 应该提供相应的指令来对 DF 位进行设置，从而使程序员能够决定传送的方向。<br>&emsp;&emsp;8086 CPU 提供下面两条指令对 DF 位进行设置</p>
-<ol>
-<li>cld 指令：将标志寄存器的 DF 位置 0</li>
-<li>std 指令：将标志寄存器的 DF 位置 1</li>
-</ol>
-<p>&emsp;&emsp;我们来看两个程序<br>&emsp;&emsp;编程 1：用串传送指令，将 data 段中的第一个字符串复制到它后面的空间中。</p>
-<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span> segment</span></span><br><span class="line">	db &#x27;<span class="type">Welcome</span> to masm!&#x27;</span><br><span class="line">	db <span class="number">16</span> dup (<span class="number">0</span>)</span><br><span class="line"><span class="class"><span class="keyword">data</span> ends</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;我们分析一下，使用串传送指令进行数据的传送，需要给它提供一些必要的信息，它们是</p>
-<ol>
-<li>传送的原始位置：ds:si</li>
-<li>传送的目的位置：es:di</li>
-<li>传送的长度：cx</li>
-<li>传送的方向：DF</li>
-</ol>
-<p>&emsp;&emsp;在这个问题中，这些信息如下</p>
-<ol>
-<li>传送的原始位置：data:0</li>
-<li>传送的目的位置：data:16</li>
-<li>传送的长度：16</li>
-<li>传送的方向：因为正向传送（每次串传送指令执行后，si 和 di 递增）比较方便，所以设置 DF=0<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="string">&#x27;Welcome to masm!&#x27;</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">16</span> dup (<span class="number">0</span>)</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">si</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向 data:<span class="number">0</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">es</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">di</span>,<span class="number">16</span>     # <span class="built_in">es</span>:<span class="built_in">di</span> 指向 data:<span class="number">16</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">16</span>     # (<span class="built_in">cx</span>)=<span class="number">16</span>，<span class="keyword">rep</span> 循环 <span class="number">16</span> 次</span><br><span class="line"></span><br><span class="line">	<span class="keyword">cld</span>     #（clear df）小甲鱼猜测的含义</span><br><span class="line">	<span class="keyword">rep</span> <span class="keyword">movsb</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>&emsp;&emsp;编程 2：用串传送指令，将 F000H 段中的最后 16 个字符复制到 data 段中。</p>
-<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span> segment</span></span><br><span class="line">	db <span class="number">16</span> dup (<span class="number">0</span>)</span><br><span class="line"><span class="class"><span class="keyword">data</span> ends</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;我们还是先来看一下应该为串传送指令提供什么样的信息：<br>&emsp;&emsp;要传送的字符串位于 F000H 段的最后 16 个单元中，那么它的最后一个字符的位置：F000:FFFF，是显而易见的。<br>&emsp;&emsp;我们可以将 ds:si 指向 F000H 段的最后一个单元，将 es:di 指向 data 段中的最后一个单元，然后逆向（即从高地址向低地址）传送 16 个字节即可。<br>&emsp;&emsp;相关信息如下</p>
-<ol>
-<li>传送的原始位置：F000:FFFF</li>
-<li>传送的目的位置：data:15</li>
-<li>传送的长度：16</li>
-<li>传送的方向：因为逆向传送（每次串传送指令执行后，si 和 di 递减）比较方便，所以设置 DF=1<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="number">16</span> dup (<span class="number">0</span>)</span><br><span class="line">data ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0f000h</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">si</span>,<span class="number">0ffffh</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向 f000:ffff</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">es</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">di</span>,<span class="number">15</span>     # <span class="built_in">es</span>:<span class="built_in">di</span> 指向 data:<span class="number">15</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">16</span>     # (<span class="built_in">cx</span>)=<span class="number">16</span>，<span class="keyword">rep</span> 循环 <span class="number">16</span> 次</span><br><span class="line"></span><br><span class="line">	<span class="keyword">std</span>     # 设置 DF=<span class="number">1</span>，逆向传送</span><br><span class="line">	<span class="keyword">rep</span> <span class="keyword">movsb</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="11-11-pushf-和-popf"><a href="#11-11-pushf-和-popf" class="headerlink" title="11.11 pushf 和 popf"></a>11.11 pushf 和 popf</h2><p>pushf：将标志寄存器的值压栈；<br>popf：从栈中弹出数据，送入标志寄存器中。<br>pushf 和 popf，为直接访问标志寄存器提供了一种方法。</p>
-<div class="note success"><p>哦对了，顺便说一下：我们学习破解的同学，到这里应该可以算是功德圆满了。因为以后的内容是真正的 8086 汇编的内容，跟破解是无关的，大家可以到这里为止😃</p>
-</div>]]></content>
-      <categories>
-        <category>Assembly Language</category>
-      </categories>
-      <tags>
-        <tag>cmp</tag>
-        <tag>条件转移指令</tag>
-        <tag>DF</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Assembly Language 10.8 ~ 10.12 / 汇编语言 10.8 ~ 10.12</title>
-    <url>/Assembly-Language/15.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》10.8 ~ 10.12、《零基础入门学习汇编语言》P49 ~ 51</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/14.html">《Assembly Language 10.1 ~ 10.7 / 汇编语言 10.1 ~ 10.7》</a></p>
-</div>
-
-<span id="more"></span>
-
-<h2 id="10-8-mul-指令"><a href="#10-8-mul-指令" class="headerlink" title="10.8 mul 指令"></a>10.8 mul 指令</h2><p>&emsp;&emsp;因下面要用到，我们介绍一下 mul 指令，mul 是乘法指令，使用 mul 做乘法的时候</p>
-<ol>
-<li>相乘的两个数：要么<strong>都</strong>是 8 位，要么<strong>都</strong>是 16 位。<ol>
-<li>8 位：AL 中和 8 位寄存器或内存<strong>字节</strong>单元中；</li>
-<li>16 位：AX 中和 16 位寄存器或内存<strong>字</strong>单元中。</li>
-</ol>
-</li>
-<li>结果<ol>
-<li>8 位：AX 中；</li>
-<li>16 位：DX（高位）和 AX（低位）中。</li>
-</ol>
-</li>
-</ol>
-<p>&emsp;&emsp;格式如下</p>
-<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mul</span> reg</span><br><span class="line"><span class="keyword">mul</span> 内存单元</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;内存单元可以用不同的寻址方式给出，比如</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mul</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">0</span>]     # 含义为：(<span class="built_in">ax</span>)=(<span class="built_in">al</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+<span class="number">0</span>)</span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">word</span> <span class="built_in">ptr</span> [<span class="built_in">bx</span>+<span class="built_in">si</span>+<span class="number">8</span>]</span><br><span class="line">含义为：</span><br><span class="line">(<span class="built_in">ax</span>)=(<span class="built_in">ax</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+(<span class="built_in">bx</span>)+(<span class="built_in">si</span>)+<span class="number">8</span>) 结果的低 <span class="number">16</span> 位；</span><br><span class="line">(<span class="built_in">dx</span>)=(<span class="built_in">ax</span>)×((<span class="built_in">ds</span>)×<span class="number">16</span>+(<span class="built_in">bx</span>)+(<span class="built_in">si</span>)+<span class="number">8</span>) 结果的高 <span class="number">16</span> 位；</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;例如</p>
-<ol>
-<li>计算 100×10<br>100 和 10 小于 255，可以做 8 位乘法，程序如下<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="number">100</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bl</span>,<span class="number">10</span></span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">bl</span></span><br><span class="line">结果：(<span class="built_in">ax</span>)=<span class="number">1000</span>（<span class="number">03E8H</span>）</span><br></pre></td></tr></table></figure></li>
-<li>计算 100×10000<br>100 小于 255，可 10000 大于 255，所以必须做 16 位乘法，程序如下<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">100</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">10000</span></span><br><span class="line"><span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">结果：(<span class="built_in">ax</span>)=<span class="number">4240H</span>，(<span class="built_in">dx</span>)=<span class="number">000FH</span>（<span class="number">F4240H</span>=<span class="number">1000000</span>）</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="10-9-模块化程序设计"><a href="#10-9-模块化程序设计" class="headerlink" title="10.9 模块化程序设计"></a>10.9 模块化程序设计</h2><p>&emsp;&emsp;从上面我们看到，call 与 ret 指令共同支持了汇编语言编程中的模块化设计。在实际编程中，程序的模块化是必不可少的。<br>&emsp;&emsp;因为现实的问题比较复杂，对现实问题进行分析时，把它转化成相互联系、不同层次的子问题，是必须的解决方法。<br>&emsp;&emsp;而 call 和 ret 指令对这种分析方法提供了程序实现上的支持。利用 call 和 ret 指令，我们可以用简洁的方法，实现多个互相联系、功能独立的子程序来解决一个夫复杂的问题。</p>
-<h2 id="10-10-参数和结果传递的问题"><a href="#10-10-参数和结果传递的问题" class="headerlink" title="10.10 参数和结果传递的问题"></a>10.10 参数和结果传递的问题</h2><p>&emsp;&emsp;子程序一般都要根据提供的参数处理一定的事务，处理后，将结果（返回值）提供给调用者。<br>&emsp;&emsp;其实，我们讨论参数和返回值传递的问题，实际上就是在探讨，应该如何存储子程序需要的参数和产生的返回值。<br>&emsp;&emsp;我们设计一个子程序，可以根据提供的 N，来计算 N 的 3 次方。<br>&emsp;&emsp;这里有两个问题</p>
-<ol>
-<li>我们将参数 N 存储在什么地方？</li>
-<li>计算得到的数值，我们存储在什么地方？</li>
-</ol>
-<p>&emsp;&emsp;很显然，我们可以用寄存器来存储，可以将参数放到 bx 中；<br>&emsp;&emsp;因为子程序中要计算 N×N×N，可以使用多个 mul 指令，为了方便，可将结果放到 dx 和 ax 中。<br>&emsp;&emsp;子程序</p>
-<ol>
-<li>说明：计算 N 的 3 次方</li>
-<li>参数：(bx)=N</li>
-<li>结果：(dx:ax)= $N^3$<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">cube:</span><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">mul</span> <span class="built_in">bx</span></span><br><span class="line">	<span class="keyword">ret</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<div class="note info"><p>我们在编程的时候要注意良好的风格，对于程序应有详细的注释。子程序的注释信息应该包含对子程序的功能、参数和结果的说明。</p>
-</div>
-
-<p>&emsp;&emsp;用寄存器来存储参数和结果是最常使用的方法。对于存放参数的寄存器和存放结果的寄存器，调用者和子程序的读写操作恰恰相反</p>
-<ol>
-<li>调用者将参数送入参数寄存器，从结果寄存器中取到返回值；</li>
-<li>子程序从参数寄存器中取到参数，将返回值送入结果寄存器。</li>
-</ol>
-<h2 id="10-11-批量数据的传递"><a href="#10-11-批量数据的传递" class="headerlink" title="10.11 批量数据的传递"></a>10.11 批量数据的传递</h2><p>&emsp;&emsp;前面的例程中，子程序 cube 只有一个参数，放在 bx 中。如果有两个参数，那么可以用两个寄存器来放，可是如果需要传递的参数有 3 个、4 个或更多直至 N 个，我们怎样存放呢？<br>&emsp;&emsp;寄存器的数量终究有限，我们不可能简单地用寄存器来存放多个需要传递的数据。对于返回值，也有同样的问题。<br>&emsp;&emsp;在这种时候，我们将批量数据放到内存中，然后将它们所在内存空间的首地址放在寄存器中，传递给需要的子程序。<br>&emsp;&emsp;对于具有批量数据的返回结果，也可用同样的方法。<br>&emsp;&emsp;编程：将 data 段中的字符串转化为大写。</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="meta">assume</span> <span class="built_in">cs</span>:code</span><br><span class="line"></span><br><span class="line">data <span class="meta">segment</span></span><br><span class="line">	<span class="built_in">db</span> <span class="string">&#x27;conversation&#x27;</span></span><br><span class="line">date ends</span><br><span class="line"></span><br><span class="line">code <span class="meta">segment</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">start:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,data</span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">si</span>,<span class="number">0</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向字符串（批量数据）所在空间的首地址</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cx</span>,<span class="number">12</span>     # <span class="built_in">cx</span> 存放字符串的长度</span><br><span class="line">	<span class="keyword">call</span> capital</span><br><span class="line"></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">4c00h</span></span><br><span class="line">	<span class="keyword">int</span> <span class="number">21h</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">capital:</span></span><br><span class="line">	<span class="keyword">and</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">si</span>],<span class="number">11011111b</span></span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">si</span></span><br><span class="line">	<span class="keyword">loop</span> capital</span><br><span class="line">	<span class="keyword">ret</span></span><br><span class="line"></span><br><span class="line">code ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><p>除了寄存器、内存传递参数外，还有一种通用的方法使用栈来传递参数。关于这种技巧请参看附注 4。</p>
-</div>
-
-<h2 id="10-12-寄存器冲突的问题"><a href="#10-12-寄存器冲突的问题" class="headerlink" title="10.12 寄存器冲突的问题"></a>10.12 寄存器冲突的问题</h2><p>&emsp;&emsp;设计一个子程序</p>
-<ol>
-<li>功能：将一个全是字母，以 0 结尾的字符串，转化为大写。</li>
-<li>程序要处理的字符串以 0 作为结尾符，这个字符串可以如下定义</li>
-</ol>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">db</span> <span class="string">&#x27;conversation&#x27;</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;分析</p>
-<ol>
-<li>应用这个子程序，字符串的内容后面定要有一个 0，标记字符串的结束。子程序可以依次读取每个字符进行检测，如果不是 0，就进行大写的转化，如果是 0，就结束处理。</li>
-<li>由于可通过检测 0 而知道是否已经处理完整个字符串，所以子程序可以不需要字符串的长度作为参数。我们可以直接用 jcxz 来检测 0。</li>
-</ol>
-<p>&emsp;&emsp;子程序实现代码</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">capital:</span></span><br><span class="line">	<span class="keyword">mov</span> <span class="built_in">cl</span>,[<span class="built_in">si</span>]</span><br><span class="line">	<span class="keyword">mov</span> <span class="number">ch</span>,<span class="number">0</span></span><br><span class="line">	<span class="keyword">jcxz</span> ok     # 如果 (<span class="built_in">cx</span>)=<span class="number">0</span>，结束；如果不是 <span class="number">0</span>，处理。</span><br><span class="line">	<span class="keyword">and</span> <span class="built_in">byte</span> <span class="built_in">ptr</span> [<span class="built_in">si</span>],<span class="number">11011111b</span>     # 将 <span class="built_in">ds</span>:<span class="built_in">si</span> 所指单元中的字母转化为大写</span><br><span class="line">	<span class="keyword">inc</span> <span class="built_in">si</span>     # <span class="built_in">ds</span>:<span class="built_in">si</span> 指向下一个单元</span><br><span class="line">	<span class="keyword">jmp</span> short capital</span><br><span class="line"><span class="symbol">ok:</span><span class="keyword">ret</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;子程序的应用<br>&emsp;&emsp;将 data 段中的字符串全部转化为大写</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">assume</span> <span class="string">cs:code</span></span><br><span class="line"><span class="attr">data</span> <span class="string">segment</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;word&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;unix&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;wind&#x27;,0</span></span><br><span class="line">	<span class="attr">db</span> <span class="string">&#x27;good&#x27;.0</span></span><br><span class="line"><span class="attr">data</span> <span class="string">ends</span></span><br></pre></td></tr></table></figure>
-
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/16.html">《Assembly Language 11.1 ~ 11.6 / 汇编语言 11.1 ~ 11.6》</a></p>
-</div>]]></content>
-      <categories>
-        <category>Assembly Language</category>
-      </categories>
-      <tags>
-        <tag>mul</tag>
-        <tag>模块化</tag>
-        <tag>子程序</tag>
       </tags>
   </entry>
   <entry>
@@ -2480,6 +2480,70 @@
       </tags>
   </entry>
   <entry>
+    <title>Assembly Language 3.1 ~ 3.5 / 汇编语言 3.1 ~ 3.5</title>
+    <url>/Assembly-Language/4.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》3.1 ~ 3.5、《零基础入门学习汇编语言》P13 ~ 15</p>
+<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/3.html">《Assembly Language 2.8 ~ 2.12 / 汇编语言 2.8 ~ 2.12》</a></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="第三章-寄存器（内存访问）"><a href="#第三章-寄存器（内存访问）" class="headerlink" title="第三章 寄存器（内存访问）"></a>第三章 寄存器（内存访问）</h1><h2 id="3-1-内存中字的存储"><a href="#3-1-内存中字的存储" class="headerlink" title="3.1 内存中字的存储"></a>3.1 内存中字的存储</h2><p>&emsp;&emsp;任何两个地址连续的内存单元，N 号单元和 N+1 号单元，可以将它们看成两个内存单元，也可以看成一个地址为 N 的子单元中的高位字节单元和低位字节单元。</p>
+<h2 id="3-2-DS-和-address"><a href="#3-2-DS-和-address" class="headerlink" title="3.2 DS 和 address"></a>3.2 DS 和 address</h2><p>&emsp;&emsp;CPU 要读取一个内存单元的时候，必须先给出这个内存单元的地址；<br>&emsp;&emsp;在 8086 PC 中，内存地址由段地址和偏移地址组成。<br>&emsp;&emsp;8086 CPU 中有一个 DS 寄存器，通常用来存放要访问的数据的段地址。<br>&emsp;&emsp;已知的 mov 指令可完成的两种传送功能</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">2</span>     # 将数据直接送入寄存器；</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="built_in">ax</span>     # 将一个寄存器中的内容送入另一个寄存器中</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;除此之外，mov 指令还可以将一个内存单元中的内容送入一个寄存器。<br>&emsp;&emsp;例如：我们要读取 10000H 单元的内容可以用如下程序段进行</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">bx</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,[<span class="number">0</span>]     # <span class="keyword">mov</span> 指令的格式：<span class="keyword">mov</span> 寄存器名,内存单元地址，“[…]”表示一个内存单元，“[…]”中的 <span class="number">0</span> 表示内存单元的偏移地址</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;上面三条指令将 10000H（1000:0）中的数据读到 al 中。<br>&emsp;&emsp;执行指令时，8086 CPU 自动取 DS 中的数据为内存的单元的段地址。<br>&emsp;&emsp;用 mov 指令从 1000H 中读取数据</p>
+<ol>
+<li>10000H 表示为 1000:0（段地址:偏移地址）</li>
+<li>将段地址 1000H 放入 ds</li>
+<li>用 mov al,[0] 完成传送（mov 指令中的 [] 说明操作对象是一个内存单元，[] 中的 0 说明这个内存单元的偏移地址是 0，它的段地址默认放在 ds 中）</li>
+</ol>
+<p>&emsp;&emsp;8086 CPU <strong>不支持</strong><del>将数据直接送入段寄存器</del>的操作，ds 是一个段寄存器。（硬件设计问题）</p>
+<div class="note warning"><p>数据 → 通用寄存器 → 段寄存器，<strong>不能</strong><del>直接将数据送入段寄存器</del></p>
+</div>
+
+<p>&emsp;&emsp;将数据从寄存器送入内存单元</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">bx</span></span><br><span class="line"><span class="keyword">mov</span> [<span class="number">0</span>],<span class="built_in">al</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-字的传送"><a href="#3-3-字的传送" class="headerlink" title="3.3 字的传送"></a>3.3 字的传送</h2><p>&emsp;&emsp;因为 8086 CPU 是 16 位结构，有 16 根数据线，所以可以一次性传送 16 位的数据，也就是一次性传送一个字。</p>
+<h2 id="3-4-mov、add、sub-指令"><a href="#3-4-mov、add、sub-指令" class="headerlink" title="3.4 mov、add、sub 指令"></a>3.4 mov、add、sub 指令</h2><p>&emsp;&emsp;已学 mov 指令的几种形式</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">6</span>     # <span class="keyword">mov</span> 寄存器,数据</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="built_in">ax</span>     # <span class="keyword">mov</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">mov</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">mov</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">mov</span> 内存单元,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # <span class="keyword">mov</span> 段寄存器,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="built_in">ds</span>     # <span class="keyword">mov</span> 寄存器,段寄存器</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;add 和 sub 指令同 mov 一样，都有两个操作对象</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,<span class="number">8</span>     # <span class="keyword">add</span> 寄存器,数据</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,<span class="built_in">bx</span>     # <span class="keyword">add</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">add</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">add</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">add</span> 内存单元,寄存器</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,<span class="number">9</span>     # <span class="keyword">sub</span> 寄存器,数据</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,<span class="built_in">bx</span>     # <span class="keyword">sub</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">sub</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">sub</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">sub</span> 内存单元,寄存器</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-数据段"><a href="#3-5-数据段" class="headerlink" title="3.5 数据段"></a>3.5 数据段</h2><p>&emsp;&emsp;将一段内存当作数据段，是我们在编程时的一种安排，我们可以在具体操作的时候，用 ds 存放数据段的段地址，再根据需要，用相关指令访问数据段中的具体单元。<br>&emsp;&emsp;我们将 123B0H~123BAH 的内存单元定义为数据段，我们现在要累加这个数据段中的前 3 个单元中的数据，代码如下</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">123BH</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # 将 <span class="number">123BH</span> 送入 <span class="built_in">ds</span> 中，作为数据段的段地址。</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="number">0</span>     # 用 <span class="built_in">al</span> 存放累加结果</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">0</span>]     # 将数据段第一个单元（偏移地址为 <span class="number">0</span>）中的数值加到 <span class="built_in">al</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">1</span>]     # 将数据段第二个单元（偏移地址为 <span class="number">1</span>）中的数值加到 <span class="built_in">al</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">2</span>]     # 将数据段第三个单元（偏移地址为 <span class="number">2</span>）中的数值加到 <span class="built_in">al</span> 中</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;累加数据段中的前 3 个字型数据</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">123BH</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # 将 <span class="number">123BH</span> 送入 <span class="built_in">ds</span> 中，作为数据段的段地址。</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 用 <span class="built_in">ax</span> 存放累加结果</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # 将数据段第一个字（偏移地址为<span class="number">0</span>）加到 <span class="built_in">ax</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">2</span>]     # 将数据段第二个字（偏移地址为<span class="number">2</span>）加到 <span class="built_in">ax</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">4</span>]     # 将数据段第三个字（偏移地址为<span class="number">4</span>）加到 <span class="built_in">ax</span> 中</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>一个字型数据占两个单元，所以偏移地址是 0、2、4。</p>
+</div>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
+<li>字在内存中存储时，要用两个地址连续的内存单元来存放，字的低位字节存放在低地址单元中，高位字节存放在高地址单元中。</li>
+<li>用 mov 指令要访问内存单元，可以在 mov 指令中只给出单元的偏移地址，此时，段地址默认在 DS 寄存器中。</li>
+<li>[address] 表示一个偏移地址为 address 的内存单元。</li>
+<li>在内存和寄存器之间传送字型数据时，高地址单元和高 8 位寄存器、低地址单元和低 8 位寄存器相对应。</li>
+<li>mov、add、sub 是具有两个操作对象的指令。jum 是具有一个操作对象的指令。</li>
+<li>可以根据自己的推测，在 Debug 中实验指令的新格式。</li>
+</ol>
+<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/5.html">《Assembly Language 3.6 ~ 3.10 / 汇编语言 3.6 ~ 3.10》</a></p>
+</div>]]></content>
+      <categories>
+        <category>Assembly Language</category>
+      </categories>
+      <tags>
+        <tag>寄存器</tag>
+        <tag>mov</tag>
+        <tag>add</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Assembly Language 2.8 ~ 2.12 / 汇编语言 2.8 ~ 2.12</title>
     <url>/Assembly-Language/3.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》2.8 ~ 2.12、《零基础入门学习汇编语言》P9、10</p>
@@ -2601,70 +2665,6 @@
         <tag>CS</tag>
         <tag>IP</tag>
         <tag>传送指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Assembly Language 3.1 ~ 3.5 / 汇编语言 3.1 ~ 3.5</title>
-    <url>/Assembly-Language/4.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》3.1 ~ 3.5、《零基础入门学习汇编语言》P13 ~ 15</p>
-<div class="note info"><p>上一节课程：<a href="https://blog.hackme.cc/Assembly-Language/3.html">《Assembly Language 2.8 ~ 2.12 / 汇编语言 2.8 ~ 2.12》</a></p>
-</div>
-
-<span id="more"></span>
-
-<h1 id="第三章-寄存器（内存访问）"><a href="#第三章-寄存器（内存访问）" class="headerlink" title="第三章 寄存器（内存访问）"></a>第三章 寄存器（内存访问）</h1><h2 id="3-1-内存中字的存储"><a href="#3-1-内存中字的存储" class="headerlink" title="3.1 内存中字的存储"></a>3.1 内存中字的存储</h2><p>&emsp;&emsp;任何两个地址连续的内存单元，N 号单元和 N+1 号单元，可以将它们看成两个内存单元，也可以看成一个地址为 N 的子单元中的高位字节单元和低位字节单元。</p>
-<h2 id="3-2-DS-和-address"><a href="#3-2-DS-和-address" class="headerlink" title="3.2 DS 和 address"></a>3.2 DS 和 address</h2><p>&emsp;&emsp;CPU 要读取一个内存单元的时候，必须先给出这个内存单元的地址；<br>&emsp;&emsp;在 8086 PC 中，内存地址由段地址和偏移地址组成。<br>&emsp;&emsp;8086 CPU 中有一个 DS 寄存器，通常用来存放要访问的数据的段地址。<br>&emsp;&emsp;已知的 mov 指令可完成的两种传送功能</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">2</span>     # 将数据直接送入寄存器；</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="built_in">ax</span>     # 将一个寄存器中的内容送入另一个寄存器中</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;除此之外，mov 指令还可以将一个内存单元中的内容送入一个寄存器。<br>&emsp;&emsp;例如：我们要读取 10000H 单元的内容可以用如下程序段进行</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">bx</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,[<span class="number">0</span>]     # <span class="keyword">mov</span> 指令的格式：<span class="keyword">mov</span> 寄存器名,内存单元地址，“[…]”表示一个内存单元，“[…]”中的 <span class="number">0</span> 表示内存单元的偏移地址</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;上面三条指令将 10000H（1000:0）中的数据读到 al 中。<br>&emsp;&emsp;执行指令时，8086 CPU 自动取 DS 中的数据为内存的单元的段地址。<br>&emsp;&emsp;用 mov 指令从 1000H 中读取数据</p>
-<ol>
-<li>10000H 表示为 1000:0（段地址:偏移地址）</li>
-<li>将段地址 1000H 放入 ds</li>
-<li>用 mov al,[0] 完成传送（mov 指令中的 [] 说明操作对象是一个内存单元，[] 中的 0 说明这个内存单元的偏移地址是 0，它的段地址默认放在 ds 中）</li>
-</ol>
-<p>&emsp;&emsp;8086 CPU <strong>不支持</strong><del>将数据直接送入段寄存器</del>的操作，ds 是一个段寄存器。（硬件设计问题）</p>
-<div class="note warning"><p>数据 → 通用寄存器 → 段寄存器，<strong>不能</strong><del>直接将数据送入段寄存器</del></p>
-</div>
-
-<p>&emsp;&emsp;将数据从寄存器送入内存单元</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="number">1000H</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">bx</span></span><br><span class="line"><span class="keyword">mov</span> [<span class="number">0</span>],<span class="built_in">al</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-3-字的传送"><a href="#3-3-字的传送" class="headerlink" title="3.3 字的传送"></a>3.3 字的传送</h2><p>&emsp;&emsp;因为 8086 CPU 是 16 位结构，有 16 根数据线，所以可以一次性传送 16 位的数据，也就是一次性传送一个字。</p>
-<h2 id="3-4-mov、add、sub-指令"><a href="#3-4-mov、add、sub-指令" class="headerlink" title="3.4 mov、add、sub 指令"></a>3.4 mov、add、sub 指令</h2><p>&emsp;&emsp;已学 mov 指令的几种形式</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">6</span>     # <span class="keyword">mov</span> 寄存器,数据</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">bx</span>,<span class="built_in">ax</span>     # <span class="keyword">mov</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">mov</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">mov</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">mov</span> 内存单元,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # <span class="keyword">mov</span> 段寄存器,寄存器</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="built_in">ds</span>     # <span class="keyword">mov</span> 寄存器,段寄存器</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;add 和 sub 指令同 mov 一样，都有两个操作对象</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,<span class="number">8</span>     # <span class="keyword">add</span> 寄存器,数据</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,<span class="built_in">bx</span>     # <span class="keyword">add</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">add</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">add</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">add</span> 内存单元,寄存器</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,<span class="number">9</span>     # <span class="keyword">sub</span> 寄存器,数据</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,<span class="built_in">bx</span>     # <span class="keyword">sub</span> 寄存器,寄存器</span><br><span class="line"><span class="keyword">sub</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # <span class="keyword">sub</span> 寄存器,内存单元</span><br><span class="line"><span class="keyword">sub</span> [<span class="number">0</span>],<span class="built_in">ax</span>     # <span class="keyword">sub</span> 内存单元,寄存器</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-5-数据段"><a href="#3-5-数据段" class="headerlink" title="3.5 数据段"></a>3.5 数据段</h2><p>&emsp;&emsp;将一段内存当作数据段，是我们在编程时的一种安排，我们可以在具体操作的时候，用 ds 存放数据段的段地址，再根据需要，用相关指令访问数据段中的具体单元。<br>&emsp;&emsp;我们将 123B0H~123BAH 的内存单元定义为数据段，我们现在要累加这个数据段中的前 3 个单元中的数据，代码如下</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">123BH</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # 将 <span class="number">123BH</span> 送入 <span class="built_in">ds</span> 中，作为数据段的段地址。</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">al</span>,<span class="number">0</span>     # 用 <span class="built_in">al</span> 存放累加结果</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">0</span>]     # 将数据段第一个单元（偏移地址为 <span class="number">0</span>）中的数值加到 <span class="built_in">al</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">1</span>]     # 将数据段第二个单元（偏移地址为 <span class="number">1</span>）中的数值加到 <span class="built_in">al</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">al</span>,[<span class="number">2</span>]     # 将数据段第三个单元（偏移地址为 <span class="number">2</span>）中的数值加到 <span class="built_in">al</span> 中</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;累加数据段中的前 3 个字型数据</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">123BH</span></span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ds</span>,<span class="built_in">ax</span>     # 将 <span class="number">123BH</span> 送入 <span class="built_in">ds</span> 中，作为数据段的段地址。</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">0</span>     # 用 <span class="built_in">ax</span> 存放累加结果</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">0</span>]     # 将数据段第一个字（偏移地址为<span class="number">0</span>）加到 <span class="built_in">ax</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">2</span>]     # 将数据段第二个字（偏移地址为<span class="number">2</span>）加到 <span class="built_in">ax</span> 中</span><br><span class="line"><span class="keyword">add</span> <span class="built_in">ax</span>,[<span class="number">4</span>]     # 将数据段第三个字（偏移地址为<span class="number">4</span>）加到 <span class="built_in">ax</span> 中</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><p>一个字型数据占两个单元，所以偏移地址是 0、2、4。</p>
-</div>
-
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
-<li>字在内存中存储时，要用两个地址连续的内存单元来存放，字的低位字节存放在低地址单元中，高位字节存放在高地址单元中。</li>
-<li>用 mov 指令要访问内存单元，可以在 mov 指令中只给出单元的偏移地址，此时，段地址默认在 DS 寄存器中。</li>
-<li>[address] 表示一个偏移地址为 address 的内存单元。</li>
-<li>在内存和寄存器之间传送字型数据时，高地址单元和高 8 位寄存器、低地址单元和低 8 位寄存器相对应。</li>
-<li>mov、add、sub 是具有两个操作对象的指令。jum 是具有一个操作对象的指令。</li>
-<li>可以根据自己的推测，在 Debug 中实验指令的新格式。</li>
-</ol>
-<div class="note success"><p>本节结束，点击进入下一节课程：<a href="https://blog.hackme.cc/Assembly-Language/5.html">《Assembly Language 3.6 ~ 3.10 / 汇编语言 3.6 ~ 3.10》</a></p>
-</div>]]></content>
-      <categories>
-        <category>Assembly Language</category>
-      </categories>
-      <tags>
-        <tag>寄存器</tag>
-        <tag>mov</tag>
-        <tag>add</tag>
       </tags>
   </entry>
   <entry>
@@ -3029,96 +3029,6 @@
       </tags>
   </entry>
   <entry>
-    <title>BT &amp; Trojan（在宝塔上制作酸酸乳）</title>
-    <url>/IT/4.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;是不是觉得花了好多美元买的境外服务器，只放一个 Trojan 太过浪费？想要将境外服务器利用起来？<br>&emsp;&emsp;那你就来对了，本文就介绍了如何在安装了宝塔的服务器上，再搭建一个 Trojan。<br>&emsp;&emsp;让你在能酣畅淋漓满世界转悠的时候，还能建个站玩玩，充分利用服务器资源。</p>
-<span id="more"></span>
-
-<p>&emsp;&emsp;博主有幸成功申请到了 Oracle 的两台永久免费的服务器，但苦于服务器位于日本，建站以后国内访问速度感人。想要建几个站学习，但又买不起境内的服务器，所以只能“出此下策”：将宝塔与 Trojan 相结合，达到既能利用服务器建站，又能充分利用服务器资源。</p>
-<div class="note primary"><p>本文需要 Trojan 使用经验，若未曾搭建过 Trojan，请先学习：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a>。</p>
-</div>
-
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="一台服务器"><a href="#一台服务器" class="headerlink" title="一台服务器"></a>一台服务器</h2><p>&emsp;&emsp;建议选择与博主一样的系统版本进行搭建：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Centos 7</strong> x86_64 bbr</p>
-<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
-</div>
-
-<h2 id="一个域名"><a href="#一个域名" class="headerlink" title="一个域名"></a>一个域名</h2><p>&emsp;&emsp;任意纯英文域名皆可。域名类型与系统搭建无关，建议使用纯英文域名。博主多年使用感受，推荐在 <span class="exturl" data-url="aHR0cHM6Ly93YW53YW5nLmFsaXl1bi5jb20vZG9tYWluLz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云域名注册<i class="fa fa-external-link-alt"></i></span> 注册域名，并使用免费的 <span class="exturl" data-url="aHR0cHM6Ly93YW53YW5nLmFsaXl1bi5jb20vZG9tYWluL2Rucz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云解析<i class="fa fa-external-link-alt"></i></span> 对域名进行解析。另外有其它建站需求的朋友，可点击 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9taW5pc2l0ZS9nb29kcz91c2VyQ29kZT1lenB3OXNpaA==">阿里云·云小站<i class="fa fa-external-link-alt"></i></span> 领取优惠券。</p>
-<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>&emsp;&emsp;将你的域名解析至你的服务器，即添加<strong>主域名</strong> A 记录指向服务器 IP（只需添加 @ 的主域名解析就行，无须添加 www 等的二级域名解析）</p>
-<h1 id="服务器端操作"><a href="#服务器端操作" class="headerlink" title="服务器端操作"></a>服务器端操作</h1><h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><p>&emsp;&emsp;建议安装最新版宝塔，故请移步 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYnQuY24vP2ludml0ZV9jb2RlPU1WOWhiWFJxYjIwPQ==">宝塔官网<i class="fa fa-external-link-alt"></i></span>，获取安装链接及使用教程。</p>
-<h2 id="安装-Trojan"><a href="#安装-Trojan" class="headerlink" title="安装 Trojan"></a>安装 Trojan</h2><h3 id="搭建网站"><a href="#搭建网站" class="headerlink" title="搭建网站"></a>搭建网站</h3><p>&emsp;&emsp;登录宝塔，用刚刚解析至服务器的域名搭建一个网站。</p>
-<h3 id="申请-SSL-证书"><a href="#申请-SSL-证书" class="headerlink" title="申请 SSL 证书"></a>申请 SSL 证书</h3><p>&emsp;&emsp;通过 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0L2Nhcz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云云盾证书<i class="fa fa-external-link-alt"></i></span>，申请 SSL 证书，并绑定至宝塔的站点。</p>
-<div class="note warning"><p>绑定了 SSL 证书后，要在宝塔面板关闭 SSL！否则可能导致 Trojan 无法正常使用！</p>
-</div>
-
-<h3 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h3><p>&emsp;&emsp;在服务器运行如下脚本</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -fsSL https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/trojan-gfw/</span>trojan-quickstart<span class="regexp">/master/</span>trojan-quickstart.sh)</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置服务器端-Trojan"><a href="#配置服务器端-Trojan" class="headerlink" title="配置服务器端 Trojan"></a>配置服务器端 Trojan</h2><p>&emsp;&emsp;安装完 Trojan 后，进行配置</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vi <span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>trojan/config.json</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;修改密码及域名信息如下</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;run_type&quot;</span>: <span class="string">&quot;server&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_addr&quot;</span>: <span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">    <span class="attr">&quot;remote_addr&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;remote_port&quot;</span>: <span class="number">80</span>,</span><br><span class="line">    <span class="attr">&quot;password&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span>,</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;log_level&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;ssl&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;cert&quot;</span>: <span class="string">&quot;/www/server/panel/vhost/ssl/**你的域名**/fullchain.pem&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;key&quot;</span>: <span class="string">&quot;/www/server/panel/vhost/ssl/**你的域名**/privkey.pem&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;key_password&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher&quot;</span>: <span class="string">&quot;ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher_tls13&quot;</span>: <span class="string">&quot;TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;prefer_server_cipher&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;alpn&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;http/1.1&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;alpn_port_override&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;h2&quot;</span>: <span class="number">81</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Trojan-服务"><a href="#Trojan-服务" class="headerlink" title="Trojan 服务"></a>Trojan 服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart trojan     <span class="comment"># 重启 Trojan 服务</span></span><br><span class="line">systemctl status trojan     <span class="comment"># 查看 Trojan 服务状态</span></span><br><span class="line">systemctl <span class="built_in">enable</span> trojan     <span class="comment"># 设置开机自启</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h1><h2 id="修改本地-Trojan-配置"><a href="#修改本地-Trojan-配置" class="headerlink" title="修改本地 Trojan 配置"></a>修改本地 Trojan 配置</h2><p>&emsp;&emsp;搭建过 Trojan 的朋友应该不难发现（还没搭建过 Trojan 或者没有本地工具的请先学习：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a>），本地 Trojan 工具包里的 “config.json” 就是 Trojan 的配置文件，我们修改了服务器上的 Trojan 配置，当然还要同步修改本地的 Trojan 配置。打开“config.json”，按如下修改</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;run_type&quot;</span>: <span class="string">&quot;client&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_addr&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_port&quot;</span>: <span class="number">1080</span>,</span><br><span class="line">    <span class="attr">&quot;remote_addr&quot;</span>: <span class="string">&quot;**你的域名**&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;remote_port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">    <span class="attr">&quot;password&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;log_level&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;ssl&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;verify&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;verify_hostname&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;cert&quot;</span>: <span class="string">&quot;fullchain.cer&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher_tls13&quot;</span>:<span class="string">&quot;TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384&quot;</span>,</span><br><span class="line"><span class="attr">&quot;sni&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;alpn&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;h2&quot;</span>,</span><br><span class="line">            <span class="string">&quot;http/1.1&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;reuse_session&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;session_ticket&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;curves&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;tcp&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;no_delay&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;keep_alive&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;fast_open&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;fast_open_qlen&quot;</span>: <span class="number">20</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="修改-fullchain-cer"><a href="#修改-fullchain-cer" class="headerlink" title="修改 fullchain.cer"></a>修改 fullchain.cer</h2><p>&emsp;&emsp;还记得我们一开始在 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0L2Nhcz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云云盾证书<i class="fa fa-external-link-alt"></i></span> 申请的 SSL 证书吗？将“.pem”文件更名为“fullchain.cer”，并替换 Trojan 工具中的“fullchain.cer”。就大功告成啦！</p>
-<div class="note success"><p>Success! Start enjoying BT &amp; Trojan！</p>
-</div>
-
-<div class="note warning"><p>经过博主多次实践，nginx 的 SSL 会和 Trojan 相冲突，所以如果要使用 Trojan，还想正常搭建网站，就不能开启 SSL 功能。所有的网站都不能加 SSL！</p>
-</div>]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>宝塔</tag>
-        <tag>Trojan</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Build SSR（制作酸酸乳）</title>
-    <url>/IT/1.html</url>
-    <content><![CDATA[<p>Hello everyone! We are Chinese! We may not be the pride of China. But we are proud that we are Chinese! 作为一个中国人，一个爱好信息安全的中国人，我们理应携起手来，一致对外。首先一点，我们需要一条可以“放眼看世界”的通道。所以本博文就以最简单的方式来教大家最便捷的“制作酸酸乳”的方法（“酸酸乳”一词对应“ShadowSocksR”的简称“SSR”的拼音）</p>
-<span id="more"></span>
-
-<div class="note danger"><p>用 SSR 现已频繁被封，建议采用更为高级加密防封的 Trojan，制作教程：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a></p>
-</div>
-
-<blockquote>
-<p>&emsp;&emsp;Shadowsocks（简称SS）是一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种开发包。当前包使用Python、C、C++、C#、Go语言、Rust等编程语言开发，大部分主要实现（iOS平台的除外）采用Apache许可证、GPL、MIT许可证等多种自由软件许可协议开放源代码。Shadowsocks分为服务器端和客户端，在使用之前，需要先将服务器端程序部署到服务器上面，然后通过客户端连接并创建本地代理。<br>&emsp;&emsp;为了避免关键词过滤，网民会根据谐音将ShadowsocksR称为“酸酸乳”（SSR），将Shadowsocks称为“酸酸”（SS）。另外Shadowsocks的标志为纸飞机，而专门提供Shadowsocks或类似软件（如V2ray）服务器的网站也被称为“机场”。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——<em>摘自 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvU2hhZG93c29ja3M=">《维基百科》Shadowsocks 词条<i class="fa fa-external-link-alt"></i></span></em></p>
-</blockquote>
-<p>&emsp;&emsp;本文主要记录搭建SSR时的代码，在此之前的准备工作，例如购买境外VPS等，百度有许多教程，本文不再赘述。博主在尝试了几家较为有名的美国服务器商后，最后决定使用 <span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> ，如有需要可点击 <span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">此链接<i class="fa fa-external-link-alt"></i></span> 进行注册并购买VPS。</p>
-<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
-</div>
-
-<h1 id="确认服务器系统版本"><a href="#确认服务器系统版本" class="headerlink" title="确认服务器系统版本"></a>确认服务器系统版本</h1><div class="note primary"><p>本文适用系统版本为：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Centos 7</strong> x86_64 bbr</p>
-</div>
-
-<p>&emsp;&emsp;建议选择与博主一样的系统版本进行搭建，因为此教程可能不兼容其他系统版本，选用其他版本可能会造成搭建失败。（“bbr”是用于给网络加速的）</p>
-<h1 id="安装-Wget"><a href="#安装-Wget" class="headerlink" title="安装 Wget"></a>安装 Wget</h1><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> wget</span><br></pre></td></tr></table></figure>
-
-<h1 id="下载-SSR-Shell-安装脚本并执行"><a href="#下载-SSR-Shell-安装脚本并执行" class="headerlink" title="下载 SSR Shell 安装脚本并执行"></a>下载 SSR Shell 安装脚本并执行</h1><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/ToyoDAdoubi/</span>doubi<span class="regexp">/master/</span>ssr.sh &amp;&amp; chmod <span class="number">755</span> .<span class="regexp">/ssr.sh &amp;&amp; ./</span>ssr.sh</span><br></pre></td></tr></table></figure>
-
-<div class="note info"><p>根据提示进行安装并配置，设置端口、密码、加密协议等等，此处不做详解。</p>
-</div>
-
-<h1 id="SSR-配置及日常维护"><a href="#SSR-配置及日常维护" class="headerlink" title="SSR 配置及日常维护"></a>SSR 配置及日常维护</h1><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">./ssr.sh</span></span><br></pre></td></tr></table></figure>
-
-<div class="note success"><p>Success! Start enjoying SSR!</p>
-</div>]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>SSR</tag>
-        <tag>ShadowSocksR</tag>
-        <tag>酸酸乳</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Assembly Language 7.1 ~ 7.10 / 汇编语言 7.1 ~ 7.10</title>
     <url>/Assembly-Language/9.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文是基于王爽老师所著《汇编语言（第3版）》的小甲鱼的《零基础入门学习汇编语言》课程笔记。<br>&emsp;&emsp;笔记涵盖内容为《汇编语言（第3版）》7.1 ~ 7.10、《零基础入门学习汇编语言》P32 ~ 35</p>
@@ -3270,6 +3180,56 @@
       </tags>
   </entry>
   <entry>
+    <title>BT &amp; Trojan（在宝塔上制作酸酸乳）</title>
+    <url>/IT/4.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;是不是觉得花了好多美元买的境外服务器，只放一个 Trojan 太过浪费？想要将境外服务器利用起来？<br>&emsp;&emsp;那你就来对了，本文就介绍了如何在安装了宝塔的服务器上，再搭建一个 Trojan。<br>&emsp;&emsp;让你在能酣畅淋漓满世界转悠的时候，还能建个站玩玩，充分利用服务器资源。</p>
+<span id="more"></span>
+
+<p>&emsp;&emsp;博主有幸成功申请到了 Oracle 的两台永久免费的服务器，但苦于服务器位于日本，建站以后国内访问速度感人。想要建几个站学习，但又买不起境内的服务器，所以只能“出此下策”：将宝塔与 Trojan 相结合，达到既能利用服务器建站，又能充分利用服务器资源。</p>
+<div class="note primary"><p>本文需要 Trojan 使用经验，若未曾搭建过 Trojan，请先学习：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a>。</p>
+</div>
+
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="一台服务器"><a href="#一台服务器" class="headerlink" title="一台服务器"></a>一台服务器</h2><p>&emsp;&emsp;建议选择与博主一样的系统版本进行搭建：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Centos 7</strong> x86_64 bbr</p>
+<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
+</div>
+
+<h2 id="一个域名"><a href="#一个域名" class="headerlink" title="一个域名"></a>一个域名</h2><p>&emsp;&emsp;任意纯英文域名皆可。域名类型与系统搭建无关，建议使用纯英文域名。博主多年使用感受，推荐在 <span class="exturl" data-url="aHR0cHM6Ly93YW53YW5nLmFsaXl1bi5jb20vZG9tYWluLz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云域名注册<i class="fa fa-external-link-alt"></i></span> 注册域名，并使用免费的 <span class="exturl" data-url="aHR0cHM6Ly93YW53YW5nLmFsaXl1bi5jb20vZG9tYWluL2Rucz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云解析<i class="fa fa-external-link-alt"></i></span> 对域名进行解析。另外有其它建站需求的朋友，可点击 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9taW5pc2l0ZS9nb29kcz91c2VyQ29kZT1lenB3OXNpaA==">阿里云·云小站<i class="fa fa-external-link-alt"></i></span> 领取优惠券。</p>
+<h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>&emsp;&emsp;将你的域名解析至你的服务器，即添加<strong>主域名</strong> A 记录指向服务器 IP（只需添加 @ 的主域名解析就行，无须添加 www 等的二级域名解析）</p>
+<h1 id="服务器端操作"><a href="#服务器端操作" class="headerlink" title="服务器端操作"></a>服务器端操作</h1><h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><p>&emsp;&emsp;建议安装最新版宝塔，故请移步 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYnQuY24vP2ludml0ZV9jb2RlPU1WOWhiWFJxYjIwPQ==">宝塔官网<i class="fa fa-external-link-alt"></i></span>，获取安装链接及使用教程。</p>
+<h2 id="安装-Trojan"><a href="#安装-Trojan" class="headerlink" title="安装 Trojan"></a>安装 Trojan</h2><h3 id="搭建网站"><a href="#搭建网站" class="headerlink" title="搭建网站"></a>搭建网站</h3><p>&emsp;&emsp;登录宝塔，用刚刚解析至服务器的域名搭建一个网站。</p>
+<h3 id="申请-SSL-证书"><a href="#申请-SSL-证书" class="headerlink" title="申请 SSL 证书"></a>申请 SSL 证书</h3><p>&emsp;&emsp;通过 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0L2Nhcz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云云盾证书<i class="fa fa-external-link-alt"></i></span>，申请 SSL 证书，并绑定至宝塔的站点。</p>
+<div class="note warning"><p>绑定了 SSL 证书后，要在宝塔面板关闭 SSL！否则可能导致 Trojan 无法正常使用！</p>
+</div>
+
+<h3 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h3><p>&emsp;&emsp;在服务器运行如下脚本</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -fsSL https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/trojan-gfw/</span>trojan-quickstart<span class="regexp">/master/</span>trojan-quickstart.sh)</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置服务器端-Trojan"><a href="#配置服务器端-Trojan" class="headerlink" title="配置服务器端 Trojan"></a>配置服务器端 Trojan</h2><p>&emsp;&emsp;安装完 Trojan 后，进行配置</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vi <span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>trojan/config.json</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;修改密码及域名信息如下</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;run_type&quot;</span>: <span class="string">&quot;server&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_addr&quot;</span>: <span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">    <span class="attr">&quot;remote_addr&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;remote_port&quot;</span>: <span class="number">80</span>,</span><br><span class="line">    <span class="attr">&quot;password&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span>,</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;log_level&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;ssl&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;cert&quot;</span>: <span class="string">&quot;/www/server/panel/vhost/ssl/**你的域名**/fullchain.pem&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;key&quot;</span>: <span class="string">&quot;/www/server/panel/vhost/ssl/**你的域名**/privkey.pem&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;key_password&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher&quot;</span>: <span class="string">&quot;ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher_tls13&quot;</span>: <span class="string">&quot;TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;prefer_server_cipher&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;alpn&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;http/1.1&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;alpn_port_override&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;h2&quot;</span>: <span class="number">81</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Trojan-服务"><a href="#Trojan-服务" class="headerlink" title="Trojan 服务"></a>Trojan 服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart trojan     <span class="comment"># 重启 Trojan 服务</span></span><br><span class="line">systemctl status trojan     <span class="comment"># 查看 Trojan 服务状态</span></span><br><span class="line">systemctl <span class="built_in">enable</span> trojan     <span class="comment"># 设置开机自启</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h1><h2 id="修改本地-Trojan-配置"><a href="#修改本地-Trojan-配置" class="headerlink" title="修改本地 Trojan 配置"></a>修改本地 Trojan 配置</h2><p>&emsp;&emsp;搭建过 Trojan 的朋友应该不难发现（还没搭建过 Trojan 或者没有本地工具的请先学习：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a>），本地 Trojan 工具包里的 “config.json” 就是 Trojan 的配置文件，我们修改了服务器上的 Trojan 配置，当然还要同步修改本地的 Trojan 配置。打开“config.json”，按如下修改</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;run_type&quot;</span>: <span class="string">&quot;client&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_addr&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;local_port&quot;</span>: <span class="number">1080</span>,</span><br><span class="line">    <span class="attr">&quot;remote_addr&quot;</span>: <span class="string">&quot;**你的域名**&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;remote_port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">    <span class="attr">&quot;password&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;**自定义密码**&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;log_level&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;ssl&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;verify&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;verify_hostname&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;cert&quot;</span>: <span class="string">&quot;fullchain.cer&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;cipher_tls13&quot;</span>:<span class="string">&quot;TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384&quot;</span>,</span><br><span class="line"><span class="attr">&quot;sni&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;alpn&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;h2&quot;</span>,</span><br><span class="line">            <span class="string">&quot;http/1.1&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;reuse_session&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;session_ticket&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;curves&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;tcp&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;no_delay&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;keep_alive&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;fast_open&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;fast_open_qlen&quot;</span>: <span class="number">20</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改-fullchain-cer"><a href="#修改-fullchain-cer" class="headerlink" title="修改 fullchain.cer"></a>修改 fullchain.cer</h2><p>&emsp;&emsp;还记得我们一开始在 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0L2Nhcz9zb3VyY2U9NTE3Ni4xMTUzMzQ1NyZ1c2VyQ29kZT1lenB3OXNpaCZ0eXBlPWNvcHk=">阿里云云盾证书<i class="fa fa-external-link-alt"></i></span> 申请的 SSL 证书吗？将“.pem”文件更名为“fullchain.cer”，并替换 Trojan 工具中的“fullchain.cer”。就大功告成啦！</p>
+<div class="note success"><p>Success! Start enjoying BT &amp; Trojan！</p>
+</div>
+
+<div class="note warning"><p>经过博主多次实践，nginx 的 SSL 会和 Trojan 相冲突，所以如果要使用 Trojan，还想正常搭建网站，就不能开启 SSL 功能。所有的网站都不能加 SSL！</p>
+</div>]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>宝塔</tag>
+        <tag>Trojan</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Build Taobao Coupon Website / 搭建淘宝领券网</title>
     <url>/IT/2.html</url>
     <content><![CDATA[<p>&emsp;&emsp;蜗居在贫民窟里的孩子，生活日用品就是最大的开销了。有时一些价格较为昂贵的“家用电器”突然损坏，就会让这个本就不富裕的家庭，雪上加霜……所以博主一般会在各个平台搜索“淘宝优惠券”，以此来减轻一个男人背上的重担。于是就衍生出了为何不自己搭建一个“淘宝领券网”的念头，一来可以更便捷的搜索淘宝优惠券，二来又能在已经享有优惠的基础上，再获得一些商家的返利，给这个本就不富裕的家庭，带来一缕阳光……</p>
@@ -3316,6 +3276,82 @@
         <tag>Taobao</tag>
         <tag>淘宝</tag>
         <tag>领券网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Build SSR（制作酸酸乳）</title>
+    <url>/IT/1.html</url>
+    <content><![CDATA[<p>Hello everyone! We are Chinese! We may not be the pride of China. But we are proud that we are Chinese! 作为一个中国人，一个爱好信息安全的中国人，我们理应携起手来，一致对外。首先一点，我们需要一条可以“放眼看世界”的通道。所以本博文就以最简单的方式来教大家最便捷的“制作酸酸乳”的方法（“酸酸乳”一词对应“ShadowSocksR”的简称“SSR”的拼音）</p>
+<span id="more"></span>
+
+<div class="note danger"><p>用 SSR 现已频繁被封，建议采用更为高级加密防封的 Trojan，制作教程：<a href="https://blog.hackme.cc/IT/3.html">《Build Trojan（制作“保质期长的”酸酸乳）》</a></p>
+</div>
+
+<blockquote>
+<p>&emsp;&emsp;Shadowsocks（简称SS）是一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种开发包。当前包使用Python、C、C++、C#、Go语言、Rust等编程语言开发，大部分主要实现（iOS平台的除外）采用Apache许可证、GPL、MIT许可证等多种自由软件许可协议开放源代码。Shadowsocks分为服务器端和客户端，在使用之前，需要先将服务器端程序部署到服务器上面，然后通过客户端连接并创建本地代理。<br>&emsp;&emsp;为了避免关键词过滤，网民会根据谐音将ShadowsocksR称为“酸酸乳”（SSR），将Shadowsocks称为“酸酸”（SS）。另外Shadowsocks的标志为纸飞机，而专门提供Shadowsocks或类似软件（如V2ray）服务器的网站也被称为“机场”。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——<em>摘自 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvU2hhZG93c29ja3M=">《维基百科》Shadowsocks 词条<i class="fa fa-external-link-alt"></i></span></em></p>
+</blockquote>
+<p>&emsp;&emsp;本文主要记录搭建SSR时的代码，在此之前的准备工作，例如购买境外VPS等，百度有许多教程，本文不再赘述。博主在尝试了几家较为有名的美国服务器商后，最后决定使用 <span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> ，如有需要可点击 <span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">此链接<i class="fa fa-external-link-alt"></i></span> 进行注册并购买VPS。</p>
+<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先翻墙才可访问！</p>
+</div>
+
+<h1 id="确认服务器系统版本"><a href="#确认服务器系统版本" class="headerlink" title="确认服务器系统版本"></a>确认服务器系统版本</h1><div class="note primary"><p>本文适用系统版本为：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Centos 7</strong> x86_64 bbr</p>
+</div>
+
+<p>&emsp;&emsp;建议选择与博主一样的系统版本进行搭建，因为此教程可能不兼容其他系统版本，选用其他版本可能会造成搭建失败。（“bbr”是用于给网络加速的）</p>
+<h1 id="安装-Wget"><a href="#安装-Wget" class="headerlink" title="安装 Wget"></a>安装 Wget</h1><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> wget</span><br></pre></td></tr></table></figure>
+
+<h1 id="下载-SSR-Shell-安装脚本并执行"><a href="#下载-SSR-Shell-安装脚本并执行" class="headerlink" title="下载 SSR Shell 安装脚本并执行"></a>下载 SSR Shell 安装脚本并执行</h1><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/ToyoDAdoubi/</span>doubi<span class="regexp">/master/</span>ssr.sh &amp;&amp; chmod <span class="number">755</span> .<span class="regexp">/ssr.sh &amp;&amp; ./</span>ssr.sh</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>根据提示进行安装并配置，设置端口、密码、加密协议等等，此处不做详解。</p>
+</div>
+
+<h1 id="SSR-配置及日常维护"><a href="#SSR-配置及日常维护" class="headerlink" title="SSR 配置及日常维护"></a>SSR 配置及日常维护</h1><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">./ssr.sh</span></span><br></pre></td></tr></table></figure>
+
+<div class="note success"><p>Success! Start enjoying SSR!</p>
+</div>]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>SSR</tag>
+        <tag>ShadowSocksR</tag>
+        <tag>酸酸乳</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Build Vulstudy / 搭建 vulstudy</title>
+    <url>/IT/7.html</url>
+    <content><![CDATA[<p>vulstudy 利用 Docker 集成了多个当下流行的漏洞练习平台，作者是：<span class="exturl" data-url="aHR0cDovL2d2Ny5tZS8=">c0ny1<i class="fa fa-external-link-alt"></i></span>。因为作者的 Readme 只写了重要部分，网上又没有详细的教程，博主在搭建的时候踩了很多坑，反复搭建了十几次，所以写下此篇教程，希望你们能一次搭建成功😂</p>
+<div class="note primary"><p>GitHub 项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzkyMTEzMTQvdnVsc3R1ZHk=">9211314/vulstudy<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="确认服务器系统版本"><a href="#确认服务器系统版本" class="headerlink" title="确认服务器系统版本"></a>确认服务器系统版本</h1><p>&emsp;&emsp;建议选择与博主一样的系统版本进行搭建：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Centos 7</strong> x86_64 bbr</p>
+<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先 <a href="https://blog.hackme.cc/IT/3.html">翻墙</a> 才可访问！</p>
+</div>
+
+<h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><p>&emsp;&emsp;以下命令如果有不一样，包括但不限于版本不同（例如 pip 改为 pip3，或者 pip 不更新），都有可能造成搭建失败（博主试了十几次的血的教训😭），所以还是跟着博主老老实实的一行一行敲命令。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> docker -y     <span class="comment"># 安装 Docker</span></span><br><span class="line">sudo yum <span class="keyword">install</span> python-pip -y     <span class="comment"># 安装 pip</span></span><br><span class="line">pip <span class="keyword">install</span> <span class="comment">--upgrade pip     # 升级 pip</span></span><br><span class="line">pip <span class="keyword">install</span> docker-compose <span class="comment">--ignore-installed requests     # 安装 docker-compose</span></span><br><span class="line">sudo yum <span class="keyword">install</span> git -y     <span class="comment"># 安装 git</span></span><br><span class="line">git <span class="keyword">clone</span> https://github.com/<span class="number">9211314</span>/vulstudy.git     <span class="comment"># 下载 vulstudy</span></span><br><span class="line">service docker <span class="keyword">start</span>     <span class="comment"># 启动 Docker</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h1><h2 id="单独运行一个漏洞平台"><a href="#单独运行一个漏洞平台" class="headerlink" title="单独运行一个漏洞平台"></a>单独运行一个漏洞平台</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> vulstudy/DVWA     <span class="comment"># 如要运行 DVWA，就进入项目的 DVWA 目录</span></span><br><span class="line">docker-compose up -d     <span class="comment"># 启动容器</span></span><br><span class="line">docker-compose stop     <span class="comment"># 停止容器</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="同时运行所有漏洞平台"><a href="#同时运行所有漏洞平台" class="headerlink" title="同时运行所有漏洞平台"></a>同时运行所有漏洞平台</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> vulstudy     <span class="comment"># 进入项目根目录</span></span><br><span class="line">docker-compose up -d     <span class="comment"># 启动容器（如有平台未启动，请再次运行此命令）</span></span><br><span class="line">docker-compose stop     <span class="comment"># 停止容器</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><h2 id="第一次启动-bWAPP-容器访问其主页会报错如下"><a href="#第一次启动-bWAPP-容器访问其主页会报错如下" class="headerlink" title="第一次启动 bWAPP 容器访问其主页会报错如下"></a>第一次启动 bWAPP 容器访问其主页会报错如下</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Connection</span> failed: <span class="type">Unknown</span> <span class="keyword">database</span> <span class="string">&#x27;bWAPP&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;因为第一次运行需要先访问 install.php 创建数据库。</p>
+<h2 id="第一次启动-Hackademic-容器会提示安装"><a href="#第一次启动-Hackademic-容器会提示安装" class="headerlink" title="第一次启动 Hackademic 容器会提示安装"></a>第一次启动 Hackademic 容器会提示安装</h2><p>&emsp;&emsp;根据提示输入相关信息，数据库用户名<strong>必须</strong>为 root，密码<strong>留空</strong>，其余信息自定义。</p>
+<h2 id="第一次搭建-DVWA，IOS-系统的-safari-浏览器无法初始化数据库，并提示如下"><a href="#第一次搭建-DVWA，IOS-系统的-safari-浏览器无法初始化数据库，并提示如下" class="headerlink" title="第一次搭建 DVWA，IOS 系统的 safari 浏览器无法初始化数据库，并提示如下"></a>第一次搭建 DVWA，IOS 系统的 safari 浏览器无法初始化数据库，并提示如下</h2><figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">CSRF token <span class="keyword">is</span> incorrect</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;使用其他浏览器即可，如 Chrome</p>
+<h1 id="删除重建"><a href="#删除重建" class="headerlink" title="删除重建"></a>删除重建</h1><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-a</span> <span class="literal">-q</span>) <span class="operator">-f</span>     <span class="comment"># 强制删除所有容器</span></span><br><span class="line">docker rmi <span class="operator">-f</span> <span class="variable">$</span>(docker images <span class="literal">-qa</span>)     <span class="comment"># 删除所有镜像</span></span><br><span class="line"><span class="built_in">cd</span> vulstudy     <span class="comment"># 进入项目根目录</span></span><br><span class="line">docker<span class="literal">-compose</span> up <span class="literal">-d</span>     <span class="comment"># 重建</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>vulstudy</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -3373,42 +3409,6 @@
         <tag>Trojan</tag>
         <tag>一键脚本</tag>
         <tag>SwitchyOmega</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Build Vulstudy / 搭建 vulstudy</title>
-    <url>/IT/7.html</url>
-    <content><![CDATA[<p>vulstudy 利用 Docker 集成了多个当下流行的漏洞练习平台，作者是：<span class="exturl" data-url="aHR0cDovL2d2Ny5tZS8=">c0ny1<i class="fa fa-external-link-alt"></i></span>。因为作者的 Readme 只写了重要部分，网上又没有详细的教程，博主在搭建的时候踩了很多坑，反复搭建了十几次，所以写下此篇教程，希望你们能一次搭建成功😂</p>
-<div class="note primary"><p>GitHub 项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzkyMTEzMTQvdnVsc3R1ZHk=">9211314/vulstudy<i class="fa fa-external-link-alt"></i></span></p>
-</div>
-
-<span id="more"></span>
-
-<h1 id="确认服务器系统版本"><a href="#确认服务器系统版本" class="headerlink" title="确认服务器系统版本"></a>确认服务器系统版本</h1><p>&emsp;&emsp;建议选择与博主一样的系统版本进行搭建：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> <strong>Centos 7</strong> x86_64 bbr</p>
-<div class="note warning"><p>友情提示：<span class="exturl" data-url="aHR0cHM6Ly9iYW5kd2Fnb25ob3N0LmNvbS9hZmYucGhwP2FmZj01MzAxMQ==">搬瓦工<i class="fa fa-external-link-alt"></i></span> 可能需要先 <a href="https://blog.hackme.cc/IT/3.html">翻墙</a> 才可访问！</p>
-</div>
-
-<h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><p>&emsp;&emsp;以下命令如果有不一样，包括但不限于版本不同（例如 pip 改为 pip3，或者 pip 不更新），都有可能造成搭建失败（博主试了十几次的血的教训😭），所以还是跟着博主老老实实的一行一行敲命令。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> docker -y     <span class="comment"># 安装 Docker</span></span><br><span class="line">sudo yum <span class="keyword">install</span> python-pip -y     <span class="comment"># 安装 pip</span></span><br><span class="line">pip <span class="keyword">install</span> <span class="comment">--upgrade pip     # 升级 pip</span></span><br><span class="line">pip <span class="keyword">install</span> docker-compose <span class="comment">--ignore-installed requests     # 安装 docker-compose</span></span><br><span class="line">sudo yum <span class="keyword">install</span> git -y     <span class="comment"># 安装 git</span></span><br><span class="line">git <span class="keyword">clone</span> https://github.com/<span class="number">9211314</span>/vulstudy.git     <span class="comment"># 下载 vulstudy</span></span><br><span class="line">service docker <span class="keyword">start</span>     <span class="comment"># 启动 Docker</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h1><h2 id="单独运行一个漏洞平台"><a href="#单独运行一个漏洞平台" class="headerlink" title="单独运行一个漏洞平台"></a>单独运行一个漏洞平台</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> vulstudy/DVWA     <span class="comment"># 如要运行 DVWA，就进入项目的 DVWA 目录</span></span><br><span class="line">docker-compose up -d     <span class="comment"># 启动容器</span></span><br><span class="line">docker-compose stop     <span class="comment"># 停止容器</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="同时运行所有漏洞平台"><a href="#同时运行所有漏洞平台" class="headerlink" title="同时运行所有漏洞平台"></a>同时运行所有漏洞平台</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> vulstudy     <span class="comment"># 进入项目根目录</span></span><br><span class="line">docker-compose up -d     <span class="comment"># 启动容器（如有平台未启动，请再次运行此命令）</span></span><br><span class="line">docker-compose stop     <span class="comment"># 停止容器</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><h2 id="第一次启动-bWAPP-容器访问其主页会报错如下"><a href="#第一次启动-bWAPP-容器访问其主页会报错如下" class="headerlink" title="第一次启动 bWAPP 容器访问其主页会报错如下"></a>第一次启动 bWAPP 容器访问其主页会报错如下</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Connection</span> failed: <span class="type">Unknown</span> <span class="keyword">database</span> <span class="string">&#x27;bWAPP&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;因为第一次运行需要先访问 install.php 创建数据库。</p>
-<h2 id="第一次启动-Hackademic-容器会提示安装"><a href="#第一次启动-Hackademic-容器会提示安装" class="headerlink" title="第一次启动 Hackademic 容器会提示安装"></a>第一次启动 Hackademic 容器会提示安装</h2><p>&emsp;&emsp;根据提示输入相关信息，数据库用户名<strong>必须</strong>为 root，密码<strong>留空</strong>，其余信息自定义。</p>
-<h2 id="第一次搭建-DVWA，IOS-系统的-safari-浏览器无法初始化数据库，并提示如下"><a href="#第一次搭建-DVWA，IOS-系统的-safari-浏览器无法初始化数据库，并提示如下" class="headerlink" title="第一次搭建 DVWA，IOS 系统的 safari 浏览器无法初始化数据库，并提示如下"></a>第一次搭建 DVWA，IOS 系统的 safari 浏览器无法初始化数据库，并提示如下</h2><figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">CSRF token <span class="keyword">is</span> incorrect</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;使用其他浏览器即可，如 Chrome</p>
-<h1 id="删除重建"><a href="#删除重建" class="headerlink" title="删除重建"></a>删除重建</h1><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-a</span> <span class="literal">-q</span>) <span class="operator">-f</span>     <span class="comment"># 强制删除所有容器</span></span><br><span class="line">docker rmi <span class="operator">-f</span> <span class="variable">$</span>(docker images <span class="literal">-qa</span>)     <span class="comment"># 删除所有镜像</span></span><br><span class="line"><span class="built_in">cd</span> vulstudy     <span class="comment"># 进入项目根目录</span></span><br><span class="line">docker<span class="literal">-compose</span> up <span class="literal">-d</span>     <span class="comment"># 重建</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>vulstudy</tag>
-        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -4077,6 +4077,42 @@
       </tags>
   </entry>
   <entry>
+    <title>Clerware Deployment Process / 科力锐灾备（一体机）部署/上架流程</title>
+    <url>/Clerware/4.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;本文是科力锐灾备一体机（clerware 智动全景灾备系统）部署/上架流程的操作文档，为博主的<strong>个人笔记</strong>，未必是正确操作，<strong>勿将其作为</strong><del>科力锐官方技术文档</del>，仅供参考！</p>
+<div class="note info"><p>部署/上架时如产生错误，请参照 <a href="https://blog.hackme.cc/Clerware/5.html">《科力锐灾备 常见问题》</a> 进行问题排查</p>
+</div>
+
+<span id="more"></span>
+
+<h1 id="部署流程的目的"><a href="#部署流程的目的" class="headerlink" title="部署流程的目的"></a>部署流程的目的</h1><p>&emsp;&emsp;确保用户在后期灾备系统任务执行、信息告警、灾难演练和应急恢复等行之有效</p>
+<h1 id="部署前准备工作（与用户交流）"><a href="#部署前准备工作（与用户交流）" class="headerlink" title="部署前准备工作（与用户交流）"></a>部署前准备工作（与用户交流）</h1><h2 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h2><h3 id="无接管-热备需求"><a href="#无接管-热备需求" class="headerlink" title="无接管 / 热备需求"></a>无接管 / 热备需求</h3><p>&emsp;&emsp;确定用户提供给灾备一体机的 IP 地址可用，可与所需部署灾备的系统相互通信，且不会产生 IP 地址冲突。</p>
+<h3 id="有接管（测试）需求"><a href="#有接管（测试）需求" class="headerlink" title="有接管（测试）需求"></a>有接管（测试）需求</h3><p>&emsp;&emsp;确定客户的网络是否划分 VLAN，若有划分，需<strong>记录</strong>需接管源机所在网络的 VLAN 号，然后将灾备一体机的网卡解除聚合，将交换机连接灾备一体机的端口设置为 trunk 模式</p>
+<h3 id="有热备需求"><a href="#有热备需求" class="headerlink" title="有热备需求"></a>有热备需求</h3><p>&emsp;&emsp;确定灾备一体机的 IP 可与热备的源机及目标机相互通信，且不会有 IP 冲突</p>
+<div class="note info"><p>热备时，备机直接使用源机 IP，源机所以需要一个新 IP，用户需提前准备一个不用的 IP</p>
+</div>
+
+<h2 id="灾备端口"><a href="#灾备端口" class="headerlink" title="灾备端口"></a>灾备端口</h2><h3 id="非公有云（主动连接）"><a href="#非公有云（主动连接）" class="headerlink" title="非公有云（主动连接）"></a>非公有云（主动连接）</h3><p>&emsp;&emsp;确认源机的 20000 ~ 20003 端口可与灾备一体机进行通信</p>
+<h3 id="公有云（被动连接）"><a href="#公有云（被动连接）" class="headerlink" title="公有云（被动连接）"></a>公有云（被动连接）</h3><p>&emsp;&emsp;确认灾备一体机的 IP 可以访问源机的 3345 端口</p>
+<h2 id="设备摆放位置"><a href="#设备摆放位置" class="headerlink" title="设备摆放位置"></a>设备摆放位置</h2><p>&emsp;&emsp;提前确定设备为几 U，然后与用户确认设备的部署位置：几排几号机柜多少 U</p>
+<h2 id="系统管理员及权限的划分"><a href="#系统管理员及权限的划分" class="headerlink" title="系统管理员及权限的划分"></a>系统管理员及权限的划分</h2><p>&emsp;&emsp;确定用户需要分配的系统管理员账号和对应的权限</p>
+<h2 id="告警设置信息"><a href="#告警设置信息" class="headerlink" title="告警设置信息"></a>告警设置信息</h2><p>&emsp;&emsp;确定灾备的告警设置信息：邮箱 / 企业微信</p>
+<h2 id="确认网线规格"><a href="#确认网线规格" class="headerlink" title="确认网线规格"></a>确认网线规格</h2><p>&emsp;&emsp;确定用户网速，如为千兆网<strong>至少</strong>需提供超五类网线</p>
+<h1 id="部署前检查"><a href="#部署前检查" class="headerlink" title="部署前检查"></a>部署前检查</h1><h2 id="正式设备"><a href="#正式设备" class="headerlink" title="正式设备"></a>正式设备</h2><h3 id="查看成交设备所属项目和用户名称"><a href="#查看成交设备所属项目和用户名称" class="headerlink" title="查看成交设备所属项目和用户名称"></a>查看成交设备所属项目和用户名称</h3><h3 id="查看设备外包装"><a href="#查看设备外包装" class="headerlink" title="查看设备外包装"></a>查看设备外包装</h3><h3 id="开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册"><a href="#开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册" class="headerlink" title="开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册"></a>开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册</h3><div class="note warning"><p>正式设备的开箱需要用户在场</p>
+</div>
+
+<h2 id="测试设备："><a href="#测试设备：" class="headerlink" title="测试设备："></a>测试设备：</h2><h3 id="开机检查，查看磁盘灯是否闪黄灯，查看-BIOS-是否报错，确定设备硬件是否正常"><a href="#开机检查，查看磁盘灯是否闪黄灯，查看-BIOS-是否报错，确定设备硬件是否正常" class="headerlink" title="开机检查，查看磁盘灯是否闪黄灯，查看 BIOS 是否报错，确定设备硬件是否正常"></a>开机检查，查看磁盘灯是否闪黄灯，查看 BIOS 是否报错，确定设备硬件是否正常</h3><h3 id="连接显示器和键盘，确定设备系统是否正常"><a href="#连接显示器和键盘，确定设备系统是否正常" class="headerlink" title="连接显示器和键盘，确定设备系统是否正常"></a>连接显示器和键盘，确定设备系统是否正常</h3><h3 id="确认测试设备的授权信息，是否可用（重要）"><a href="#确认测试设备的授权信息，是否可用（重要）" class="headerlink" title="确认测试设备的授权信息，是否可用（重要）"></a>确认测试设备的授权信息，是否可用（重要）</h3><h3 id="确认设备的系统版本、ISO-启动介质版本、驱动版本，及时更新为最新版"><a href="#确认设备的系统版本、ISO-启动介质版本、驱动版本，及时更新为最新版" class="headerlink" title="确认设备的系统版本、ISO 启动介质版本、驱动版本，及时更新为最新版"></a>确认设备的系统版本、ISO 启动介质版本、驱动版本，及时更新为最新版</h3><h3 id="查看-IP-地址，并修改成用户所提供的-IP-地址"><a href="#查看-IP-地址，并修改成用户所提供的-IP-地址" class="headerlink" title="查看 IP 地址，并修改成用户所提供的 IP 地址"></a>查看 IP 地址，并修改成用户所提供的 IP 地址</h3><div class="note info"><p>完成此文操作后，可进入下一步操作，即 <a href="https://blog.hackme.cc/Clerware/2.html">《科力锐 超级管理员》</a></p>
+</div>]]></content>
+      <categories>
+        <category>Clerware</category>
+      </categories>
+      <tags>
+        <tag>灾备</tag>
+        <tag>智动全景灾备系统</tag>
+        <tag>灾备一体机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Clerware FAQ / 科力锐灾备 常见问题</title>
     <url>/Clerware/5.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文总结了科力锐灾备（clerware 智动全景灾备系统）的常见问题，为博主的<strong>个人笔记</strong>，未必是正确操作，<strong>勿将其作为</strong><del>科力锐官方技术文档</del>，仅供参考！</p>
@@ -4160,42 +4196,6 @@
         <tag>灾备</tag>
         <tag>智动全景灾备系统</tag>
         <tag>排错</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Clerware Deployment Process / 科力锐灾备（一体机）部署/上架流程</title>
-    <url>/Clerware/4.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;本文是科力锐灾备一体机（clerware 智动全景灾备系统）部署/上架流程的操作文档，为博主的<strong>个人笔记</strong>，未必是正确操作，<strong>勿将其作为</strong><del>科力锐官方技术文档</del>，仅供参考！</p>
-<div class="note info"><p>部署/上架时如产生错误，请参照 <a href="https://blog.hackme.cc/Clerware/5.html">《科力锐灾备 常见问题》</a> 进行问题排查</p>
-</div>
-
-<span id="more"></span>
-
-<h1 id="部署流程的目的"><a href="#部署流程的目的" class="headerlink" title="部署流程的目的"></a>部署流程的目的</h1><p>&emsp;&emsp;确保用户在后期灾备系统任务执行、信息告警、灾难演练和应急恢复等行之有效</p>
-<h1 id="部署前准备工作（与用户交流）"><a href="#部署前准备工作（与用户交流）" class="headerlink" title="部署前准备工作（与用户交流）"></a>部署前准备工作（与用户交流）</h1><h2 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h2><h3 id="无接管-热备需求"><a href="#无接管-热备需求" class="headerlink" title="无接管 / 热备需求"></a>无接管 / 热备需求</h3><p>&emsp;&emsp;确定用户提供给灾备一体机的 IP 地址可用，可与所需部署灾备的系统相互通信，且不会产生 IP 地址冲突。</p>
-<h3 id="有接管（测试）需求"><a href="#有接管（测试）需求" class="headerlink" title="有接管（测试）需求"></a>有接管（测试）需求</h3><p>&emsp;&emsp;确定客户的网络是否划分 VLAN，若有划分，需<strong>记录</strong>需接管源机所在网络的 VLAN 号，然后将灾备一体机的网卡解除聚合，将交换机连接灾备一体机的端口设置为 trunk 模式</p>
-<h3 id="有热备需求"><a href="#有热备需求" class="headerlink" title="有热备需求"></a>有热备需求</h3><p>&emsp;&emsp;确定灾备一体机的 IP 可与热备的源机及目标机相互通信，且不会有 IP 冲突</p>
-<div class="note info"><p>热备时，备机直接使用源机 IP，源机所以需要一个新 IP，用户需提前准备一个不用的 IP</p>
-</div>
-
-<h2 id="灾备端口"><a href="#灾备端口" class="headerlink" title="灾备端口"></a>灾备端口</h2><h3 id="非公有云（主动连接）"><a href="#非公有云（主动连接）" class="headerlink" title="非公有云（主动连接）"></a>非公有云（主动连接）</h3><p>&emsp;&emsp;确认源机的 20000 ~ 20003 端口可与灾备一体机进行通信</p>
-<h3 id="公有云（被动连接）"><a href="#公有云（被动连接）" class="headerlink" title="公有云（被动连接）"></a>公有云（被动连接）</h3><p>&emsp;&emsp;确认灾备一体机的 IP 可以访问源机的 3345 端口</p>
-<h2 id="设备摆放位置"><a href="#设备摆放位置" class="headerlink" title="设备摆放位置"></a>设备摆放位置</h2><p>&emsp;&emsp;提前确定设备为几 U，然后与用户确认设备的部署位置：几排几号机柜多少 U</p>
-<h2 id="系统管理员及权限的划分"><a href="#系统管理员及权限的划分" class="headerlink" title="系统管理员及权限的划分"></a>系统管理员及权限的划分</h2><p>&emsp;&emsp;确定用户需要分配的系统管理员账号和对应的权限</p>
-<h2 id="告警设置信息"><a href="#告警设置信息" class="headerlink" title="告警设置信息"></a>告警设置信息</h2><p>&emsp;&emsp;确定灾备的告警设置信息：邮箱 / 企业微信</p>
-<h2 id="确认网线规格"><a href="#确认网线规格" class="headerlink" title="确认网线规格"></a>确认网线规格</h2><p>&emsp;&emsp;确定用户网速，如为千兆网<strong>至少</strong>需提供超五类网线</p>
-<h1 id="部署前检查"><a href="#部署前检查" class="headerlink" title="部署前检查"></a>部署前检查</h1><h2 id="正式设备"><a href="#正式设备" class="headerlink" title="正式设备"></a>正式设备</h2><h3 id="查看成交设备所属项目和用户名称"><a href="#查看成交设备所属项目和用户名称" class="headerlink" title="查看成交设备所属项目和用户名称"></a>查看成交设备所属项目和用户名称</h3><h3 id="查看设备外包装"><a href="#查看设备外包装" class="headerlink" title="查看设备外包装"></a>查看设备外包装</h3><h3 id="开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册"><a href="#开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册" class="headerlink" title="开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册"></a>开箱查看配件是否齐全：2×网线、2×电源线、服务器导轨、用户手册</h3><div class="note warning"><p>正式设备的开箱需要用户在场</p>
-</div>
-
-<h2 id="测试设备："><a href="#测试设备：" class="headerlink" title="测试设备："></a>测试设备：</h2><h3 id="开机检查，查看磁盘灯是否闪黄灯，查看-BIOS-是否报错，确定设备硬件是否正常"><a href="#开机检查，查看磁盘灯是否闪黄灯，查看-BIOS-是否报错，确定设备硬件是否正常" class="headerlink" title="开机检查，查看磁盘灯是否闪黄灯，查看 BIOS 是否报错，确定设备硬件是否正常"></a>开机检查，查看磁盘灯是否闪黄灯，查看 BIOS 是否报错，确定设备硬件是否正常</h3><h3 id="连接显示器和键盘，确定设备系统是否正常"><a href="#连接显示器和键盘，确定设备系统是否正常" class="headerlink" title="连接显示器和键盘，确定设备系统是否正常"></a>连接显示器和键盘，确定设备系统是否正常</h3><h3 id="确认测试设备的授权信息，是否可用（重要）"><a href="#确认测试设备的授权信息，是否可用（重要）" class="headerlink" title="确认测试设备的授权信息，是否可用（重要）"></a>确认测试设备的授权信息，是否可用（重要）</h3><h3 id="确认设备的系统版本、ISO-启动介质版本、驱动版本，及时更新为最新版"><a href="#确认设备的系统版本、ISO-启动介质版本、驱动版本，及时更新为最新版" class="headerlink" title="确认设备的系统版本、ISO 启动介质版本、驱动版本，及时更新为最新版"></a>确认设备的系统版本、ISO 启动介质版本、驱动版本，及时更新为最新版</h3><h3 id="查看-IP-地址，并修改成用户所提供的-IP-地址"><a href="#查看-IP-地址，并修改成用户所提供的-IP-地址" class="headerlink" title="查看 IP 地址，并修改成用户所提供的 IP 地址"></a>查看 IP 地址，并修改成用户所提供的 IP 地址</h3><div class="note info"><p>完成此文操作后，可进入下一步操作，即 <a href="https://blog.hackme.cc/Clerware/2.html">《科力锐 超级管理员》</a></p>
-</div>]]></content>
-      <categories>
-        <category>Clerware</category>
-      </categories>
-      <tags>
-        <tag>灾备</tag>
-        <tag>智动全景灾备系统</tag>
-        <tag>灾备一体机</tag>
       </tags>
   </entry>
   <entry>
@@ -5072,6 +5072,40 @@
       </tags>
   </entry>
   <entry>
+    <title>EternalBlue / 永恒之蓝</title>
+    <url>/Virus/1.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;博主在某医院发现了大量永恒之蓝病毒，所以记录下了一些“可视化”情况，用于简单鉴别计算机是否感染永恒之蓝并予以清除。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>永恒之蓝（英语：EternalBlue）是美国国家安全局开发的漏洞利用程序，于2017年4月14日被黑客组织影子掮客泄漏。该工具利用445/TCP端口的文件分享协议的漏洞进行散播。<br>尽管微软于2017年3月14日已经发布过Microsoft Windows补丁修补了这个漏洞，然而在5月12日WannaCry勒索软件利用这个漏洞传播时，很多用户仍然因为没有安装补丁而受害。<br>由于WannaCry的严重性，微软于2017年5月13日为已超过支持周期的Microsoft Windows XP、Microsoft Windows 8和Windows Server 2003发布了紧急安全更新，以阻止其散布造成更大的危害。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——<em>摘自 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JUIwJUI4JUU2JTgxJTkyJUU0JUI5JThCJUU4JTkzJTlE">《维基百科》永恒之蓝 词条<i class="fa fa-external-link-alt"></i></span></em></p>
+</blockquote>
+<div class="note danger"><p>永恒之蓝手工很难清除，如有中毒迹象，请立即用<strong>杀毒软件</strong>进行查杀，并安装系统补丁！</p>
+</div>
+
+<h1 id="释放并运行永恒之蓝工具包"><a href="#释放并运行永恒之蓝工具包" class="headerlink" title="释放并运行永恒之蓝工具包"></a>释放并运行永恒之蓝工具包</h1><p>&emsp;&emsp;病毒首先会释放一个工具包，路径为</p>
+<figure class="highlight taggerscript"><table><tr><td class="code"><pre><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\N</span>etworkDistribution</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;此工具包会加载一个和系统默认进程一模一样的进程</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">svchost.exe     <span class="meta"># 通过查看进程文件路径就可发现非系统默认进程</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="不断生成并运行病毒文件"><a href="#不断生成并运行病毒文件" class="headerlink" title="不断生成并运行病毒文件"></a>不断生成并运行病毒文件</h1><p>&emsp;&emsp;此工具包会不断生成四个病毒文件并创建对应的进程，即使清除了，过段时间又会生成（所以需要杀毒软件进行彻底的查杀）</p>
+<figure class="highlight taggerscript"><table><tr><td class="code"><pre><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\m</span>ssecsvc.exe</span><br><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\m</span>ssecsvr.exe</span><br><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\t</span>asksche.exe</span><br><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\q</span>eriuwjhrf</span><br></pre></td></tr></table></figure>
+
+<h1 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h1><h2 id="安装系统补丁"><a href="#安装系统补丁" class="headerlink" title="安装系统补丁"></a>安装系统补丁</h2><p>&emsp;&emsp;XP 系统对应微软补丁号：KB4012598<br>&emsp;&emsp;其余系统版本安装：KB4012215 或 KB4012212（二者安装上其一即可）</p>
+<h2 id="安装杀毒软件"><a href="#安装杀毒软件" class="headerlink" title="安装杀毒软件"></a>安装杀毒软件</h2><p>&emsp;&emsp;除 Win10 有自带杀毒软件外，其余系统版本为了安全请安装杀毒软件，牺牲性能，保障安全！杀毒软件注意<strong>实时更新</strong>，并<strong>时常杀毒</strong>。</p>
+<h2 id="关闭-139-及-445-端口"><a href="#关闭-139-及-445-端口" class="headerlink" title="关闭 139 及 445 端口"></a>关闭 139 及 445 端口</h2><p>&emsp;&emsp;除此之外如有条件，建议关闭 139 及 445 等这些高危端口。</p>
+]]></content>
+      <categories>
+        <category>Virus</category>
+      </categories>
+      <tags>
+        <tag>EternalBlue</tag>
+        <tag>永恒之蓝</tag>
+        <tag>蠕虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网络安全等级保护 2.0 安全计算环境安全要求和安全管理制度体系</title>
     <url>/IT/11.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本文选取了《网络安全等级测评师培训教材（初级）2019 版》中关于“安全计算环境”的部分安全要求及“安全管理制度体系”，结合公安部第三研究所对于初级测评师的培训课程，整理了如下知识点。只是博主的学习笔记，仅供学习交流，<strong>切勿作为</strong><del>官方标准</del>。</p>
@@ -5179,63 +5213,6 @@
       </tags>
   </entry>
   <entry>
-    <title>EternalBlue / 永恒之蓝</title>
-    <url>/Virus/1.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;博主在某医院发现了大量永恒之蓝病毒，所以记录下了一些“可视化”情况，用于简单鉴别计算机是否感染永恒之蓝并予以清除。</p>
-<span id="more"></span>
-
-<blockquote>
-<p>永恒之蓝（英语：EternalBlue）是美国国家安全局开发的漏洞利用程序，于2017年4月14日被黑客组织影子掮客泄漏。该工具利用445/TCP端口的文件分享协议的漏洞进行散播。<br>尽管微软于2017年3月14日已经发布过Microsoft Windows补丁修补了这个漏洞，然而在5月12日WannaCry勒索软件利用这个漏洞传播时，很多用户仍然因为没有安装补丁而受害。<br>由于WannaCry的严重性，微软于2017年5月13日为已超过支持周期的Microsoft Windows XP、Microsoft Windows 8和Windows Server 2003发布了紧急安全更新，以阻止其散布造成更大的危害。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——<em>摘自 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JUIwJUI4JUU2JTgxJTkyJUU0JUI5JThCJUU4JTkzJTlE">《维基百科》永恒之蓝 词条<i class="fa fa-external-link-alt"></i></span></em></p>
-</blockquote>
-<div class="note danger"><p>永恒之蓝手工很难清除，如有中毒迹象，请立即用<strong>杀毒软件</strong>进行查杀，并安装系统补丁！</p>
-</div>
-
-<h1 id="释放并运行永恒之蓝工具包"><a href="#释放并运行永恒之蓝工具包" class="headerlink" title="释放并运行永恒之蓝工具包"></a>释放并运行永恒之蓝工具包</h1><p>&emsp;&emsp;病毒首先会释放一个工具包，路径为</p>
-<figure class="highlight taggerscript"><table><tr><td class="code"><pre><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\N</span>etworkDistribution</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;此工具包会加载一个和系统默认进程一模一样的进程</p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">svchost.exe     <span class="meta"># 通过查看进程文件路径就可发现非系统默认进程</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="不断生成并运行病毒文件"><a href="#不断生成并运行病毒文件" class="headerlink" title="不断生成并运行病毒文件"></a>不断生成并运行病毒文件</h1><p>&emsp;&emsp;此工具包会不断生成四个病毒文件并创建对应的进程，即使清除了，过段时间又会生成（所以需要杀毒软件进行彻底的查杀）</p>
-<figure class="highlight taggerscript"><table><tr><td class="code"><pre><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\m</span>ssecsvc.exe</span><br><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\m</span>ssecsvr.exe</span><br><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\t</span>asksche.exe</span><br><span class="line">C:<span class="symbol">\W</span>indows<span class="symbol">\q</span>eriuwjhrf</span><br></pre></td></tr></table></figure>
-
-<h1 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h1><h2 id="安装系统补丁"><a href="#安装系统补丁" class="headerlink" title="安装系统补丁"></a>安装系统补丁</h2><p>&emsp;&emsp;XP 系统对应微软补丁号：KB4012598<br>&emsp;&emsp;其余系统版本安装：KB4012215 或 KB4012212（二者安装上其一即可）</p>
-<h2 id="安装杀毒软件"><a href="#安装杀毒软件" class="headerlink" title="安装杀毒软件"></a>安装杀毒软件</h2><p>&emsp;&emsp;除 Win10 有自带杀毒软件外，其余系统版本为了安全请安装杀毒软件，牺牲性能，保障安全！杀毒软件注意<strong>实时更新</strong>，并<strong>时常杀毒</strong>。</p>
-<h2 id="关闭-139-及-445-端口"><a href="#关闭-139-及-445-端口" class="headerlink" title="关闭 139 及 445 端口"></a>关闭 139 及 445 端口</h2><p>&emsp;&emsp;除此之外如有条件，建议关闭 139 及 445 等这些高危端口。</p>
-]]></content>
-      <categories>
-        <category>Virus</category>
-      </categories>
-      <tags>
-        <tag>EternalBlue</tag>
-        <tag>永恒之蓝</tag>
-        <tag>蠕虫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/Misc/0.html</url>
-    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Misc</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Vulnerability Submission Instructions / 漏洞提交说明</title>
     <url>/Penetration-Test/1.html</url>
     <content><![CDATA[<p>&emsp;&emsp;为规范漏洞提交标准，提升效率，用此文对博客置顶文章 <a href="https://blog.hackme.cc/Welfare/1.html">《Hello Everyone》</a> <strong>邀请各路大神对本站进行渗透</strong>作漏洞提交的补充说明。</p>
@@ -5270,18 +5247,27 @@
       </tags>
   </entry>
   <entry>
-    <title>I Must Be Responsible to Infomation Security / 我必须对信息安全负责</title>
-    <url>/Misc/3.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;公司给我一个机会，让我有幸参加了一次苏州市委网络安全和信息化领导小组办公室陈雪嵘主任的宣讲活动。整个宣讲持续了很久，而且也很深入，涉及了包括“网络安全意识形态”等的重点问题。其中有一个“点”让我记忆深刻，概括起来就是——“我们每一个人都是战士，可能保卫的就是国家网络安全。”</p>
+    <title>Hello World</title>
+    <url>/Misc/0.html</url>
+    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>Misc</category>
       </categories>
-      <tags>
-        <tag>信息安全</tag>
-        <tag>Information Security</tag>
-        <tag>responsible</tag>
-      </tags>
   </entry>
   <entry>
     <title>IOU Template / 借条模板</title>
@@ -5329,6 +5315,20 @@
         <tag>Linux</tag>
         <tag>Blocklist</tag>
         <tag>Allowlist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>I Must Be Responsible to Infomation Security / 我必须对信息安全负责</title>
+    <url>/Misc/3.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;公司给我一个机会，让我有幸参加了一次苏州市委网络安全和信息化领导小组办公室陈雪嵘主任的宣讲活动。整个宣讲持续了很久，而且也很深入，涉及了包括“网络安全意识形态”等的重点问题。其中有一个“点”让我记忆深刻，概括起来就是——“我们每一个人都是战士，可能保卫的就是国家网络安全。”</p>
+]]></content>
+      <categories>
+        <category>Misc</category>
+      </categories>
+      <tags>
+        <tag>信息安全</tag>
+        <tag>Information Security</tag>
+        <tag>responsible</tag>
       </tags>
   </entry>
   <entry>
@@ -5437,6 +5437,10 @@ I --&gt;|配置信息不一致则更新| H
       <categories>
         <category>ITIL</category>
       </categories>
+      <tags>
+        <tag>操作规范</tag>
+        <tag>流程</tag>
+      </tags>
   </entry>
   <entry>
     <title>ofo Deposit Defund Policy / ofo 退押金策略</title>
@@ -6882,6 +6886,39 @@ A. PYTHON<br>B. PYT<br>C. PYTH<br>D. PYTHON<ul>
       </tags>
   </entry>
   <entry>
+    <title>Website Image &amp; Video Optimization / 网站图片、视频优化处理</title>
+    <url>/IT/12.html</url>
+    <content><![CDATA[<p>&emsp;&emsp;5G 时代了，每一个网站都少不了图片和视频，图片和视频文件越大，占用的服务器空间就越大，要花的 money 就越多。而且大型文件的加载速度也更慢，还浪费用户宝贵的流量。有些和博主一样聪明的站长会想到“压缩”，可是如果要压缩，势必会影响画质，总不能为了省钱影响观感。所以相信广大站长朋友们，也一定和博主一样，试图寻找一个“最佳图片格式”和“最佳视频格式”。所谓的“最佳”便是——<strong>牺牲最小的画质，占用最小的空间！</strong></p>
+<p>&emsp;&emsp;而现在，它来了！</p>
+<span id="more"></span>
+
+<h1 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h1><p>&emsp;&emsp;先来讲讲图片优化。要压缩图片，同时也要尽可能地“无损画质”，当然首先要确定一种图片格式。常见的图片格式大家也一定不陌生，例如 png、jpg、jpeg、gif、bmp 等等。但是今天博主要安利的是一种船新的图片格式：WebP</p>
+<h2 id="WebP"><a href="#WebP" class="headerlink" title="WebP"></a>WebP</h2><blockquote>
+<p>WebP is a modern image format that provides superior lossless and lossy compression for images on the web. Using WebP, webmasters and web developers can create smaller, richer images that make the web faster.<br>WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images are 25-34% smaller than comparable JPEG images at equivalent SSIM quality index.<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——<em>摘自 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLmdvb2dsZS5jb20vc3BlZWQvd2VicA==">Google WebP<i class="fa fa-external-link-alt"></i></span></em></p>
+</blockquote>
+<p>WebP 是由谷歌推出的一种图片格式，由它的名字就可以知道，这个图片格式就是“为网络而生”。将图片压缩为 WebP 格式，可以完美的解决本文开头的问题。经博主少量测试，图片压缩为 WebP 格式后，画质会有一定的影响，但是不影响肉眼的观看，而图片大小<strong>惊人地缩小了 N 倍</strong>。大部分一般的图片都能缩小到 <strong>4KB</strong>！少数则可能为<strong>十几 K</strong>。所以下面博主给出谷歌官方压缩工具和用法</p>
+<h2 id="libwebp"><a href="#libwebp" class="headerlink" title="libwebp"></a>libwebp</h2><p>&emsp;&emsp;“libwebp”就是谷歌<strong>官方</strong>的图片压缩工具了，谷歌官方下载地址：<span class="exturl" data-url="aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2Rvd25sb2Fkcy53ZWJtcHJvamVjdC5vcmcvcmVsZWFzZXMvd2VicC9pbmRleC5odG1s">libwebp<i class="fa fa-external-link-alt"></i></span></p>
+<p>&emsp;&emsp;下载完成后，我们进入文件夹中的<code>bin</code>目录，将其中的<code>cwebp.exe</code>copy 到要压缩的图片文件目录下，并使用这一行命令进行压缩</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">cwebp</span><span class="selector-class">.exe</span> 要压缩的图片文件名<span class="selector-class">.png</span> <span class="selector-tag">-o</span> 压缩后的图片文件名<span class="selector-class">.webp</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;然后就得到压缩后的图片咯。</p>
+<h1 id="视频优化"><a href="#视频优化" class="headerlink" title="视频优化"></a>视频优化</h1><p>&emsp;&emsp;同样的再来讲讲视频优化。因为本文要压缩的视频是针对网站上的，所以在选择视频格式的时候，肯定优先选择又是“谷歌出品”的 WebM。可能是因为技术太前卫，将视频压缩为 WebM 格式，所需消耗的时间是视频本身时长的好几倍，为了兼顾那些长视频的压缩，无奈只能放弃 WebM 格式，转而寻求其它视频格式。<br>&emsp;&emsp;在博主尝试了多种常用视频格式，并考虑了 CDN 的因素（现在主流的 CDN，都会对 mp4 格式的文件进行“分片缓存”）后，决定还是采用 mp4 的视频格式，只不过是 H.264 编码的 mp4 格式。</p>
+<h2 id="H-264-编码"><a href="#H-264-编码" class="headerlink" title="H.264 编码"></a>H.264 编码</h2><blockquote>
+<p>H.264，又称为MPEG-4第10部分，高级视频编码（英语：MPEG-4 Part 10, Advanced Video Coding，缩写为MPEG-4 AVC）是一种面向块，基于运动补偿的视频编码标准 。到2014年，它已经成为高精度视频录制、压缩和发布的最常用格式之一。第一版标准的最终草案于2003年5月完成。<br>H.264因其是蓝光盘的其中一种编解码标准而著名，所有蓝光盘播放器都必须能解码H.264。它也被广泛用于网络流媒体数据如Vimeo、YouTube、以及iTunes Store，网络软件如Adobe Flash Player和Microsoft Silverlight，以及各种高清晰度电视地面电视（ATSC、ISDB-T、DVB-T或DVB-T2）、线缆（DVB-C）以及卫星（DVB-S和DVB-S2）。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——<em>摘自 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvSC4yNjQvTVBFRy00X0FWQw==">《维基百科》H.264/MPEG-4 AVC 词条<i class="fa fa-external-link-alt"></i></span></em></p>
+</blockquote>
+<p>&emsp;&emsp;博主在这里要澄清下：为什么选用 H.264 编码而不是更先进的 H.265 编码？<br>&emsp;&emsp;答：因为在 Windows 10 上，需要购买解码器才能播放。</p>
+<h2 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h2><p>&emsp;&emsp;视频处理博主选用了国外开源软件：FFmpeg。听说国内好多视频处理软件都是这个开源软件加的壳？博主怕被封，话不多说，直接放出官方下载地址：<span class="exturl" data-url="aHR0cHM6Ly9mZm1wZWcub3JnLw==">FFmpeg<i class="fa fa-external-link-alt"></i></span></p>
+<p>&emsp;&emsp;和上面 libwebp 一样的操作，进入文件夹中的<code>bin</code>目录，然后将其中的<code>ffmpeg.exe</code>copy 到要压缩的视频文件目录下，然后博主教大家两种优化，分别是“压缩”和“剪辑”</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ffmpeg</span> -i 要压缩的视频文件名.mp<span class="number">4</span> -c:v libx<span class="number">264</span> 压缩后的视频文件名.mp<span class="number">4</span>     # 视频压缩</span><br><span class="line"><span class="attribute">ffmpeg</span> -i 要剪辑的视频文件名.mp<span class="number">4</span> -ss <span class="number">01</span>:<span class="number">22</span>:<span class="number">33</span>.<span class="number">0</span> -c copy -t <span class="number">04</span>:<span class="number">55</span>:<span class="number">66</span>.<span class="number">0</span> 剪辑后的视频文件名.mp<span class="number">4</span>     # 剪出视频的 <span class="number">01</span>(h):<span class="number">22</span>(m):<span class="number">33</span>(s):<span class="number">0</span>(ms) 至 <span class="number">04</span>:<span class="number">55</span>:<span class="number">66</span>:<span class="number">0</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>libwebp</tag>
+        <tag>FFmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows File Recovery Help / Windows File Recovery 使用帮助</title>
     <url>/IT/6.html</url>
     <content><![CDATA[<p>Microsoft Store 上架了一款<strong>微软官方</strong>的 Windows 文件恢复工具。百度一圈只看到了新闻，连使用帮助都没有。博主在 Microsoft Support 找到了英文版使用帮助，借助谷歌翻译，将基础使用帮助翻译成了中文版，方便大家食用。</p>
@@ -6927,39 +6964,6 @@ A. PYTHON<br>B. PYT<br>C. PYTH<br>D. PYTHON<ul>
       <tags>
         <tag>Windows</tag>
         <tag>文件恢复</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Website Image &amp; Video Optimization / 网站图片、视频优化处理</title>
-    <url>/IT/12.html</url>
-    <content><![CDATA[<p>&emsp;&emsp;5G 时代了，每一个网站都少不了图片和视频，图片和视频文件越大，占用的服务器空间就越大，要花的 money 就越多。而且大型文件的加载速度也更慢，还浪费用户宝贵的流量。有些和博主一样聪明的站长会想到“压缩”，可是如果要压缩，势必会影响画质，总不能为了省钱影响观感。所以相信广大站长朋友们，也一定和博主一样，试图寻找一个“最佳图片格式”和“最佳视频格式”。所谓的“最佳”便是——<strong>牺牲最小的画质，占用最小的空间！</strong></p>
-<p>&emsp;&emsp;而现在，它来了！</p>
-<span id="more"></span>
-
-<h1 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h1><p>&emsp;&emsp;先来讲讲图片优化。要压缩图片，同时也要尽可能地“无损画质”，当然首先要确定一种图片格式。常见的图片格式大家也一定不陌生，例如 png、jpg、jpeg、gif、bmp 等等。但是今天博主要安利的是一种船新的图片格式：WebP</p>
-<h2 id="WebP"><a href="#WebP" class="headerlink" title="WebP"></a>WebP</h2><blockquote>
-<p>WebP is a modern image format that provides superior lossless and lossy compression for images on the web. Using WebP, webmasters and web developers can create smaller, richer images that make the web faster.<br>WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images are 25-34% smaller than comparable JPEG images at equivalent SSIM quality index.<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——<em>摘自 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLmdvb2dsZS5jb20vc3BlZWQvd2VicA==">Google WebP<i class="fa fa-external-link-alt"></i></span></em></p>
-</blockquote>
-<p>WebP 是由谷歌推出的一种图片格式，由它的名字就可以知道，这个图片格式就是“为网络而生”。将图片压缩为 WebP 格式，可以完美的解决本文开头的问题。经博主少量测试，图片压缩为 WebP 格式后，画质会有一定的影响，但是不影响肉眼的观看，而图片大小<strong>惊人地缩小了 N 倍</strong>。大部分一般的图片都能缩小到 <strong>4KB</strong>！少数则可能为<strong>十几 K</strong>。所以下面博主给出谷歌官方压缩工具和用法</p>
-<h2 id="libwebp"><a href="#libwebp" class="headerlink" title="libwebp"></a>libwebp</h2><p>&emsp;&emsp;“libwebp”就是谷歌<strong>官方</strong>的图片压缩工具了，谷歌官方下载地址：<span class="exturl" data-url="aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2Rvd25sb2Fkcy53ZWJtcHJvamVjdC5vcmcvcmVsZWFzZXMvd2VicC9pbmRleC5odG1s">libwebp<i class="fa fa-external-link-alt"></i></span></p>
-<p>&emsp;&emsp;下载完成后，我们进入文件夹中的<code>bin</code>目录，将其中的<code>cwebp.exe</code>copy 到要压缩的图片文件目录下，并使用这一行命令进行压缩</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">cwebp</span><span class="selector-class">.exe</span> 要压缩的图片文件名<span class="selector-class">.png</span> <span class="selector-tag">-o</span> 压缩后的图片文件名<span class="selector-class">.webp</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;然后就得到压缩后的图片咯。</p>
-<h1 id="视频优化"><a href="#视频优化" class="headerlink" title="视频优化"></a>视频优化</h1><p>&emsp;&emsp;同样的再来讲讲视频优化。因为本文要压缩的视频是针对网站上的，所以在选择视频格式的时候，肯定优先选择又是“谷歌出品”的 WebM。可能是因为技术太前卫，将视频压缩为 WebM 格式，所需消耗的时间是视频本身时长的好几倍，为了兼顾那些长视频的压缩，无奈只能放弃 WebM 格式，转而寻求其它视频格式。<br>&emsp;&emsp;在博主尝试了多种常用视频格式，并考虑了 CDN 的因素（现在主流的 CDN，都会对 mp4 格式的文件进行“分片缓存”）后，决定还是采用 mp4 的视频格式，只不过是 H.264 编码的 mp4 格式。</p>
-<h2 id="H-264-编码"><a href="#H-264-编码" class="headerlink" title="H.264 编码"></a>H.264 编码</h2><blockquote>
-<p>H.264，又称为MPEG-4第10部分，高级视频编码（英语：MPEG-4 Part 10, Advanced Video Coding，缩写为MPEG-4 AVC）是一种面向块，基于运动补偿的视频编码标准 。到2014年，它已经成为高精度视频录制、压缩和发布的最常用格式之一。第一版标准的最终草案于2003年5月完成。<br>H.264因其是蓝光盘的其中一种编解码标准而著名，所有蓝光盘播放器都必须能解码H.264。它也被广泛用于网络流媒体数据如Vimeo、YouTube、以及iTunes Store，网络软件如Adobe Flash Player和Microsoft Silverlight，以及各种高清晰度电视地面电视（ATSC、ISDB-T、DVB-T或DVB-T2）、线缆（DVB-C）以及卫星（DVB-S和DVB-S2）。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——<em>摘自 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvSC4yNjQvTVBFRy00X0FWQw==">《维基百科》H.264/MPEG-4 AVC 词条<i class="fa fa-external-link-alt"></i></span></em></p>
-</blockquote>
-<p>&emsp;&emsp;博主在这里要澄清下：为什么选用 H.264 编码而不是更先进的 H.265 编码？<br>&emsp;&emsp;答：因为在 Windows 10 上，需要购买解码器才能播放。</p>
-<h2 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h2><p>&emsp;&emsp;视频处理博主选用了国外开源软件：FFmpeg。听说国内好多视频处理软件都是这个开源软件加的壳？博主怕被封，话不多说，直接放出官方下载地址：<span class="exturl" data-url="aHR0cHM6Ly9mZm1wZWcub3JnLw==">FFmpeg<i class="fa fa-external-link-alt"></i></span></p>
-<p>&emsp;&emsp;和上面 libwebp 一样的操作，进入文件夹中的<code>bin</code>目录，然后将其中的<code>ffmpeg.exe</code>copy 到要压缩的视频文件目录下，然后博主教大家两种优化，分别是“压缩”和“剪辑”</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ffmpeg</span> -i 要压缩的视频文件名.mp<span class="number">4</span> -c:v libx<span class="number">264</span> 压缩后的视频文件名.mp<span class="number">4</span>     # 视频压缩</span><br><span class="line"><span class="attribute">ffmpeg</span> -i 要剪辑的视频文件名.mp<span class="number">4</span> -ss <span class="number">01</span>:<span class="number">22</span>:<span class="number">33</span>.<span class="number">0</span> -c copy -t <span class="number">04</span>:<span class="number">55</span>:<span class="number">66</span>.<span class="number">0</span> 剪辑后的视频文件名.mp<span class="number">4</span>     # 剪出视频的 <span class="number">01</span>(h):<span class="number">22</span>(m):<span class="number">33</span>(s):<span class="number">0</span>(ms) 至 <span class="number">04</span>:<span class="number">55</span>:<span class="number">66</span>:<span class="number">0</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>libwebp</tag>
-        <tag>FFmpeg</tag>
       </tags>
   </entry>
   <entry>
