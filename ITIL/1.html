@@ -30,7 +30,7 @@
 <meta property="og:description" content="ITIL 操作面规范分为五大管理：事故管理（Incident Management）、问题管理（Problem Management）、变更管理（Change Management）、发布管理（Release Management）和配置管理（Configuration Management）。博主结合网络资料制作了各个管理规范的流程图。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-12T01:08:06.000Z">
-<meta property="article:modified_time" content="2021-05-12T03:07:25.957Z">
+<meta property="article:modified_time" content="2021-05-12T03:16:26.645Z">
 <meta property="article:author" content="二洲">
 <meta property="article:tag" content="操作规范">
 <meta property="article:tag" content="流程">
@@ -296,7 +296,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-05-12 09:08:06 / Modified: 11:07:25" itemprop="dateCreated datePublished" datetime="2021-05-12T09:08:06+08:00">2021-05-12</time>
+      <time title="Created: 2021-05-12 09:08:06 / Modified: 11:16:26" itemprop="dateCreated datePublished" datetime="2021-05-12T09:08:06+08:00">2021-05-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -374,9 +374,9 @@ F --&gt; G[事件处理]
 G --&gt; H{故障解决}
 H --&gt;|是| I[事件关闭]
 H --&gt;|否| G
-I --&gt; J(运维知识库)
+I --&gt; J((运维知识库))
 J --&gt; E
-I --&gt;|事件处理过程| K(事件问题库)
+I --&gt;|事件处理过程| K((事件问题库))
 K --&gt; L[事件查询及统计]
 K --&gt; M[事件趋势分析]
 N[性能指标监控] --&gt; O[指标超出阈值]
@@ -386,7 +386,7 @@ O --&gt;|自动创建| C
 <h1 id="问题管理（Problem-Management）"><a href="#问题管理（Problem-Management）" class="headerlink" title="问题管理（Problem Management）"></a>问题管理（Problem Management）</h1><p>&emsp;&emsp;第一步承接上述事故管理的“事件问题库”</p>
 <pre class="mermaid">
 graph LR
-A(事件问题库) --&gt; B[事件趋势分析]
+A((事件问题库)) --&gt; B[事件趋势分析]
 A --&gt; C[问题查询及统计]
 B --&gt; D[事件升级为问题]
 D --&gt; E[问题分类及优先级]
@@ -401,7 +401,7 @@ K --&gt;|是| L[变更请求]
 K --&gt;|否| M{评审实施效果}
 M --&gt;|通过| N[问题关闭]
 M --&gt;|未通过| H
-N --&gt;|记录解决方案| O(运维知识库)
+N --&gt;|记录解决方案| O((运维知识库))
 N --&gt;|问题处理过程| A
 </pre>
 
@@ -453,7 +453,7 @@ D --&gt; E[配置项定义和标识]
 E --&gt; F{配置项审核}
 F --&gt;|通过| G[记录配置项信息]
 F --&gt;|未通过| E
-G --&gt; H(配置管理库)
+G --&gt; H((配置管理库))
 H --&gt; I[定期审查]
 I --&gt;|配置信息不一致则更新| H
 </pre>
