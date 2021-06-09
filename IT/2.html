@@ -30,7 +30,7 @@
 <meta property="og:description" content="&amp;emsp;&amp;emsp;蜗居在贫民窟里的孩子，生活日用品就是最大的开销了。有时一些价格较为昂贵的“家用电器”突然损坏，就会让这个本就不富裕的家庭，雪上加霜……所以博主一般会在各个平台搜索“淘宝优惠券”，以此来减轻一个男人背上的重担。于是就衍生出了为何不自己搭建一个“淘宝领券网”的念头，一来可以更便捷的搜索淘宝优惠券，二来又能在已经享有优惠的基础上，再获得一些商家的返利，给这个本就不富裕的家庭，带来">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-12T13:03:35.000Z">
-<meta property="article:modified_time" content="2021-04-09T09:36:05.001Z">
+<meta property="article:modified_time" content="2021-06-09T01:09:51.064Z">
 <meta property="article:author" content="二洲">
 <meta property="article:tag" content="Taobao">
 <meta property="article:tag" content="淘宝">
@@ -292,7 +292,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-04-09 17:36:05" itemprop="dateModified" datetime="2021-04-09T17:36:05+08:00">2021-04-09</time>
+        <time title="Modified: 2021-06-09 09:09:51" itemprop="dateModified" datetime="2021-06-09T09:09:51+08:00">2021-06-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -363,26 +363,26 @@
 <h2 id="确认服务器系统版本"><a href="#确认服务器系统版本" class="headerlink" title="确认服务器系统版本"></a>确认服务器系统版本</h2><div class="note primary"><p>本文适用系统版本为：<strong>Ubuntu 18.04 server 64bit</strong></p>
 </div>
 
-<h1 id="更新服务器"><a href="#更新服务器" class="headerlink" title="更新服务器"></a>更新服务器</h1><h2 id="获取最新软件包"><a href="#获取最新软件包" class="headerlink" title="获取最新软件包"></a>获取最新软件包</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">apt update</span></span><br></pre></td></tr></table></figure>
+<h1 id="更新服务器"><a href="#更新服务器" class="headerlink" title="更新服务器"></a>更新服务器</h1><h2 id="获取最新软件包"><a href="#获取最新软件包" class="headerlink" title="获取最新软件包"></a>获取最新软件包</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo apt update</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">apt full-upgrade</span></span><br></pre></td></tr></table></figure>
+<h2 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo apt full-upgrade</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="安装-Apache-服务器"><a href="#安装-Apache-服务器" class="headerlink" title="安装 Apache 服务器"></a>安装 Apache 服务器</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">apt</span> install apache<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h1 id="安装-Apache-服务器"><a href="#安装-Apache-服务器" class="headerlink" title="安装 Apache 服务器"></a>安装 Apache 服务器</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install apache<span class="number">2</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a>安装 PHP</h1><h2 id="获取安装软件包文件清单"><a href="#获取安装软件包文件清单" class="headerlink" title="获取安装软件包文件清单"></a>获取安装软件包文件清单</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">apt</span> install software-properties-<span class="meta">common</span></span><br></pre></td></tr></table></figure>
+<h1 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a>安装 PHP</h1><h2 id="获取安装软件包文件清单"><a href="#获取安装软件包文件清单" class="headerlink" title="获取安装软件包文件清单"></a>获取安装软件包文件清单</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">sudo</span> apt install software-properties-<span class="meta">common</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="获取安装-PHP-包文件清单"><a href="#获取安装-PHP-包文件清单" class="headerlink" title="获取安装 PHP 包文件清单"></a>获取安装 PHP 包文件清单</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">add</span>-apt-repository <span class="keyword">pp</span><span class="variable">a:ondrej</span>/php</span><br></pre></td></tr></table></figure>
 
-<h2 id="获取更新"><a href="#获取更新" class="headerlink" title="获取更新"></a>获取更新</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">apt update</span></span><br></pre></td></tr></table></figure>
+<h2 id="获取更新"><a href="#获取更新" class="headerlink" title="获取更新"></a>获取更新</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo apt update</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="安装-PHP-Apache-2-扩展"><a href="#安装-PHP-Apache-2-扩展" class="headerlink" title="安装 PHP Apache 2 扩展"></a>安装 PHP Apache 2 扩展</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">apt</span> install libapache<span class="number">2</span>-mod-php<span class="number">7</span>.<span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装-PHP-Apache-2-扩展"><a href="#安装-PHP-Apache-2-扩展" class="headerlink" title="安装 PHP Apache 2 扩展"></a>安装 PHP Apache 2 扩展</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install libapache<span class="number">2</span>-mod-php<span class="number">7</span>.<span class="number">4</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="安装-PHP-APCu-扩展"><a href="#安装-PHP-APCu-扩展" class="headerlink" title="安装 PHP APCu 扩展"></a>安装 PHP APCu 扩展</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt -y <span class="keyword">install</span> php-apcu</span><br></pre></td></tr></table></figure>
+<h2 id="安装-PHP-APCu-扩展"><a href="#安装-PHP-APCu-扩展" class="headerlink" title="安装 PHP APCu 扩展"></a>安装 PHP APCu 扩展</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y <span class="keyword">install</span> php-apcu</span><br></pre></td></tr></table></figure>
 
 <h1 id="PHP-网站搭建完成"><a href="#PHP-网站搭建完成" class="headerlink" title="PHP 网站搭建完成"></a>PHP 网站搭建完成</h1><p>&emsp;&emsp;至此，一个全新的 PHP 网站就搭建完成了。此时需要将大淘客CMS的安装文件“index.php”放入服务器的网站根目录，即 /var/www/html/index.php，且删除同目录下原有的“index.html”（否则访问网站时，会优先展示“index.html”），然后访问服务器公网IP。</p>
-<h1 id="报错问题解决"><a href="#报错问题解决" class="headerlink" title="报错问题解决"></a>报错问题解决</h1><h2 id="curl-未开启-请先开启curl扩展，否则无法运行-请联系您的空间或者服务器提供商"><a href="#curl-未开启-请先开启curl扩展，否则无法运行-请联系您的空间或者服务器提供商" class="headerlink" title="curl 未开启,请先开启curl扩展，否则无法运行,请联系您的空间或者服务器提供商"></a>curl 未开启,请先开启curl扩展，否则无法运行,请联系您的空间或者服务器提供商</h2><h3 id="安装-PHP-插件-cURL"><a href="#安装-PHP-插件-cURL" class="headerlink" title="安装 PHP 插件 cURL"></a>安装 PHP 插件 cURL</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">apt</span> install php<span class="number">7</span>.<span class="number">4</span>-curl</span><br></pre></td></tr></table></figure>
+<h1 id="报错问题解决"><a href="#报错问题解决" class="headerlink" title="报错问题解决"></a>报错问题解决</h1><h2 id="curl-未开启-请先开启curl扩展，否则无法运行-请联系您的空间或者服务器提供商"><a href="#curl-未开启-请先开启curl扩展，否则无法运行-请联系您的空间或者服务器提供商" class="headerlink" title="curl 未开启,请先开启curl扩展，否则无法运行,请联系您的空间或者服务器提供商"></a>curl 未开启,请先开启curl扩展，否则无法运行,请联系您的空间或者服务器提供商</h2><h3 id="安装-PHP-插件-cURL"><a href="#安装-PHP-插件-cURL" class="headerlink" title="安装 PHP 插件 cURL"></a>安装 PHP 插件 cURL</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install php<span class="number">7</span>.<span class="number">4</span>-curl</span><br></pre></td></tr></table></figure>
 
-<h2 id="mbstring-未开启-请先开启mbstring扩展，否则无法运行"><a href="#mbstring-未开启-请先开启mbstring扩展，否则无法运行" class="headerlink" title="mbstring 未开启,请先开启mbstring扩展，否则无法运行"></a>mbstring 未开启,请先开启mbstring扩展，否则无法运行</h2><h3 id="安装-PHP-插件-mbstring"><a href="#安装-PHP-插件-mbstring" class="headerlink" title="安装 PHP 插件 mbstring"></a>安装 PHP 插件 mbstring</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">apt</span> install php<span class="number">7</span>.<span class="number">4</span>-mbstring</span><br></pre></td></tr></table></figure>
+<h2 id="mbstring-未开启-请先开启mbstring扩展，否则无法运行"><a href="#mbstring-未开启-请先开启mbstring扩展，否则无法运行" class="headerlink" title="mbstring 未开启,请先开启mbstring扩展，否则无法运行"></a>mbstring 未开启,请先开启mbstring扩展，否则无法运行</h2><h3 id="安装-PHP-插件-mbstring"><a href="#安装-PHP-插件-mbstring" class="headerlink" title="安装 PHP 插件 mbstring"></a>安装 PHP 插件 mbstring</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> apt install php<span class="number">7</span>.<span class="number">4</span>-mbstring</span><br></pre></td></tr></table></figure>
 
 <h2 id="重启-Apache-2-服务"><a href="#重启-Apache-2-服务" class="headerlink" title="重启 Apache 2 服务"></a>重启 Apache 2 服务</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/i</span>nit.d/apache2 restart</span><br></pre></td></tr></table></figure>
 

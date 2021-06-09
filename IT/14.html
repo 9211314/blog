@@ -30,7 +30,7 @@
 <meta property="og:description" content="&amp;emsp;&amp;emsp;博主的站群长年无人问津，广告收入几乎没有，于是再也负担不起高额的服务器费用了😭。可能是老天爷还想逛博主的网站吧，让博主无意之间看到了树莓派，好奇之心顿起，火速下单，到手以后一番折腾，终于把网站从云端迁移到了本地。本文就记录了折腾过程（主要是内网穿透方面）。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-02T06:30:11.000Z">
-<meta property="article:modified_time" content="2021-04-07T06:25:30.138Z">
+<meta property="article:modified_time" content="2021-06-09T01:10:43.349Z">
 <meta property="article:author" content="二洲">
 <meta property="article:tag" content="Raspberry Pi">
 <meta property="article:tag" content="树莓派">
@@ -292,7 +292,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-04-07 14:25:30" itemprop="dateModified" datetime="2021-04-07T14:25:30+08:00">2021-04-07</time>
+        <time title="Modified: 2021-06-09 09:10:43" itemprop="dateModified" datetime="2021-06-09T09:10:43+08:00">2021-06-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -385,7 +385,7 @@
 <h2 id="SSH-登录"><a href="#SSH-登录" class="headerlink" title="SSH 登录"></a>SSH 登录</h2><p>&emsp;&emsp;找到树莓派 IP 后用 SSH 登录，账号：<code>pi</code>，密码：<code>raspberry</code></p>
 <h2 id="中国内地请换源"><a href="#中国内地请换源" class="headerlink" title="中国内地请换源"></a>中国内地请换源</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nano <span class="regexp">/etc/</span>apt/sources.list</span><br><span class="line">三行前面的网址都换成清华源（仅前面的网址，不包括后面的路劲）：https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn/</span><br><span class="line"></span><br><span class="line">nano <span class="regexp">/etc/</span>apt<span class="regexp">/sources.list.d/</span>raspi.list</span><br><span class="line">整体换成清华源：https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/raspberrypi/</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="升级系统"><a href="#升级系统" class="headerlink" title="升级系统"></a>升级系统</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt <span class="keyword">update</span></span><br><span class="line">apt <span class="keyword">full</span>-<span class="keyword">upgrade</span></span><br></pre></td></tr></table></figure>
+<h2 id="升级系统"><a href="#升级系统" class="headerlink" title="升级系统"></a>升级系统</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">update</span></span><br><span class="line">sudo apt <span class="keyword">full</span>-<span class="keyword">upgrade</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="安装-frpc"><a href="#安装-frpc" class="headerlink" title="安装 frpc"></a>安装 frpc</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://github.com/fatedier/frp/releases/download/v<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>/frp_<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>_linux_arm<span class="number">64</span>.tar.gz     # 下载系统内核版本对应的 frp 压缩包</span><br><span class="line"><span class="attribute">tar</span> -xzvf frp_<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>_linux_amd<span class="number">64</span>.tar.gz     # 解压到当前文件夹</span><br><span class="line"><span class="attribute">nano</span> frp_<span class="number">0</span>.<span class="number">36</span>.<span class="number">2</span>_linux_amd<span class="number">64</span>/frpc.ini     # 编辑 frpc 配置文件</span><br></pre></td></tr></table></figure>
 

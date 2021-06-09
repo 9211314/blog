@@ -30,7 +30,7 @@
 <meta property="og:description" content="Hello，又见面了！之前博主分享过一篇 《Build SSR（制作酸酸乳）》 的教程，但是不知是因为蝙蝠 还是因为年兽，最近 SSR 频繁被封。不管怎么换 IP 换端口各种换，每次用不上五分钟就被封，让博主很是头疼。终于“游历天下，博采众长”，get 到了一种船新的翻墙方式，采用 SSL 进行加密，所以几乎无法被监测，也就几乎无法被封。所以在此将制作方法分享给大家，觉得好用的记得 Donate">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-18T11:37:42.000Z">
-<meta property="article:modified_time" content="2021-04-10T12:31:31.403Z">
+<meta property="article:modified_time" content="2021-06-09T01:10:07.286Z">
 <meta property="article:author" content="二洲">
 <meta property="article:tag" content="Trojan">
 <meta property="article:tag" content="一键脚本">
@@ -292,7 +292,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-04-10 20:31:31" itemprop="dateModified" datetime="2021-04-10T20:31:31+08:00">2021-04-10</time>
+        <time title="Modified: 2021-06-09 09:10:07" itemprop="dateModified" datetime="2021-06-09T09:10:07+08:00">2021-06-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -370,7 +370,7 @@
 <h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><p>&emsp;&emsp;将你的域名解析至你的服务器，即添加<strong>主域名</strong> A 记录指向服务器 IP（只需添加 @ 的主域名解析就行，无须添加 www 等的二级域名解析）</p>
 <h1 id="服务器安装-Trojan"><a href="#服务器安装-Trojan" class="headerlink" title="服务器安装 Trojan"></a>服务器安装 Trojan</h1><h2 id="安装-cURL"><a href="#安装-cURL" class="headerlink" title="安装 cURL"></a>安装 cURL</h2><h3 id="CentOS-系统"><a href="#CentOS-系统" class="headerlink" title="CentOS 系统"></a>CentOS 系统</h3><figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -<span class="symbol">y</span> &amp;&amp; yum install curl -<span class="symbol">y</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Ubuntu-Debian-系统"><a href="#Ubuntu-Debian-系统" class="headerlink" title="Ubuntu / Debian 系统"></a>Ubuntu / Debian 系统</h3><figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update -<span class="symbol">y</span> &amp;&amp; apt install curl -<span class="symbol">y</span></span><br></pre></td></tr></table></figure>
+<h3 id="Ubuntu-Debian-系统"><a href="#Ubuntu-Debian-系统" class="headerlink" title="Ubuntu / Debian 系统"></a>Ubuntu / Debian 系统</h3><figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update -<span class="symbol">y</span> &amp;&amp; sudo apt install curl -<span class="symbol">y</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Trojan-一键脚本"><a href="#Trojan-一键脚本" class="headerlink" title="Trojan 一键脚本"></a>Trojan 一键脚本</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/V2RaySSR/</span>Trojan<span class="regexp">/master/</span>Trojan.sh &amp;&amp; chmod x trojan.sh &amp;&amp; ./trojan.sh</span><br></pre></td></tr></table></figure>
 
