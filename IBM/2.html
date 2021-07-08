@@ -22,15 +22,15 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.hackme.cc","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="&amp;emsp;&amp;emsp;本文完整复现了忘记 IBM QRadar 管理员 admin 密码导致无法登录，而后通过 root 账户使用 SSH 登陆 QRadar 服务器重置 admin 密码的全过程。">
+<meta name="description" content="&amp;emsp;&amp;emsp;本文完整复现了忘记 IBM QRadar 管理员 admin 密码导致无法登录，而后通过 root 账户使用 SSH 登陆 QRadar 服务器重置 admin 密码的全过程。 2021.07.07 增加了修改 QRadar 网络设置的命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IBM QRadar - Forgot Password">
 <meta property="og:url" content="https://blog.hackme.cc/IBM/2.html">
 <meta property="og:site_name" content="信安">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;本文完整复现了忘记 IBM QRadar 管理员 admin 密码导致无法登录，而后通过 root 账户使用 SSH 登陆 QRadar 服务器重置 admin 密码的全过程。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;本文完整复现了忘记 IBM QRadar 管理员 admin 密码导致无法登录，而后通过 root 账户使用 SSH 登陆 QRadar 服务器重置 admin 密码的全过程。 2021.07.07 增加了修改 QRadar 网络设置的命令">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-25T08:03:54.000Z">
-<meta property="article:modified_time" content="2021-06-25T08:34:22.382Z">
+<meta property="article:modified_time" content="2021-07-07T07:35:07.591Z">
 <meta property="article:author" content="二洲">
 <meta property="article:tag" content="QRadar">
 <meta property="article:tag" content="admin">
@@ -98,9 +98,9 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user-tie fa-fw"></i>About</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">150</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">147</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">13</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">75</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">74</span></a></li>
         <li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fas fa-link fa-fw"></i>Links</a></li>
         <li class="menu-item menu-item-save-time"><span class="exturl" data-url="aHR0cHM6Ly9kYW8uaGFja21lLmNjLw=="><i class="fab fa-searchengin fa-fw"></i>Save Time</span></li>
         <li class="menu-item menu-item-save-money"><span class="exturl" data-url="aHR0cHM6Ly90YW8uaGFja21lLmNjLw=="><i class="fas fa-yen-sign fa-fw"></i>Save Money</span></li>
@@ -162,7 +162,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reset-Admin-Password"><span class="nav-number">2.</span> <span class="nav-text">Reset Admin Password</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Restart-Tomcat"><span class="nav-number">3.</span> <span class="nav-text">Restart Tomcat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Log-in-to-the-User-Interface-as-an-Administartor"><span class="nav-number">4.</span> <span class="nav-text">Log in to the User Interface as an Administartor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Official-Docs"><span class="nav-number">5.</span> <span class="nav-text">Official Docs</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reset-Admin-Password"><span class="nav-number">2.</span> <span class="nav-text">Reset Admin Password</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Restart-Tomcat"><span class="nav-number">3.</span> <span class="nav-text">Restart Tomcat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Log-in-to-the-User-Interface-as-an-Administartor"><span class="nav-number">4.</span> <span class="nav-text">Log in to the User Interface as an Administartor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Official-Docs"><span class="nav-number">5.</span> <span class="nav-text">Official Docs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Change-QRadar-Network-Setting"><span class="nav-number">6.</span> <span class="nav-text">Change QRadar Network Setting</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -179,7 +179,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -192,7 +192,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">150</span>
+        <span class="site-state-item-count">147</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -279,10 +279,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-06-25 16:03:54 / Modified: 16:34:22" itemprop="dateCreated datePublished" datetime="2021-06-25T16:03:54+08:00">2021-06-25</time>
+      <time title="Created: 2021-06-25 16:03:54" itemprop="dateCreated datePublished" datetime="2021-06-25T16:03:54+08:00">2021-06-25</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-07-07 15:35:07" itemprop="dateModified" datetime="2021-07-07T15:35:07+08:00">2021-07-07</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -324,7 +330,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1.1k</span>
+      <span>1.2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -343,6 +349,9 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>&emsp;&emsp;本文完整复现了忘记 IBM QRadar 管理员 admin 密码导致无法登录，而后通过 root 账户使用 SSH 登陆 QRadar 服务器重置 admin 密码的全过程。</p>
+<div class="note primary"><p>2021.07.07 增加了修改 QRadar 网络设置的命令</p>
+</div>
+
 <span id="more"></span>
 
 <p>&emsp;&emsp;昨晚博主犯了个很低级的错误，就是在安装完 QRadar 准备登陆的时候，发现 admin 密码怎么都输不对了……领导看到也表示很无语（还好，饭碗没丢）<br>&emsp;&emsp;祸兮福之所倚，福兮祸之所伏。通过这个低级错误，反而获得了一个似乎人尽皆知，但是我从未注意过的及其重要的思路（领导毕竟是领导，一句话点醒一生……）</p>
@@ -360,7 +369,7 @@
 </div>
 
 <h1 id="Official-Docs"><a href="#Official-Docs" class="headerlink" title="Official Docs"></a>Official Docs</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaWJtLmNvbS9zdXBwb3J0L3BhZ2VzL3FyYWRhci1jaGFuZ2luZy1hZG1pbi1hY2NvdW50LXBhc3N3b3JkLXVpLW9yLWNsaQ==">QRadar: Changing the admin account password from the UI or CLI<i class="fa fa-external-link-alt"></i></span></p>
-
+<h1 id="Change-QRadar-Network-Setting"><a href="#Change-QRadar-Network-Setting" class="headerlink" title="Change QRadar Network Setting"></a>Change QRadar Network Setting</h1><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">qchange_netsetup</span>     <span class="comment"># 以 root 身份登陆 QRadar 服务器并运行该行代码以修改 QRadar 网络设置</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -488,8 +497,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Penetration-Test/4.html" rel="next" title="Windows 10 UAC Bypass / 绕过 Windows 10 用户账户控制">
-                  Windows 10 UAC Bypass / 绕过 Windows 10 用户账户控制 <i class="fa fa-chevron-right"></i>
+                <a href="/Welfare/1.html" rel="next" title="Hello Everyone">
+                  Hello Everyone <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
